@@ -20,4 +20,8 @@
     <ProjectReference Include="..\HeatGames.Data\HeatGames.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="ViewModels\OrderItemViewModel.cs" />
+  </ItemGroup>
+
 </Project>

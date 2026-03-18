@@ -3,3 +3,4 @@ C:\Users\Student1\Desktop\Годишен Проект\HeatGamesWeb\HeatGames.Dat
 C:\Users\Student1\Desktop\Годишен Проект\HeatGamesWeb\HeatGames.Data\obj\Debug\net8.0\HeatGames.Data.AssemblyInfoInputs.cache
 C:\Users\Student1\Desktop\Годишен Проект\HeatGamesWeb\HeatGames.Data\obj\Debug\net8.0\HeatGames.Data.AssemblyInfo.cs
 C:\Users\Student1\Desktop\Годишен Проект\HeatGamesWeb\HeatGames.Data\obj\Debug\net8.0\HeatGames.Data.csproj.CoreCompileInputs.cache
+C:\Users\Student1\Desktop\Годишен Проект\HeatGamesWeb\HeatGames.Data\obj\Debug\net8.0\HeatGames.Data.sourcelink.json

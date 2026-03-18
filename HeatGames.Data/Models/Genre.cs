@@ -7,19 +7,15 @@ using System.Threading.Tasks;
 
 namespace HeatGames.Data.Models
 {
-    public class Genres
+    public class Genre
     {
-
         [Key]
-        public int GenreId { get; set; }
+        public Guid Id { get; set; }
 
         [Required]
         [MaxLength(50)]
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
 
-        public ICollection<Games> Games { get; set; } = new List<Games>();
-
-
-
+        public ICollection<GameGenre> GameGenres { get; set; }
     }
 }

@@ -15,4 +15,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\HeatGames.Data\HeatGames.Data.csproj" />
+  </ItemGroup>
+
 </Project>

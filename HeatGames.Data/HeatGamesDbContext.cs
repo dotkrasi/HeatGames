@@ -1,4 +1,5 @@
 ﻿using HeatGames.Data.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,17 +9,16 @@ using System.Threading.Tasks;
 
 namespace HeatGames.Data
 {
-    public class HeatGamesDbContext : DbContext
+    public class HeatGamesDbContext : IdentityDbContext<User<Guid>, HeatGamesDbContext>
     {
         public HeatGamesDbContext(DbContextOptions<HeatGamesDbContext> options) : base(options)
         {
         }
-        public DbSet<Games> Games { get; set; }
-        public DbSet<Users> Users { get; set; }
-        public DbSet<Reviews> Reviews { get; set; }
-        public DbSet<Genres> Genres { get; set; }
-        public DbSet<Bundles> Bundles { get; set; }
-        public DbSet<GamesBundles> GamesBundles { get; set; }
-        public DbSet<UserGames> UserGames { get; set; }
+       public DbSet<Game> Games { get; set; }
+       public DbSet<Developer> Developers { get; set; }
+       public DbSet<Genre> Genres { get; set; }
+       public DbSet<Order> Orders { get; set; }
+       public DbSet<Review> Reviews { get; set; }
+       public DbSet<User> Users { get; set; }
     }
 }

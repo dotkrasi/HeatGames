@@ -7,18 +7,18 @@ using System.Threading.Tasks;
 
 namespace HeatGames.Data.Models
 {
-    public class Bundles
+    public class Developer
     {
         [Key]
-        public int BundleId { get; set; }
+        public Guid Id { get; set; }
 
         [Required]
         [MaxLength(100)]
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
 
-        [Required]
-        public double Price { get; set; }
+        [MaxLength(255)]
+        public string? Website { get; set; }
 
-        public ICollection<GamesBundles> gamesBundles { get; set; } = new List<GamesBundles>();
+        public  ICollection<Game> Games { get; set; }
     }
 }

@@ -29,7 +29,7 @@ namespace HeatGames.Data.Models
         public string? CoverImageUrl { get; set; }
 
         // Външен ключ към Developer
-        public int DeveloperId { get; set; }
+        public Guid DeveloperId { get; set; }
         public Developer Developer { get; set; } = null!;
 
         public ICollection<GameGenre> GameGenres { get; set; }

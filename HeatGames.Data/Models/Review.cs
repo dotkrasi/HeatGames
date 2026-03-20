@@ -14,10 +14,10 @@ namespace HeatGames.Data.Models
         public int Id { get; set; }
 
         [Required]
-        public string UserId { get; set; } = null!;
+        public Guid UserId { get; set; }
         public User User { get; set; } = null!;
 
-        public int GameId { get; set; }
+        public Guid GameId { get; set; }
         public Game Game { get; set; } = null!;
 
         public bool IsPositive { get; set; } // true за Like (Thumbs Up), false за Dislike

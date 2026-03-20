@@ -14,7 +14,7 @@ namespace HeatGames.Data.Models
         public Guid Id { get; set; }
 
         [Required]
-        public string UserId { get; set; } = null!;
+        public Guid UserId { get; set; }
         public User User { get; set; } = null!;
 
         public DateTime OrderDate { get; set; } = DateTime.UtcNow;

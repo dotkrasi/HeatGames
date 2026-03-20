@@ -10,27 +10,36 @@ namespace HeatGamesWeb.ViewModels
 {
     public class GameViewModel
     {
-        [Key]
+        // Не ни трябва [Key] тук
         public Guid Id { get; set; }
 
-        [Required]
-        [MaxLength(150)]
+        [Required(ErrorMessage = "Полето 'Заглавие' е задължително.")]
+        [StringLength(150, MinimumLength = 2, ErrorMessage = "Заглавието трябва да е между 2 и 150 символа.")]
+        [Display(Name = "Заглавие на играта")]
         public string Title { get; set; } = null!;
 
-        [Required]
+        [Required(ErrorMessage = "Полето 'Описание' е задължително.")]
+        [Display(Name = "Описание")]
         public string Description { get; set; } = null!;
 
-        [Column(TypeName = "decimal(18,2)")]
+        // Премахваме [Column], слагаме [Range] за валидация
+        [Required(ErrorMessage = "Моля, въведете цена.")]
+        [Range(0.00, 10000.00, ErrorMessage = "Цената трябва да бъде положително число.")]
+        [Display(Name = "Цена")]
         public decimal Price { get; set; }
 
+        [Required(ErrorMessage = "Посочете дата на излизане.")]
+        [Display(Name = "Дата на излизане")]
+        [DataType(DataType.Date)]
         public DateTime ReleaseDate { get; set; }
 
         [MaxLength(255)]
+        [Display(Name = "URL на корицата")]
         public string? CoverImageUrl { get; set; }
 
-        // Външен ключ към Developer
+        [Required(ErrorMessage = "Моля, изберете разработчик.")]
+        [Display(Name = "Разработчик")]
         public int DeveloperId { get; set; }
-
     }
 }
 

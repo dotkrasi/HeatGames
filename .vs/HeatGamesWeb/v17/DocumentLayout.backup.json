@@ -3,8 +3,80 @@
   "WorkspaceRootPath": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{F591C3AD-0104-4B53-9D74-DFC7972BB5C2}|HeatGames.Data\\HeatGames.Data.csproj|c:\\users\\student1\\desktop\\\u0433\u043E\u0434\u0438\u0448\u0435\u043D \u043F\u0440\u043E\u0435\u043A\u0442\\heatgamesweb\\heatgames.data\\models\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F591C3AD-0104-4B53-9D74-DFC7972BB5C2}|HeatGames.Data\\HeatGames.Data.csproj|solutionrelative:heatgames.data\\models\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F591C3AD-0104-4B53-9D74-DFC7972BB5C2}|HeatGames.Data\\HeatGames.Data.csproj|c:\\users\\student1\\desktop\\\u0433\u043E\u0434\u0438\u0448\u0435\u043D \u043F\u0440\u043E\u0435\u043A\u0442\\heatgamesweb\\heatgames.data\\models\\developer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F591C3AD-0104-4B53-9D74-DFC7972BB5C2}|HeatGames.Data\\HeatGames.Data.csproj|solutionrelative:heatgames.data\\models\\developer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F591C3AD-0104-4B53-9D74-DFC7972BB5C2}|HeatGames.Data\\HeatGames.Data.csproj|c:\\users\\student1\\desktop\\\u0433\u043E\u0434\u0438\u0448\u0435\u043D \u043F\u0440\u043E\u0435\u043A\u0442\\heatgamesweb\\heatgames.data\\models\\genre.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F591C3AD-0104-4B53-9D74-DFC7972BB5C2}|HeatGames.Data\\HeatGames.Data.csproj|solutionrelative:heatgames.data\\models\\genre.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F591C3AD-0104-4B53-9D74-DFC7972BB5C2}|HeatGames.Data\\HeatGames.Data.csproj|c:\\users\\student1\\desktop\\\u0433\u043E\u0434\u0438\u0448\u0435\u043D \u043F\u0440\u043E\u0435\u043A\u0442\\heatgamesweb\\heatgames.data\\models\\gamegenre.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F591C3AD-0104-4B53-9D74-DFC7972BB5C2}|HeatGames.Data\\HeatGames.Data.csproj|solutionrelative:heatgames.data\\models\\gamegenre.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F591C3AD-0104-4B53-9D74-DFC7972BB5C2}|HeatGames.Data\\HeatGames.Data.csproj|c:\\users\\student1\\desktop\\\u0433\u043E\u0434\u0438\u0448\u0435\u043D \u043F\u0440\u043E\u0435\u043A\u0442\\heatgamesweb\\heatgames.data\\models\\libraryitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F591C3AD-0104-4B53-9D74-DFC7972BB5C2}|HeatGames.Data\\HeatGames.Data.csproj|solutionrelative:heatgames.data\\models\\libraryitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F591C3AD-0104-4B53-9D74-DFC7972BB5C2}|HeatGames.Data\\HeatGames.Data.csproj|c:\\users\\student1\\desktop\\\u0433\u043E\u0434\u0438\u0448\u0435\u043D \u043F\u0440\u043E\u0435\u043A\u0442\\heatgamesweb\\heatgames.data\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F591C3AD-0104-4B53-9D74-DFC7972BB5C2}|HeatGames.Data\\HeatGames.Data.csproj|solutionrelative:heatgames.data\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F591C3AD-0104-4B53-9D74-DFC7972BB5C2}|HeatGames.Data\\HeatGames.Data.csproj|c:\\users\\student1\\desktop\\\u0433\u043E\u0434\u0438\u0448\u0435\u043D \u043F\u0440\u043E\u0435\u043A\u0442\\heatgamesweb\\heatgames.data\\models\\orderitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F591C3AD-0104-4B53-9D74-DFC7972BB5C2}|HeatGames.Data\\HeatGames.Data.csproj|solutionrelative:heatgames.data\\models\\orderitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F591C3AD-0104-4B53-9D74-DFC7972BB5C2}|HeatGames.Data\\HeatGames.Data.csproj|c:\\users\\student1\\desktop\\\u0433\u043E\u0434\u0438\u0448\u0435\u043D \u043F\u0440\u043E\u0435\u043A\u0442\\heatgamesweb\\heatgames.data\\models\\review.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F591C3AD-0104-4B53-9D74-DFC7972BB5C2}|HeatGames.Data\\HeatGames.Data.csproj|solutionrelative:heatgames.data\\models\\review.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F591C3AD-0104-4B53-9D74-DFC7972BB5C2}|HeatGames.Data\\HeatGames.Data.csproj|c:\\users\\student1\\desktop\\\u0433\u043E\u0434\u0438\u0448\u0435\u043D \u043F\u0440\u043E\u0435\u043A\u0442\\heatgamesweb\\heatgames.data\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F591C3AD-0104-4B53-9D74-DFC7972BB5C2}|HeatGames.Data\\HeatGames.Data.csproj|solutionrelative:heatgames.data\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F591C3AD-0104-4B53-9D74-DFC7972BB5C2}|HeatGames.Data\\HeatGames.Data.csproj|c:\\users\\student1\\desktop\\\u0433\u043E\u0434\u0438\u0448\u0435\u043D \u043F\u0440\u043E\u0435\u043A\u0442\\heatgamesweb\\heatgames.data\\models\\wishlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F591C3AD-0104-4B53-9D74-DFC7972BB5C2}|HeatGames.Data\\HeatGames.Data.csproj|solutionrelative:heatgames.data\\models\\wishlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|c:\\users\\student1\\desktop\\\u0433\u043E\u0434\u0438\u0448\u0435\u043D \u043F\u0440\u043E\u0435\u043A\u0442\\heatgamesweb\\heatgamesweb\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|solutionrelative:heatgamesweb\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F591C3AD-0104-4B53-9D74-DFC7972BB5C2}|HeatGames.Data\\HeatGames.Data.csproj|c:\\users\\student1\\desktop\\\u0433\u043E\u0434\u0438\u0448\u0435\u043D \u043F\u0440\u043E\u0435\u043A\u0442\\heatgamesweb\\heatgames.data\\heatgamesdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F591C3AD-0104-4B53-9D74-DFC7972BB5C2}|HeatGames.Data\\HeatGames.Data.csproj|solutionrelative:heatgames.data\\heatgamesdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8289881C-D8F0-4FE7-8C51-D2479383FB96}|HeatGames.Core\\HeatGames.Core.csproj|c:\\users\\student1\\desktop\\\u0433\u043E\u0434\u0438\u0448\u0435\u043D \u043F\u0440\u043E\u0435\u043A\u0442\\heatgamesweb\\heatgames.core\\services\\gameservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8289881C-D8F0-4FE7-8C51-D2479383FB96}|HeatGames.Core\\HeatGames.Core.csproj|solutionrelative:heatgames.core\\services\\gameservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|c:\\users\\student1\\desktop\\\u0433\u043E\u0434\u0438\u0448\u0435\u043D \u043F\u0440\u043E\u0435\u043A\u0442\\heatgamesweb\\heatgamesweb\\viewmodels\\gameviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|solutionrelative:heatgamesweb\\viewmodels\\gameviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|c:\\users\\student1\\desktop\\\u0433\u043E\u0434\u0438\u0448\u0435\u043D \u043F\u0440\u043E\u0435\u043A\u0442\\heatgamesweb\\heatgamesweb\\controllers\\game\\gamecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|solutionrelative:heatgamesweb\\controllers\\game\\gamecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|c:\\users\\student1\\desktop\\\u0433\u043E\u0434\u0438\u0448\u0435\u043D \u043F\u0440\u043E\u0435\u043A\u0442\\heatgamesweb\\heatgamesweb\\viewmodels\\genreviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|solutionrelative:heatgamesweb\\viewmodels\\genreviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|c:\\users\\student1\\desktop\\\u0433\u043E\u0434\u0438\u0448\u0435\u043D \u043F\u0440\u043E\u0435\u043A\u0442\\heatgamesweb\\heatgamesweb\\controllers\\developer\\developercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|solutionrelative:heatgamesweb\\controllers\\developer\\developercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|c:\\users\\student1\\desktop\\\u0433\u043E\u0434\u0438\u0448\u0435\u043D \u043F\u0440\u043E\u0435\u043A\u0442\\heatgamesweb\\heatgamesweb\\controllers\\administrator\\administratorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|solutionrelative:heatgamesweb\\controllers\\administrator\\administratorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F591C3AD-0104-4B53-9D74-DFC7972BB5C2}|HeatGames.Data\\HeatGames.Data.csproj|c:\\users\\student1\\desktop\\\u0433\u043E\u0434\u0438\u0448\u0435\u043D \u043F\u0440\u043E\u0435\u043A\u0442\\heatgamesweb\\heatgames.data\\configuration\\identityseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F591C3AD-0104-4B53-9D74-DFC7972BB5C2}|HeatGames.Data\\HeatGames.Data.csproj|solutionrelative:heatgames.data\\configuration\\identityseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|c:\\users\\student1\\desktop\\\u0433\u043E\u0434\u0438\u0448\u0435\u043D \u043F\u0440\u043E\u0435\u043A\u0442\\heatgamesweb\\heatgamesweb\\controllers\\wishlist\\wishlistcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -31,10 +103,6 @@
       "RelativeMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|solutionrelative:heatgamesweb\\controllers\\genre\\genrecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|c:\\users\\student1\\desktop\\\u0433\u043E\u0434\u0438\u0448\u0435\u043D \u043F\u0440\u043E\u0435\u043A\u0442\\heatgamesweb\\heatgamesweb\\controllers\\game\\gamecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|solutionrelative:heatgamesweb\\controllers\\game\\gamecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|c:\\users\\student1\\desktop\\\u0433\u043E\u0434\u0438\u0448\u0435\u043D \u043F\u0440\u043E\u0435\u043A\u0442\\heatgamesweb\\heatgamesweb\\viewmodels\\developerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|solutionrelative:heatgamesweb\\viewmodels\\developerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -45,14 +113,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|c:\\users\\student1\\desktop\\\u0433\u043E\u0434\u0438\u0448\u0435\u043D \u043F\u0440\u043E\u0435\u043A\u0442\\heatgamesweb\\heatgamesweb\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|solutionrelative:heatgamesweb\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F591C3AD-0104-4B53-9D74-DFC7972BB5C2}|HeatGames.Data\\HeatGames.Data.csproj|c:\\users\\student1\\desktop\\\u0433\u043E\u0434\u0438\u0448\u0435\u043D \u043F\u0440\u043E\u0435\u043A\u0442\\heatgamesweb\\heatgames.data\\models\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F591C3AD-0104-4B53-9D74-DFC7972BB5C2}|HeatGames.Data\\HeatGames.Data.csproj|solutionrelative:heatgames.data\\models\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|c:\\users\\student1\\desktop\\\u0433\u043E\u0434\u0438\u0448\u0435\u043D \u043F\u0440\u043E\u0435\u043A\u0442\\heatgamesweb\\heatgamesweb\\viewmodels\\gameviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|solutionrelative:heatgamesweb\\viewmodels\\gameviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|c:\\users\\student1\\desktop\\\u0433\u043E\u0434\u0438\u0448\u0435\u043D \u043F\u0440\u043E\u0435\u043A\u0442\\heatgamesweb\\heatgamesweb\\viewmodels\\wishlistviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -79,54 +139,6 @@
       "RelativeMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|solutionrelative:heatgamesweb\\viewmodels\\libraryitemviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|c:\\users\\student1\\desktop\\\u0433\u043E\u0434\u0438\u0448\u0435\u043D \u043F\u0440\u043E\u0435\u043A\u0442\\heatgamesweb\\heatgamesweb\\viewmodels\\genreviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|solutionrelative:heatgamesweb\\viewmodels\\genreviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F591C3AD-0104-4B53-9D74-DFC7972BB5C2}|HeatGames.Data\\HeatGames.Data.csproj|c:\\users\\student1\\desktop\\\u0433\u043E\u0434\u0438\u0448\u0435\u043D \u043F\u0440\u043E\u0435\u043A\u0442\\heatgamesweb\\heatgames.data\\models\\developer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F591C3AD-0104-4B53-9D74-DFC7972BB5C2}|HeatGames.Data\\HeatGames.Data.csproj|solutionrelative:heatgames.data\\models\\developer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F591C3AD-0104-4B53-9D74-DFC7972BB5C2}|HeatGames.Data\\HeatGames.Data.csproj|c:\\users\\student1\\desktop\\\u0433\u043E\u0434\u0438\u0448\u0435\u043D \u043F\u0440\u043E\u0435\u043A\u0442\\heatgamesweb\\heatgames.data\\models\\wishlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F591C3AD-0104-4B53-9D74-DFC7972BB5C2}|HeatGames.Data\\HeatGames.Data.csproj|solutionrelative:heatgames.data\\models\\wishlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|c:\\users\\student1\\desktop\\\u0433\u043E\u0434\u0438\u0448\u0435\u043D \u043F\u0440\u043E\u0435\u043A\u0442\\heatgamesweb\\heatgamesweb\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|solutionrelative:heatgamesweb\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F591C3AD-0104-4B53-9D74-DFC7972BB5C2}|HeatGames.Data\\HeatGames.Data.csproj|c:\\users\\student1\\desktop\\\u0433\u043E\u0434\u0438\u0448\u0435\u043D \u043F\u0440\u043E\u0435\u043A\u0442\\heatgamesweb\\heatgames.data\\models\\gamegenre.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F591C3AD-0104-4B53-9D74-DFC7972BB5C2}|HeatGames.Data\\HeatGames.Data.csproj|solutionrelative:heatgames.data\\models\\gamegenre.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F591C3AD-0104-4B53-9D74-DFC7972BB5C2}|HeatGames.Data\\HeatGames.Data.csproj|c:\\users\\student1\\desktop\\\u0433\u043E\u0434\u0438\u0448\u0435\u043D \u043F\u0440\u043E\u0435\u043A\u0442\\heatgamesweb\\heatgames.data\\models\\libraryitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F591C3AD-0104-4B53-9D74-DFC7972BB5C2}|HeatGames.Data\\HeatGames.Data.csproj|solutionrelative:heatgames.data\\models\\libraryitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F591C3AD-0104-4B53-9D74-DFC7972BB5C2}|HeatGames.Data\\HeatGames.Data.csproj|c:\\users\\student1\\desktop\\\u0433\u043E\u0434\u0438\u0448\u0435\u043D \u043F\u0440\u043E\u0435\u043A\u0442\\heatgamesweb\\heatgames.data\\models\\orderitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F591C3AD-0104-4B53-9D74-DFC7972BB5C2}|HeatGames.Data\\HeatGames.Data.csproj|solutionrelative:heatgames.data\\models\\orderitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F591C3AD-0104-4B53-9D74-DFC7972BB5C2}|HeatGames.Data\\HeatGames.Data.csproj|c:\\users\\student1\\desktop\\\u0433\u043E\u0434\u0438\u0448\u0435\u043D \u043F\u0440\u043E\u0435\u043A\u0442\\heatgamesweb\\heatgames.data\\heatgamesdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F591C3AD-0104-4B53-9D74-DFC7972BB5C2}|HeatGames.Data\\HeatGames.Data.csproj|solutionrelative:heatgames.data\\heatgamesdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F591C3AD-0104-4B53-9D74-DFC7972BB5C2}|HeatGames.Data\\HeatGames.Data.csproj|c:\\users\\student1\\desktop\\\u0433\u043E\u0434\u0438\u0448\u0435\u043D \u043F\u0440\u043E\u0435\u043A\u0442\\heatgamesweb\\heatgames.data\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F591C3AD-0104-4B53-9D74-DFC7972BB5C2}|HeatGames.Data\\HeatGames.Data.csproj|solutionrelative:heatgames.data\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F591C3AD-0104-4B53-9D74-DFC7972BB5C2}|HeatGames.Data\\HeatGames.Data.csproj|c:\\users\\student1\\desktop\\\u0433\u043E\u0434\u0438\u0448\u0435\u043D \u043F\u0440\u043E\u0435\u043A\u0442\\heatgamesweb\\heatgames.data\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F591C3AD-0104-4B53-9D74-DFC7972BB5C2}|HeatGames.Data\\HeatGames.Data.csproj|solutionrelative:heatgames.data\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F591C3AD-0104-4B53-9D74-DFC7972BB5C2}|HeatGames.Data\\HeatGames.Data.csproj|c:\\users\\student1\\desktop\\\u0433\u043E\u0434\u0438\u0448\u0435\u043D \u043F\u0440\u043E\u0435\u043A\u0442\\heatgamesweb\\heatgames.data\\models\\review.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F591C3AD-0104-4B53-9D74-DFC7972BB5C2}|HeatGames.Data\\HeatGames.Data.csproj|solutionrelative:heatgames.data\\models\\review.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F591C3AD-0104-4B53-9D74-DFC7972BB5C2}|HeatGames.Data\\HeatGames.Data.csproj|c:\\users\\student1\\desktop\\\u0433\u043E\u0434\u0438\u0448\u0435\u043D \u043F\u0440\u043E\u0435\u043A\u0442\\heatgamesweb\\heatgames.data\\models\\genre.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F591C3AD-0104-4B53-9D74-DFC7972BB5C2}|HeatGames.Data\\HeatGames.Data.csproj|solutionrelative:heatgames.data\\models\\genre.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|c:\\users\\student1\\desktop\\\u0433\u043E\u0434\u0438\u0448\u0435\u043D \u043F\u0440\u043E\u0435\u043A\u0442\\heatgamesweb\\heatgamesweb\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|solutionrelative:heatgamesweb\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
@@ -138,7 +150,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -150,293 +162,137 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "WishlistController.cs",
-              "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\Controllers\\Wishlist\\WishlistController.cs",
-              "RelativeDocumentMoniker": "HeatGamesWeb\\Controllers\\Wishlist\\WishlistController.cs",
-              "ToolTip": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\Controllers\\Wishlist\\WishlistController.cs",
-              "RelativeToolTip": "HeatGamesWeb\\Controllers\\Wishlist\\WishlistController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-18T12:13:21.369Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "DeveloperController.cs",
-              "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\Controllers\\Developer\\DeveloperController.cs",
-              "RelativeDocumentMoniker": "HeatGamesWeb\\Controllers\\Developer\\DeveloperController.cs",
-              "ToolTip": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\Controllers\\Developer\\DeveloperController.cs",
-              "RelativeToolTip": "HeatGamesWeb\\Controllers\\Developer\\DeveloperController.cs",
-              "ViewState": "AgIAAGAAAAAAAAAAAAAAAD4AAAA/AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-18T12:12:55.82Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ReviewController.cs",
-              "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\Controllers\\Review\\ReviewController.cs",
-              "RelativeDocumentMoniker": "HeatGamesWeb\\Controllers\\Review\\ReviewController.cs",
-              "ToolTip": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\Controllers\\Review\\ReviewController.cs",
-              "RelativeToolTip": "HeatGamesWeb\\Controllers\\Review\\ReviewController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-18T12:12:29.309Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "UserController.cs",
-              "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\Controllers\\User\\UserController.cs",
-              "RelativeDocumentMoniker": "HeatGamesWeb\\Controllers\\User\\UserController.cs",
-              "ToolTip": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\Controllers\\User\\UserController.cs",
-              "RelativeToolTip": "HeatGamesWeb\\Controllers\\User\\UserController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "GameGenre.cs",
+              "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGames.Data\\Models\\GameGenre.cs",
+              "RelativeDocumentMoniker": "HeatGames.Data\\Models\\GameGenre.cs",
+              "ToolTip": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGames.Data\\Models\\GameGenre.cs",
+              "RelativeToolTip": "HeatGames.Data\\Models\\GameGenre.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-18T12:12:14.121Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Order.cs",
-              "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\Controllers\\Order\\Order.cs",
-              "RelativeDocumentMoniker": "HeatGamesWeb\\Controllers\\Order\\Order.cs",
-              "ToolTip": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\Controllers\\Order\\Order.cs",
-              "RelativeToolTip": "HeatGamesWeb\\Controllers\\Order\\Order.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-18T12:11:58.254Z",
+              "WhenOpened": "2026-03-12T09:31:37.224Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "LibraryItemController.cs",
-              "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\Controllers\\LibraryItem\\LibraryItemController.cs",
-              "RelativeDocumentMoniker": "HeatGamesWeb\\Controllers\\LibraryItem\\LibraryItemController.cs",
-              "ToolTip": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\Controllers\\LibraryItem\\LibraryItemController.cs",
-              "RelativeToolTip": "HeatGamesWeb\\Controllers\\LibraryItem\\LibraryItemController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "Order.cs",
+              "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGames.Data\\Models\\Order.cs",
+              "RelativeDocumentMoniker": "HeatGames.Data\\Models\\Order.cs",
+              "ToolTip": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGames.Data\\Models\\Order.cs",
+              "RelativeToolTip": "HeatGames.Data\\Models\\Order.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAADwvxAAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-18T12:11:41.93Z",
+              "WhenOpened": "2026-03-12T09:35:27.298Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "LibraryItem.cs",
+              "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGames.Data\\Models\\LibraryItem.cs",
+              "RelativeDocumentMoniker": "HeatGames.Data\\Models\\LibraryItem.cs",
+              "ToolTip": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGames.Data\\Models\\LibraryItem.cs",
+              "RelativeToolTip": "HeatGames.Data\\Models\\LibraryItem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-13T08:45:02.311Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "GenreController.cs",
-              "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\Controllers\\Genre\\GenreController.cs",
-              "RelativeDocumentMoniker": "HeatGamesWeb\\Controllers\\Genre\\GenreController.cs",
-              "ToolTip": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\Controllers\\Genre\\GenreController.cs",
-              "RelativeToolTip": "HeatGamesWeb\\Controllers\\Genre\\GenreController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "OrderItem.cs",
+              "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGames.Data\\Models\\OrderItem.cs",
+              "RelativeDocumentMoniker": "HeatGames.Data\\Models\\OrderItem.cs",
+              "ToolTip": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGames.Data\\Models\\OrderItem.cs",
+              "RelativeToolTip": "HeatGames.Data\\Models\\OrderItem.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAADwvxIAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-18T12:11:18.27Z",
+              "WhenOpened": "2026-03-12T09:35:47.571Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "GameController.cs",
-              "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\Controllers\\Game\\GameController.cs",
-              "RelativeDocumentMoniker": "HeatGamesWeb\\Controllers\\Game\\GameController.cs",
-              "ToolTip": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\Controllers\\Game\\GameController.cs",
-              "RelativeToolTip": "HeatGamesWeb\\Controllers\\Game\\GameController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAFAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "Genre.cs",
+              "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGames.Data\\Models\\Genre.cs",
+              "RelativeDocumentMoniker": "HeatGames.Data\\Models\\Genre.cs",
+              "ToolTip": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGames.Data\\Models\\Genre.cs",
+              "RelativeToolTip": "HeatGames.Data\\Models\\Genre.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-18T12:10:42.1Z",
+              "WhenOpened": "2026-01-09T13:21:25.316Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "GameViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\ViewModels\\GameViewModel.cs",
-              "RelativeDocumentMoniker": "HeatGamesWeb\\ViewModels\\GameViewModel.cs",
-              "ToolTip": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\ViewModels\\GameViewModel.cs",
-              "RelativeToolTip": "HeatGamesWeb\\ViewModels\\GameViewModel.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-18T06:55:41.069Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 0,
               "Title": "Game.cs",
               "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGames.Data\\Models\\Game.cs",
               "RelativeDocumentMoniker": "HeatGames.Data\\Models\\Game.cs",
               "ToolTip": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGames.Data\\Models\\Game.cs",
               "RelativeToolTip": "HeatGames.Data\\Models\\Game.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAArwA8AAAASAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAADwvx8AAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-09T13:19:38.311Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\appsettings.json",
-              "RelativeDocumentMoniker": "HeatGamesWeb\\appsettings.json",
-              "ToolTip": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\appsettings.json",
-              "RelativeToolTip": "HeatGamesWeb\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-03-13T10:54:32.336Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "GameGenreViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\ViewModels\\GameGenreViewModel.cs",
-              "RelativeDocumentMoniker": "HeatGamesWeb\\ViewModels\\GameGenreViewModel.cs",
-              "ToolTip": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\ViewModels\\GameGenreViewModel.cs",
-              "RelativeToolTip": "HeatGamesWeb\\ViewModels\\GameGenreViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-18T06:56:40.998Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "DeveloperViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\ViewModels\\DeveloperViewModel.cs",
-              "RelativeDocumentMoniker": "HeatGamesWeb\\ViewModels\\DeveloperViewModel.cs",
-              "ToolTip": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\ViewModels\\DeveloperViewModel.cs",
-              "RelativeToolTip": "HeatGamesWeb\\ViewModels\\DeveloperViewModel.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAgwBMAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-18T06:51:48.682Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "WishlistViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\ViewModels\\WishlistViewModel.cs",
-              "RelativeDocumentMoniker": "HeatGamesWeb\\ViewModels\\WishlistViewModel.cs",
-              "ToolTip": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\ViewModels\\WishlistViewModel.cs",
-              "RelativeToolTip": "HeatGamesWeb\\ViewModels\\WishlistViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-18T06:57:04.19Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "UserViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\ViewModels\\UserViewModel.cs",
-              "RelativeDocumentMoniker": "HeatGamesWeb\\ViewModels\\UserViewModel.cs",
-              "ToolTip": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\ViewModels\\UserViewModel.cs",
-              "RelativeToolTip": "HeatGamesWeb\\ViewModels\\UserViewModel.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAkAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-18T06:56:58.81Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "ReviewViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\ViewModels\\ReviewViewModel.cs",
-              "RelativeDocumentMoniker": "HeatGamesWeb\\ViewModels\\ReviewViewModel.cs",
-              "ToolTip": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\ViewModels\\ReviewViewModel.cs",
-              "RelativeToolTip": "HeatGamesWeb\\ViewModels\\ReviewViewModel.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAgAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-18T06:56:55.591Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "OrderViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\ViewModels\\OrderViewModel.cs",
-              "RelativeDocumentMoniker": "HeatGamesWeb\\ViewModels\\OrderViewModel.cs",
-              "ToolTip": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\ViewModels\\OrderViewModel.cs",
-              "RelativeToolTip": "HeatGamesWeb\\ViewModels\\OrderViewModel.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-18T06:56:47.787Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "OrderItemViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\ViewModels\\OrderItemViewModel.cs",
-              "RelativeDocumentMoniker": "HeatGamesWeb\\ViewModels\\OrderItemViewModel.cs",
-              "ToolTip": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\ViewModels\\OrderItemViewModel.cs",
-              "RelativeToolTip": "HeatGamesWeb\\ViewModels\\OrderItemViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-18T06:56:52.885Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "LibraryItemViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\ViewModels\\LibraryItemViewModel.cs",
-              "RelativeDocumentMoniker": "HeatGamesWeb\\ViewModels\\LibraryItemViewModel.cs",
-              "ToolTip": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\ViewModels\\LibraryItemViewModel.cs",
-              "RelativeToolTip": "HeatGamesWeb\\ViewModels\\LibraryItemViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-18T06:55:29.707Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "GenreViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\ViewModels\\GenreViewModel.cs",
-              "RelativeDocumentMoniker": "HeatGamesWeb\\ViewModels\\GenreViewModel.cs",
-              "ToolTip": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\ViewModels\\GenreViewModel.cs",
-              "RelativeToolTip": "HeatGamesWeb\\ViewModels\\GenreViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-18T06:56:43.123Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 1,
               "Title": "Developer.cs",
               "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGames.Data\\Models\\Developer.cs",
               "RelativeDocumentMoniker": "HeatGames.Data\\Models\\Developer.cs",
               "ToolTip": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGames.Data\\Models\\Developer.cs",
               "RelativeToolTip": "HeatGames.Data\\Models\\Developer.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAiwA4AAAASAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-12T09:34:39.658Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 7,
+              "Title": "Review.cs",
+              "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGames.Data\\Models\\Review.cs",
+              "RelativeDocumentMoniker": "HeatGames.Data\\Models\\Review.cs",
+              "ToolTip": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGames.Data\\Models\\Review.cs",
+              "RelativeToolTip": "HeatGames.Data\\Models\\Review.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAADwvxMAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-09T13:21:20.916Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGames.Data\\Models\\User.cs",
+              "RelativeDocumentMoniker": "HeatGames.Data\\Models\\User.cs",
+              "ToolTip": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGames.Data\\Models\\User.cs",
+              "RelativeToolTip": "HeatGames.Data\\Models\\User.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAADwvxwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-09T13:21:09.901Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "Wishlist.cs",
               "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGames.Data\\Models\\Wishlist.cs",
               "RelativeDocumentMoniker": "HeatGames.Data\\Models\\Wishlist.cs",
               "ToolTip": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGames.Data\\Models\\Wishlist.cs",
               "RelativeToolTip": "HeatGames.Data\\Models\\Wishlist.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-13T08:46:12.765Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 10,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\Program.cs",
               "RelativeDocumentMoniker": "HeatGamesWeb\\Program.cs",
@@ -449,103 +305,291 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "GameGenre.cs",
-              "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGames.Data\\Models\\GameGenre.cs",
-              "RelativeDocumentMoniker": "HeatGames.Data\\Models\\GameGenre.cs",
-              "ToolTip": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGames.Data\\Models\\GameGenre.cs",
-              "RelativeToolTip": "HeatGames.Data\\Models\\GameGenre.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-12T09:31:37.224Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "LibraryItem.cs",
-              "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGames.Data\\Models\\LibraryItem.cs",
-              "RelativeDocumentMoniker": "HeatGames.Data\\Models\\LibraryItem.cs",
-              "ToolTip": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGames.Data\\Models\\LibraryItem.cs",
-              "RelativeToolTip": "HeatGames.Data\\Models\\LibraryItem.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-13T08:45:02.311Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "OrderItem.cs",
-              "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGames.Data\\Models\\OrderItem.cs",
-              "RelativeDocumentMoniker": "HeatGames.Data\\Models\\OrderItem.cs",
-              "ToolTip": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGames.Data\\Models\\OrderItem.cs",
-              "RelativeToolTip": "HeatGames.Data\\Models\\OrderItem.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-12T09:35:47.571Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 11,
               "Title": "HeatGamesDbContext.cs",
               "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGames.Data\\HeatGamesDbContext.cs",
               "RelativeDocumentMoniker": "HeatGames.Data\\HeatGamesDbContext.cs",
               "ToolTip": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGames.Data\\HeatGamesDbContext.cs",
               "RelativeToolTip": "HeatGames.Data\\HeatGamesDbContext.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAwA8AAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-09T13:14:15.99Z"
+              "WhenOpened": "2026-01-09T13:14:15.99Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "GameService.cs",
+              "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGames.Core\\Services\\GameService.cs",
+              "RelativeDocumentMoniker": "HeatGames.Core\\Services\\GameService.cs",
+              "ToolTip": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGames.Core\\Services\\GameService.cs",
+              "RelativeToolTip": "HeatGames.Core\\Services\\GameService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-20T11:42:22.197Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "GameViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\ViewModels\\GameViewModel.cs",
+              "RelativeDocumentMoniker": "HeatGamesWeb\\ViewModels\\GameViewModel.cs",
+              "ToolTip": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\ViewModels\\GameViewModel.cs",
+              "RelativeToolTip": "HeatGamesWeb\\ViewModels\\GameViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-18T06:55:41.069Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "GenreViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\ViewModels\\GenreViewModel.cs",
+              "RelativeDocumentMoniker": "HeatGamesWeb\\ViewModels\\GenreViewModel.cs",
+              "ToolTip": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\ViewModels\\GenreViewModel.cs",
+              "RelativeToolTip": "HeatGamesWeb\\ViewModels\\GenreViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-18T06:56:43.123Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "DeveloperController.cs",
+              "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\Controllers\\Developer\\DeveloperController.cs",
+              "RelativeDocumentMoniker": "HeatGamesWeb\\Controllers\\Developer\\DeveloperController.cs",
+              "ToolTip": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\Controllers\\Developer\\DeveloperController.cs",
+              "RelativeToolTip": "HeatGamesWeb\\Controllers\\Developer\\DeveloperController.cs",
+              "ViewState": "AgIAAH4AAAAAAAAAAAAAAIwAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-18T12:12:55.82Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "GameController.cs",
+              "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\Controllers\\Game\\GameController.cs",
+              "RelativeDocumentMoniker": "HeatGamesWeb\\Controllers\\Game\\GameController.cs",
+              "ToolTip": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\Controllers\\Game\\GameController.cs",
+              "RelativeToolTip": "HeatGamesWeb\\Controllers\\Game\\GameController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-18T12:10:42.1Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "AdministratorController.cs",
+              "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\Controllers\\Administrator\\AdministratorController.cs",
+              "RelativeDocumentMoniker": "HeatGamesWeb\\Controllers\\Administrator\\AdministratorController.cs",
+              "ToolTip": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\Controllers\\Administrator\\AdministratorController.cs",
+              "RelativeToolTip": "HeatGamesWeb\\Controllers\\Administrator\\AdministratorController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-20T09:53:57.873Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "IdentitySeeder.cs",
+              "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGames.Data\\Configuration\\IdentitySeeder.cs",
+              "RelativeDocumentMoniker": "HeatGames.Data\\Configuration\\IdentitySeeder.cs",
+              "ToolTip": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGames.Data\\Configuration\\IdentitySeeder.cs",
+              "RelativeToolTip": "HeatGames.Data\\Configuration\\IdentitySeeder.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABYAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-20T09:49:17.608Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Order.cs",
+              "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\Controllers\\Order\\Order.cs",
+              "RelativeDocumentMoniker": "HeatGamesWeb\\Controllers\\Order\\Order.cs",
+              "ToolTip": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\Controllers\\Order\\Order.cs",
+              "RelativeToolTip": "HeatGamesWeb\\Controllers\\Order\\Order.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-18T12:11:58.254Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\Controllers\\User\\UserController.cs",
+              "RelativeDocumentMoniker": "HeatGamesWeb\\Controllers\\User\\UserController.cs",
+              "ToolTip": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\Controllers\\User\\UserController.cs",
+              "RelativeToolTip": "HeatGamesWeb\\Controllers\\User\\UserController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-18T12:12:14.121Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "ReviewController.cs",
+              "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\Controllers\\Review\\ReviewController.cs",
+              "RelativeDocumentMoniker": "HeatGamesWeb\\Controllers\\Review\\ReviewController.cs",
+              "ToolTip": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\Controllers\\Review\\ReviewController.cs",
+              "RelativeToolTip": "HeatGamesWeb\\Controllers\\Review\\ReviewController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-18T12:12:29.309Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "WishlistController.cs",
+              "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\Controllers\\Wishlist\\WishlistController.cs",
+              "RelativeDocumentMoniker": "HeatGamesWeb\\Controllers\\Wishlist\\WishlistController.cs",
+              "ToolTip": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\Controllers\\Wishlist\\WishlistController.cs",
+              "RelativeToolTip": "HeatGamesWeb\\Controllers\\Wishlist\\WishlistController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-18T12:13:21.369Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "LibraryItemController.cs",
+              "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\Controllers\\LibraryItem\\LibraryItemController.cs",
+              "RelativeDocumentMoniker": "HeatGamesWeb\\Controllers\\LibraryItem\\LibraryItemController.cs",
+              "ToolTip": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\Controllers\\LibraryItem\\LibraryItemController.cs",
+              "RelativeToolTip": "HeatGamesWeb\\Controllers\\LibraryItem\\LibraryItemController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-18T12:11:41.93Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "GenreController.cs",
+              "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\Controllers\\Genre\\GenreController.cs",
+              "RelativeDocumentMoniker": "HeatGamesWeb\\Controllers\\Genre\\GenreController.cs",
+              "ToolTip": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\Controllers\\Genre\\GenreController.cs",
+              "RelativeToolTip": "HeatGamesWeb\\Controllers\\Genre\\GenreController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-18T12:11:18.27Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 27,
-              "Title": "User.cs",
-              "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGames.Data\\Models\\User.cs",
-              "RelativeDocumentMoniker": "HeatGames.Data\\Models\\User.cs",
-              "ToolTip": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGames.Data\\Models\\User.cs",
-              "RelativeToolTip": "HeatGames.Data\\Models\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAOAAAAAAAAAA==",
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\appsettings.json",
+              "RelativeDocumentMoniker": "HeatGamesWeb\\appsettings.json",
+              "ToolTip": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\appsettings.json",
+              "RelativeToolTip": "HeatGamesWeb\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-03-13T10:54:32.336Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "GameGenreViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\ViewModels\\GameGenreViewModel.cs",
+              "RelativeDocumentMoniker": "HeatGamesWeb\\ViewModels\\GameGenreViewModel.cs",
+              "ToolTip": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\ViewModels\\GameGenreViewModel.cs",
+              "RelativeToolTip": "HeatGamesWeb\\ViewModels\\GameGenreViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-09T13:21:09.901Z"
+              "WhenOpened": "2026-03-18T06:56:40.998Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "DeveloperViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\ViewModels\\DeveloperViewModel.cs",
+              "RelativeDocumentMoniker": "HeatGamesWeb\\ViewModels\\DeveloperViewModel.cs",
+              "ToolTip": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\ViewModels\\DeveloperViewModel.cs",
+              "RelativeToolTip": "HeatGamesWeb\\ViewModels\\DeveloperViewModel.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAgwBMAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-18T06:51:48.682Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 28,
-              "Title": "Order.cs",
-              "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGames.Data\\Models\\Order.cs",
-              "RelativeDocumentMoniker": "HeatGames.Data\\Models\\Order.cs",
-              "ToolTip": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGames.Data\\Models\\Order.cs",
-              "RelativeToolTip": "HeatGames.Data\\Models\\Order.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Title": "WishlistViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\ViewModels\\WishlistViewModel.cs",
+              "RelativeDocumentMoniker": "HeatGamesWeb\\ViewModels\\WishlistViewModel.cs",
+              "ToolTip": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\ViewModels\\WishlistViewModel.cs",
+              "RelativeToolTip": "HeatGamesWeb\\ViewModels\\WishlistViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-12T09:35:27.298Z"
+              "WhenOpened": "2026-03-18T06:57:04.19Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 29,
-              "Title": "Review.cs",
-              "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGames.Data\\Models\\Review.cs",
-              "RelativeDocumentMoniker": "HeatGames.Data\\Models\\Review.cs",
-              "ToolTip": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGames.Data\\Models\\Review.cs",
-              "RelativeToolTip": "HeatGames.Data\\Models\\Review.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAABRwBEAAAAOAAAAAAAAAA==",
+              "Title": "UserViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\ViewModels\\UserViewModel.cs",
+              "RelativeDocumentMoniker": "HeatGamesWeb\\ViewModels\\UserViewModel.cs",
+              "ToolTip": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\ViewModels\\UserViewModel.cs",
+              "RelativeToolTip": "HeatGamesWeb\\ViewModels\\UserViewModel.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAkAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-09T13:21:20.916Z"
+              "WhenOpened": "2026-03-18T06:56:58.81Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 30,
-              "Title": "Genre.cs",
-              "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGames.Data\\Models\\Genre.cs",
-              "RelativeDocumentMoniker": "HeatGames.Data\\Models\\Genre.cs",
-              "ToolTip": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGames.Data\\Models\\Genre.cs",
-              "RelativeToolTip": "HeatGames.Data\\Models\\Genre.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAArwBIAAAAPAAAAAAAAAA==",
+              "Title": "ReviewViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\ViewModels\\ReviewViewModel.cs",
+              "RelativeDocumentMoniker": "HeatGamesWeb\\ViewModels\\ReviewViewModel.cs",
+              "ToolTip": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\ViewModels\\ReviewViewModel.cs",
+              "RelativeToolTip": "HeatGamesWeb\\ViewModels\\ReviewViewModel.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAgAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-09T13:21:25.316Z"
+              "WhenOpened": "2026-03-18T06:56:55.591Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 31,
+              "Title": "OrderViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\ViewModels\\OrderViewModel.cs",
+              "RelativeDocumentMoniker": "HeatGamesWeb\\ViewModels\\OrderViewModel.cs",
+              "ToolTip": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\ViewModels\\OrderViewModel.cs",
+              "RelativeToolTip": "HeatGamesWeb\\ViewModels\\OrderViewModel.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-18T06:56:47.787Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "OrderItemViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\ViewModels\\OrderItemViewModel.cs",
+              "RelativeDocumentMoniker": "HeatGamesWeb\\ViewModels\\OrderItemViewModel.cs",
+              "ToolTip": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\ViewModels\\OrderItemViewModel.cs",
+              "RelativeToolTip": "HeatGamesWeb\\ViewModels\\OrderItemViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-18T06:56:52.885Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "LibraryItemViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\ViewModels\\LibraryItemViewModel.cs",
+              "RelativeDocumentMoniker": "HeatGamesWeb\\ViewModels\\LibraryItemViewModel.cs",
+              "ToolTip": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\ViewModels\\LibraryItemViewModel.cs",
+              "RelativeToolTip": "HeatGamesWeb\\ViewModels\\LibraryItemViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-18T06:55:29.707Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\Student1\\Desktop\\\u0413\u043E\u0434\u0438\u0448\u0435\u043D \u041F\u0440\u043E\u0435\u043A\u0442\\HeatGamesWeb\\HeatGamesWeb\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "HeatGamesWeb\\Views\\Shared\\_Layout.cshtml",

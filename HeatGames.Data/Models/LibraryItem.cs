@@ -12,10 +12,10 @@ namespace HeatGames.Data.Models
         [Key]
         public Guid Id { get; set; }
 
-        public string UserId { get; set; } = null!;
+        public Guid UserId { get; set; }
         public User User { get; set; } = null!;
 
-        public int GameId { get; set; }
+        public Guid GameId { get; set; }
         public Game Game { get; set; } = null!;
 
         public DateTime PurchaseDate { get; set; }

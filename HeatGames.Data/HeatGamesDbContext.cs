@@ -1,4 +1,5 @@
-﻿using HeatGames.Data.Models;
+﻿using HeatGames.Data.Configuration;
+using HeatGames.Data.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -19,7 +20,7 @@ namespace HeatGames.Data
         public DbSet<Game> Games { get; set; }
         public DbSet<Developer> Developers { get; set; }
         public DbSet<Genre> Genres { get; set; }
-        public DbSet<GameGenre> GameGenres { get; set; } 
+        public DbSet<GameGenre> GameGenres { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
         public DbSet<Review> Reviews { get; set; }
@@ -32,8 +33,7 @@ namespace HeatGames.Data
             base.OnModelCreating(builder);
 
             // По-късно тук ще добавим конфигурациите
+            builder.ApplyConfigurationsFromAssembly(typeof(HeatGamesDbContext).Assembly);
         }
     }
-
-
 }

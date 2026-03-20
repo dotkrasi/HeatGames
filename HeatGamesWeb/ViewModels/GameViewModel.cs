@@ -39,7 +39,7 @@ namespace HeatGamesWeb.ViewModels
 
         [Required(ErrorMessage = "Моля, изберете разработчик.")]
         [Display(Name = "Разработчик")]
-        public int DeveloperId { get; set; }
+        public Guid DeveloperId { get; set; }
     }
 }
 

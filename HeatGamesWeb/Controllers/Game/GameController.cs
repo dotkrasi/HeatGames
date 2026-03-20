@@ -1,4 +1,5 @@
-﻿using HeatGamesWeb.ViewModels;
+﻿using HeatGamesWeb.Services.Interfaces;
+using HeatGamesWeb.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HeatGamesWeb.Controllers.Game
@@ -8,7 +9,7 @@ namespace HeatGamesWeb.Controllers.Game
         private readonly IGameService _gameService;
 
         // Инжектираме Service слоя, който ще се грижи за логиката и базата
-        public GamesController(IGameService gameService)
+        public GameController(IGameService gameService)
         {
             _gameService = gameService;
         }

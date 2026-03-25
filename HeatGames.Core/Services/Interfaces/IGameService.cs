@@ -1,16 +1,15 @@
-﻿using HeatGamesWeb.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-
-namespace HeatGamesWeb.Services.Interfaces
+using HeatGames.Core.DTOs;
+namespace HeatGamesCore.Services.Interfaces
 {
     public interface IGameService
     {
-        Task<IEnumerable<GameViewModel>> GetAllGamesAsync();
-        Task<GameViewModel?> GetGameByIdAsync(Guid id);
-        Task CreateGameAsync(GameViewModel model);
-        Task<bool> UpdateGameAsync(GameViewModel model);
+        Task<IEnumerable<GameDto>> GetAllGamesAsync();
+        Task<GameDto?> GetGameByIdAsync(Guid id);
+        Task CreateGameAsync(GameDto model);
+        Task<bool> UpdateGameAsync(GameDto model);
         Task DeleteGameAsync(Guid id);
     }
 }

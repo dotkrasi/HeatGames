@@ -1,4 +1,5 @@
-﻿using HeatGamesWeb.Services.Interfaces;
+﻿using HeatGames.Core.DTOs;
+using HeatGamesCore.Services.Interfaces;
 using HeatGamesWeb.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
@@ -47,10 +48,21 @@ namespace HeatGamesWeb.Controllers.Game
         {
             if (ModelState.IsValid)
             {
-                // Генерираме ново Guid, ако не използваме автоматично в базата
-                model.Id = Guid.NewGuid();
+                // 1. Създаваме DTO и "преливаме" данните от формата
+                var gameDto = new GameDto
+                {
+                    Id = Guid.NewGuid(), // Генерираме новото ID директно в DTO-то
+                    Title = model.Title,
+                    Description = model.Description,
+                    Price = model.Price,
+                    ReleaseDate = model.ReleaseDate,
+                    CoverImageUrl = model.CoverImageUrl,
+                    DeveloperId = model.DeveloperId
+                };
 
-                await _gameService.CreateGameAsync(model);
+                // 2. Подаваме правилния обект (DTO) на сървиса
+                await _gameService.CreateGameAsync(gameDto);
+
                 return RedirectToAction(nameof(Index));
             }
             return View(model);
@@ -76,7 +88,21 @@ namespace HeatGamesWeb.Controllers.Game
 
             if (ModelState.IsValid)
             {
-                var success = await _gameService.UpdateGameAsync(model);
+                // 1. Прехвърляме данните (Мапване: ViewModel -> DTO)
+                var gameDto = new GameDto
+                {
+                    Id = model.Id,
+                    Title = model.Title,
+                    Description = model.Description,
+                    Price = model.Price,
+                    ReleaseDate = model.ReleaseDate,
+                    CoverImageUrl = model.CoverImageUrl,
+                    DeveloperId = model.DeveloperId
+                };
+
+                // 2. Подаваме DTO-то на сървиса (Грешката изчезва тук!)
+                var success = await _gameService.UpdateGameAsync(gameDto);
+
                 if (!success) return NotFound();
 
                 return RedirectToAction(nameof(Index));

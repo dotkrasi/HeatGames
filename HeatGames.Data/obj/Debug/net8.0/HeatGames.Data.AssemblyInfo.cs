@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HeatGames.Data")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4119111fd5c0b747cf417ea9f4e88cc80fd9c0b1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a811c7811389ca23d6079f66cceac2efa93c5dca")]
 [assembly: System.Reflection.AssemblyProductAttribute("HeatGames.Data")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HeatGames.Data")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

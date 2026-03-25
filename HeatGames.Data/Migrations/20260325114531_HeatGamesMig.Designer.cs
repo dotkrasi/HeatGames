@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HeatGames.Data.Migrations
 {
     [DbContext(typeof(HeatGamesDbContext))]
-    [Migration("20260318064004_HeatGames")]
-    partial class HeatGames
+    [Migration("20260325114531_HeatGamesMig")]
+    partial class HeatGamesMig
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -59,10 +59,7 @@ namespace HeatGames.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("DeveloperId")
-                        .HasColumnType("int");
-
-                    b.Property<Guid>("DeveloperId1")
+                    b.Property<Guid>("DeveloperId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<decimal>("Price")
@@ -78,30 +75,27 @@ namespace HeatGames.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DeveloperId1");
+                    b.HasIndex("DeveloperId");
 
                     b.ToTable("Games");
                 });
 
             modelBuilder.Entity("HeatGames.Data.Models.GameGenre", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<Guid>("GameId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("GenreId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.HasKey("Id");
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.HasIndex("GameId");
+                    b.HasKey("GameId", "GenreId");
 
                     b.HasIndex("GenreId");
 
-                    b.ToTable("GameGenre");
+                    b.ToTable("GameGenres");
                 });
 
             modelBuilder.Entity("HeatGames.Data.Models.Genre", b =>
@@ -118,6 +112,28 @@ namespace HeatGames.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Genres");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("11111111-1111-1111-1111-111111111111"),
+                            Name = "Action"
+                        },
+                        new
+                        {
+                            Id = new Guid("22222222-2222-2222-2222-222222222222"),
+                            Name = "RPG"
+                        },
+                        new
+                        {
+                            Id = new Guid("33333333-3333-3333-3333-333333333333"),
+                            Name = "Strategy"
+                        },
+                        new
+                        {
+                            Id = new Guid("44444444-4444-4444-4444-444444444444"),
+                            Name = "Shooter"
+                        });
                 });
 
             modelBuilder.Entity("HeatGames.Data.Models.LibraryItem", b =>
@@ -126,10 +142,7 @@ namespace HeatGames.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("GameId")
-                        .HasColumnType("int");
-
-                    b.Property<Guid>("GameId1")
+                    b.Property<Guid>("GameId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("PlayTimeMinutes")
@@ -138,20 +151,16 @@ namespace HeatGames.Data.Migrations
                     b.Property<DateTime>("PurchaseDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("UserId1")
+                    b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("GameId1");
+                    b.HasIndex("GameId");
 
-                    b.HasIndex("UserId1");
+                    b.HasIndex("UserId");
 
-                    b.ToTable("LibraryItem");
+                    b.ToTable("LibraryItems");
                 });
 
             modelBuilder.Entity("HeatGames.Data.Models.Order", b =>
@@ -166,16 +175,12 @@ namespace HeatGames.Data.Migrations
                     b.Property<decimal>("TotalAmount")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("UserId1")
+                    b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId1");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Orders");
                 });
@@ -186,16 +191,10 @@ namespace HeatGames.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("GameId")
-                        .HasColumnType("int");
-
-                    b.Property<Guid>("GameId1")
+                    b.Property<Guid>("GameId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("OrderId")
-                        .HasColumnType("int");
-
-                    b.Property<Guid>("OrderId1")
+                    b.Property<Guid>("OrderId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<decimal>("PriceAtPurchase")
@@ -203,11 +202,11 @@ namespace HeatGames.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("GameId1");
+                    b.HasIndex("GameId");
 
-                    b.HasIndex("OrderId1");
+                    b.HasIndex("OrderId");
 
-                    b.ToTable("OrderItem");
+                    b.ToTable("OrderItems");
                 });
 
             modelBuilder.Entity("HeatGames.Data.Models.Review", b =>
@@ -226,27 +225,20 @@ namespace HeatGames.Data.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("GameId")
-                        .HasColumnType("int");
-
-                    b.Property<Guid>("GameId1")
+                    b.Property<Guid>("GameId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<bool>("IsPositive")
                         .HasColumnType("bit");
 
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("UserId1")
+                    b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("GameId1");
+                    b.HasIndex("GameId");
 
-                    b.HasIndex("UserId1");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Reviews");
                 });
@@ -336,26 +328,19 @@ namespace HeatGames.Data.Migrations
                     b.Property<DateTime>("AddedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("GameId")
-                        .HasColumnType("int");
-
-                    b.Property<Guid>("GameId1")
+                    b.Property<Guid>("GameId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("UserId1")
+                    b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("GameId1");
+                    b.HasIndex("GameId");
 
-                    b.HasIndex("UserId1");
+                    b.HasIndex("UserId");
 
-                    b.ToTable("Wishlist");
+                    b.ToTable("Wishlists");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole<System.Guid>", b =>
@@ -493,8 +478,8 @@ namespace HeatGames.Data.Migrations
                 {
                     b.HasOne("HeatGames.Data.Models.Developer", "Developer")
                         .WithMany("Games")
-                        .HasForeignKey("DeveloperId1")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("DeveloperId")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Developer");
@@ -523,13 +508,13 @@ namespace HeatGames.Data.Migrations
                 {
                     b.HasOne("HeatGames.Data.Models.Game", "Game")
                         .WithMany()
-                        .HasForeignKey("GameId1")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("GameId")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("HeatGames.Data.Models.User", "User")
                         .WithMany("LibraryItems")
-                        .HasForeignKey("UserId1")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -542,7 +527,7 @@ namespace HeatGames.Data.Migrations
                 {
                     b.HasOne("HeatGames.Data.Models.User", "User")
                         .WithMany("Orders")
-                        .HasForeignKey("UserId1")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -553,13 +538,13 @@ namespace HeatGames.Data.Migrations
                 {
                     b.HasOne("HeatGames.Data.Models.Game", "Game")
                         .WithMany()
-                        .HasForeignKey("GameId1")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("GameId")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("HeatGames.Data.Models.Order", "Order")
                         .WithMany("OrderItems")
-                        .HasForeignKey("OrderId1")
+                        .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -572,13 +557,13 @@ namespace HeatGames.Data.Migrations
                 {
                     b.HasOne("HeatGames.Data.Models.Game", "Game")
                         .WithMany("Reviews")
-                        .HasForeignKey("GameId1")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("GameId")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("HeatGames.Data.Models.User", "User")
                         .WithMany("Reviews")
-                        .HasForeignKey("UserId1")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -591,13 +576,13 @@ namespace HeatGames.Data.Migrations
                 {
                     b.HasOne("HeatGames.Data.Models.Game", "Game")
                         .WithMany()
-                        .HasForeignKey("GameId1")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("GameId")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("HeatGames.Data.Models.User", "User")
                         .WithMany("Wishlists")
-                        .HasForeignKey("UserId1")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

@@ -1,7 +1,10 @@
 ﻿using HeatGames.Data;
-using HeatGamesWeb.Services.Interfaces;
-using HeatGamesWeb.ViewModels;
-namespace HeatGamesWeb.Services
+using HeatGamesCore.Services.Interfaces;
+using HeatGames.Core.DTOs;
+using Microsoft.EntityFrameworkCore;
+using HeatGames.Data.Models;
+
+namespace HeatGames.Core.Services
 {
     public class GameService : IGameService
     {
@@ -12,11 +15,11 @@ namespace HeatGamesWeb.Services
             _context = context;
         }
 
-        public async Task<IEnumerable<GameViewModel>> GetAllGamesAsync()
+        public async Task<IEnumerable<GameDto>> GetAllGamesAsync()
         {
             // Взимаме игрите от базата и ги "мапваме" към ViewModel
             return await _context.Games
-                .Select(g => new GameViewModel
+                .Select(g => new GameDto
                 {
                     Id = g.Id,
                     Title = g.Title,
@@ -29,12 +32,12 @@ namespace HeatGamesWeb.Services
                 .ToListAsync();
         }
 
-        public async Task<GameViewModel?> GetGameByIdAsync(Guid id)
+        public async Task<GameDto?> GetGameByIdAsync(Guid id)
         {
             var game = await _context.Games.FindAsync(id);
             if (game == null) return null;
 
-            return new GameViewModel
+            return new GameDto
             {
                 Id = game.Id,
                 Title = game.Title,
@@ -46,7 +49,7 @@ namespace HeatGamesWeb.Services
             };
         }
 
-        public async Task CreateGameAsync(GameViewModel model)
+        public async Task CreateGameAsync(GameDto model)
         {
             // Създаваме ново Entity от данните на ViewModel-а
             var game = new Game
@@ -64,7 +67,7 @@ namespace HeatGamesWeb.Services
             await _context.SaveChangesAsync();
         }
 
-        public async Task<bool> UpdateGameAsync(GameViewModel model)
+        public async Task<bool> UpdateGameAsync(GameDto model)
         {
             var game = await _context.Games.FindAsync(model.Id);
             if (game == null) return false;

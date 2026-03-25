@@ -1,5 +1,9 @@
+using HeatGames.Core.Services;
+using HeatGames.Core.Services.Interfaces;
 using HeatGames.Data;
+using HeatGames.Data.Configuration;
 using HeatGames.Data.Models;
+using HeatGamesCore.Services.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -9,10 +13,25 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<IGameService, GameService>();
+builder.Services.AddScoped<IDeveloperService, DeveloperService>();
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<HeatGamesDbContext>(options =>
     options.UseSqlServer(connectionString));
 var app = builder.Build();
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    try
+    {
+        await IdentitySeeder.SeedRolesAndAdminAsync(services);
+    }
+    catch (Exception ex)
+    {
+        // ??????? ????????, ??? ???? ?????? ?? ????? ?? ??????????
+        Console.WriteLine($"?????? ??? ???????? ?? ?????: {ex.Message}");
+    }
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

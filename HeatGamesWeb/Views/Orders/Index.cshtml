@@ -1,0 +1,47 @@
+﻿@model IEnumerable<HeatGames.Core.DTOs.OrderDto>
+
+@{
+    ViewData["Title"] = "История на поръчките";
+}
+
+<h2 class="mt-4 mb-4 fw-bold"><i class="bi bi-receipt"></i> История на поръчките</h2>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info text-center shadow-sm">
+        Нямате направени поръчки.
+    </div>
+}
+else
+{
+    <div class="table-responsive shadow-sm rounded">
+        <table class="table table-hover table-bordered mb-0">
+            <thead class="table-dark">
+                <tr>
+                    <th>№ Поръчка</th>
+                    <th>Дата</th>
+                    <th>Артикули</th>
+                    <th class="text-end">Общо платено</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var order in Model)
+                {
+                    <tr>
+                        <td class="text-muted small align-middle">@order.Id</td>
+                        <td class="align-middle">@order.OrderDate.ToString("dd.MM.yyyy HH:mm")</td>
+                        <td class="align-middle">
+                            <ul class="list-unstyled mb-0">
+                                @foreach (var item in order.OrderItems)
+                                {
+                                    <li><strong>@item.GameTitle</strong> <span class="text-muted">(@item.PriceAtPurchase лв.)</span></li>
+                                }
+                            </ul>
+                        </td>
+                        <td class="text-end align-middle fw-bold text-success">@order.TotalAmount лв.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}

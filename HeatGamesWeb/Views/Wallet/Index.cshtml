@@ -1,0 +1,49 @@
+﻿@model decimal
+
+@{
+    ViewData["Title"] = "Моят Портфейл";
+}
+
+<div class="container mt-5">
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show shadow-sm" role="alert">
+            <i class="bi bi-check-circle-fill"></i> @TempData["SuccessMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card bg-dark text-white shadow-lg border-0 h-100">
+                <div class="card-body text-center p-5">
+                    <h5 class="card-title text-uppercase text-muted mb-3">Текущ Баланс</h5>
+                    <h1 class="display-4 fw-bold text-success">@Model.ToString("0.00") лв.</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <h3 class="fw-bold mb-4">Добави средства в портфейла</h3>
+
+            <div class="list-group shadow-sm">
+                <div class="list-group-item d-flex justify-content-between align-items-center p-4">
+                    <span class="fs-5 fw-bold">Добави 10.00 лв.</span>
+                    <a asp-action="TopUp" asp-route-amount="10" class="btn btn-primary px-4 fw-bold">Добави средства</a>
+                </div>
+                <div class="list-group-item d-flex justify-content-between align-items-center p-4">
+                    <span class="fs-5 fw-bold">Добави 20.00 лв.</span>
+                    <a asp-action="TopUp" asp-route-amount="20" class="btn btn-primary px-4 fw-bold">Добави средства</a>
+                </div>
+                <div class="list-group-item d-flex justify-content-between align-items-center p-4">
+                    <span class="fs-5 fw-bold">Добави 50.00 лв.</span>
+                    <a asp-action="TopUp" asp-route-amount="50" class="btn btn-primary px-4 fw-bold">Добави средства</a>
+                </div>
+                <div class="list-group-item d-flex justify-content-between align-items-center p-4">
+                    <span class="fs-5 fw-bold">Добави 100.00 лв.</span>
+                    <a asp-action="TopUp" asp-route-amount="100" class="btn btn-primary px-4 fw-bold">Добави средства</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

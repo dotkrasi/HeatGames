@@ -1,0 +1,26 @@
+﻿@model HeatGames.Core.DTOs.DeveloperDto
+@{
+    ViewData["Title"] = "Изтрий Разработчик";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="alert alert-danger shadow-sm text-center" role="alert">
+                <i class="bi bi-exclamation-triangle-fill fs-1"></i>
+                <h3 class="alert-heading mt-3">Сигурни ли сте?</h3>
+                <p>На път сте да изтриете студиото <strong>@Model.Name</strong>.</p>
+                <p class="text-muted small">Внимание: Ако има игри, свързани с този разработчик, те също могат да бъдат изтрити (в зависимост от каскадното триене).</p>
+                <hr>
+
+                <form asp-action="Delete" method="post" class="mt-4">
+                    <input type="hidden" asp-for="Id" />
+                    <div class="d-flex justify-content-center gap-3">
+                        <a asp-action="Index" class="btn btn-secondary">Отказ</a>
+                        <button type="submit" class="btn btn-danger fw-bold">Да, изтрий го!</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

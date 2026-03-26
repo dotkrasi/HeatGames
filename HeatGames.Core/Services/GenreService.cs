@@ -27,5 +27,47 @@ namespace HeatGames.Core.Services
                 })
                 .ToListAsync();
         }
+        public async Task<GenreDto?> GetGenreByIdAsync(Guid id)
+        {
+            var genre = await _context.Genres.FindAsync(id);
+            if (genre == null) return null;
+
+            return new GenreDto
+            {
+                Id = genre.Id,
+                Name = genre.Name
+            };
+        }
+
+        public async Task CreateGenreAsync(GenreDto dto)
+        {
+            var genre = new HeatGames.Data.Models.Genre
+            {
+                Id = dto.Id,
+                Name = dto.Name
+            };
+            await _context.Genres.AddAsync(genre);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task<bool> UpdateGenreAsync(GenreDto dto)
+        {
+            var genre = await _context.Genres.FindAsync(dto.Id);
+            if (genre == null) return false;
+
+            genre.Name = dto.Name;
+            await _context.SaveChangesAsync();
+            return true;
+        }
+
+        public async Task DeleteGenreAsync(Guid id)
+        {
+            var genre = await _context.Genres.FindAsync(id);
+            if (genre != null)
+            {
+                _context.Genres.Remove(genre);
+                await _context.SaveChangesAsync();
+            }
+        }
     }
 }

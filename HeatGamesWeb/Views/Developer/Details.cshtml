@@ -1,0 +1,30 @@
+﻿@model HeatGames.Core.DTOs.DeveloperDto
+@{
+    ViewData["Title"] = "Детайли за Разработчик";
+}
+
+<div class="container mt-5">
+    <div class="card shadow-sm">
+        <div class="card-header bg-info text-white">
+            <h3 class="mb-0">Детайли за студиото</h3>
+        </div>
+        <div class="card-body">
+            <h4 class="card-title fw-bold">@Model.Name</h4>
+            <p class="card-text mt-3">
+                <strong>Уебсайт:</strong>
+                @if (!string.IsNullOrEmpty(Model.Website))
+                {
+                    <a href="@Model.Website" target="_blank">@Model.Website</a>
+                }
+                else
+                {
+                    <span class="text-muted">Няма въведен уебсайт.</span>
+                }
+            </p>
+        </div>
+        <div class="card-footer bg-white d-flex gap-2">
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Редактирай</a>
+            <a asp-action="Index" class="btn btn-outline-secondary">Назад към списъка</a>
+        </div>
+    </div>
+</div>

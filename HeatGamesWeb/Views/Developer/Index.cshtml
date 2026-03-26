@@ -1,0 +1,51 @@
+﻿@model IEnumerable<HeatGames.Core.DTOs.DeveloperDto>
+@{
+    ViewData["Title"] = "Разработчици";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4 mt-4">
+    <h2>Списък с Разработчици</h2>
+    <a asp-action="Create" class="btn btn-primary">
+        <i class="bi bi-plus-circle"></i> Добави Разработчик
+    </a>
+</div>
+
+<table class="table table-striped table-hover shadow-sm">
+    <thead class="table-dark">
+        <tr>
+            <th>Име на студиото</th>
+            <th>Уебсайт</th>
+            <th class="text-end">Действия</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="fw-bold align-middle">@item.Name</td>
+                <td class="align-middle">
+                    @if (!string.IsNullOrEmpty(item.Website))
+                    {
+                        <a href="@item.Website" target="_blank">@item.Website</a>
+                    }
+                    else
+                    {
+                        <span class="text-muted">Няма сайт</span>
+                    }
+                </td>
+                <td class="text-end align-middle">
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning">Редактирай</a>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info text-white">Детайли</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Изтрий</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info text-center">
+        Няма добавени разработчици.
+    </div>
+}

@@ -15,9 +15,28 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IGameService, GameService>();
 builder.Services.AddScoped<IDeveloperService, DeveloperService>();
+builder.Services.AddScoped<IGenreService, GenreService>();
+builder.Services.AddScoped<ILibraryService, LibraryService>();
+builder.Services.AddScoped<IOrderService, OrderService>();
+builder.Services.AddScoped<IReviewService, ReviewService>();
+builder.Services.AddScoped<IWishlistService, WishlistService>();
+
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<HeatGamesDbContext>(options =>
     options.UseSqlServer(connectionString));
+
+builder.Services.AddIdentity<User, IdentityRole<Guid>>(options =>
+{
+    // ??? ????? ?? ??????? ???????? ?? ???????? ?? ????? ?? ??????????
+    options.Password.RequireDigit = false;
+    options.Password.RequiredLength = 6;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireUppercase = false;
+    options.Password.RequireLowercase = false;
+})
+
+.AddEntityFrameworkStores<HeatGamesDbContext>()
+.AddDefaultTokenProviders();
 var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {

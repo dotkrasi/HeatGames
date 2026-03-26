@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HeatGames.Data.Migrations
 {
     [DbContext(typeof(HeatGamesDbContext))]
-    [Migration("20260325235419_HeatGamesMig")]
+    [Migration("20260326112752_HeatGamesMig")]
     partial class HeatGamesMig
     {
         /// <inheritdoc />

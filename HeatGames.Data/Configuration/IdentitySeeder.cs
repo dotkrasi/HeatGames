@@ -28,13 +28,14 @@ namespace HeatGames.Data.Configuration
 
             // 3. Създаваме първия Администратор (ако не съществува)
             var adminEmail = "admin@heatgames.com";
+            var adminNickname = "admin";
             var adminUser = await userManager.FindByEmailAsync(adminEmail);
 
             if (adminUser == null)
             {
                 var newAdmin = new User
                 {
-                    UserName = adminEmail,
+                    UserName = adminNickname,
                     Email = adminEmail,
                     EmailConfirmed = true,
                     WalletBalance = 1000.00m, // Даваме му малко пари в портфейла за тестове

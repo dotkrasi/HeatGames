@@ -1,4 +1,17 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@using HeatGames.Data.Models
+@inject UserManager<User> UserManager
+
+@{
+    // Взимаме текущия логнат потребител, за да му покажем баланса горе вдясно
+    User currentUser = null;
+    if (User.Identity?.IsAuthenticated ?? false)
+    {
+        currentUser = await UserManager.GetUserAsync(User);
+    }
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -8,57 +21,160 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/HeatGamesWeb.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <style>
+        /* ЛИЛАВА ПАЛЕТА */
+        body {
+            background-color: #2a2631; /* Тъмно лилаво - Основен фон */
+            color: #f0f1f5; /* Светлосив текст за четимост */
+            font-family: "Motiva Sans", Sans-serif;
+        }
+
+        .steam-navbar {
+            background-color: #000000; /* Най-тъмното лилаво/черно - Фон на навигацията */
+        }
+
+        .steam-nav-link {
+            color: #f0f1f5 !important;
+            font-size: 15px;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding: 10px 15px !important;
+            transition: color 0.2s;
+        }
+
+            /* Hover ефект */
+            .steam-nav-link:hover, .steam-nav-link.active {
+                color: #5d5462 !important; /* Наситено лилаво - Акцентен цвят */
+            }
+
+        /* ПАДАЩИ МЕНЮТА ПРИ HOVER (Посочване) */
+        .steam-dropdown:hover > .dropdown-menu {
+            display: block;
+            margin-top: 0;
+        }
+
+        .steam-dropdown-menu {
+            background-color: #3b3641; /* Средно лилаво - Фон на падащото меню */
+            border: none;
+            border-radius: 0;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+        }
+
+            .steam-dropdown-menu .dropdown-item {
+                color: #f0f1f5;
+                font-size: 13px;
+                padding: 8px 20px;
+            }
+
+                .steam-dropdown-menu .dropdown-item:hover {
+                    background-color: #5d5462; /* Наситено лилаво */
+                    color: #ffffff;
+                }
+
+        /* Стил за профила горе вдясно */
+        .steam-profile-btn {
+            background-color: #000000;
+            color: #f0f1f5;
+            border: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+            .steam-profile-btn:hover {
+                color: #ffffff;
+            }
+
+        /* Оправяне на текста в картите на предишните страници */
+        .card {
+            background-color: #3b3641;
+            color: #f0f1f5;
+        }
+
+        .text-dark {
+            color: #f0f1f5 !important;
+        }
+
+        .card-header {
+            border-bottom: 1px solid #5d5462;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-dark steam-navbar py-2 shadow-sm mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">HeatGamesWeb</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                <a class="navbar-brand fw-bold d-flex align-items-center gap-2" asp-area="" asp-controller="Home" asp-action="Index">
+                    <i class="bi bi-controller fs-3"></i> HeatGamesWeb
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                    <ul class="navbar-nav flex-grow-1 ms-4">
+
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link steam-nav-link" asp-area="" asp-controller="Home" asp-action="Index">HOME</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Games" asp-action="Index">All Games</a>
+
+                        <li class="nav-item dropdown steam-dropdown">
+                            <a class="nav-link steam-nav-link" asp-controller="Games" asp-action="Index">STORE</a>
+                            <ul class="dropdown-menu steam-dropdown-menu">
+                                <li><a class="dropdown-item" asp-controller="Games" asp-action="Index">Всички игри</a></li>
+                                @if (User.Identity?.IsAuthenticated ?? false)
+                                {
+                                    <li><a class="dropdown-item" asp-controller="Wishlist" asp-action="Index"><i class="bi bi-heart"></i> Списък с желания</a></li>
+                                }
+                            </ul>
                         </li>
+
                         @if (User.Identity?.IsAuthenticated ?? false)
                         {
-                            <li class="nav-item">
-                                <a class="nav-link text-primary fw-bold" asp-controller="Library" asp-action="Index">🎮 Моята Библиотека</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-controller="Orders" asp-action="Index">🧾 Поръчки</a>
+                            <li class="nav-item dropdown steam-dropdown">
+                                <a class="nav-link steam-nav-link" asp-controller="Library" asp-action="Index">LIBRARY</a>
+                                <ul class="dropdown-menu steam-dropdown-menu">
+                                    <li><a class="dropdown-item" asp-controller="Library" asp-action="Index">🎮 Моята Библиотека</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Orders" asp-action="Index">🧾 История на поръчките</a></li>
+                                </ul>
                             </li>
                         }
-                        <li class="nav-item">
-                            <a class="nav-link text-success fw-bold" asp-controller="Wallet" asp-action="Index">
-                                <i class="bi bi-wallet2"></i> Портфейл
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-danger fw-bold" asp-controller="Wishlist" asp-action="Index">
-                                <i class="bi bi-heart"></i> Желани
-                            </a>
-                        </li>
+
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item dropdown steam-dropdown ms-3">
+                                <a class="nav-link steam-nav-link text-warning" href="#">ADMIN</a>
+                                <ul class="dropdown-menu steam-dropdown-menu border border-warning">
+                                    <li><a class="dropdown-item" asp-controller="Developer" asp-action="Index">Developers</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Genre" asp-action="Index">Genres</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Games" asp-action="Create">Add New Game</a></li>
+                                </ul>
+                            </li>
+                        }
                     </ul>
-                    <ul class="navbar-nav">
+
+                    <ul class="navbar-nav align-items-center gap-3">
                         @if (User.Identity?.IsAuthenticated ?? false)
                         {
-                            <li class="nav-item">
-                                <span class="nav-link text-dark fw-bold">Здравей, @User.Identity.Name!</span>
-                            </li>
-                            <li class="nav-item">
-                                <form asp-controller="Account" asp-action="Logout" method="post" class="form-inline">
-                                    <button type="submit" class="nav-link btn btn-link text-danger fw-bold">Изход</button>
-                                </form>
+                            <li class="nav-item dropdown steam-dropdown ms-2">
+                                <button class="steam-profile-btn" type="button">
+                                    <img src="https://avatars.steamstatic.com/fef49e7fa7e1997310d705b2a6158ff8dc1cdfeb_full.jpg" alt="Avatar" width="32" height="32" class="rounded-1">
+                                    <div class="d-flex flex-column text-start" style="line-height: 1;">
+                                        <span style="font-size: 13px; font-weight: bold; color: #5d5462;">@User.Identity.Name <i class="bi bi-chevron-down ms-1" style="font-size: 10px;"></i></span>
+                                        <span style="font-size: 11px; color: #acb1b8;">@(currentUser?.WalletBalance.ToString("0.00") ?? "0.00") лв.</span>
+                                    </div>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end steam-dropdown-menu mt-2">
+                                    <li><a class="dropdown-item text-success fw-bold" asp-controller="Wallet" asp-action="Index"><i class="bi bi-wallet2"></i> Портфейл</a></li>
+                                    <li><hr class="dropdown-divider bg-secondary"></li>
+                                    <li>
+                                        <form asp-controller="Account" asp-action="Logout" method="post" class="m-0 p-0">
+                                            <button type="submit" class="dropdown-item text-danger">Sign out</button>
+                                        </form>
+                                    </li>
+                                </ul>
                             </li>
                         }
                         else
@@ -67,7 +183,7 @@
                                 <a class="nav-link text-primary fw-bold" asp-controller="Account" asp-action="Register">Регистрация</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-success fw-bold" asp-controller="Account" asp-action="Login">Вход</a>
+                                <a class="nav-link btn btn-sm btn-success text-white px-3 fw-bold ms-2" asp-controller="Account" asp-action="Login">Вход</a>
                             </li>
                         }
                     </ul>
@@ -75,17 +191,19 @@
             </div>
         </nav>
     </header>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2026 - HeatGamesWeb - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <footer class="border-top footer text-muted mt-5 pt-3 pb-3" style="border-color: #3b3641 !important;">
+        <div class="container text-center">
+            &copy; 2026 - HeatGamesWeb - <a asp-area="" asp-controller="Home" asp-action="Privacy" style="color: #5d5462;">Privacy</a>
         </div>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

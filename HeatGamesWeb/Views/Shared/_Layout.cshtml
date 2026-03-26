@@ -23,19 +23,20 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <style>
-        /* ЛИЛАВА ПАЛЕТА */
+        /* ЛИЛАВА ПАЛЕТА ОТ СНИМКАТА */
         body {
-            background-color: #2a2631; /* Тъмно лилаво - Основен фон */
-            color: #f0f1f5; /* Светлосив текст за четимост */
+            background-color: #000000; /* 1. Чисто ЧЕРНО за основен фон */
+            color: #e6d9ff; /* Леко лилав оттенък на бялото за текст */
             font-family: "Motiva Sans", Sans-serif;
         }
 
         .steam-navbar {
-            background-color: #000000; /* Най-тъмното лилаво/черно - Фон на навигацията */
+            background-color: #000000;
+            border-bottom: 2px solid #230046; /* 2. Тъмно лилава линия */
         }
 
         .steam-nav-link {
-            color: #f0f1f5 !important;
+            color: #c4a6ff !important;
             font-size: 15px;
             font-weight: bold;
             text-transform: uppercase;
@@ -45,37 +46,37 @@
 
             /* Hover ефект */
             .steam-nav-link:hover, .steam-nav-link.active {
-                color: #5d5462 !important; /* Наситено лилаво - Акцентен цвят */
+                color: #be00ff !important; /* 5. Най-яркото лилаво (Магента) */
             }
 
-        /* ПАДАЩИ МЕНЮТА ПРИ HOVER (Посочване) */
+        /* ПАДАЩИ МЕНЮТА ПРИ HOVER */
         .steam-dropdown:hover > .dropdown-menu {
             display: block;
-            margin-top: 0;
+            margin-top: 0 !important;
         }
 
         .steam-dropdown-menu {
-            background-color: #3b3641; /* Средно лилаво - Фон на падащото меню */
-            border: none;
+            background-color: #230046; /* 2. Тъмно лилаво за менютата */
+            border: 1px solid #4a0080; /* 3. Средно лилаво за рамка */
             border-radius: 0;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.8);
         }
 
             .steam-dropdown-menu .dropdown-item {
-                color: #f0f1f5;
+                color: #e6d9ff;
                 font-size: 13px;
                 padding: 8px 20px;
             }
 
                 .steam-dropdown-menu .dropdown-item:hover {
-                    background-color: #5d5462; /* Наситено лилаво */
+                    background-color: #4a0080; /* 3. Средно лилаво при посочване */
                     color: #ffffff;
                 }
 
         /* Стил за профила горе вдясно */
         .steam-profile-btn {
             background-color: #000000;
-            color: #f0f1f5;
+            color: #e6d9ff;
             border: none;
             display: flex;
             align-items: center;
@@ -85,20 +86,6 @@
             .steam-profile-btn:hover {
                 color: #ffffff;
             }
-
-        /* Оправяне на текста в картите на предишните страници */
-        .card {
-            background-color: #3b3641;
-            color: #f0f1f5;
-        }
-
-        .text-dark {
-            color: #f0f1f5 !important;
-        }
-
-        .card-header {
-            border-bottom: 1px solid #5d5462;
-        }
     </style>
 </head>
 <body>

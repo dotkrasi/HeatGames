@@ -47,10 +47,10 @@ namespace HeatGames.Core.Services
             if (!ownsGame) return false;
 
             // Проверка 2: Дали вече не е писал ревю за тази игра?
-            var alreadyReviewed = await _context.Reviews
+        /*    var alreadyReviewed = await _context.Reviews
                 .AnyAsync(r => r.UserId == dto.UserId && r.GameId == dto.GameId);
 
-            if (alreadyReviewed) return false;
+            if (alreadyReviewed) return false;*/
 
             var review = new Review
             {

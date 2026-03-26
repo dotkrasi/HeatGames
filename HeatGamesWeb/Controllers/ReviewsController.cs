@@ -44,7 +44,7 @@ namespace HeatGamesWeb.Controllers
             }
             else
             {
-                TempData["ErrorMessage"] = "Не можете да добавите ревю. Уверете се, че притежавате играта и не сте писали ревю досега.";
+                TempData["ErrorMessage"] = "Не можете да добавите ревю. Трябва първо да закупите играта от магазина!";
             }
 
             return RedirectToAction("Details", "Games", new { id = gameId });

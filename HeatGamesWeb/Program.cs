@@ -1,4 +1,4 @@
-using HeatGames.Core.Services;
+﻿using HeatGames.Core.Services;
 using HeatGames.Core.Services.Interfaces;
 using HeatGames.Data;
 using HeatGames.Data.Configuration;
@@ -50,6 +50,16 @@ using (var scope = app.Services.CreateScope())
         // ??????? ????????, ??? ???? ?????? ?? ????? ?? ??????????
         Console.WriteLine($"?????? ??? ???????? ?? ?????: {ex.Message}");
     }
+}
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+
+    // Твоят стар сийдър за админа (не го пипай, ако го има)
+    // await IdentitySeeder.SeedAdminAsync(services);
+
+    // НОВОТО: Извикваме DbSeeder-а
+    await HeatGames.Data.DbSeeder.SeedDataAsync(services); // Увери се, че пътят (namespace) е правилен!
 }
 
 // Configure the HTTP request pipeline.

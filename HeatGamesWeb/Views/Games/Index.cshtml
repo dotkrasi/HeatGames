@@ -2,71 +2,226 @@
 
 @{
     ViewData["Title"] = "Каталог с игри";
+
+    // Взимаме първата игра само за рекламния банер отгоре
+    var featuredGame = Model.FirstOrDefault();
 }
 
-<div class="d-flex justify-content-between align-items-center mb-4 mt-4">
-    <h2>Всички игри</h2>
-
-    @if (User.IsInRole("Admin"))
-    {
-        <a asp-action="Create" class="btn btn-primary">
-            <i class="bi bi-plus-circle"></i> Добави нова игра
-        </a>
+<style>
+    .store-sidebar {
+        background-color: #230046;
+        border: 1px solid #4a0080;
+        border-radius: 4px;
+        padding: 15px;
     }
-</div>
 
-<div class="row row-cols-1 row-cols-md-3 g-4">
-    @foreach (var item in Model)
-    {
-        <div class="col">
-            <div class="card h-100 shadow-sm border-0 rounded-lg">
-                @* Направихме и самата снимка да може да се цъка! *@
-                <a asp-action="Details" asp-route-id="@item.Id" class="text-decoration-none">
-                    @if (!string.IsNullOrEmpty(item.CoverImageUrl))
-                    {
-                        <img src="@item.CoverImageUrl" class="card-img-top rounded-top" alt="@item.Title" style="height: 250px; object-fit: cover;">
-                    }
-                    else
-                    {
-                        <div class="card-img-top bg-secondary text-white d-flex align-items-center justify-content-center rounded-top" style="height: 250px;">
-                            <i class="bi bi-image fs-1"></i>
-                        </div>
-                    }
-                </a>
+    .store-sidebar-link {
+        color: #e6d9ff;
+        text-decoration: none;
+        display: block;
+        padding: 8px 10px;
+        font-size: 14px;
+        transition: 0.2s;
+    }
 
-                <div class="card-body d-flex flex-column">
-                    <h5 class="card-title fw-bold">@item.Title</h5>
-                    <p class="card-text fw-bold text-success fs-5">@item.Price лв.</p>
+        .store-sidebar-link:hover {
+            background-color: #4a0080;
+            color: #ffffff;
+            border-radius: 4px;
+        }
 
-                    @* ——— БУТОН ЗА КЛИЕНТИ (Винаги най-отдолу) ——— *@
-                    <div class="mt-auto pt-3">
-                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-primary w-100 fw-bold shadow-sm">
-                            <i class="bi bi-info-circle"></i> Виж детайли
-                        </a>
-                    </div>
+    /* Банерът за първата игра */
+    .featured-game-card {
+        background-color: #230046;
+        border: 1px solid #4a0080;
+        border-radius: 4px;
+        overflow: hidden;
+        margin-bottom: 30px;
+    }
 
-                    @* ——— АДМИН БУТОНИ ——— *@
-                    @if (User.IsInRole("Admin"))
-                    {
-                        <hr class="mt-3 mb-3" />
-                        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning w-100">
-                                <i class="bi bi-pencil"></i> Редакция
-                            </a>
-                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger w-100">
-                                <i class="bi bi-trash"></i> Изтрий
-                            </a>
-                        </div>
-                    }
-                </div>
-            </div>
+    .featured-game-img {
+        width: 100%;
+        height: 350px;
+        object-fit: cover;
+    }
+
+    /* Малките карти */
+    .game-card {
+        background-color: #230046;
+        border: 1px solid #4a0080;
+        border-radius: 4px;
+        transition: border-color 0.2s, transform 0.2s;
+    }
+
+        .game-card:hover {
+            border-color: #be00ff;
+            transform: translateY(-3px);
+        }
+
+    .game-card-img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 4px 4px 0 0;
+    }
+
+    /* Цветове за цени и бутони */
+    .price-text {
+        font-size: 18px;
+        font-weight: bold;
+        color: #be00ff;
+    }
+
+    .price-text-sm {
+        font-size: 14px;
+        font-weight: bold;
+        color: #be00ff;
+    }
+
+    .btn-purple {
+        background-color: #8d00c4;
+        color: #ffffff;
+        border: none;
+    }
+
+        .btn-purple:hover {
+            background-color: #be00ff;
+            color: #ffffff;
+        }
+
+    .btn-outline-purple {
+        color: #be00ff;
+        border: 1px solid #be00ff;
+        background-color: transparent;
+        transition: 0.2s;
+    }
+
+        .btn-outline-purple:hover {
+            background-color: #be00ff;
+            color: #ffffff;
+        }
+</style>
+
+<div class="row mt-4">
+    <div class="col-md-3 col-lg-2 mb-4">
+        <div class="store-sidebar shadow-sm">
+            <h6 class="text-uppercase fw-bold mb-3" style="color: #c4a6ff; font-size: 12px; letter-spacing: 1px;">Жанрове</h6>
+            <nav class="nav flex-column">
+                <a href="#" class="store-sidebar-link">Екшън</a>
+                <a href="#" class="store-sidebar-link">Приключенски</a>
+                <a href="#" class="store-sidebar-link">Стратегии</a>
+                <a href="#" class="store-sidebar-link">RPG</a>
+                <a href="#" class="store-sidebar-link">Спортни</a>
+            </nav>
+
+            <hr style="border-color: #4a0080;" class="my-4" />
+
+            <h6 class="text-uppercase fw-bold mb-3" style="color: #c4a6ff; font-size: 12px; letter-spacing: 1px;">Цена</h6>
+            <nav class="nav flex-column">
+                <a href="#" class="store-sidebar-link">Под 10 лв.</a>
+                <a href="#" class="store-sidebar-link">Под 20 лв.</a>
+            </nav>
         </div>
-    }
-</div>
-
-@if (!Model.Any())
-{
-    <div class="alert alert-info text-center">
-        Все още няма добавени игри в каталога.
     </div>
-}
+
+    <div class="col-md-9 col-lg-10">
+
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 style="color: #e6d9ff;">Магазин</h2>
+
+            @if (User.IsInRole("Admin"))
+            {
+                <a asp-action="Create" class="btn btn-purple shadow-sm">
+                    <i class="bi bi-plus-circle"></i> Добави нова игра
+                </a>
+            }
+        </div>
+
+        @if (!Model.Any())
+        {
+            <div class="alert text-center" style="background-color: #230046; border: 1px solid #4a0080; color: #e6d9ff;">
+                Все още няма добавени игри в каталога.
+            </div>
+        }
+        else
+        {
+            @if (featuredGame != null)
+            {
+                <div class="featured-game-card shadow-lg">
+                    <div class="row g-0">
+                        <div class="col-md-8">
+                            @if (!string.IsNullOrEmpty(featuredGame.CoverImageUrl))
+                            {
+                                <a asp-action="Details" asp-route-id="@featuredGame.Id">
+                                    <img src="@featuredGame.CoverImageUrl" class="featured-game-img" alt="@featuredGame.Title">
+                                </a>
+                            }
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card-body p-4 d-flex flex-column h-100">
+                                <h3 class="card-title fw-bold text-white mb-2">@featuredGame.Title</h3>
+
+                                <p class="card-text mt-3" style="color: #c4a6ff; font-size: 14px;">
+                                    Избрана игра за тази седмица. Не пропускайте възможността да я добавите в библиотеката си!
+                                </p>
+
+                                <div class="mt-auto pt-4 text-end">
+                                    <span class="price-text me-3">@featuredGame.Price.ToString("0.00") лв.</span>
+                                    <a asp-action="Details" asp-route-id="@featuredGame.Id" class="btn btn-purple fw-bold px-4">Детайли</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+            <h4 class="fw-bold mb-3 mt-5" style="color: #e6d9ff;">Всички игри</h4>
+
+            <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
+                @foreach (var item in Model)
+                {
+                    <div class="col">
+                        <div class="card h-100 game-card shadow-sm border-0">
+                            <a asp-action="Details" asp-route-id="@item.Id" class="text-decoration-none">
+                                @if (!string.IsNullOrEmpty(item.CoverImageUrl))
+                                {
+                                    <img src="@item.CoverImageUrl" class="game-card-img" alt="@item.Title">
+                                }
+                                else
+                                {
+                                    <div class="game-card-img bg-dark d-flex align-items-center justify-content-center">
+                                        <i class="bi bi-image fs-1 text-secondary"></i>
+                                    </div>
+                                }
+                            </a>
+
+                            <div class="card-body d-flex flex-column p-3">
+                                <h6 class="card-title fw-bold mb-1" style="color: #ffffff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                    @item.Title
+                                </h6>
+
+                                <div class="mt-auto pt-3 d-flex justify-content-between align-items-center">
+                                    <span class="price-text-sm">@item.Price.ToString("0.00") лв.</span>
+                                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-purple fw-bold px-3">Детайли</a>
+                                </div>
+
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    <hr class="mt-3 mb-2" style="border-color: #4a0080;" />
+                                    <div class="d-grid gap-1 d-md-flex justify-content-md-center">
+                                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning w-100" style="font-size: 12px; padding: 4px;">
+                                            <i class="bi bi-pencil"></i>
+                                        </a>
+                                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger w-100" style="font-size: 12px; padding: 4px;">
+                                            <i class="bi bi-trash"></i>
+                                        </a>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</div>

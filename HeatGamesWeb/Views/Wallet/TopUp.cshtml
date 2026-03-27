@@ -4,53 +4,115 @@
     ViewData["Title"] = "Плащане";
 }
 
-<div class="container mt-5">
+<style>
+    /* ТЪМНО-ЛИЛАВ СТИЛ ЗА ПЛАЩАНЕТО */
+    .payment-card {
+        background-color: #230046;
+        border: 1px solid #4a0080;
+        border-radius: 8px;
+        color: #e6d9ff;
+    }
+
+    .payment-header {
+        background-color: #1a0033;
+        border-bottom: 2px solid #8d00c4;
+        border-radius: 8px 8px 0 0;
+    }
+
+    .payment-input {
+        background-color: #000000;
+        color: #e6d9ff;
+        border: 1px solid #4a0080;
+    }
+
+        .payment-input:focus {
+            background-color: #1a0033;
+            color: #ffffff;
+            border-color: #be00ff;
+            box-shadow: 0 0 0 0.25rem rgba(190, 0, 255, 0.25);
+        }
+
+    .input-group-text-dark {
+        background-color: #4a0080;
+        border: 1px solid #4a0080;
+        color: #ffffff;
+    }
+
+    .btn-success-custom {
+        background-color: #198754; /* Запазваме зеленото за плащане, но по-наситено */
+        color: #ffffff;
+        border: none;
+        transition: 0.2s;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+        .btn-success-custom:hover {
+            background-color: #BEEF52; /* Steam Green при hover */
+            color: #000000;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(190, 239, 82, 0.4);
+        }
+</style>
+
+<div class="container mt-5 mb-5">
     <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="card shadow-lg border-0">
-                <div class="card-header bg-primary text-white p-4">
-                    <h4 class="mb-0"><i class="bi bi-credit-card"></i> Детайли за плащане</h4>
+        <div class="col-md-7 col-lg-6">
+            <div class="payment-card shadow-lg">
+                <div class="payment-header p-4 text-center">
+                    <h4 class="mb-0 text-white fw-bold"><i class="bi bi-credit-card-2-front" style="color: #be00ff;"></i> Детайли за плащане</h4>
                 </div>
-                <div class="card-body p-4">
-                    <div class="alert alert-info text-center mb-4">
-                        <span class="fw-bold">Сума за плащане:</span> <span class="fs-5 text-success fw-bold">@Model.Amount.ToString("0.00") лв.</span>
-                    </div>
+
+                <div class="card-body p-4 p-md-5">
+                    <div class="text-center mb-5 p-3 rounded" style="background-color: #1a0033; border: 1px dashed #be00ff;">
+                        <span class="fw-bold fs-5" style="color: #c4a6ff;">Сума за зареждане:</span>
+                        <span class="fs-3 fw-bold ms-2" style="color: #BEEF52;">@Model.Amount.ToString("0.00") лв.</span>
+                    </div> 
 
                     <form asp-action="TopUp" method="post">
                         <input type="hidden" asp-for="Amount" />
-                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                        <div asp-validation-summary="ModelOnly" class="text-danger fw-bold mb-3"></div>
 
-                        <div class="mb-3">
+                        <div class="mb-4">
                             <label asp-for="CardHolderName" class="form-label fw-bold"></label>
-                            <input asp-for="CardHolderName" class="form-control" placeholder="Напр. IVAN IVANOV" />
-                            <span asp-validation-for="CardHolderName" class="text-danger"></span>
+                            <input asp-for="CardHolderName" class="form-control payment-input" placeholder="Напр. IVAN IVANOV" />
+                            <span asp-validation-for="CardHolderName" class="text-danger small fw-bold"></span>
                         </div>
 
-                        <div class="mb-3">
+                        <div class="mb-4">
                             <label asp-for="CardNumber" class="form-label fw-bold"></label>
                             <div class="input-group">
-                                <span class="input-group-text"><i class="bi bi-credit-card"></i></span>
-                                <input asp-for="CardNumber" class="form-control" placeholder="0000 0000 0000 0000" />
+                                <span class="input-group-text input-group-text-dark"><i class="bi bi-credit-card"></i></span>
+                                <input asp-for="CardNumber" class="form-control payment-input" placeholder="0000 0000 0000 0000" />
                             </div>
-                            <span asp-validation-for="CardNumber" class="text-danger text-muted small">Въведете произволни 16 цифри за теста</span>
+                            <span asp-validation-for="CardNumber" class="text-danger small fw-bold"></span>
+                            <div class="form-text mt-1" style="color: #8d00c4;">* Въведете произволни 16 цифри за теста</div>
                         </div>
 
                         <div class="row">
                             <div class="col-md-6 mb-4">
                                 <label asp-for="ExpiryDate" class="form-label fw-bold"></label>
-                                <input asp-for="ExpiryDate" class="form-control" placeholder="12/25" />
-                                <span asp-validation-for="ExpiryDate" class="text-danger"></span>
+                                <div class="input-group">
+                                    <span class="input-group-text input-group-text-dark"><i class="bi bi-calendar-event"></i></span>
+                                    <input asp-for="ExpiryDate" class="form-control payment-input" placeholder="12/25" />
+                                </div>
+                                <span asp-validation-for="ExpiryDate" class="text-danger small fw-bold"></span>
                             </div>
                             <div class="col-md-6 mb-4">
-                                <label asp-for="Cvv" class="form-label fw-bold"></label>
-                                <input asp-for="Cvv" class="form-control" placeholder="123" />
-                                <span asp-validation-for="Cvv" class="text-danger"></span>
+                                <label asp-for="Cvv" class="form-label fw-bold">CVV Код</label>
+                                <div class="input-group">
+                                    <span class="input-group-text input-group-text-dark"><i class="bi bi-shield-lock"></i></span>
+                                    <input asp-for="Cvv" class="form-control payment-input" placeholder="123" />
+                                </div>
+                                <span asp-validation-for="Cvv" class="text-danger small fw-bold"></span>
                             </div>
                         </div>
 
-                        <div class="d-grid gap-2">
-                            <button type="submit" class="btn btn-success btn-lg fw-bold">Зареди портфейла</button>
-                            <a asp-action="Index" class="btn btn-outline-secondary">Отказ</a>
+                        <hr style="border-color: #4a0080;" class="my-4" />
+
+                        <div class="d-grid gap-3">
+                            <button type="submit" class="btn btn-success-custom btn-lg fw-bold py-3"><i class="bi bi-lock-fill me-1"></i> Потвърди и Плати</button>
+                            <a asp-action="Index" class="btn btn-outline-light fw-bold">Отказ</a>
                         </div>
                     </form>
                 </div>

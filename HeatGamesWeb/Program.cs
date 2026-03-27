@@ -51,7 +51,7 @@ using (var scope = app.Services.CreateScope())
         Console.WriteLine($"?????? ??? ???????? ?? ?????: {ex.Message}");
     }
 }
-using (var scope = app.Services.CreateScope())
+/*using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
 
@@ -60,7 +60,7 @@ using (var scope = app.Services.CreateScope())
 
     // НОВОТО: Извикваме DbSeeder-а
     await HeatGames.Data.DbSeeder.SeedDataAsync(services); // Увери се, че пътят (namespace) е правилен!
-}
+}*/
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

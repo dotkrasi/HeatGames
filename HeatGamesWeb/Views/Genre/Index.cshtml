@@ -1,6 +1,7 @@
-﻿@model IEnumerable<HeatGames.Core.DTOs.DeveloperDto>
+﻿@* Предполагам, че моделът ти се казва GenreViewModel или директно Genre. Ако гръмне заради модела, просто смени името тук горе! *@
+@model IEnumerable<HeatGames.Core.DTOs.GenreDto>
 @{
-    ViewData["Title"] = "Разработчици";
+    ViewData["Title"] = "Управление на жанрове";
 }
 
 <style>
@@ -33,20 +34,6 @@
             background-color: #1a0033;
         }
 
-    /* Светещи линкове за уебсайтовете */
-    .dev-link {
-        color: #be00ff;
-        text-decoration: none;
-        font-weight: bold;
-        transition: 0.2s;
-    }
-
-        .dev-link:hover {
-            color: #ffffff;
-            text-decoration: underline;
-            text-shadow: 0 0 8px rgba(190, 0, 255, 0.6);
-        }
-
     .btn-magenta {
         background-color: #8d00c4;
         color: #ffffff;
@@ -66,24 +53,24 @@
 
 <div class="container mt-5 mb-5">
     <div class="row justify-content-center">
-        <div class="col-lg-10">
+        <div class="col-md-10 col-lg-8">
 
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h2 style="color: #e6d9ff;" class="fw-bold">
-                    <i class="bi bi-buildings-fill" style="color: #be00ff;"></i> Студиа / Разработчици
+                    <i class="bi bi-tags-fill" style="color: #be00ff;"></i> Всички Жанрове
                 </h2>
 
                 <a asp-action="Create" class="btn btn-magenta fw-bold shadow-sm">
-                    <i class="bi bi-plus-circle"></i> Добави Студио
+                    <i class="bi bi-plus-circle"></i> Добави нов
                 </a>
             </div>
 
             <div class="admin-card shadow-lg p-4">
-                @if (!Model.Any())
+                @if (Model == null || !Model.Any())
                 {
                     <div class="alert text-center m-0" style="background-color: #1a0033; border: 1px dashed #4a0080; color: #c4a6ff;">
                         <i class="bi bi-exclamation-circle fs-4 d-block mb-2"></i>
-                        Все още няма добавени разработчици в базата.
+                        Все още няма добавени жанрове в базата.
                     </div>
                 }
                 else
@@ -92,38 +79,20 @@
                         <table class="table table-dark-purple table-hover mb-0">
                             <thead>
                                 <tr>
-                                    <th>Име на студиото</th>
-                                    <th>Уебсайт</th>
+                                    <th>Име на жанр</th>
                                     <th class="text-end">Действия</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach (var item in Model)
+                                @foreach (var genre in Model)
                                 {
                                     <tr>
-                                        <td class="fw-bold fs-5">
-                                            <i class="bi bi-controller me-2 text-muted" style="font-size: 0.8rem;"></i> @item.Name
-                                        </td>
-                                        <td>
-                                            @if (!string.IsNullOrEmpty(item.Website))
-                                            {
-                                                <a href="@(item.Website.StartsWith("http") ? item.Website : "https://" + item.Website)" target="_blank" class="dev-link">
-                                                    <i class="bi bi-link-45deg"></i> @item.Website
-                                                </a>
-                                            }
-                                            else
-                                            {
-                                                <span style="color: #5d5462;"><i class="bi bi-dash-circle"></i> Няма сайт</span>
-                                            }
-                                        </td>
+                                        <td class="fw-bold fs-5">@genre.Name</td>
                                         <td class="text-end">
-                                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning fw-bold" title="Редактирай">
+                                            <a asp-action="Edit" asp-route-id="@genre.Id" class="btn btn-sm btn-warning fw-bold me-2">
                                                 <i class="bi bi-pencil"></i>
                                             </a>
-                                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info text-white fw-bold mx-1" title="Детайли">
-                                                <i class="bi bi-info-circle"></i>
-                                            </a>
-                                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger fw-bold" title="Изтрий">
+                                            <a asp-action="Delete" asp-route-id="@genre.Id" class="btn btn-sm btn-danger fw-bold">
                                                 <i class="bi bi-trash"></i>
                                             </a>
                                         </td>

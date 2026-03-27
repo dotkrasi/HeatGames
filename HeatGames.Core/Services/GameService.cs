@@ -88,9 +88,33 @@ namespace HeatGames.Core.Services
         public async Task DeleteGameAsync(Guid id)
         {
             var game = await _context.Games.FindAsync(id);
+
             if (game != null)
             {
+                // 1. Изтриваме играта от библиотеките на потребителите
+                var libraryItems = _context.LibraryItems.Where(l => l.GameId == id);
+                _context.LibraryItems.RemoveRange(libraryItems);
+
+                // 2. Изтриваме връзките на играта с жанровете (GameGenres)
+                var gameGenres = _context.GameGenres.Where(gg => gg.GameId == id);
+                _context.GameGenres.RemoveRange(gameGenres);
+
+                // 3. Изтриваме всички ревюта, написани за тази игра
+                var reviews = _context.Reviews.Where(r => r.GameId == id);
+                _context.Reviews.RemoveRange(reviews);
+
+                // 4. АКО ИМАШ Wishlist таблица, разкоментирай тези редове:
+                var wishlistItems = _context.Wishlists.Where(w => w.GameId == id);
+                _context.Wishlists.RemoveRange(wishlistItems);
+
+                // 5.АКО ИМАШ OrderItems(история на поръчките), разкоментирай тези редове:
+                var orderItems = _context.OrderItems.Where(o => o.GameId == id);
+                _context.OrderItems.RemoveRange(orderItems);
+
+                // НАКРАЯ: След като сме изчистили всички зависимости, спокойно трием самата игра!
                 _context.Games.Remove(game);
+
+                // Запазваме всички промени наведнъж
                 await _context.SaveChangesAsync();
             }
         }

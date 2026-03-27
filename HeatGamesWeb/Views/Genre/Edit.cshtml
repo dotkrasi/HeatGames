@@ -1,10 +1,11 @@
-﻿@model HeatGames.Core.DTOs.DeveloperDto
+﻿@model HeatGames.Core.DTOs.GenreDto
+
 @{
-    ViewData["Title"] = "Редактирай Разработчик";
+    ViewData["Title"] = "Редактирай жанр";
 }
 
 <style>
-    /* ТЪМНО-ЛИЛАВ СТИЛ С ЖЪЛТ АКЦЕНТ ЗА РЕДАКЦИЯ */
+    /* ТЪМНО-ЛИЛАВ СТИЛ ЗА АДМИН ПАНЕЛА */
     .admin-card {
         background-color: #230046;
         border: 1px solid #4a0080;
@@ -14,7 +15,7 @@
 
     .admin-header {
         background-color: #1a0033;
-        border-bottom: 2px solid #ffc107; /* Жълта линия */
+        border-bottom: 2px solid #ffc107; /* Жълт акцент за редакция */
         border-radius: 8px 8px 0 0;
     }
 
@@ -53,8 +54,8 @@
         <div class="col-md-8 col-lg-6">
             <div class="admin-card shadow-lg">
                 <div class="admin-header p-4 d-flex align-items-center gap-3">
-                    <i class="bi bi-building-gear fs-3" style="color: #ffc107;"></i>
-                    <h3 class="mb-0 text-white fw-bold">Редакция: <span style="color: #ffc107;">@Model.Name</span></h3>
+                    <i class="bi bi-pencil-square fs-3" style="color: #ffc107;"></i>
+                    <h4 class="mb-0 text-white fw-bold">Редактирай Жанр</h4>
                 </div>
 
                 <div class="card-body p-4 p-md-5">
@@ -63,16 +64,10 @@
 
                         <input type="hidden" asp-for="Id" />
 
-                        <div class="mb-4">
-                            <label asp-for="Name" class="form-label fw-bold"><i class="bi bi-fonts me-1 text-muted"></i> Име на студиото</label>
+                        <div class="mb-5">
+                            <label asp-for="Name" class="form-label fw-bold"><i class="bi bi-fonts me-1 text-muted"></i> Име на жанра</label>
                             <input asp-for="Name" class="form-control admin-input form-control-lg" />
                             <span asp-validation-for="Name" class="text-danger small fw-bold"></span>
-                        </div>
-
-                        <div class="mb-5">
-                            <label asp-for="Website" class="form-label fw-bold"><i class="bi bi-globe me-1 text-muted"></i> Уебсайт</label>
-                            <input asp-for="Website" class="form-control admin-input" />
-                            <span asp-validation-for="Website" class="text-danger small fw-bold"></span>
                         </div>
 
                         <hr style="border-color: #4a0080;" class="my-4" />

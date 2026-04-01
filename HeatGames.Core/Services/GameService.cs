@@ -15,10 +15,42 @@ namespace HeatGames.Core.Services
             _context = context;
         }
 
-        public async Task<IEnumerable<GameDto>> GetAllGamesAsync()
+        public async Task<IEnumerable<GameDto>> GetAllGamesAsync(string? searchQuery = null, string? genre = null, decimal? maxPrice = null)
         {
-            // Взимаме игрите от базата и ги "мапваме" към ViewModel
-            return await _context.Games
+            // Започваме със заявка, която взима всички игри и техните жанрове
+            var query = _context.Games
+                .Include(g => g.GameGenres)
+                .ThenInclude(gg => gg.Genre)
+                .AsQueryable();
+
+            // 1. Филтър по ТЪРСЕНЕ (ако потребителят е написал нещо)
+            if (!string.IsNullOrWhiteSpace(searchQuery))
+            {
+                query = query.Where(g => g.Title.Contains(searchQuery));
+            }
+
+            // 2. Филтър по ЖАНР (ако потребителят е кликнал на жанр в сайдбара)
+            if (!string.IsNullOrWhiteSpace(genre))
+            {
+                query = query.Where(g => g.GameGenres.Any(gg => gg.Genre.Name.Contains(genre)));
+            }
+
+            // 3. Филтър по ЦЕНА (ако потребителят е кликнал на цена)
+            if (maxPrice.HasValue)
+            {
+                // Ако цената е 0, значи търсим "Безплатни"
+                if (maxPrice.Value == 0)
+                {
+                    query = query.Where(g => g.Price == 0);
+                }
+                else
+                {
+                    query = query.Where(g => g.Price <= maxPrice.Value && g.Price > 0);
+                }
+            }
+
+            // Изпълняваме заявката и мапваме към DTO
+            var games = await query
                 .Select(g => new GameDto
                 {
                     Id = g.Id,
@@ -27,9 +59,13 @@ namespace HeatGames.Core.Services
                     Price = g.Price,
                     ReleaseDate = g.ReleaseDate,
                     CoverImageUrl = g.CoverImageUrl,
-                    DeveloperId = g.DeveloperId
+                    DeveloperId = g.DeveloperId,
+                    // (По избор) Взимаме и жанровете като списък от стрингове, ако искаш да ги показваш
+                    // Genres = g.GameGenres.Select(gg => gg.Genre.Name).ToList() 
                 })
                 .ToListAsync();
+
+            return games;
         }
 
         public async Task<GameDto?> GetGameByIdAsync(Guid id)

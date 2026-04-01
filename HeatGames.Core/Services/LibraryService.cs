@@ -41,5 +41,16 @@ namespace HeatGames.Core.Services
             return await _context.LibraryItems
                 .AnyAsync(l => l.UserId == userId && l.GameId == gameId);
         }
+
+        public async Task UpdatePlayTimeAsync(Guid libraryItemId, int minutesToAdd)
+        {
+            var libraryItem = await _context.LibraryItems.FindAsync(libraryItemId);
+
+            if (libraryItem != null)
+            {
+                libraryItem.PlayTimeMinutes += minutesToAdd;
+                await _context.SaveChangesAsync();
+            }
+        }
     }
 }

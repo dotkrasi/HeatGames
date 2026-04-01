@@ -131,24 +131,41 @@
                     <p class="card-text mb-5" style="line-height: 1.6;">@Model.Description</p>
 
                     <div class="mt-auto">
-                        @* ——— БУТОНИ КУПИ / ЖЕЛАНИ ——— *@
+                        @* ——— БУТОНИ КУПИ / ЖЕЛАНИ / БИБЛИОТЕКА ——— *@
                         @if (User.Identity?.IsAuthenticated ?? false)
                         {
-                            <div class="d-flex gap-3 mb-4">
-                                <form asp-controller="Orders" asp-action="Buy" method="post" class="flex-grow-1 m-0">
-                                    <input type="hidden" name="gameId" value="@Model.Id" />
-                                    <button type="submit" class="btn btn-magenta btn-lg w-100 fw-bold">
-                                        <i class="bi bi-cart-plus"></i> КУПИ ИГРАТА
-                                    </button>
-                                </form>
+                            // Проверяваме дали потребителят вече притежава играта
+                            bool ownsGame = ViewBag.OwnsGame as bool? ?? false;
 
-                                <form asp-controller="Wishlist" asp-action="Toggle" method="post" class="m-0">
-                                    <input type="hidden" name="gameId" value="@Model.Id" />
-                                    <button type="submit" class="btn btn-outline-magenta btn-lg" style="padding-left: 1.5rem; padding-right: 1.5rem;" title="Добави/Премахни от Желани">
-                                        <i class="bi bi-heart-fill"></i>
-                                    </button>
-                                </form>
-                            </div>
+                            if (ownsGame)
+                            {
+                                <div class="d-flex gap-3 mb-4">
+                                    <div class="alert alert-success m-0 d-flex align-items-center justify-content-center" style="background-color: #1a0033; border: 1px dashed #BEEF52; color: #BEEF52; padding: 0 15px;" title="Вече притежавате тази игра">
+                                        <i class="bi bi-check-circle-fill fs-4"></i>
+                                    </div>
+                                    <a asp-controller="Library" asp-action="Index" class="btn btn-lg w-100 fw-bold d-flex align-items-center justify-content-center" style="background-color: #BEEF52; color: #000000; transition: 0.2s; text-transform: uppercase; letter-spacing: 1px;">
+                                        <i class="bi bi-collection-play-fill me-2 fs-5"></i> Към Библиотеката
+                                    </a>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="d-flex gap-3 mb-4">
+                                    <form asp-controller="Orders" asp-action="Buy" method="post" class="flex-grow-1 m-0">
+                                        <input type="hidden" name="gameId" value="@Model.Id" />
+                                        <button type="submit" class="btn btn-magenta btn-lg w-100 fw-bold h-100 d-flex align-items-center justify-content-center">
+                                            <i class="bi bi-cart-plus me-2 fs-5"></i> КУПИ ИГРАТА
+                                        </button>
+                                    </form>
+
+                                    <form asp-controller="Wishlist" asp-action="Toggle" method="post" class="m-0">
+                                        <input type="hidden" name="gameId" value="@Model.Id" />
+                                        <button type="submit" class="btn btn-outline-magenta btn-lg h-100 d-flex align-items-center justify-content-center" style="padding-left: 1.5rem; padding-right: 1.5rem;" title="Добави/Премахни от Желани">
+                                            <i class="bi bi-heart-fill fs-5"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                            }
                         }
                         else
                         {

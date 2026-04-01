@@ -1,4 +1,5 @@
 ﻿using HeatGames.Core.DTOs;
+using HeatGames.Core.Services;
 using HeatGames.Core.Services.Interfaces;
 using HeatGamesCore.Services.Interfaces;
 using HeatGamesWeb.ViewModels;
@@ -17,20 +18,24 @@ namespace HeatGamesWeb.Controllers
         private readonly IGameService _gameService;
         private readonly IDeveloperService _developerService;
         private readonly IReviewService _reviewService;
+        private readonly IGenreService _genreService;
         // Инжектираме сървисите
-        public GamesController(IGameService gameService, IDeveloperService developerService, IReviewService reviewService)
+        public GamesController(IGameService gameService, IDeveloperService developerService, IReviewService reviewService, IGenreService genreService)
         {
             _gameService = gameService;
             _developerService = developerService;
             _reviewService = reviewService;
+            _genreService = genreService;
         }
 
+        // GET: Games (Каталогът)
         [AllowAnonymous]
-        // 1. GET: Games (Показва всички игри)
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string? searchQuery, string? genre, decimal? maxPrice)
         {
-            var gamesDto = await _gameService.GetAllGamesAsync();
+            // Подаваме параметрите към сървиса
+            var gamesDto = await _gameService.GetAllGamesAsync(searchQuery, genre, maxPrice);
 
+            // Мапваме към ViewModel
             var viewModels = gamesDto.Select(dto => new GameViewModel
             {
                 Id = dto.Id,
@@ -39,6 +44,15 @@ namespace HeatGamesWeb.Controllers
                 CoverImageUrl = dto.CoverImageUrl,
                 DeveloperId = dto.DeveloperId
             }).ToList();
+
+            // Взимаме всички жанрове динамично от базата, за да нарисуваме менюто отляво
+            var genres = await _genreService.GetAllGenresAsync();
+            ViewBag.Genres = genres;
+
+            // Запазваме текущите филтри във ViewBag, за да запазим избраното състояние в UI-а
+            ViewBag.CurrentSearch = searchQuery;
+            ViewBag.CurrentGenre = genre;
+            ViewBag.CurrentMaxPrice = maxPrice;
 
             return View(viewModels);
         }

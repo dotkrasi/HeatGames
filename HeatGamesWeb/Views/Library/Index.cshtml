@@ -4,36 +4,235 @@
     ViewData["Title"] = "Моята Библиотека";
 }
 
-<h2 class="mt-4 mb-4 fw-bold"><i class="bi bi-collection-play"></i> Библиотека с игри</h2>
+<style>
+    /* ... (Същите тъмно-лилави стилове от преди малко) ... */
+    .library-card {
+        background-color: #230046;
+        border: 1px solid #4a0080;
+        border-radius: 8px;
+        transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+        color: #e6d9ff;
+        overflow: hidden;
+    }
 
-@if (!Model.Any())
-{
-    <div class="alert alert-secondary text-center p-5 shadow-sm rounded-lg">
-        <i class="bi bi-controller" style="font-size: 3rem;"></i>
-        <h4 class="mt-3">Библиотеката ви е празна</h4>
-        <p>Все още не сте закупили нито една игра.</p>
-        <a asp-controller="Games" asp-action="Index" class="btn btn-primary mt-2">Към Магазина</a>
+        .library-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(190, 0, 255, 0.3);
+            border-color: #be00ff;
+        }
+
+    .empty-library {
+        background-color: #1a0033;
+        border: 1px dashed #4a0080;
+        border-radius: 8px;
+        color: #c4a6ff;
+    }
+
+    .btn-magenta {
+        background-color: #8d00c4;
+        color: #ffffff;
+        border: none;
+        transition: 0.2s;
+        text-transform: uppercase;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
+
+        .btn-magenta:hover {
+            background-color: #be00ff;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(190, 0, 255, 0.4);
+        }
+
+    .btn-play {
+        background-color: #BEEF52;
+        color: #000000;
+        border: none;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        transition: 0.2s;
+    }
+
+        .btn-play:hover {
+            background-color: #ffffff;
+            transform: scale(1.03);
+            box-shadow: 0 0 15px rgba(190, 239, 82, 0.8);
+        }
+
+    /* НОВ СТИЛ ЗА БУТОНА СТОП */
+    .btn-stop {
+        background-color: #dc3545;
+        color: #ffffff;
+        border: none;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        transition: 0.2s;
+    }
+
+        .btn-stop:hover {
+            background-color: #ff4d4d;
+            transform: scale(1.03);
+            box-shadow: 0 0 15px rgba(220, 53, 69, 0.8);
+        }
+
+    .game-stats {
+        color: #c4a6ff;
+        font-size: 0.85rem;
+    }
+
+    /* Анимация за мигане, когато играеш */
+    .playing-pulse {
+        animation: pulse 1.5s infinite;
+        color: #BEEF52 !important;
+        text-shadow: 0 0 8px #BEEF52;
+    }
+
+    @@keyframes pulse {
+        0% {
+            opacity: 1;
+        }
+
+        50% {
+            opacity: 0.5;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+</style>
+
+<div class="container mt-5 mb-5">
+    <div class="d-flex justify-content-between align-items-end mb-4 pb-3" style="border-bottom: 2px solid #4a0080;">
+        <div>
+            <h2 class="fw-bold m-0 text-white"><i class="bi bi-collection-play-fill" style="color: #be00ff;"></i> Библиотека с игри</h2>
+        </div>
+        <div>
+            <span class="badge" style="background-color: #4a0080; font-size: 1rem; padding: 8px 15px;">
+                @(Model?.Count() ?? 0) Заглавия
+            </span>
+        </div>
     </div>
-}
-else
-{
-    <div class="row row-cols-1 row-cols-md-4 g-4">
-        @foreach (var item in Model)
-        {
-            <div class="col">
-                <div class="card h-100 shadow-sm bg-dark text-white border-0">
-                    @if (!string.IsNullOrEmpty(item.CoverImageUrl))
-                    {
-                        <img src="@item.CoverImageUrl" class="card-img-top" alt="@item.GameTitle" style="height: 200px; object-fit: cover; opacity: 0.9;">
-                    }
-                    <div class="card-body text-center">
-                        <h5 class="card-title fw-bold">@item.GameTitle</h5>
-                        <p class="text-muted small mb-0">Купена на: @item.PurchaseDate.ToString("dd.MM.yyyy")</p>
-                        <p class="text-info small"><i class="bi bi-clock"></i> Изиграно: @item.PlayTimeMinutes мин.</p>
-                        <button class="btn btn-outline-light btn-sm mt-2 w-100"><i class="bi bi-play-fill"></i> ИГРАЙ</button>
+
+    @if (!Model.Any())
+    {
+        <div class="empty-library text-center p-5 shadow-lg">
+            <i class="bi bi-controller mb-3" style="font-size: 4rem; color: #4a0080;"></i>
+            <h4 class="text-white fw-bold mt-2">Библиотеката ви е празна</h4>
+            <p class="mb-4">Време е за нови приключения!</p>
+            <a asp-controller="Games" asp-action="Index" class="btn btn-magenta px-4 py-2">Към Магазина</a>
+        </div>
+    }
+    else
+    {
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+            @foreach (var item in Model)
+            {
+                <div class="col">
+                    <div class="card h-100 library-card shadow-sm border-0">
+                        @if (!string.IsNullOrEmpty(item.CoverImageUrl))
+                        {
+                            <img src="@item.CoverImageUrl" class="card-img-top" alt="@item.GameTitle" style="height: 220px; object-fit: cover;">
+                        }
+
+                        <div class="card-body d-flex flex-column text-center p-3">
+                            <h6 class="card-title fw-bold text-white mb-3">@item.GameTitle</h6>
+
+                            <div class="mb-3 game-stats">
+                                <p class="mb-1"><i class="bi bi-calendar-check"></i> Купена: @item.PurchaseDate.ToString("dd.MM.yyyy")</p>
+                                <p class="mb-0 text-info fw-bold time-display" id="time-@item.Id" style="color: #be00ff !important;">
+                                    <i class="bi bi-clock-history"></i> Изиграно: <span id="minutes-@item.Id">@item.PlayTimeMinutes</span> мин.
+                                </p>
+                            </div>
+
+                            <div class="mt-auto">
+                                <button class="btn btn-play w-100 py-2 shadow-sm play-btn" data-id="@item.Id" id="btn-@item.Id">
+                                    <i class="bi bi-play-fill fs-5 me-1" id="icon-@item.Id"></i> <span id="text-@item.Id">ИГРАЙ</span>
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        }
-    </div>
+            }
+        </div>
+    }
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const playButtons = document.querySelectorAll('.play-btn');
+
+            playButtons.forEach(btn => {
+                let intervalId = null;
+                let addedMinutes = 0; // Колко минути сме натрупали в тази сесия
+
+                btn.addEventListener('click', function () {
+                    const gameId = this.getAttribute('data-id');
+                    const textSpan = document.getElementById(`text-${gameId}`);
+                    const icon = document.getElementById(`icon-${gameId}`);
+                    const minutesSpan = document.getElementById(`minutes-${gameId}`);
+                    const timeDisplay = document.getElementById(`time-${gameId}`);
+
+                    let currentTotalMinutes = parseInt(minutesSpan.innerText);
+
+                    // АКО ИГРАТА В МОМЕНТА Е СПРЯНА -> ПУСКАМЕ Я
+                    if (!this.classList.contains('btn-stop')) {
+                        // Променяме бутона на СТОП
+                        this.classList.remove('btn-play');
+                        this.classList.add('btn-stop');
+                        textSpan.innerText = 'СТОП';
+                        icon.classList.remove('bi-play-fill');
+                        icon.classList.add('bi-stop-fill');
+
+                        // Правим текста да мига в зелено, за да се вижда, че играем
+                        timeDisplay.classList.add('playing-pulse');
+
+                        addedMinutes = 0;
+
+                        // Пускаме таймера (За теста: 1 реална секунда = 1 изиграна минута)
+                        // В реален проект тук ще е 60000 (1 минута)
+                        intervalId = setInterval(() => {
+                            addedMinutes++;
+                            minutesSpan.innerText = currentTotalMinutes + addedMinutes;
+                        }, 1000); // 1000 милисекунди = 1 секунда
+                    }
+                    // АКО ИГРАТА РАБОТИ -> СПИРАМЕ Я И ЗАПИСВАМЕ В БАЗАТА
+                    else {
+                        // Връщаме бутона на ИГРАЙ
+                        this.classList.remove('btn-stop');
+                        this.classList.add('btn-play');
+                        textSpan.innerText = 'ИГРАЙ';
+                        icon.classList.remove('bi-stop-fill');
+                        icon.classList.add('bi-play-fill');
+
+                        // Спираме мигането
+                        timeDisplay.classList.remove('playing-pulse');
+
+                        // Спираме таймера
+                        clearInterval(intervalId);
+
+                        // Пращаме заявка към бекенда да запази новите минути
+                        if (addedMinutes > 0) {
+                            fetch('/Library/SavePlayTime', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify({ libraryItemId: gameId, minutesToAdd: addedMinutes })
+                            })
+                            .then(response => {
+                                if(response.ok) {
+                                    console.log(`Успешно добавени ${addedMinutes} минути към игра ${gameId}`);
+                                }
+                            });
+                        }
+                    }
+                });
+            });
+        });
+    </script>
 }

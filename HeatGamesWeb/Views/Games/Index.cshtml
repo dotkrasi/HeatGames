@@ -3,11 +3,18 @@
 @{
     ViewData["Title"] = "Каталог с игри";
 
-    // Взимаме първата игра само за рекламния банер отгоре
-    var featuredGame = Model.FirstOrDefault();
+    // Взимаме първата игра само за рекламния банер отгоре (Само ако няма филтри!)
+    // Идеята е, че ако търсиш нещо конкретно, не искаш да виждаш банер, а само резултатите
+    bool hasFilters = !string.IsNullOrEmpty(ViewBag.CurrentSearch) || !string.IsNullOrEmpty(ViewBag.CurrentGenre) || ViewBag.CurrentMaxPrice != null;
+
+    var featuredGame = hasFilters ? null : Model.FirstOrDefault();
+
+    // Ако има банер, го прескачаме в решетката долу
+    var displayGames = featuredGame != null ? Model.Skip(1) : Model;
 }
 
 <style>
+    /* ... (Остави същите твои CSS стилове тук, те са перфектни) ... */
     .store-sidebar {
         background-color: #230046;
         border: 1px solid #4a0080;
@@ -24,7 +31,7 @@
         transition: 0.2s;
     }
 
-        .store-sidebar-link:hover {
+        .store-sidebar-link:hover, .store-sidebar-link.active {
             background-color: #4a0080;
             color: #ffffff;
             border-radius: 4px;
@@ -100,34 +107,87 @@
             background-color: #be00ff;
             color: #ffffff;
         }
+
+    /* Стил за търсачката */
+    .search-input {
+        background-color: #000000;
+        border: 1px solid #4a0080;
+        color: #e6d9ff;
+    }
+
+        .search-input:focus {
+            background-color: #1a0033;
+            border-color: #be00ff;
+            color: #ffffff;
+            box-shadow: none;
+        }
 </style>
 
 <div class="row mt-4">
     <div class="col-md-3 col-lg-2 mb-4">
+
+        <div class="mb-4">
+            <form asp-action="Index" method="get">
+                <div class="input-group shadow-sm">
+                    <input type="text" name="searchQuery" value="@ViewBag.CurrentSearch" class="form-control search-input" placeholder="Търси игра...">
+                    <button class="btn btn-purple" type="submit"><i class="bi bi-search"></i></button>
+                </div>
+            </form>
+        </div>
+
         <div class="store-sidebar shadow-sm">
             <h6 class="text-uppercase fw-bold mb-3" style="color: #c4a6ff; font-size: 12px; letter-spacing: 1px;">Жанрове</h6>
             <nav class="nav flex-column">
-                <a href="#" class="store-sidebar-link">Екшън</a>
-                <a href="#" class="store-sidebar-link">Приключенски</a>
-                <a href="#" class="store-sidebar-link">Стратегии</a>
-                <a href="#" class="store-sidebar-link">RPG</a>
-                <a href="#" class="store-sidebar-link">Спортни</a>
+                <a asp-action="Index" asp-route-maxPrice="@ViewBag.CurrentMaxPrice" asp-route-searchQuery="@ViewBag.CurrentSearch" class="store-sidebar-link @(string.IsNullOrEmpty(ViewBag.CurrentGenre) ? "active fw-bold" : "")">Всички жанрове</a>
+
+                @if (ViewBag.Genres != null)
+                {
+                    foreach (var genre in (IEnumerable<HeatGames.Core.DTOs.GenreDto>)ViewBag.Genres)
+                    {
+                        // Взимаме само първата дума от жанра за линка (напр. от "RPG (Ролеви)" взимаме само "RPG")
+                        string genreWord = genre.Name.Split(' ')[0];
+                        bool isActive = ViewBag.CurrentGenre == genreWord;
+
+                        <a asp-action="Index" asp-route-genre="@genreWord" asp-route-maxPrice="@ViewBag.CurrentMaxPrice" asp-route-searchQuery="@ViewBag.CurrentSearch" class="store-sidebar-link @(isActive ? "active fw-bold" : "")">
+                            @genre.Name
+                        </a>
+                    }
+                }
             </nav>
 
             <hr style="border-color: #4a0080;" class="my-4" />
 
             <h6 class="text-uppercase fw-bold mb-3" style="color: #c4a6ff; font-size: 12px; letter-spacing: 1px;">Цена</h6>
             <nav class="nav flex-column">
-                <a href="#" class="store-sidebar-link">Под 10 лв.</a>
-                <a href="#" class="store-sidebar-link">Под 20 лв.</a>
+                <a asp-action="Index" asp-route-genre="@ViewBag.CurrentGenre" asp-route-searchQuery="@ViewBag.CurrentSearch" class="store-sidebar-link @(ViewBag.CurrentMaxPrice == null ? "active fw-bold" : "")">Всички цени</a>
+                <a asp-action="Index" asp-route-maxPrice="10" asp-route-genre="@ViewBag.CurrentGenre" asp-route-searchQuery="@ViewBag.CurrentSearch" class="store-sidebar-link @(ViewBag.CurrentMaxPrice == 10m ? "active fw-bold" : "")">Под 10 лв.</a>
+                <a asp-action="Index" asp-route-maxPrice="20" asp-route-genre="@ViewBag.CurrentGenre" asp-route-searchQuery="@ViewBag.CurrentSearch" class="store-sidebar-link @(ViewBag.CurrentMaxPrice == 20m ? "active fw-bold" : "")">Под 20 лв.</a>
+                <a asp-action="Index" asp-route-maxPrice="50" asp-route-genre="@ViewBag.CurrentGenre" asp-route-searchQuery="@ViewBag.CurrentSearch" class="store-sidebar-link @(ViewBag.CurrentMaxPrice == 50m ? "active fw-bold" : "")">Под 50 лв.</a>
+                <a asp-action="Index" asp-route-maxPrice="0" asp-route-genre="@ViewBag.CurrentGenre" asp-route-searchQuery="@ViewBag.CurrentSearch" class="store-sidebar-link @(ViewBag.CurrentMaxPrice == 0m ? "active fw-bold text-success" : "")">Безплатни</a>
             </nav>
+
+            @if (hasFilters)
+            {
+                <div class="mt-4 text-center">
+                    <a asp-action="Index" class="btn btn-sm btn-outline-danger w-100"><i class="bi bi-x-circle"></i> Изчисти филтрите</a>
+                </div>
+            }
         </div>
     </div>
 
     <div class="col-md-9 col-lg-10">
 
         <div class="d-flex justify-content-between align-items-center mb-4">
-            <h2 style="color: #e6d9ff;">Магазин</h2>
+            <h2 style="color: #e6d9ff;">
+                @if (hasFilters)
+                {
+                    <span>Резултати от търсенето (@Model.Count())</span>
+                }
+                else
+                {
+                    <span>Магазин</span>
+                }
+            </h2>
 
             @if (User.IsInRole("Admin"))
             {
@@ -139,8 +199,11 @@
 
         @if (!Model.Any())
         {
-            <div class="alert text-center" style="background-color: #230046; border: 1px solid #4a0080; color: #e6d9ff;">
-                Все още няма добавени игри в каталога.
+            <div class="alert text-center py-5 shadow-sm" style="background-color: #1a0033; border: 1px dashed #4a0080; color: #c4a6ff; border-radius: 8px;">
+                <i class="bi bi-search fs-1 d-block mb-3"></i>
+                <h4 class="text-white">Няма намерени игри</h4>
+                <p>Опитайте да промените филтрите или да потърсите с друго име.</p>
+                <a asp-action="Index" class="btn btn-outline-purple mt-2">Виж всички игри</a>
             </div>
         }
         else
@@ -175,10 +238,13 @@
                 </div>
             }
 
-            <h4 class="fw-bold mb-3 mt-5" style="color: #e6d9ff;">Всички игри</h4>
+            @if (!hasFilters)
+            {
+                <h4 class="fw-bold mb-3 mt-5" style="color: #e6d9ff;">Всички игри</h4>
+            }
 
             <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
-                @foreach (var item in Model)
+                @foreach (var item in displayGames)
                 {
                     <div class="col">
                         <div class="card h-100 game-card shadow-sm border-0">
@@ -196,12 +262,19 @@
                             </a>
 
                             <div class="card-body d-flex flex-column p-3">
-                                <h6 class="card-title fw-bold mb-1" style="color: #ffffff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                <h6 class="card-title fw-bold mb-1" style="color: #ffffff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="@item.Title">
                                     @item.Title
                                 </h6>
 
                                 <div class="mt-auto pt-3 d-flex justify-content-between align-items-center">
-                                    <span class="price-text-sm">@item.Price.ToString("0.00") лв.</span>
+                                    @if (item.Price == 0)
+                                    {
+                                        <span class="price-text-sm text-success">БЕЗПЛАТНО</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="price-text-sm">@item.Price.ToString("0.00") лв.</span>
+                                    }
                                     <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-purple fw-bold px-3">Детайли</a>
                                 </div>
 

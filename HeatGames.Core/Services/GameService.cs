@@ -45,7 +45,7 @@ namespace HeatGames.Core.Services
                 }
                 else
                 {
-                    query = query.Where(g => g.Price <= maxPrice.Value && g.Price > 0);
+                    query = query.Where(g => g.Price <= maxPrice.Value);
                 }
             }
 

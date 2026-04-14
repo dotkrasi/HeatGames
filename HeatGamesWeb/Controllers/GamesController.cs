@@ -28,15 +28,16 @@ namespace HeatGamesWeb.Controllers
             _genreService = genreService;
         }
 
-        // GET: Games (Каталогът)
         [AllowAnonymous]
-        public async Task<IActionResult> Index(string? searchQuery, string? genre, decimal? maxPrice)
+        public async Task<IActionResult> Index(string? searchQuery, string? genre, decimal? maxPrice, int page = 1)
         {
-            // Подаваме параметрите към сървиса
-            var gamesDto = await _gameService.GetAllGamesAsync(searchQuery, genre, maxPrice);
+            int pageSize = 8; // Колко игри да показваме на една страница
 
-            // Мапваме към ViewModel
-            var viewModels = gamesDto.Select(dto => new GameViewModel
+            // Сървисът вече ни връща обект (Tuple) с .Games и .TotalCount
+            var result = await _gameService.GetAllGamesAsync(searchQuery, genre, maxPrice, page, pageSize);
+
+            // ТУК Е ПОПРАВКАТА: Извикваме .Select върху result.Games!
+            var viewModels = result.Games.Select(dto => new GameViewModel
             {
                 Id = dto.Id,
                 Title = dto.Title,
@@ -45,14 +46,18 @@ namespace HeatGamesWeb.Controllers
                 DeveloperId = dto.DeveloperId
             }).ToList();
 
-            // Взимаме всички жанрове динамично от базата, за да нарисуваме менюто отляво
             var genres = await _genreService.GetAllGenresAsync();
             ViewBag.Genres = genres;
 
-            // Запазваме текущите филтри във ViewBag, за да запазим избраното състояние в UI-а
+            // Запазваме състоянието на филтрите във ViewBag
             ViewBag.CurrentSearch = searchQuery;
             ViewBag.CurrentGenre = genre;
             ViewBag.CurrentMaxPrice = maxPrice;
+
+            // ПАГИНАЦИЯТА:
+            ViewBag.CurrentPage = page;
+            ViewBag.TotalCount = result.TotalCount;
+            ViewBag.TotalPages = (int)Math.Ceiling((double)result.TotalCount / pageSize);
 
             return View(viewModels);
         }

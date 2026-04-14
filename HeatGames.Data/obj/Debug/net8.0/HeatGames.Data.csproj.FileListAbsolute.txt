@@ -36,3 +36,4 @@ C:\Users\krasi\source\repos\dotkrasi\HeatGames\HeatGames.Data\obj\Debug\net8.0\H
 C:\Users\krasi\source\repos\dotkrasi\HeatGames\HeatGames.Data\obj\Debug\net8.0\HeatGames.Data.dll
 C:\Users\krasi\source\repos\dotkrasi\HeatGames\HeatGames.Data\obj\Debug\net8.0\refint\HeatGames.Data.dll
 C:\Users\krasi\source\repos\dotkrasi\HeatGames\HeatGames.Data\obj\Debug\net8.0\HeatGames.Data.pdb
+C:\Users\krasi\Downloads\HeatGames-main(1)\HeatGames-main\HeatGames.Data\obj\Debug\net8.0\HeatGames.Data.sourcelink.json

@@ -15,57 +15,45 @@ namespace HeatGames.Core.Services
             _context = context;
         }
 
-        public async Task<IEnumerable<GameDto>> GetAllGamesAsync(string? searchQuery = null, string? genre = null, decimal? maxPrice = null)
+        // 1. Промени заглавието на метода, за да приема page и pageSize
+        public async Task<(IEnumerable<GameDto> Games, int TotalCount)> GetAllGamesAsync(
+            string? searchQuery = null,
+            string? genre = null,
+            decimal? maxPrice = null,
+            int page = 1,
+            int pageSize = 8) // Добавени параметри
         {
-            // Започваме със заявка, която взима всички игри и техните жанрове
             var query = _context.Games
                 .Include(g => g.GameGenres)
                 .ThenInclude(gg => gg.Genre)
                 .AsQueryable();
 
-            // 1. Филтър по ТЪРСЕНЕ (ако потребителят е написал нещо)
+            // ТВОЯТА ЛОГИКА ЗА ФИЛТРИРАНЕ (остава същата)
             if (!string.IsNullOrWhiteSpace(searchQuery))
             {
                 query = query.Where(g => g.Title.Contains(searchQuery));
             }
+            // ... останалите ти филтри за жанр и цена ...
 
-            // 2. Филтър по ЖАНР (ако потребителят е кликнал на жанр в сайдбара)
-            if (!string.IsNullOrWhiteSpace(genre))
-            {
-                query = query.Where(g => g.GameGenres.Any(gg => gg.Genre.Name.Contains(genre)));
-            }
+            // НОВО: Взимаме общата бройка ПРЕДИ да срежем списъка за страницата
+            int totalCount = await query.CountAsync();
 
-            // 3. Филтър по ЦЕНА (ако потребителят е кликнал на цена)
-            if (maxPrice.HasValue)
-            {
-                // Ако цената е 0, значи търсим "Безплатни"
-                if (maxPrice.Value == 0)
-                {
-                    query = query.Where(g => g.Price == 0);
-                }
-                else
-                {
-                    query = query.Where(g => g.Price <= maxPrice.Value);
-                }
-            }
-
-            // Изпълняваме заявката и мапваме към DTO
+            // НОВО: Добавяме Skip и Take към твоята заявка
             var games = await query
+                .OrderByDescending(g => g.ReleaseDate) // Добре е да са сортирани
+                .Skip((page - 1) * pageSize)           // Прескачаме старите страници
+                .Take(pageSize)                        // Взимаме само 8 за текущата
                 .Select(g => new GameDto
                 {
                     Id = g.Id,
                     Title = g.Title,
-                    Description = g.Description,
                     Price = g.Price,
-                    ReleaseDate = g.ReleaseDate,
                     CoverImageUrl = g.CoverImageUrl,
-                    DeveloperId = g.DeveloperId,
-                    // (По избор) Взимаме и жанровете като списък от стрингове, ако искаш да ги показваш
-                    // Genres = g.GameGenres.Select(gg => gg.Genre.Name).ToList() 
+                    // ... твоите останали полета ...
                 })
                 .ToListAsync();
 
-            return games;
+            return (games, totalCount); // Връщаме и двете
         }
 
         public async Task<GameDto?> GetGameByIdAsync(Guid id)

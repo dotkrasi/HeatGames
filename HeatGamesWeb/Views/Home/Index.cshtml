@@ -1,8 +1,159 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Начало";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<style>
+    /* Дизайн специално за Началната страница */
+    .hero-section {
+        background: linear-gradient(135deg, #1a0033 0%, #4a0080 100%);
+        border: 1px solid #be00ff;
+        border-radius: 15px;
+        padding: 80px 40px;
+        box-shadow: 0 10px 40px rgba(190, 0, 255, 0.2);
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Лек светещ ефект (мъгла) в ъгъла */
+    .hero-glow {
+        position: absolute;
+        top: -50px;
+        right: -50px;
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(circle, rgba(190,0,255,0.3) 0%, rgba(0,0,0,0) 70%);
+        border-radius: 50%;
+        z-index: 0;
+    }
+
+
+    .hero-content {
+        position: relative;
+        z-index: 1;
+    }
+
+    .feature-card {
+        background-color: #230046;
+        border: 1px solid #4a0080;
+        border-radius: 10px;
+        padding: 30px 20px;
+        transition: transform 0.3s ease, border-color 0.3s ease;
+        height: 100%;
+    }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: #be00ff;
+            box-shadow: 0 10px 20px rgba(190, 0, 255, 0.15);
+        }
+
+    .feature-icon {
+        font-size: 2.5rem;
+        color: #be00ff;
+        margin-bottom: 20px;
+    }
+
+    .btn-hero {
+        background-color: #be00ff;
+        color: white;
+        font-weight: bold;
+        padding: 12px 30px;
+        border-radius: 8px;
+        border: none;
+        transition: 0.2s;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+        .btn-hero:hover {
+            background-color: #8d00c4;
+            color: white;
+            transform: scale(1.05);
+        }
+
+    .btn-outline-hero {
+        background-color: transparent;
+        color: #c4a6ff;
+        font-weight: bold;
+        padding: 12px 30px;
+        border-radius: 8px;
+        border: 2px solid #4a0080;
+        transition: 0.2s;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+        .btn-outline-hero:hover {
+            border-color: #be00ff;
+            color: white;
+        }
+</style>
+
+<div class="container mt-4 mb-5">
+
+    @* ——— ГОЛЕМИЯТ БАНЕР (HERO SECTION) ——— *@
+    <div class="hero-section text-center text-md-start mb-5 d-flex align-items-center">
+        <div class="hero-glow"></div>
+        <div class="row w-100 hero-content align-items-center">
+            <div class="col-md-7 ps-md-5">
+                <h1 class="display-4 fw-bold text-white mb-3" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
+                    Добре дошли в <span style="color: #be00ff;">HeatGames</span>
+                </h1>
+                <p class="lead mb-4" style="color: #c4a6ff; font-size: 1.2rem;">
+                    Вашият портал към най-добрите гейминг преживявания. Открийте нови светове, изградете своята библиотека и играйте без граници.
+                </p>
+                <div class="d-flex flex-column flex-sm-row gap-3">
+                    <a asp-controller="Games" asp-action="Index" class="btn btn-hero text-decoration-none">
+                        <i class="bi bi-controller me-2"></i> Разгледай Каталога
+                    </a>
+
+                    @if (!User.Identity?.IsAuthenticated ?? true)
+                    {
+                        <a asp-controller="Account" asp-action="Register" class="btn btn-outline-hero text-decoration-none">
+                            <i class="bi bi-person-plus me-2"></i> Създай Акаунт
+                        </a>
+                    }
+                </div>
+            </div>
+
+            @* Илюстрация отдясно (показва се само на по-големи екрани) *@
+            <div class="col-md-5 d-none d-md-flex justify-content-center">
+                <i class="bi bi-joystick" style="font-size: 12rem; color: rgba(190, 0, 255, 0.2); filter: drop-shadow(0 0 20px rgba(190,0,255,0.4));"></i>
+            </div>
+        </div>
+    </div>
+
+    @* ——— 3-ТЕ ИНФОРМАЦИОННИ КАРТИ ——— *@
+    <div class="row g-4 text-center">
+        <div class="col-md-4">
+            <div class="feature-card">
+                <i class="bi bi-collection-play feature-icon"></i>
+                <h4 class="fw-bold text-white mb-3">Огромен Каталог</h4>
+                <p style="color: #acb1b8; font-size: 0.95rem;">
+                    Намерете всичко от най-новите AAA заглавия до скрити инди шедьоври. Филтрирайте по жанр или цена лесно и бързо.
+                </p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="feature-card">
+                <i class="bi bi-wallet2 feature-icon"></i>
+                <h4 class="fw-bold text-white mb-3">Виртуален Портфейл</h4>
+                <p style="color: #acb1b8; font-size: 0.95rem;">
+                    Заредете своя баланс и пазарувайте сигурно. Следете историята на вашите транзакции на едно място.
+                </p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="feature-card">
+                <i class="bi bi-heart feature-icon"></i>
+                <h4 class="fw-bold text-white mb-3">Лична Библиотека</h4>
+                <p style="color: #acb1b8; font-size: 0.95rem;">
+                    Всички ваши закупени игри са на сигурно място. Създавайте списъци с желания за бъдещи покупки.
+                </p>
+            </div>
+        </div>
+    </div>
+
 </div>

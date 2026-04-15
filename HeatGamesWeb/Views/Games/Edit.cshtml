@@ -4,63 +4,172 @@
     ViewData["Title"] = "Редактирай игра";
 }
 
-<div class="container mt-5">
+<style>
+    /* ТЪМНО-ЛИЛАВ СТИЛ ЗА АДМИН ПАНЕЛА */
+    .admin-card {
+        background-color: #230046;
+        border: 1px solid #4a0080;
+        border-radius: 8px;
+        color: #e6d9ff;
+    }
+
+    .admin-header {
+        background-color: #1a0033;
+        border-bottom: 2px solid #ffc107; /* Жълт акцент за редакция */
+        border-radius: 8px 8px 0 0;
+    }
+
+    .admin-input, .form-select {
+        background-color: #000000;
+        color: #e6d9ff;
+        border: 1px solid #4a0080;
+    }
+
+        .admin-input:focus, .form-select:focus {
+            background-color: #1a0033;
+            color: #ffffff;
+            border-color: #ffc107;
+            box-shadow: 0 0 0 0.25rem rgba(255, 193, 7, 0.25);
+        }
+
+    .input-group-text-dark {
+        background-color: #4a0080;
+        border: 1px solid #4a0080;
+        color: #ffffff;
+        font-weight: bold;
+    }
+
+    .btn-warning-custom {
+        background-color: #ffc107;
+        color: #000000;
+        border: none;
+        transition: 0.2s;
+        text-transform: uppercase;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
+
+        .btn-warning-custom:hover {
+            background-color: #ffcd39;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 193, 7, 0.4);
+        }
+
+    /* Стил за чекбоксовете */
+    .form-check-input {
+        background-color: #000;
+        border-color: #4a0080;
+    }
+
+        .form-check-input:checked {
+            background-color: #be00ff;
+            border-color: #be00ff;
+        }
+</style>
+
+<div class="container mt-5 mb-5">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card shadow-sm">
-                <div class="card-header bg-warning text-dark fw-bold">
-                    <h3 class="mb-0">Редакция на: @Model.Title</h3>
+        <div class="col-md-9 col-lg-8">
+            <div class="admin-card shadow-lg">
+                <div class="admin-header p-4 d-flex align-items-center gap-3">
+                    <i class="bi bi-pencil-square fs-2" style="color: #ffc107;"></i>
+                    <h3 class="mb-0 text-white fw-bold">Редакция на: @Model.Title</h3>
                 </div>
-                <div class="card-body">
+
+                <div class="card-body p-4 p-md-5">
                     <form asp-action="Edit" method="post">
-                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                        <div asp-validation-summary="ModelOnly" class="text-danger fw-bold mb-3"></div>
 
                         <input type="hidden" asp-for="Id" />
 
-                        <div class="mb-3">
-                            <label asp-for="Title" class="form-label fw-bold"></label>
-                            <input asp-for="Title" class="form-control" />
-                            <span asp-validation-for="Title" class="text-danger"></span>
-                        </div>
-
-                        <div class="mb-3">
-                            <label asp-for="Description" class="form-label fw-bold"></label>
-                            <textarea asp-for="Description" class="form-control" rows="4"></textarea>
-                            <span asp-validation-for="Description" class="text-danger"></span>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label asp-for="Price" class="form-label fw-bold"></label>
-                                <div class="input-group">
-                                    <input asp-for="Price" class="form-control" type="number" step="0.01" />
-                                    <span class="input-group-text">лв.</span>
-                                </div>
-                                <span asp-validation-for="Price" class="text-danger"></span>
-                            </div>
-
-                            <div class="col-md-6 mb-3">
-                                <label asp-for="ReleaseDate" class="form-label fw-bold"></label>
-                                <input asp-for="ReleaseDate" class="form-control" type="date" />
-                                <span asp-validation-for="ReleaseDate" class="text-danger"></span>
-                            </div>
-                        </div>
-
-                        <div class="mb-3">
-                            <label asp-for="DeveloperId" class="form-label fw-bold"></label>
-                            <select asp-for="DeveloperId" class="form-select" asp-items="ViewBag.Developers"></select>
-                            <span asp-validation-for="DeveloperId" class="text-danger"></span>
+                        <div class="mb-4">
+                            <label asp-for="Title" class="form-label fw-bold"><i class="bi bi-fonts me-1 text-muted"></i> @Html.DisplayNameFor(m => m.Title)</label>
+                            <input asp-for="Title" class="form-control admin-input" />
+                            <span asp-validation-for="Title" class="text-danger small fw-bold"></span>
                         </div>
 
                         <div class="mb-4">
-                            <label asp-for="CoverImageUrl" class="form-label fw-bold"></label>
-                            <input asp-for="CoverImageUrl" class="form-control" />
-                            <span asp-validation-for="CoverImageUrl" class="text-danger"></span>
+                            <label asp-for="Description" class="form-label fw-bold"><i class="bi bi-card-text me-1 text-muted"></i> @Html.DisplayNameFor(m => m.Description)</label>
+                            <textarea asp-for="Description" class="form-control admin-input" rows="4"></textarea>
+                            <span asp-validation-for="Description" class="text-danger small fw-bold"></span>
                         </div>
 
-                        <div class="d-flex justify-content-between">
-                            <a asp-action="Index" class="btn btn-outline-secondary">Отказ</a>
-                            <button type="submit" class="btn btn-success">Запази промените</button>
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <label asp-for="Price" class="form-label fw-bold"><i class="bi bi-tag-fill me-1 text-muted"></i> @Html.DisplayNameFor(m => m.Price)</label>
+                                <div class="input-group">
+                                    <input asp-for="Price" class="form-control admin-input" type="number" step="0.01" />
+                                    <span class="input-group-text input-group-text-dark">лв.</span>
+                                </div>
+                                <span asp-validation-for="Price" class="text-danger small fw-bold"></span>
+                            </div>
+
+                            <div class="col-md-6 mb-4">
+                                <label asp-for="ReleaseDate" class="form-label fw-bold"><i class="bi bi-calendar-date me-1 text-muted"></i> @Html.DisplayNameFor(m => m.ReleaseDate)</label>
+                                <input asp-for="ReleaseDate" class="form-control admin-input" type="date" />
+                                <span asp-validation-for="ReleaseDate" class="text-danger small fw-bold"></span>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label asp-for="DeveloperId" class="form-label fw-bold"><i class="bi bi-building me-1 text-muted"></i> @Html.DisplayNameFor(m => m.DeveloperId)</label>
+                            <select asp-for="DeveloperId" class="form-select admin-input" asp-items="ViewBag.Developers"></select>
+                            <span asp-validation-for="DeveloperId" class="text-danger small fw-bold"></span>
+                        </div>
+
+                        @* ——— СЕКЦИЯ ЗА ЖАНРОВЕ ——— *@
+                        <div class="mb-4">
+                            <label class="form-label fw-bold"><i class="bi bi-tags-fill me-1 text-muted"></i> Жанрове</label>
+                            <div class="d-flex flex-wrap gap-3 p-3 rounded" style="background-color: #1a0033; border: 1px solid #4a0080;">
+                                @if (ViewBag.Genres != null)
+                                {
+                                    foreach (var genre in (IEnumerable<HeatGames.Core.DTOs.GenreDto>)ViewBag.Genres)
+                                    {
+                                        <div class="form-check form-check-inline m-0 me-3">
+                                            <input class="form-check-input" type="checkbox" name="SelectedGenreIds" value="@genre.Id"
+                                                   id="genre-@genre.Id"
+                                                   @(Model.SelectedGenreIds != null && Model.SelectedGenreIds.Contains(genre.Id) ? "checked" : "")>
+                                            <label class="form-check-label text-white" for="genre-@genre.Id">
+                                                @genre.Name
+                                            </label>
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+
+                        @* ——— СЕКЦИЯ ЗА ПЛАТФОРМИ ——— *@
+                        <div class="mb-4">
+                            <label class="form-label fw-bold"><i class="bi bi-pc-display me-1 text-muted"></i> Платформи</label>
+                            <div class="d-flex flex-wrap gap-3 p-3 rounded" style="background-color: #1a0033; border: 1px solid #4a0080;">
+                                @if (ViewBag.Platforms != null)
+                                {
+                                    foreach (var platform in (IEnumerable<HeatGames.Core.DTOs.PlatformDto>)ViewBag.Platforms)
+                                    {
+                                        <div class="form-check form-check-inline m-0 me-3">
+                                            <input class="form-check-input" type="checkbox" name="SelectedPlatformIds" value="@platform.Id"
+                                                   id="plt-@platform.Id"
+                                                   @(Model.SelectedPlatformIds != null && Model.SelectedPlatformIds.Contains(platform.Id) ? "checked" : "")>
+                                            <label class="form-check-label text-white" for="plt-@platform.Id">
+                                                @platform.Name
+                                            </label>
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+
+                        <div class="mb-5">
+                            <label asp-for="CoverImageUrl" class="form-label fw-bold"><i class="bi bi-image me-1 text-muted"></i> @Html.DisplayNameFor(m => m.CoverImageUrl)</label>
+                            <input asp-for="CoverImageUrl" class="form-control admin-input" />
+                            <span asp-validation-for="CoverImageUrl" class="text-danger small fw-bold"></span>
+                        </div>
+
+                        <hr style="border-color: #4a0080;" class="my-4" />
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a asp-action="Index" class="btn btn-outline-light"><i class="bi bi-arrow-left"></i> Отказ</a>
+                            <button type="submit" class="btn btn-warning-custom px-4 py-2"><i class="bi bi-check-lg me-1"></i> Запази промените</button>
                         </div>
                     </form>
                 </div>

@@ -112,7 +112,6 @@ namespace HeatGamesWeb.Controllers
             var gameDto = await _gameService.GetGameByIdAsync(id);
             if (gameDto == null) return NotFound();
 
-            // Мапваме към ViewModel, за да го покажем красиво във View-то
             var viewModel = new GameViewModel
             {
                 Id = gameDto.Id,
@@ -121,17 +120,17 @@ namespace HeatGamesWeb.Controllers
                 Price = gameDto.Price,
                 ReleaseDate = gameDto.ReleaseDate,
                 CoverImageUrl = gameDto.CoverImageUrl,
-                DeveloperId = gameDto.DeveloperId,
-                Platforms = gameDto.Platforms,
-                Genres = gameDto.Genres
+                // ДОБАВИ ТЕЗИ ДВА РЕДА:
+                Genres = gameDto.Genres,
+                Platforms = gameDto.Platforms
             };
 
             ViewBag.Reviews = await _reviewService.GetGameReviewsAsync(id);
-
             return View(viewModel);
         }
 
         // 🔹 EDIT (GET)
+        [HttpGet]
         public async Task<IActionResult> Edit(Guid id)
         {
             var gameDto = await _gameService.GetGameByIdAsync(id);
@@ -145,13 +144,18 @@ namespace HeatGamesWeb.Controllers
                 Price = gameDto.Price,
                 ReleaseDate = gameDto.ReleaseDate,
                 CoverImageUrl = gameDto.CoverImageUrl,
-                DeveloperId = gameDto.DeveloperId
+                DeveloperId = gameDto.DeveloperId,
+                SelectedPlatformIds = gameDto.SelectedPlatformIds,
+                // ДОБАВИ ТОВА:
+                SelectedGenreIds = gameDto.SelectedGenreIds
             };
 
-            // Зареждаме разработчиците за падащото меню и маркираме текущия като избран
             var developers = await _developerService.GetAllDevelopersAsync();
             ViewBag.Developers = new SelectList(developers, "Id", "Name", viewModel.DeveloperId);
+
             ViewBag.Platforms = await _platformService.GetAllPlatformsAsync();
+            // ДОБАВИ ТОВА:
+            ViewBag.Genres = await _genreService.GetAllGenresAsync();
 
             return View(viewModel);
         }
@@ -174,7 +178,9 @@ namespace HeatGamesWeb.Controllers
                     ReleaseDate = model.ReleaseDate,
                     CoverImageUrl = model.CoverImageUrl,
                     DeveloperId = model.DeveloperId,
-                    SelectedPlatformIds = model.SelectedPlatformIds // ТОВА Е ВАЖНО
+                    // ТОВА ПРЕДАВА ИЗБРАНИТЕ ЧЕКБОКСОВЕ:
+                    SelectedPlatformIds = model.SelectedPlatformIds,
+                    SelectedGenreIds = model.SelectedGenreIds // ПРЕДАЙ ЖАНРОВЕТЕ
                 };
 
                 var success = await _gameService.UpdateGameAsync(gameDto);
@@ -183,9 +189,10 @@ namespace HeatGamesWeb.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            // Ако има грешка (напр. празно поле), пак трябва да заредим падащото меню!
+            // Ако има грешка, презареждаме данните за View-то
             var developers = await _developerService.GetAllDevelopersAsync();
             ViewBag.Developers = new SelectList(developers, "Id", "Name", model.DeveloperId);
+            ViewBag.Platforms = await _platformService.GetAllPlatformsAsync();
 
             return View(model);
         }

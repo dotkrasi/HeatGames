@@ -44,6 +44,34 @@ namespace HeatGames.Core.Services
                 .ToListAsync();
         }
 
+
+        public async Task<IEnumerable<OrderDto>> GetAllOrdersAsync()
+        {
+            return await _context.Orders
+                .Include(o => o.User) // ВАЖНО: Зареждаме потребителя
+                .Include(o => o.OrderItems)
+                .ThenInclude(oi => oi.Game)
+                .OrderByDescending(o => o.OrderDate)
+                .Select(o => new OrderDto
+                {
+                    Id = o.Id,
+                    UserId = o.UserId,
+                    UserName = o.User.UserName!, // Взимаме името на купувача
+                    OrderDate = o.OrderDate,
+                    TotalAmount = o.TotalAmount,
+                    OrderItems = o.OrderItems.Select(oi => new OrderItemDto
+                    {
+                        Id = oi.Id,
+                        OrderId = oi.OrderId,
+                        GameId = oi.GameId,
+                        GameTitle = oi.Game.Title,
+                        PriceAtPurchase = oi.PriceAtPurchase
+                    }).ToList()
+                })
+                .ToListAsync();
+        }
+
+
         public async Task<(bool Success, string Message)> PurchaseGameAsync(Guid userId, Guid gameId)
         {
             // 1. Взимаме потребителя и играта

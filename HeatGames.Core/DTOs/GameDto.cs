@@ -42,5 +42,6 @@ namespace HeatGames.Core.DTOs
         public IEnumerable<string> Platforms { get; set; } = new List<string>();
 
         public List<Guid> SelectedPlatformIds { get; set; } = new();
+        public List<Guid> SelectedGenreIds { get; set; } = new List<Guid>();
     }
 }

@@ -83,6 +83,22 @@
             border-color: #be00ff;
             box-shadow: 0 0 0 0.25rem rgba(190, 0, 255, 0.25);
         }
+
+    /* Стил за баджовете */
+    .badge-genre {
+        background-color: #8d00c4;
+        color: white;
+        padding: 6px 12px;
+        font-size: 0.85rem;
+    }
+
+    .badge-platform {
+        background-color: rgba(190, 0, 255, 0.1);
+        border: 1px solid #be00ff;
+        color: #e6d9ff;
+        padding: 6px 12px;
+        font-size: 0.85rem;
+    }
 </style>
 
 <div class="container mt-5">
@@ -124,31 +140,65 @@
                     </div>
 
                     <p style="color: #c4a6ff;" class="mb-3">
-                        <i class="bi bi-calendar-event"></i> Излязла на: @Model.ReleaseDate.ToString("dd.MM.yyyy")
+                        <i class="bi bi-calendar-event me-1"></i> Излязла на: @Model.ReleaseDate.ToString("dd.MM.yyyy")
                     </p>
 
-                    @* ——— НОВО: ПОКАЗВАНЕ НА ПЛАТФОРМИТЕ ——— *@
-                    @if (Model.Platforms != null && Model.Platforms.Any())
+                    @* ——— НОВО: ЖАНРОВЕ ——— *@
+                    @if (Model.Genres != null && Model.Genres.Any())
                     {
-                        <div class="mb-4">
-                            <span class="fw-bold" style="color: #c4a6ff;"><i class="bi bi-pc-display me-1"></i> Налично за:</span>
-                            <div class="d-flex flex-wrap gap-2 mt-2">
-                                @foreach (var platform in Model.Platforms)
+                        <div class="mb-3">
+                            <span class="fw-bold d-block mb-1" style="color: #c4a6ff; font-size: 0.9rem;">ЖАНРОВЕ:</span>
+                            <div class="d-flex flex-wrap gap-2">
+                                @foreach (var genre in Model.Genres)
                                 {
-                                    <span class="badge" style="background-color: #4a0080; font-size: 13px; padding: 6px 10px;">@platform</span>
+                                    <span class="badge rounded-pill badge-genre">@genre</span>
                                 }
                             </div>
                         </div>
                     }
 
-                    <h5 class="fw-bold" style="color: #c4a6ff;">Описание:</h5>
+                    @* ——— НОВО: ПЛАТФОРМИ ——— *@
+                    @if (Model.Platforms != null && Model.Platforms.Any())
+                    {
+                        <div class="mb-4">
+                            <span class="fw-bold d-block mb-1" style="color: #c4a6ff; font-size: 0.9rem;">НАЛИЧНО ЗА:</span>
+                            <div class="d-flex flex-wrap gap-2">
+                                @foreach (var platform in Model.Platforms)
+                                {
+                                    <span class="badge badge-platform">
+                                        @if (platform.Contains("PC"))
+                                        {
+                                            <i class="bi bi-windows me-1"></i>
+                                        }
+                                        else if (platform.Contains("PlayStation"))
+                                        {
+
+                                            <i class="bi bi-playstation me-1"></i>
+                                        }
+                                        else if (platform.Contains("Xbox"))
+                                        {
+
+                                            <i class="bi bi-xbox me-1"></i>
+                                        }
+                                        else if (platform.Contains("Switch"))
+                                        {
+
+                                            <i class="bi bi-nintendo-switch me-1"></i>
+                                        }
+                                        @platform
+                                    </span>
+                                }
+                            </div>
+                        </div>
+                    }
+
+                    <h5 class="fw-bold" style="color: #c4a6ff;">ОПИСАНИЕ:</h5>
                     <p class="card-text mb-5" style="line-height: 1.6;">@Model.Description</p>
 
                     <div class="mt-auto">
                         @* ——— БУТОНИ КУПИ / ЖЕЛАНИ / БИБЛИОТЕКА ——— *@
                         @if (User.Identity?.IsAuthenticated ?? false)
                         {
-                            // Проверяваме дали потребителят вече притежава играта
                             bool ownsGame = ViewBag.OwnsGame as bool? ?? false;
 
                             if (ownsGame)
@@ -207,7 +257,6 @@
     <div class="mt-5 mb-5">
         <h3 class="fw-bold mb-4 text-white"><i class="bi bi-chat-left-text" style="color: #be00ff;"></i> Отзиви от играчи</h3>
 
-        @* Форма за писане на ревю *@
         @if (User.Identity?.IsAuthenticated ?? false)
         {
             <div class="card review-form-card shadow-sm mb-5 rounded">
@@ -245,7 +294,6 @@
             </div>
         }
 
-        @* Списък с публикуваните ревюта *@
         <div class="row g-4">
             @if (ViewBag.Reviews != null)
             {

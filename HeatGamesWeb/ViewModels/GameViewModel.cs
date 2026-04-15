@@ -43,6 +43,7 @@ namespace HeatGamesWeb.ViewModels
 
         [Display(Name = "Платформи")]
         public List<Guid> SelectedPlatformIds { get; set; } = new();
+        public List<Guid> SelectedGenreIds { get; set; } = new List<Guid>();
         public IEnumerable<string> Platforms { get; set; } = new List<string>();
         public IEnumerable<string> Genres { get; set; } = new List<string>(); // Добави и това, ако го няма
     }

@@ -51,7 +51,10 @@ namespace HeatGames.Core.Services
         public async Task<GameDto?> GetGameByIdAsync(Guid id)
         {
             var game = await _context.Games
-                .Include(g => g.GamePlatforms).ThenInclude(gp => gp.Platform)
+                .Include(g => g.GameGenres) // Зареждаме жанровете
+                    .ThenInclude(gg => gg.Genre)
+                .Include(g => g.GamePlatforms) // Зареждаме платформите
+                    .ThenInclude(gp => gp.Platform)
                 .FirstOrDefaultAsync(g => g.Id == id);
 
             if (game == null) return null;
@@ -65,8 +68,9 @@ namespace HeatGames.Core.Services
                 ReleaseDate = game.ReleaseDate,
                 CoverImageUrl = game.CoverImageUrl,
                 DeveloperId = game.DeveloperId,
-                Platforms = game.GamePlatforms.Select(p => p.Platform.Name).ToList(),
-                SelectedPlatformIds = game.GamePlatforms.Select(p => p.PlatformId).ToList()
+                // ТУК ПЪЛНИМ СПИСЪЦИТЕ С ИМЕНА:
+                Genres = game.GameGenres.Select(gg => gg.Genre.Name).ToList(),
+                Platforms = game.GamePlatforms.Select(gp => gp.Platform.Name).ToList()
             };
         }
 
@@ -104,10 +108,12 @@ namespace HeatGames.Core.Services
         {
             var game = await _context.Games
                 .Include(g => g.GamePlatforms)
+                .Include(g => g.GameGenres) // ВКЛЮЧИ ЖАНРОВЕТЕ
                 .FirstOrDefaultAsync(g => g.Id == model.Id);
 
             if (game == null) return false;
 
+            // Обновяване на основни данни
             game.Title = model.Title;
             game.Description = model.Description;
             game.Price = model.Price;
@@ -115,11 +121,24 @@ namespace HeatGames.Core.Services
             game.CoverImageUrl = model.CoverImageUrl;
             game.DeveloperId = model.DeveloperId;
 
-            // Обновяване на платформи: махаме старите, слагаме новите
+            // 1. Обновяване на Платформи (както досега)
             _context.GamePlatforms.RemoveRange(game.GamePlatforms);
-            foreach (var platformId in model.SelectedPlatformIds)
+            if (model.SelectedPlatformIds != null)
             {
-                game.GamePlatforms.Add(new GamePlatform { GameId = game.Id, PlatformId = platformId });
+                foreach (var pId in model.SelectedPlatformIds)
+                {
+                    game.GamePlatforms.Add(new GamePlatform { PlatformId = pId });
+                }
+            }
+
+            // 2. ОБНОВЯВАНЕ НА ЖАНРОВЕ
+            _context.GameGenres.RemoveRange(game.GameGenres); // Махаме старите
+            if (model.SelectedGenreIds != null)
+            {
+                foreach (var gId in model.SelectedGenreIds)
+                {
+                    game.GameGenres.Add(new GameGenre { GenreId = gId });
+                }
             }
 
             await _context.SaveChangesAsync();

@@ -1,0 +1,109 @@
+﻿@* Предполагам, че моделът ти се казва GenreViewModel или директно Genre. Ако гръмне заради модела, просто смени името тук горе! *@
+@model IEnumerable<HeatGames.Core.DTOs.PlatformDto>
+@{
+    ViewData["Title"] = "Управление на жанрове";
+}
+
+<style>
+    /* ТЪМНО-ЛИЛАВ СТИЛ ЗА АДМИН ПАНЕЛА */
+    .admin-card {
+        background-color: #230046;
+        border: 1px solid #4a0080;
+        border-radius: 8px;
+        color: #e6d9ff;
+    }
+
+    .table-dark-purple {
+        color: #e6d9ff;
+        background-color: transparent;
+    }
+
+        .table-dark-purple th {
+            border-bottom: 2px solid #8d00c4;
+            color: #c4a6ff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .table-dark-purple td {
+            border-bottom: 1px solid #4a0080;
+            vertical-align: middle;
+        }
+
+        .table-dark-purple tbody tr:hover {
+            background-color: #1a0033;
+        }
+
+    .btn-magenta {
+        background-color: #8d00c4;
+        color: #ffffff;
+        border: none;
+        transition: 0.2s;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+        .btn-magenta:hover {
+            background-color: #be00ff;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(190, 0, 255, 0.4);
+        }
+</style>
+
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-md-10 col-lg-8">
+
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 style="color: #e6d9ff;" class="fw-bold">
+                    <i class="bi bi-tags-fill" style="color: #be00ff;"></i> Всички Жанрове
+                </h2>
+
+                <a asp-action="Create" class="btn btn-magenta fw-bold shadow-sm">
+                    <i class="bi bi-plus-circle"></i> Добави нов
+                </a>
+            </div>
+
+            <div class="admin-card shadow-lg p-4">
+                @if (Model == null || !Model.Any())
+                {
+                    <div class="alert text-center m-0" style="background-color: #1a0033; border: 1px dashed #4a0080; color: #c4a6ff;">
+                        <i class="bi bi-exclamation-circle fs-4 d-block mb-2"></i>
+                        Все още няма добавени жанрове в базата.
+                    </div>
+                }
+                else
+                {
+                    <div class="table-responsive">
+                        <table class="table table-dark-purple table-hover mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Име на жанр</th>
+                                    <th class="text-end">Действия</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var genre in Model)
+                                {
+                                    <tr>
+                                        <td class="fw-bold fs-5">@genre.Name</td>
+                                        <td class="text-end">
+                                            <a asp-action="Edit" asp-route-id="@genre.Id" class="btn btn-sm btn-warning fw-bold me-2">
+                                                <i class="bi bi-pencil"></i>
+                                            </a>
+                                            <a asp-action="Delete" asp-route-id="@genre.Id" class="btn btn-sm btn-danger fw-bold">
+                                                <i class="bi bi-trash"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                }
+            </div>
+
+        </div>
+    </div>
+</div>

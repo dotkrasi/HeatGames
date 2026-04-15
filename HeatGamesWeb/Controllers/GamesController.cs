@@ -19,13 +19,15 @@ namespace HeatGamesWeb.Controllers
         private readonly IDeveloperService _developerService;
         private readonly IReviewService _reviewService;
         private readonly IGenreService _genreService;
+        private readonly IPlatformService _platformService;
         // Инжектираме сървисите
-        public GamesController(IGameService gameService, IDeveloperService developerService, IReviewService reviewService, IGenreService genreService)
+        public GamesController(IGameService gameService, IDeveloperService developerService, IReviewService reviewService, IGenreService genreService, IPlatformService platformService)
         {
             _gameService = gameService;
             _developerService = developerService;
             _reviewService = reviewService;
             _genreService = genreService;
+            _platformService = platformService;
         }
 
         [AllowAnonymous]
@@ -68,6 +70,7 @@ namespace HeatGamesWeb.Controllers
             // Взимаме разработчиците и ги пращаме към View-то за падащото меню
             var developers = await _developerService.GetAllDevelopersAsync();
             ViewBag.Developers = new SelectList(developers, "Id", "Name");
+            ViewBag.Platforms = await _platformService.GetAllPlatformsAsync();
 
             return View();
         }
@@ -87,7 +90,8 @@ namespace HeatGamesWeb.Controllers
                     Price = model.Price,
                     ReleaseDate = model.ReleaseDate,
                     CoverImageUrl = model.CoverImageUrl,
-                    DeveloperId = model.DeveloperId
+                    DeveloperId = model.DeveloperId,
+                    SelectedPlatformIds = model.SelectedPlatformIds // ТОВА Е ВАЖНО
                 };
 
                 await _gameService.CreateGameAsync(gameDto);
@@ -117,7 +121,9 @@ namespace HeatGamesWeb.Controllers
                 Price = gameDto.Price,
                 ReleaseDate = gameDto.ReleaseDate,
                 CoverImageUrl = gameDto.CoverImageUrl,
-                DeveloperId = gameDto.DeveloperId
+                DeveloperId = gameDto.DeveloperId,
+                Platforms = gameDto.Platforms,
+                Genres = gameDto.Genres
             };
 
             ViewBag.Reviews = await _reviewService.GetGameReviewsAsync(id);
@@ -145,6 +151,7 @@ namespace HeatGamesWeb.Controllers
             // Зареждаме разработчиците за падащото меню и маркираме текущия като избран
             var developers = await _developerService.GetAllDevelopersAsync();
             ViewBag.Developers = new SelectList(developers, "Id", "Name", viewModel.DeveloperId);
+            ViewBag.Platforms = await _platformService.GetAllPlatformsAsync();
 
             return View(viewModel);
         }
@@ -166,7 +173,8 @@ namespace HeatGamesWeb.Controllers
                     Price = model.Price,
                     ReleaseDate = model.ReleaseDate,
                     CoverImageUrl = model.CoverImageUrl,
-                    DeveloperId = model.DeveloperId
+                    DeveloperId = model.DeveloperId,
+                    SelectedPlatformIds = model.SelectedPlatformIds // ТОВА Е ВАЖНО
                 };
 
                 var success = await _gameService.UpdateGameAsync(gameDto);

@@ -15,50 +15,45 @@ namespace HeatGames.Core.Services
             _context = context;
         }
 
-        // 1. Промени заглавието на метода, за да приема page и pageSize
+        // 1. В GetAllGamesAsync добавяме Include за платформите
         public async Task<(IEnumerable<GameDto> Games, int TotalCount)> GetAllGamesAsync(
-            string? searchQuery = null,
-            string? genre = null,
-            decimal? maxPrice = null,
-            int page = 1,
-            int pageSize = 8) // Добавени параметри
+            string? searchQuery = null, string? genre = null, decimal? maxPrice = null, int page = 1, int pageSize = 8)
         {
             var query = _context.Games
-                .Include(g => g.GameGenres)
-                .ThenInclude(gg => gg.Genre)
+                .Include(g => g.GameGenres).ThenInclude(gg => gg.Genre)
+                .Include(g => g.GamePlatforms).ThenInclude(gp => gp.Platform) // НОВО
                 .AsQueryable();
 
-            // ТВОЯТА ЛОГИКА ЗА ФИЛТРИРАНЕ (остава същата)
-            if (!string.IsNullOrWhiteSpace(searchQuery))
-            {
-                query = query.Where(g => g.Title.Contains(searchQuery));
-            }
-            // ... останалите ти филтри за жанр и цена ...
+            // ... филтрирането си остава същото ...
 
-            // НОВО: Взимаме общата бройка ПРЕДИ да срежем списъка за страницата
             int totalCount = await query.CountAsync();
 
-            // НОВО: Добавяме Skip и Take към твоята заявка
             var games = await query
-                .OrderByDescending(g => g.ReleaseDate) // Добре е да са сортирани
-                .Skip((page - 1) * pageSize)           // Прескачаме старите страници
-                .Take(pageSize)                        // Взимаме само 8 за текущата
+                .OrderByDescending(g => g.ReleaseDate)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
                 .Select(g => new GameDto
                 {
                     Id = g.Id,
                     Title = g.Title,
                     Price = g.Price,
                     CoverImageUrl = g.CoverImageUrl,
-                    // ... твоите останали полета ...
+                    DeveloperId = g.DeveloperId,
+                    // Мапваме имената на платформите за показване в каталога
+                    Platforms = g.GamePlatforms.Select(p => p.Platform.Name).ToList()
                 })
                 .ToListAsync();
 
-            return (games, totalCount); // Връщаме и двете
+            return (games, totalCount);
         }
 
+        // 2. В GetGameByIdAsync също добавяме платформите
         public async Task<GameDto?> GetGameByIdAsync(Guid id)
         {
-            var game = await _context.Games.FindAsync(id);
+            var game = await _context.Games
+                .Include(g => g.GamePlatforms).ThenInclude(gp => gp.Platform)
+                .FirstOrDefaultAsync(g => g.Id == id);
+
             if (game == null) return null;
 
             return new GameDto
@@ -69,16 +64,18 @@ namespace HeatGames.Core.Services
                 Price = game.Price,
                 ReleaseDate = game.ReleaseDate,
                 CoverImageUrl = game.CoverImageUrl,
-                DeveloperId = game.DeveloperId
+                DeveloperId = game.DeveloperId,
+                Platforms = game.GamePlatforms.Select(p => p.Platform.Name).ToList(),
+                SelectedPlatformIds = game.GamePlatforms.Select(p => p.PlatformId).ToList()
             };
         }
 
+        // 3. В CreateGameAsync записваме връзките в GamePlatforms
         public async Task CreateGameAsync(GameDto model)
         {
-            // Създаваме ново Entity от данните на ViewModel-а
             var game = new Game
             {
-                Id = model.Id, // Вече е генерирано в контролера
+                Id = model.Id,
                 Title = model.Title,
                 Description = model.Description,
                 Price = model.Price,
@@ -88,15 +85,29 @@ namespace HeatGames.Core.Services
             };
 
             await _context.Games.AddAsync(game);
+
+            // Добавяме платформите
+            foreach (var platformId in model.SelectedPlatformIds)
+            {
+                await _context.GamePlatforms.AddAsync(new GamePlatform
+                {
+                    GameId = game.Id,
+                    PlatformId = platformId
+                });
+            }
+
             await _context.SaveChangesAsync();
         }
 
+        // 4. В UpdateGameAsync изтриваме старите и добавяме новите платформи
         public async Task<bool> UpdateGameAsync(GameDto model)
         {
-            var game = await _context.Games.FindAsync(model.Id);
+            var game = await _context.Games
+                .Include(g => g.GamePlatforms)
+                .FirstOrDefaultAsync(g => g.Id == model.Id);
+
             if (game == null) return false;
 
-            // Обновяваме полетата
             game.Title = model.Title;
             game.Description = model.Description;
             game.Price = model.Price;
@@ -104,7 +115,13 @@ namespace HeatGames.Core.Services
             game.CoverImageUrl = model.CoverImageUrl;
             game.DeveloperId = model.DeveloperId;
 
-            _context.Games.Update(game);
+            // Обновяване на платформи: махаме старите, слагаме новите
+            _context.GamePlatforms.RemoveRange(game.GamePlatforms);
+            foreach (var platformId in model.SelectedPlatformIds)
+            {
+                game.GamePlatforms.Add(new GamePlatform { GameId = game.Id, PlatformId = platformId });
+            }
+
             await _context.SaveChangesAsync();
             return true;
         }

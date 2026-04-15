@@ -21,6 +21,8 @@ namespace HeatGames.Data
         public DbSet<Developer> Developers { get; set; }
         public DbSet<Genre> Genres { get; set; }
         public DbSet<GameGenre> GameGenres { get; set; }
+        public DbSet<Platform> Platforms { get; set; }
+        public DbSet<GamePlatform> GamePlatforms { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
         public DbSet<Review> Reviews { get; set; }

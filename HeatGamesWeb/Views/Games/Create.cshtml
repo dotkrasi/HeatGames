@@ -60,6 +60,17 @@
             transform: translateY(-2px);
             box-shadow: 0 4px 15px rgba(190, 0, 255, 0.4);
         }
+
+    /* Стил за чекбоксовете */
+    .form-check-input {
+        background-color: #000;
+        border-color: #4a0080;
+    }
+
+        .form-check-input:checked {
+            background-color: #be00ff;
+            border-color: #be00ff;
+        }
 </style>
 
 <div class="container mt-5 mb-5">
@@ -110,6 +121,29 @@
                                 <option value="">-- Избери разработчик (Студио) --</option>
                             </select>
                             <span asp-validation-for="DeveloperId" class="text-danger small fw-bold"></span>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label fw-bold"><i class="bi bi-pc-display me-1 text-muted"></i> Налични платформи</label>
+                            <div class="d-flex flex-wrap gap-3 p-3 rounded" style="background-color: #1a0033; border: 1px solid #4a0080;">
+                                @if (ViewBag.Platforms != null)
+                                {
+                                    foreach (var platform in (IEnumerable<HeatGames.Core.DTOs.PlatformDto>)ViewBag.Platforms)
+                                    {
+                                        <div class="form-check form-check-inline m-0 me-3">
+                                            <input class="form-check-input" type="checkbox" name="SelectedPlatformIds" value="@platform.Id"
+                                                   id="plt-@platform.Id" @(Model?.SelectedPlatformIds?.Contains(platform.Id) == true ? "checked" : "")>
+                                            <label class="form-check-label text-white" for="plt-@platform.Id">
+                                                @platform.Name
+                                            </label>
+                                        </div>
+                                    }
+                                }
+                                else
+                                {
+                                    <span class="text-muted small">Няма добавени платформи в базата.</span>
+                                }
+                            </div>
                         </div>
 
                         <div class="mb-5">

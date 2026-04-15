@@ -39,5 +39,8 @@ namespace HeatGames.Core.DTOs
 
         public string? DeveloperName { get; set; }
         public IEnumerable<string> Genres { get; set; } = new List<string>();
+        public IEnumerable<string> Platforms { get; set; } = new List<string>();
+
+        public List<Guid> SelectedPlatformIds { get; set; } = new();
     }
 }

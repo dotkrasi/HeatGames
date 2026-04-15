@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HeatGamesWeb")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2c325d84058eb8db109effb3fd809b80e8b2a3cf")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f9fb97cc4fe4ef1d4647c991bbc1b170d7dfaffa")]
 [assembly: System.Reflection.AssemblyProductAttribute("HeatGamesWeb")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HeatGamesWeb")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

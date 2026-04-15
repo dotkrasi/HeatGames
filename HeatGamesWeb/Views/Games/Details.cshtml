@@ -123,9 +123,23 @@
                         <span class="details-price">@Model.Price.ToString("0.00") лв.</span>
                     </div>
 
-                    <p style="color: #c4a6ff;" class="mb-4">
+                    <p style="color: #c4a6ff;" class="mb-3">
                         <i class="bi bi-calendar-event"></i> Излязла на: @Model.ReleaseDate.ToString("dd.MM.yyyy")
                     </p>
+
+                    @* ——— НОВО: ПОКАЗВАНЕ НА ПЛАТФОРМИТЕ ——— *@
+                    @if (Model.Platforms != null && Model.Platforms.Any())
+                    {
+                        <div class="mb-4">
+                            <span class="fw-bold" style="color: #c4a6ff;"><i class="bi bi-pc-display me-1"></i> Налично за:</span>
+                            <div class="d-flex flex-wrap gap-2 mt-2">
+                                @foreach (var platform in Model.Platforms)
+                                {
+                                    <span class="badge" style="background-color: #4a0080; font-size: 13px; padding: 6px 10px;">@platform</span>
+                                }
+                            </div>
+                        </div>
+                    }
 
                     <h5 class="fw-bold" style="color: #c4a6ff;">Описание:</h5>
                     <p class="card-text mb-5" style="line-height: 1.6;">@Model.Description</p>
@@ -273,4 +287,4 @@
             }
         </div>
     </div>
-</div>  
+</div>

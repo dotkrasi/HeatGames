@@ -40,6 +40,11 @@ namespace HeatGamesWeb.ViewModels
         [Required(ErrorMessage = "Моля, изберете разработчик.")]
         [Display(Name = "Разработчик")]
         public Guid DeveloperId { get; set; }
+
+        [Display(Name = "Платформи")]
+        public List<Guid> SelectedPlatformIds { get; set; } = new();
+        public IEnumerable<string> Platforms { get; set; } = new List<string>();
+        public IEnumerable<string> Genres { get; set; } = new List<string>(); // Добави и това, ако го няма
     }
 }
 

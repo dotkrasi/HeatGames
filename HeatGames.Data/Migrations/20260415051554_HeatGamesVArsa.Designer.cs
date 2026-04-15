@@ -4,6 +4,7 @@ using HeatGames.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HeatGames.Data.Migrations
 {
     [DbContext(typeof(HeatGamesDbContext))]
-    partial class HeatGamesDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260415051554_HeatGamesVArsa")]
+    partial class HeatGamesVArsa
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -383,58 +386,6 @@ namespace HeatGames.Data.Migrations
                         });
                 });
 
-            modelBuilder.Entity("HeatGames.Data.Models.GamePlatform", b =>
-                {
-                    b.Property<Guid>("GameId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("PlatformId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("GameId", "PlatformId");
-
-                    b.HasIndex("PlatformId");
-
-                    b.ToTable("GamePlatforms");
-
-                    b.HasData(
-                        new
-                        {
-                            GameId = new Guid("00000001-0000-0000-0000-000000000000"),
-                            PlatformId = new Guid("11111111-2222-3333-4444-555555555555")
-                        },
-                        new
-                        {
-                            GameId = new Guid("00000001-0000-0000-0000-000000000000"),
-                            PlatformId = new Guid("22222222-3333-4444-5555-666666666666")
-                        },
-                        new
-                        {
-                            GameId = new Guid("00000002-0000-0000-0000-000000000000"),
-                            PlatformId = new Guid("11111111-2222-3333-4444-555555555555")
-                        },
-                        new
-                        {
-                            GameId = new Guid("00000002-0000-0000-0000-000000000000"),
-                            PlatformId = new Guid("22222222-3333-4444-5555-666666666666")
-                        },
-                        new
-                        {
-                            GameId = new Guid("00000002-0000-0000-0000-000000000000"),
-                            PlatformId = new Guid("33333333-4444-5555-6666-777777777777")
-                        },
-                        new
-                        {
-                            GameId = new Guid("00000003-0000-0000-0000-000000000000"),
-                            PlatformId = new Guid("11111111-2222-3333-4444-555555555555")
-                        },
-                        new
-                        {
-                            GameId = new Guid("00000003-0000-0000-0000-000000000000"),
-                            PlatformId = new Guid("22222222-3333-4444-5555-666666666666")
-                        });
-                });
-
             modelBuilder.Entity("HeatGames.Data.Models.Genre", b =>
                 {
                     b.Property<Guid>("Id")
@@ -554,44 +505,6 @@ namespace HeatGames.Data.Migrations
                     b.HasIndex("OrderId");
 
                     b.ToTable("OrderItems");
-                });
-
-            modelBuilder.Entity("HeatGames.Data.Models.Platform", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Platforms");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("11111111-2222-3333-4444-555555555555"),
-                            Name = "PC (Windows)"
-                        },
-                        new
-                        {
-                            Id = new Guid("22222222-3333-4444-5555-666666666666"),
-                            Name = "PlayStation 5"
-                        },
-                        new
-                        {
-                            Id = new Guid("33333333-4444-5555-6666-777777777777"),
-                            Name = "Xbox Series X/S"
-                        },
-                        new
-                        {
-                            Id = new Guid("44444444-5555-6666-7777-888888888888"),
-                            Name = "Nintendo Switch"
-                        });
                 });
 
             modelBuilder.Entity("HeatGames.Data.Models.Review", b =>
@@ -889,25 +802,6 @@ namespace HeatGames.Data.Migrations
                     b.Navigation("Genre");
                 });
 
-            modelBuilder.Entity("HeatGames.Data.Models.GamePlatform", b =>
-                {
-                    b.HasOne("HeatGames.Data.Models.Game", "Game")
-                        .WithMany("GamePlatforms")
-                        .HasForeignKey("GameId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("HeatGames.Data.Models.Platform", "Platform")
-                        .WithMany("GamePlatforms")
-                        .HasForeignKey("PlatformId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Game");
-
-                    b.Navigation("Platform");
-                });
-
             modelBuilder.Entity("HeatGames.Data.Models.LibraryItem", b =>
                 {
                     b.HasOne("HeatGames.Data.Models.Game", "Game")
@@ -1055,8 +949,6 @@ namespace HeatGames.Data.Migrations
                 {
                     b.Navigation("GameGenres");
 
-                    b.Navigation("GamePlatforms");
-
                     b.Navigation("Reviews");
                 });
 
@@ -1068,11 +960,6 @@ namespace HeatGames.Data.Migrations
             modelBuilder.Entity("HeatGames.Data.Models.Order", b =>
                 {
                     b.Navigation("OrderItems");
-                });
-
-            modelBuilder.Entity("HeatGames.Data.Models.Platform", b =>
-                {
-                    b.Navigation("GamePlatforms");
                 });
 
             modelBuilder.Entity("HeatGames.Data.Models.User", b =>

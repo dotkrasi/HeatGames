@@ -1,0 +1,87 @@
+﻿@model HeatGames.Core.DTOs.PlatformDto
+@{
+    ViewData["Title"] = "Добави нов жанр";
+}
+
+<style>
+    /* ТЪМНО-ЛИЛАВ СТИЛ ЗА АДМИН ПАНЕЛА */
+    .admin-card {
+        background-color: #230046;
+        border: 1px solid #4a0080;
+        border-radius: 8px;
+        color: #e6d9ff;
+    }
+
+    .admin-header {
+        background-color: #1a0033;
+        border-bottom: 2px solid #8d00c4;
+        border-radius: 8px 8px 0 0;
+    }
+
+    .admin-input {
+        background-color: #000000;
+        color: #e6d9ff;
+        border: 1px solid #4a0080;
+    }
+
+        .admin-input:focus {
+            background-color: #1a0033;
+            color: #ffffff;
+            border-color: #be00ff;
+            box-shadow: 0 0 0 0.25rem rgba(190, 0, 255, 0.25);
+        }
+
+    .btn-magenta {
+        background-color: #8d00c4;
+        color: #ffffff;
+        border: none;
+        transition: 0.2s;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+        .btn-magenta:hover {
+            background-color: #be00ff;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(190, 0, 255, 0.4);
+        }
+</style>
+
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="admin-card shadow-lg">
+                <div class="admin-header p-4 d-flex align-items-center gap-3">
+                    <i class="bi bi-tags-fill fs-3" style="color: #be00ff;"></i>
+                    <h4 class="mb-0 text-white fw-bold">Създай Жанр</h4>
+                </div>
+
+                <div class="card-body p-4 p-md-5">
+                    <form asp-action="Create" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger fw-bold mb-3"></div>
+
+                        <div class="mb-5">
+                            <label asp-for="Name" class="form-label fw-bold"><i class="bi bi-fonts me-1 text-muted"></i> Име на жанра</label>
+                            <input asp-for="Name" class="form-control admin-input form-control-lg" placeholder="Напр. Състезателни, Пъзели..." />
+                            <span asp-validation-for="Name" class="text-danger small fw-bold"></span>
+                        </div>
+
+                        <hr style="border-color: #4a0080;" class="my-4" />
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a asp-action="Index" class="btn btn-outline-light"><i class="bi bi-arrow-left"></i> Отказ</a>
+                            <button type="submit" class="btn btn-magenta fw-bold px-4 py-2"><i class="bi bi-plus-circle-fill me-1"></i> Добави жанра</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

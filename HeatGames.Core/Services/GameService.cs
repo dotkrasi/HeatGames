@@ -17,19 +17,35 @@ namespace HeatGames.Core.Services
 
         // 1. В GetAllGamesAsync добавяме Include за платформите
         public async Task<(IEnumerable<GameDto> Games, int TotalCount)> GetAllGamesAsync(
-            string? searchQuery = null, string? genre = null, decimal? maxPrice = null, int page = 1, int pageSize = 8)
+    string? searchQuery = null, string? genre = null, decimal? maxPrice = null, int page = 1, int pageSize = 16) // Вдигаме на 16!
         {
             var query = _context.Games
                 .Include(g => g.GameGenres).ThenInclude(gg => gg.Genre)
-                .Include(g => g.GamePlatforms).ThenInclude(gp => gp.Platform) // НОВО
+                .Include(g => g.GamePlatforms).ThenInclude(gp => gp.Platform)
                 .AsQueryable();
 
-            // ... филтрирането си остава същото ...
+            // 1. ФИЛТЪР ПО ТЪРСЕНЕ (ИМЕ)
+            if (!string.IsNullOrWhiteSpace(searchQuery))
+            {
+                query = query.Where(g => g.Title.ToLower().Contains(searchQuery.ToLower()));
+            }
+
+            // 2. ФИЛТЪР ПО ЖАНР
+            if (!string.IsNullOrWhiteSpace(genre))
+            {
+                query = query.Where(g => g.GameGenres.Any(gg => gg.Genre.Name == genre));
+            }
+
+            // 3. ФИЛТЪР ПО ЦЕНА
+            if (maxPrice.HasValue)
+            {
+                query = query.Where(g => g.Price <= maxPrice.Value);
+            }
 
             int totalCount = await query.CountAsync();
 
             var games = await query
-                .OrderByDescending(g => g.ReleaseDate)
+                .OrderByDescending(g => g.ReleaseDate) // Най-новите първи
                 .Skip((page - 1) * pageSize)
                 .Take(pageSize)
                 .Select(g => new GameDto
@@ -39,8 +55,8 @@ namespace HeatGames.Core.Services
                     Price = g.Price,
                     CoverImageUrl = g.CoverImageUrl,
                     DeveloperId = g.DeveloperId,
-                    // Мапваме имената на платформите за показване в каталога
-                    Platforms = g.GamePlatforms.Select(p => p.Platform.Name).ToList()
+                    Platforms = g.GamePlatforms.Select(p => p.Platform.Name).ToList(),
+                    Genres = g.GameGenres.Select(gg => gg.Genre.Name).ToList()
                 })
                 .ToListAsync();
 

@@ -33,19 +33,23 @@ namespace HeatGamesWeb.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Index(string? searchQuery, string? genre, decimal? maxPrice, int page = 1)
         {
-            int pageSize = 8; // Колко игри да показваме на една страница
+            // 1. Вдигаме лимита на 16 игри (както поиска)
+            int pageSize = 16;
 
             // Сървисът вече ни връща обект (Tuple) с .Games и .TotalCount
             var result = await _gameService.GetAllGamesAsync(searchQuery, genre, maxPrice, page, pageSize);
 
-            // ТУК Е ПОПРАВКАТА: Извикваме .Select върху result.Games!
+            // ТУК Е ПОПРАВКАТА: Прехвърляме и новите полета!
             var viewModels = result.Games.Select(dto => new GameViewModel
             {
                 Id = dto.Id,
                 Title = dto.Title,
                 Price = dto.Price,
                 CoverImageUrl = dto.CoverImageUrl,
-                DeveloperId = dto.DeveloperId
+                DeveloperId = dto.DeveloperId,
+                // ДОБАВЕНО: Взимаме жанровете и платформите от DTO-то!
+                Platforms = dto.Platforms,
+                Genres = dto.Genres
             }).ToList();
 
             var genres = await _genreService.GetAllGenresAsync();

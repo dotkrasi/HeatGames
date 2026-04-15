@@ -1,0 +1,98 @@
+﻿@model IEnumerable<HeatGames.Core.DTOs.OrderDto>
+
+@{
+    ViewData["Title"] = "Управление на всички поръчки";
+}
+
+<style>
+    /* ТЪМНО-ЛИЛАВ СТИЛ ЗА АДМИН ПАНЕЛА */
+    .admin-card {
+        background-color: #230046;
+        border: 1px solid #4a0080;
+        border-radius: 8px;
+        color: #e6d9ff;
+    }
+
+    .table-dark-purple {
+        color: #e6d9ff;
+        background-color: transparent;
+    }
+
+        .table-dark-purple th {
+            border-bottom: 2px solid #8d00c4;
+            color: #c4a6ff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .table-dark-purple td {
+            border-bottom: 1px solid #4a0080;
+            vertical-align: middle;
+        }
+
+        .table-dark-purple tbody tr:hover {
+            background-color: #1a0033;
+        }
+</style>
+
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-12">
+
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 style="color: #e6d9ff;" class="fw-bold">
+                    <i class="bi bi-receipt" style="color: #be00ff;"></i> Всички Поръчки в Магазина
+                </h2>
+                <span class="badge" style="background-color: #4a0080; font-size: 1rem; padding: 8px 15px;">
+                    Общо: @(Model?.Count() ?? 0)
+                </span>
+            </div>
+
+            <div class="admin-card shadow-lg p-4">
+                @if (Model == null || !Model.Any())
+                {
+                    <div class="alert text-center m-0" style="background-color: #1a0033; border: 1px dashed #4a0080; color: #c4a6ff;">
+                        <i class="bi bi-info-circle fs-4 d-block mb-2"></i>
+                        Все още няма направени поръчки в магазина.
+                    </div>
+                }
+                else
+                {
+                    <div class="table-responsive">
+                        <table class="table table-dark-purple table-hover mb-0">
+                            <thead>
+                                <tr>
+                                    <th>№ Поръчка</th>
+                                    <th>Потребител</th>
+                                    <th>Дата</th>
+                                    <th>Артикули</th>
+                                    <th class="text-end">Общо платено</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var order in Model)
+                                {
+                                    <tr>
+                                        <td class="text-muted small" style="font-family: monospace;">@order.Id.ToString().Substring(0, 8)...</td>
+                                        <td class="fw-bold text-info"><i class="bi bi-person-fill me-1"></i> @order.UserName</td>
+                                        <td>@order.OrderDate.ToString("dd.MM.yyyy HH:mm")</td>
+                                        <td>
+                                            <ul class="list-unstyled mb-0 small">
+                                                @foreach (var item in order.OrderItems)
+                                                {
+                                                    <li><i class="bi bi-controller me-1" style="color: #c4a6ff;"></i> @item.GameTitle <span class="text-muted">(@item.PriceAtPurchase лв.)</span></li>
+                                                }
+                                            </ul>
+                                        </td>
+                                        <td class="text-end fw-bold text-success fs-5">@order.TotalAmount.ToString("0.00") лв.</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                }
+            </div>
+
+        </div>
+    </div>
+</div>

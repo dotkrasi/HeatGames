@@ -41,11 +41,14 @@
                 color: #e6d9ff;
                 font-size: 13px;
                 padding: 8px 20px;
+                transition: all 0.2s ease-in-out;
             }
 
+                /* 🎯 ФИКС ЗА DROPDOWN ITEMS НА HOVER 🎯 */
                 .steam-dropdown-menu .dropdown-item:hover {
-                    background-color: #4a0080;
-                    color: #ffffff;
+                    background-color: #8d00c4 !important; /* По-ярко лилаво за фон */
+                    color: #ffffff !important; /* СНЕЖНО БЯЛО ЗА БУКВИТЕ */
+                    text-decoration: none !important;
                 }
 
         /* Принудително подравняване вдясно за профилното меню (за да не излиза от екрана) */
@@ -53,6 +56,7 @@
             right: 0 !important;
             left: auto !important;
         }
+
         /* ЛИЛАВА ПАЛЕТА ОТ СНИМКАТА */
         body {
             background-color: #000000; /* 1. Чисто ЧЕРНО за основен фон */
@@ -79,30 +83,6 @@
                 color: #be00ff !important; /* 5. Най-яркото лилаво (Магента) */
             }
 
-        /* ПАДАЩИ МЕНЮТА ПРИ HOVER */
-        .steam-dropdown:hover > .dropdown-menu {
-            display: block;
-            margin-top: 0 !important;
-        }
-
-        .steam-dropdown-menu {
-            background-color: #230046; /* 2. Тъмно лилаво за менютата */
-            border: 1px solid #4a0080; /* 3. Средно лилаво за рамка */
-            border-radius: 0;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.8);
-        }
-
-            .steam-dropdown-menu .dropdown-item {
-                color: #e6d9ff;
-                font-size: 13px;
-                padding: 8px 20px;
-            }
-
-                .steam-dropdown-menu .dropdown-item:hover {
-                    background-color: #4a0080; /* 3. Средно лилаво при посочване */
-                    color: #ffffff;
-                }
-
         /* Стил за профила горе вдясно */
         .steam-profile-btn {
             background-color: #000000;
@@ -116,6 +96,31 @@
             .steam-profile-btn:hover {
                 color: #ffffff;
             }
+
+        /* 🎯🎯🎯 ГЕНЕРАЛЕН ФИКС ЗА ЧЕТЛИВОСТ НА HOVER НА ЦЕЛИЯ САЙТ 🎯🎯🎯 */
+        body a {
+            transition: color 0.1s ease-in-out !important;
+        }
+
+            /* Фикс за обикновени линкове */
+            body a:hover {
+                color: #ffffff !important;
+                text-decoration: none !important;
+            }
+
+        /* 🔹 СПЕЦИАЛЕН ФИКС ЗА СИНИТЕ ПОТРЕБИТЕЛСКИ ИМЕНА В ТАБЛИЦАТА 🔹 */
+        .table-responsive a, .text-info a {
+            color: #00d2ff !important; /* Ярко цианово синьо */
+        }
+
+            .table-responsive a:hover, .text-info a:hover {
+                color: #ffffff !important; /* БЯЛО НА HOVER */
+            }
+
+        /* Убиваме гадния навик на Bootstrap да затъмнява специалните цветове */
+        .text-success:hover, .text-danger:hover, .text-warning:hover, .text-primary:hover {
+            color: #ffffff !important;
+        }
     </style>
 </head>
 <body>
@@ -168,12 +173,12 @@
                                     <li><a class="dropdown-item" asp-controller="Genre" asp-action="Index">Genres</a></li>
                                     <li><a class="dropdown-item" asp-controller="Platform" asp-action="Index">Platforms</a></li>
                                     <li><a class="dropdown-item" asp-controller="Games" asp-action="Create">Add New Game</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Orders" asp-action="Manage">All Orders</a></li>
                                 </ul>
                             </li>
                         }
                     </ul>
 
-                    @* ——— ТОВА БЕШЕ БЛОКЪТ ЗА ПРОФИЛА. ВЕЧЕ Е ОБНОВЕН С ЛИНКА И СНИМКАТА! ——— *@
                     <ul class="navbar-nav align-items-center gap-3">
                         @if (User.Identity?.IsAuthenticated ?? false)
                         {
@@ -186,12 +191,22 @@
                                     </div>
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-end steam-dropdown-menu">
-                                    <li><a class="dropdown-item text-white fw-bold" asp-controller="User" asp-action="Index"><i class="bi bi-person-fill me-2" style="color: #be00ff;"></i>Моят Профил</a></li>
-                                    <li><a class="dropdown-item text-success fw-bold" asp-controller="Wallet" asp-action="Index"><i class="bi bi-wallet2"></i> Портфейл</a></li>
+                                    <li>
+                                        <a class="dropdown-item fw-bold" asp-controller="User" asp-action="Index" style="color: #c4a6ff;">
+                                            <i class="bi bi-person-fill me-2"></i>Моят Профил
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item fw-bold" asp-controller="Wallet" asp-action="Index" style="color: #2bd45f;">
+                                            <i class="bi bi-wallet2 me-2"></i> Портфейл
+                                        </a>
+                                    </li>
                                     <li><hr class="dropdown-divider bg-secondary"></li>
                                     <li>
                                         <form asp-controller="Account" asp-action="Logout" method="post" class="m-0 p-0">
-                                            <button type="submit" class="dropdown-item text-danger">Sign out</button>
+                                            <button type="submit" class="dropdown-item fw-bold" style="color: #ff4d4d; border: none; background: transparent; width: 100%; text-align: left;">
+                                                Sign out
+                                            </button>
                                         </form>
                                     </li>
                                 </ul>

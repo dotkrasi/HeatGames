@@ -55,5 +55,14 @@ namespace HeatGamesWeb.Controllers
                 return RedirectToAction("Details", "Games", new { id = gameId });
             }
         }
+
+        // 🔹 GET: Всички поръчки (САМО ЗА АДМИНИ)
+        [Authorize(Roles = "Admin")]
+        [HttpGet]
+        public async Task<IActionResult> Manage()
+        {
+            var allOrders = await _orderService.GetAllOrdersAsync();
+            return View(allOrders);
+        }
     }
 }

@@ -3,13 +3,31 @@
 @{
     ViewData["Title"] = "Каталог с игри";
 
-    // Взимаме първата игра само за рекламния банер отгоре (Само ако няма филтри!)
     bool hasFilters = !string.IsNullOrEmpty(ViewBag.CurrentSearch) || !string.IsNullOrEmpty(ViewBag.CurrentGenre) || ViewBag.CurrentMaxPrice != null;
 
-    var featuredGame = hasFilters ? null : Model.FirstOrDefault();
+    // 1. Дефинираме страницата ЕДНОКРАТНО тук (това оправя грешката CS0136)
+    int currentPage = ViewBag.CurrentPage != null ? (int)ViewBag.CurrentPage : 1;
+    bool isFirstPage = currentPage == 1;
 
-    // Ако има банер, го прескачаме в решетката долу
-    var displayGames = featuredGame != null ? Model.Skip(1) : Model;
+    HeatGamesWeb.ViewModels.GameViewModel featuredGame = null;
+
+    // 2. ИГРИТЕ СИ ОСТАВАТ В КАТАЛОГА
+    IEnumerable<HeatGamesWeb.ViewModels.GameViewModel> displayGames = Model;
+
+    // 3. БАНЕРЪТ Е САМО ЗА ПЪРВА СТРАНИЦА (без филтри)
+    if (!hasFilters && isFirstPage && Model.Any())
+    {
+        int totalGames = Model.Count();
+
+        // МАТЕМАТИЧЕСКА МАГИЯ: Числото се сменя само при нова минута
+        var now = DateTime.Now;
+        int timeSeed = now.Year + now.Month + now.Day + now.Hour + now.Minute;
+
+        Random seededRandom = new Random(timeSeed);
+        int randomIndex = seededRandom.Next(0, totalGames);
+
+        featuredGame = Model.ElementAt(randomIndex);
+    }
 }
 
 <style>
@@ -35,7 +53,6 @@
             border-radius: 4px;
         }
 
-    /* Банерът за първата игра */
     .featured-game-card {
         background-color: #230046;
         border: 1px solid #4a0080;
@@ -50,7 +67,6 @@
         object-fit: cover;
     }
 
-    /* Малките карти */
     .game-card {
         background-color: #230046;
         border: 1px solid #4a0080;
@@ -70,7 +86,6 @@
         border-radius: 4px 4px 0 0;
     }
 
-    /* Цветове за цени и бутони */
     .price-text {
         font-size: 18px;
         font-weight: bold;
@@ -106,7 +121,6 @@
             color: #ffffff;
         }
 
-    /* Стил за търсачката */
     .search-input {
         background-color: #000000;
         border: 1px solid #4a0080;
@@ -120,7 +134,6 @@
             box-shadow: none;
         }
 
-    /* Стил за пагинация */
     .page-link-dark {
         background-color: #1a0033;
         border-color: #4a0080;
@@ -141,7 +154,6 @@
 
 <div class="row mt-4">
     <div class="col-md-3 col-lg-2 mb-4">
-
         <div class="mb-4">
             <form asp-action="Index" method="get">
                 @if (!string.IsNullOrEmpty(ViewBag.CurrentGenre))
@@ -169,10 +181,7 @@
                 {
                     foreach (var genre in (IEnumerable<HeatGames.Core.DTOs.GenreDto>)ViewBag.Genres)
                     {
-                        // Взимаме само първата дума от жанра за линка
-                        string genreWord = genre.Name.Split(' ')[0];
-                        bool isActive = ViewBag.CurrentGenre == genreWord || ViewBag.CurrentGenre == genre.Name;
-
+                        bool isActive = ViewBag.CurrentGenre == genre.Name;
                         <a asp-action="Index" asp-route-genre="@genre.Name" asp-route-maxPrice="@ViewBag.CurrentMaxPrice" asp-route-searchQuery="@ViewBag.CurrentSearch" class="store-sidebar-link @(isActive ? "active fw-bold" : "")">
                             @genre.Name
                         </a>
@@ -201,7 +210,6 @@
     </div>
 
     <div class="col-md-9 col-lg-10">
-
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h2 style="color: #e6d9ff;">
                 @if (hasFilters)
@@ -233,6 +241,7 @@
         }
         else
         {
+            @* БАНЕРЪТ ЗА ИГРА НА СЕДМИЦАТА *@
             @if (featuredGame != null)
             {
                 <div class="featured-game-card shadow-lg">
@@ -246,15 +255,15 @@
                             }
                         </div>
                         <div class="col-md-4">
-                            <div class="card-body p-4 d-flex flex-column h-100">
+                            <div class="card-body p-4 d-flex flex-column h-100" style="background-color: #230046;">
                                 <h3 class="card-title fw-bold text-white mb-2">@featuredGame.Title</h3>
-
                                 <p class="card-text mt-3" style="color: #c4a6ff; font-size: 14px;">
                                     Избрана игра за тази седмица. Не пропускайте възможността да я добавите в библиотеката си!
                                 </p>
-
-                                <div class="mt-auto pt-4 text-end">
-                                    <span class="price-text me-3">@featuredGame.Price.ToString("0.00") лв.</span>
+                                <div class="mt-auto pt-4 text-end pb-3">
+                                    <span class="price-text me-3">
+                                        @(featuredGame.Price == 0 ? "БЕЗПЛАТНО" : featuredGame.Price.ToString("0.00") + " лв.")
+                                    </span>
                                     <a asp-action="Details" asp-route-id="@featuredGame.Id" class="btn btn-purple fw-bold px-4">Детайли</a>
                                 </div>
                             </div>
@@ -263,7 +272,7 @@
                 </div>
             }
 
-            @if (!hasFilters)
+            @if (!hasFilters && isFirstPage)
             {
                 <h4 class="fw-bold mb-3 mt-5" style="color: #e6d9ff;">Всички игри</h4>
             }
@@ -291,7 +300,6 @@
                                     @item.Title
                                 </h6>
 
-                                @* ДОБАВЕНО: Платформи *@
                                 <div class="mb-2">
                                     @if (item.Platforms != null && item.Platforms.Any())
                                     {
@@ -332,12 +340,9 @@
                 }
             </div>
 
-            @* ——— ПАГИНАЦИЯ ——— *@
             @if (ViewBag.TotalPages != null && ViewBag.TotalPages > 1)
             {
-                int currentPage = ViewBag.CurrentPage;
                 int totalPages = ViewBag.TotalPages;
-
                 <nav class="mt-5">
                     <ul class="pagination justify-content-center">
                         <li class="page-item @(currentPage == 1 ? "disabled" : "")">
@@ -378,3 +383,15 @@
         }
     </div>
 </div>
+
+@section Scripts {
+    <script>
+        let initialMinute = new Date().getMinutes();
+        setInterval(function() {
+            let currentMinute = new Date().getMinutes();
+            if (currentMinute !== initialMinute) {
+                window.location.reload();
+            }
+        }, 5000);
+    </script>
+}

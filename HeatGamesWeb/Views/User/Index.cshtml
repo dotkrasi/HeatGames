@@ -34,6 +34,13 @@
         border: 1px solid #4a0080;
     }
 
+        /* 🎯 ФИКС: Спираме Bootstrap да прави readonly полетата бели */
+        .admin-input[readonly] {
+            background-color: #000000 !important;
+            color: #acb1b8 !important; /* Леко по-тъмен текст, за да си личи, че е заключено */
+            opacity: 1; /* Премахва допълнителното избледняване в някои браузъри */
+        }
+
         .admin-input:focus {
             background-color: #1a0033;
             color: #ffffff;

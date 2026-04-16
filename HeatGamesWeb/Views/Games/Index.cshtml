@@ -3,23 +3,22 @@
 @{
     ViewData["Title"] = "Каталог с игри";
 
-    bool hasFilters = !string.IsNullOrEmpty(ViewBag.CurrentSearch) || !string.IsNullOrEmpty(ViewBag.CurrentGenre) || ViewBag.CurrentMaxPrice != null;
+    // Добавихме и проверка за MinPrice
+    bool hasFilters = !string.IsNullOrEmpty(ViewBag.CurrentSearch) ||
+                      !string.IsNullOrEmpty(ViewBag.CurrentGenre) ||
+                      ViewBag.CurrentMaxPrice != null ||
+                      ViewBag.CurrentMinPrice != null;
 
-    // 1. Дефинираме страницата ЕДНОКРАТНО тук (това оправя грешката CS0136)
     int currentPage = ViewBag.CurrentPage != null ? (int)ViewBag.CurrentPage : 1;
     bool isFirstPage = currentPage == 1;
 
     HeatGamesWeb.ViewModels.GameViewModel featuredGame = null;
 
-    // 2. ИГРИТЕ СИ ОСТАВАТ В КАТАЛОГА
     IEnumerable<HeatGamesWeb.ViewModels.GameViewModel> displayGames = Model;
 
-    // 3. БАНЕРЪТ Е САМО ЗА ПЪРВА СТРАНИЦА (без филтри)
     if (!hasFilters && isFirstPage && Model.Any())
     {
         int totalGames = Model.Count();
-
-        // МАТЕМАТИЧЕСКА МАГИЯ: Числото се сменя само при нова минута
         var now = DateTime.Now;
         int timeSeed = now.Year + now.Month + now.Day + now.Hour + now.Minute;
 
@@ -31,27 +30,13 @@
 }
 
 <style>
+    /* Тъмен сайдбар с формата */
     .store-sidebar {
         background-color: #230046;
         border: 1px solid #4a0080;
-        border-radius: 4px;
-        padding: 15px;
+        border-radius: 8px;
+        padding: 20px;
     }
-
-    .store-sidebar-link {
-        color: #e6d9ff;
-        text-decoration: none;
-        display: block;
-        padding: 8px 10px;
-        font-size: 14px;
-        transition: 0.2s;
-    }
-
-        .store-sidebar-link:hover, .store-sidebar-link.active {
-            background-color: #4a0080;
-            color: #ffffff;
-            border-radius: 4px;
-        }
 
     .featured-game-card {
         background-color: #230046;
@@ -77,6 +62,7 @@
         .game-card:hover {
             border-color: #be00ff;
             transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(190, 0, 255, 0.15);
         }
 
     .game-card-img {
@@ -102,11 +88,13 @@
         background-color: #8d00c4;
         color: #ffffff;
         border: none;
+        transition: 0.2s;
     }
 
         .btn-purple:hover {
             background-color: #be00ff;
             color: #ffffff;
+            box-shadow: 0 4px 15px rgba(190, 0, 255, 0.4);
         }
 
     .btn-outline-purple {
@@ -121,18 +109,24 @@
             color: #ffffff;
         }
 
-    .search-input {
+    /* Стил за Input полетата и Dropdown-а */
+    .filter-input {
         background-color: #000000;
         border: 1px solid #4a0080;
         color: #e6d9ff;
     }
 
-        .search-input:focus {
+        .filter-input:focus {
             background-color: #1a0033;
             border-color: #be00ff;
             color: #ffffff;
-            box-shadow: none;
+            box-shadow: 0 0 5px rgba(190, 0, 255, 0.5);
         }
+
+    /* За да направим стрелката на select-а бяла/видима */
+    .form-select.filter-input {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23e6d9ff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+    }
 
     .page-link-dark {
         background-color: #1a0033;
@@ -152,80 +146,84 @@
     }
 </style>
 
-<div class="row mt-4">
-    <div class="col-md-3 col-lg-2 mb-4">
-        <div class="mb-4">
+<div class="row mt-4 mb-5">
+    <div class="col-md-4 col-lg-3 mb-4">
+        <div class="store-sidebar shadow-lg sticky-top" style="top: 20px; z-index: 99;">
+            <h5 class="text-uppercase fw-bold mb-4 border-bottom border-secondary pb-2" style="color: #e6d9ff;">
+                <i class="bi bi-funnel-fill" style="color: #be00ff;"></i> Филтри
+            </h5>
+
             <form asp-action="Index" method="get">
-                @if (!string.IsNullOrEmpty(ViewBag.CurrentGenre))
-                {
-                    <input type="hidden" name="genre" value="@ViewBag.CurrentGenre" />
-                }
-                @if (ViewBag.CurrentMaxPrice != null)
-                {
-                    <input type="hidden" name="maxPrice" value="@ViewBag.CurrentMaxPrice" />
-                }
 
-                <div class="input-group shadow-sm">
-                    <input type="text" name="searchQuery" value="@ViewBag.CurrentSearch" class="form-control search-input" placeholder="Търси игра...">
-                    <button class="btn btn-purple" type="submit"><i class="bi bi-search"></i></button>
+                <div class="mb-4">
+                    <label class="form-label text-muted small fw-bold mb-1">ИМЕ НА ИГРА</label>
+                    <div class="input-group">
+                        <span class="input-group-text filter-input border-end-0 text-muted"><i class="bi bi-search"></i></span>
+                        <input type="text" name="searchQuery" value="@ViewBag.CurrentSearch" class="form-control filter-input border-start-0 ps-0" placeholder="Търси...">
+                    </div>
                 </div>
+
+                <div class="mb-4">
+                    <label class="form-label text-muted small fw-bold mb-1">ЖАНР</label>
+                    <select name="genre" class="form-select filter-input">
+                        <option value="">Всички жанрове</option>
+                        @if (ViewBag.Genres != null)
+                        {
+                            foreach (var genre in (IEnumerable<HeatGames.Core.DTOs.GenreDto>)ViewBag.Genres)
+                            {
+                                if (ViewBag.CurrentGenre == genre.Name)
+                                {
+                                    <option value="@genre.Name" selected>@genre.Name</option>
+                                }
+                                else
+                                {
+                                    <option value="@genre.Name">@genre.Name</option>
+                                }
+                            }
+                        }
+                    </select>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label text-muted small fw-bold mb-1">ЦЕНА (ЛВ.)</label>
+                    <div class="d-flex align-items-center gap-2">
+                        <input type="number" name="minPrice" value="@ViewBag.CurrentMinPrice" class="form-control filter-input text-center" placeholder="От" min="0" step="0.01">
+                        <span style="color: #acb1b8;">-</span>
+                        <input type="number" name="maxPrice" value="@ViewBag.CurrentMaxPrice" class="form-control filter-input text-center" placeholder="До" min="0" step="0.01">
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-purple w-100 fw-bold py-2 mb-2">
+                    ПРИЛОЖИ ФИЛТРИ
+                </button>
+
+                @if (hasFilters)
+                {
+                    <a asp-action="Index" class="btn btn-outline-danger w-100 fw-bold border-0 mt-1">
+                        <i class="bi bi-x-circle me-1"></i> Изчисти
+                    </a>
+                }
             </form>
-        </div>
-
-        <div class="store-sidebar shadow-sm">
-            <h6 class="text-uppercase fw-bold mb-3" style="color: #c4a6ff; font-size: 12px; letter-spacing: 1px;">Жанрове</h6>
-            <nav class="nav flex-column">
-                <a asp-action="Index" asp-route-maxPrice="@ViewBag.CurrentMaxPrice" asp-route-searchQuery="@ViewBag.CurrentSearch" class="store-sidebar-link @(string.IsNullOrEmpty(ViewBag.CurrentGenre) ? "active fw-bold" : "")">Всички жанрове</a>
-
-                @if (ViewBag.Genres != null)
-                {
-                    foreach (var genre in (IEnumerable<HeatGames.Core.DTOs.GenreDto>)ViewBag.Genres)
-                    {
-                        bool isActive = ViewBag.CurrentGenre == genre.Name;
-                        <a asp-action="Index" asp-route-genre="@genre.Name" asp-route-maxPrice="@ViewBag.CurrentMaxPrice" asp-route-searchQuery="@ViewBag.CurrentSearch" class="store-sidebar-link @(isActive ? "active fw-bold" : "")">
-                            @genre.Name
-                        </a>
-                    }
-                }
-            </nav>
-
-            <hr style="border-color: #4a0080;" class="my-4" />
-
-            <h6 class="text-uppercase fw-bold mb-3" style="color: #c4a6ff; font-size: 12px; letter-spacing: 1px;">Цена</h6>
-            <nav class="nav flex-column">
-                <a asp-action="Index" asp-route-genre="@ViewBag.CurrentGenre" asp-route-searchQuery="@ViewBag.CurrentSearch" class="store-sidebar-link @(ViewBag.CurrentMaxPrice == null ? "active fw-bold" : "")">Всички цени</a>
-                <a asp-action="Index" asp-route-maxPrice="10" asp-route-genre="@ViewBag.CurrentGenre" asp-route-searchQuery="@ViewBag.CurrentSearch" class="store-sidebar-link @(ViewBag.CurrentMaxPrice == 10m ? "active fw-bold" : "")">Под 10 лв.</a>
-                <a asp-action="Index" asp-route-maxPrice="20" asp-route-genre="@ViewBag.CurrentGenre" asp-route-searchQuery="@ViewBag.CurrentSearch" class="store-sidebar-link @(ViewBag.CurrentMaxPrice == 20m ? "active fw-bold" : "")">Под 20 лв.</a>
-                <a asp-action="Index" asp-route-maxPrice="50" asp-route-genre="@ViewBag.CurrentGenre" asp-route-searchQuery="@ViewBag.CurrentSearch" class="store-sidebar-link @(ViewBag.CurrentMaxPrice == 50m ? "active fw-bold" : "")">Под 50 лв.</a>
-                <a asp-action="Index" asp-route-maxPrice="0" asp-route-genre="@ViewBag.CurrentGenre" asp-route-searchQuery="@ViewBag.CurrentSearch" class="store-sidebar-link @(ViewBag.CurrentMaxPrice == 0m ? "active fw-bold text-success" : "")">Безплатни</a>
-            </nav>
-
-            @if (hasFilters)
-            {
-                <div class="mt-4 text-center">
-                    <a asp-action="Index" class="btn btn-sm btn-outline-danger w-100"><i class="bi bi-x-circle"></i> Изчисти филтрите</a>
-                </div>
-            }
         </div>
     </div>
 
-    <div class="col-md-9 col-lg-10">
+    <div class="col-md-8 col-lg-9">
         <div class="d-flex justify-content-between align-items-center mb-4">
-            <h2 style="color: #e6d9ff;">
+            <h2 style="color: #e6d9ff;" class="fw-bold">
                 @if (hasFilters)
                 {
-                    <span>Резултати от търсенето (@ViewBag.TotalCount)</span>
+                    <span><i class="bi bi-list-stars me-2 text-info"></i> Резултати (@ViewBag.TotalCount)</span>
                 }
                 else
                 {
-                    <span>Магазин</span>
+                    <span><i class="bi bi-shop me-2 text-info"></i> Магазин</span>
                 }
             </h2>
 
             @if (User.IsInRole("Admin"))
             {
-                <a asp-action="Create" class="btn btn-purple shadow-sm">
-                    <i class="bi bi-plus-circle"></i> Добави нова игра
+                <a asp-action="Create" class="btn btn-purple shadow-sm fw-bold">
+                    <i class="bi bi-plus-circle me-1"></i> Добави игра
                 </a>
             }
         </div>
@@ -234,9 +232,9 @@
         {
             <div class="alert text-center py-5 shadow-sm" style="background-color: #1a0033; border: 1px dashed #4a0080; color: #c4a6ff; border-radius: 8px;">
                 <i class="bi bi-search fs-1 d-block mb-3"></i>
-                <h4 class="text-white">Няма намерени игри</h4>
-                <p>Опитайте да промените филтрите или да потърсите с друго име.</p>
-                <a asp-action="Index" class="btn btn-outline-purple mt-2">Виж всички игри</a>
+                <h4 class="text-white fw-bold">Няма намерени игри</h4>
+                <p>Опитайте да промените филтрите или ценовия диапазон.</p>
+                <a asp-action="Index" class="btn btn-outline-purple mt-2 fw-bold">Виж всички игри</a>
             </div>
         }
         else
@@ -274,10 +272,10 @@
 
             @if (!hasFilters && isFirstPage)
             {
-                <h4 class="fw-bold mb-3 mt-5" style="color: #e6d9ff;">Всички игри</h4>
+                <h4 class="fw-bold mb-3 mt-5 border-bottom border-secondary pb-2" style="color: #e6d9ff;">Всички игри</h4>
             }
 
-            <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
                 @foreach (var item in displayGames)
                 {
                     <div class="col">
@@ -327,10 +325,10 @@
                                     <hr class="mt-3 mb-2" style="border-color: #4a0080;" />
                                     <div class="d-grid gap-1 d-md-flex justify-content-md-center">
                                         <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning w-100" style="font-size: 12px; padding: 4px;">
-                                            <i class="bi bi-pencil"></i>
+                                            <i class="bi bi-pencil" style="color: white;"></i>
                                         </a>
                                         <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger w-100" style="font-size: 12px; padding: 4px;">
-                                            <i class="bi bi-trash"></i>
+                                            <i class="bi bi-trash" style="color: white;"></i>
                                         </a>
                                     </div>
                                 }
@@ -340,16 +338,18 @@
                 }
             </div>
 
+            @* ПАГИНАЦИЯ *@
             @if (ViewBag.TotalPages != null && ViewBag.TotalPages > 1)
             {
                 int totalPages = ViewBag.TotalPages;
                 <nav class="mt-5">
                     <ul class="pagination justify-content-center">
                         <li class="page-item @(currentPage == 1 ? "disabled" : "")">
-                            <a class="page-link page-link-dark" asp-action="Index"
+                            <a class="page-link page-link-dark fw-bold" asp-action="Index"
                                asp-route-page="@(currentPage - 1)"
                                asp-route-searchQuery="@ViewBag.CurrentSearch"
                                asp-route-genre="@ViewBag.CurrentGenre"
+                               asp-route-minPrice="@ViewBag.CurrentMinPrice"
                                asp-route-maxPrice="@ViewBag.CurrentMaxPrice">
                                 &laquo;
                             </a>
@@ -358,10 +358,11 @@
                         @for (int i = 1; i <= totalPages; i++)
                         {
                             <li class="page-item @(i == currentPage ? "active" : "")">
-                                <a class="page-link page-link-dark" asp-action="Index"
+                                <a class="page-link page-link-dark fw-bold" asp-action="Index"
                                    asp-route-page="@i"
                                    asp-route-searchQuery="@ViewBag.CurrentSearch"
                                    asp-route-genre="@ViewBag.CurrentGenre"
+                                   asp-route-minPrice="@ViewBag.CurrentMinPrice"
                                    asp-route-maxPrice="@ViewBag.CurrentMaxPrice">
                                     @i
                                 </a>
@@ -369,10 +370,11 @@
                         }
 
                         <li class="page-item @(currentPage == totalPages ? "disabled" : "")">
-                            <a class="page-link page-link-dark" asp-action="Index"
+                            <a class="page-link page-link-dark fw-bold" asp-action="Index"
                                asp-route-page="@(currentPage + 1)"
                                asp-route-searchQuery="@ViewBag.CurrentSearch"
                                asp-route-genre="@ViewBag.CurrentGenre"
+                               asp-route-minPrice="@ViewBag.CurrentMinPrice"
                                asp-route-maxPrice="@ViewBag.CurrentMaxPrice">
                                 &raquo;
                             </a>

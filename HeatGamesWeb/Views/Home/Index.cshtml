@@ -11,25 +11,26 @@
 }
 
 <style>
-    /* Премахваме стандартните отстояния, за да изглежда по-широко */
+    /* Основен фон на страницата (Тъмна тема на HeatGames) */
     .home-wrapper {
         margin-top: -1.5rem;
-        background-color: #0d121a; /* Класическо Steam тъмно синьо-черно */
+        background-color: #000000; /* Чисто черно */
         min-height: 100vh;
         padding-bottom: 50px;
     }
 
-    /* STEAM СЛАЙДЪР */
+    /* HEATGAMES СЛАЙДЪР */
     .steam-banner-section {
-        background: linear-gradient(to bottom, #1b2838 0%, #0d121a 100%);
+        background: linear-gradient(to bottom, #1a0033 0%, #000000 100%);
         padding: 40px 0;
-        border-bottom: 1px solid #230046;
+        border-bottom: 1px solid #4a0080; /* Тъмно лилава линия */
     }
 
     .slider-container {
-        box-shadow: 0 10px 30px rgba(0,0,0,0.7);
-        background: #0f161f;
-        border-radius: 2px;
+        box-shadow: 0 10px 30px rgba(190, 0, 255, 0.2); /* Леко лилаво сияние */
+        background: #230046;
+        border-radius: 8px;
+        border: 1px solid #4a0080;
     }
 
     .slider-img {
@@ -38,79 +39,105 @@
     }
 
     .slider-info {
-        background: #0f161f;
+        background: #230046;
         padding: 30px;
         color: white;
     }
 
+    /* ЦЕНОВИ ЕТИКЕТ (HeatGames Style) */
     .price-badge-steam {
-        background-color: #4c6b22;
-        color: #beee11;
-        padding: 3px 10px;
+        background-color: transparent;
+        color: #be00ff; /* Неоново лилаво */
+        padding: 3px 0;
         font-weight: bold;
-        font-size: 1.2rem;
+        font-size: 1.5rem;
         display: inline-block;
-        border-radius: 2px;
     }
 
     /* ЗАГЛАВИЯ НА СЕКЦИИ */
     .section-header {
-        color: #ffffff;
-        font-size: 14px;
+        color: #e6d9ff; /* Светло лилаво за текст */
+        font-size: 16px;
         text-transform: uppercase;
         letter-spacing: 2px;
         margin: 40px 0 20px 0;
         padding-left: 10px;
-        border-left: 3px solid #be00ff;
+        border-left: 4px solid #be00ff;
+        font-weight: bold;
     }
 
     /* МАЛКИ КАРТИ */
     .mini-game-card {
-        background: #16202d;
-        border: none;
-        transition: transform 0.2s, background 0.2s;
+        background: #1a0033; /* Тъмно лилаво */
+        border: 1px solid #4a0080;
+        transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
         height: 100%;
+        border-radius: 8px;
+        overflow: hidden;
     }
 
         .mini-game-card:hover {
-            background: #1b2838;
-            transform: scale(1.03);
+            background: #230046;
+            transform: translateY(-5px);
+            border-color: #be00ff;
+            box-shadow: 0 5px 15px rgba(190, 0, 255, 0.2);
         }
 
+    /* БУТОНИ (HeatGames Style) */
     .btn-buy-steam {
-        background: linear-gradient(to right, #47bfff 0%, #1a44c2 100%);
+        background-color: #8d00c4;
         border: none;
         color: white;
         font-weight: bold;
-        padding: 10px 20px;
-        border-radius: 2px;
+        padding: 10px 25px;
+        border-radius: 4px;
         text-decoration: none;
+        transition: 0.2s;
+        text-transform: uppercase;
+        letter-spacing: 1px;
     }
 
         .btn-buy-steam:hover {
-            background: linear-gradient(to right, #54c4ff 0%, #1e4bd6 100%);
+            background-color: #be00ff;
             color: white;
+            transform: scale(1.02);
         }
 
+    /* ИНФОРМАЦИОННИ КУТИИ (Категории) */
     .category-box {
-        background: rgba(35, 0, 70, 0.4);
+        background: #1a0033;
         border: 1px solid #4a0080;
         padding: 25px;
         text-align: center;
-        border-radius: 4px;
+        border-radius: 8px;
         transition: 0.3s;
     }
 
         .category-box:hover {
             border-color: #be00ff;
-            background: rgba(35, 0, 70, 0.6);
+            background: #230046;
+            box-shadow: 0 5px 15px rgba(190, 0, 255, 0.15);
+            transform: translateY(-3px);
+        }
+
+    .btn-outline-purple {
+        color: #c4a6ff;
+        border: 1px solid #4a0080;
+        background-color: transparent;
+        transition: 0.2s;
+    }
+
+        .btn-outline-purple:hover {
+            background-color: #be00ff;
+            border-color: #be00ff;
+            color: white;
         }
 </style>
 
 <div class="home-wrapper">
     <section class="steam-banner-section">
         <div class="container">
-            <h2 class="section-header">Препоръчано</h2>
+            <h2 class="section-header">Препоръчано за вас</h2>
             <div id="steamHomeCarousel" class="carousel slide slider-container overflow-hidden" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     @for (int i = 0; i < sliderGames.Count; i++)
@@ -122,43 +149,47 @@
                                     <img src="@game.CoverImageUrl" class="slider-img w-100" alt="@game.Title">
                                 </div>
                                 <div class="col-md-4 slider-info d-flex flex-column justify-content-center">
-                                    <h2 class="fw-bold mb-2">@game.Title</h2>
-                                    <p class="text-muted small mb-4">Вземете я сега и се впуснете в приключението!</p>
+                                    <h2 class="fw-bold mb-2 text-white">@game.Title</h2>
+                                    <p class="mb-4" style="color: #c4a6ff; font-size: 0.95rem;">Открийте нови светове и се впуснете в приключението. Вече налично в HeatGames!</p>
 
-                                    <div class="mb-4">
+                                    <div class="mb-4 mt-auto">
                                         <span class="price-badge-steam">
                                             @(game.Price == 0 ? "БЕЗПЛАТНО" : game.Price.ToString("0.00") + " лв.")
                                         </span>
                                     </div>
 
-                                    <a asp-controller="Games" asp-action="Details" asp-route-id="@game.Id" class="btn btn-buy-steam align-self-start">РАЗГЛЕДАЙ</a>
+                                    <a asp-controller="Games" asp-action="Details" asp-route-id="@game.Id" class="btn btn-buy-steam align-self-start">РАЗГЛЕДАЙ ИГРАТА</a>
                                 </div>
                             </div>
                         </div>
                     }
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#steamHomeCarousel" data-bs-slide="prev">
+                <button class="carousel-control-prev" type="button" data-bs-target="#steamHomeCarousel" data-bs-slide="prev" style="width: 5%;">
                     <span class="carousel-control-prev-icon"></span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#steamHomeCarousel" data-bs-slide="next">
+                <button class="carousel-control-next" type="button" data-bs-target="#steamHomeCarousel" data-bs-slide="next" style="width: 5%;">
                     <span class="carousel-control-next-icon"></span>
                 </button>
             </div>
         </div>
     </section>
 
-    <div class="container mt-2">
+    <div class="container mt-4">
         <h2 class="section-header">Популярни в момента</h2>
-        <div class="row g-3">
+        <div class="row g-4">
             @foreach (var game in trendingGames)
             {
                 <div class="col-md-3">
                     <a asp-controller="Games" asp-action="Details" asp-route-id="@game.Id" class="text-decoration-none">
                         <div class="card mini-game-card">
-                            <img src="@game.CoverImageUrl" class="card-img-top" style="height: 140px; object-fit: cover;">
-                            <div class="card-body p-2">
-                                <p class="text-white mb-1 small fw-bold text-truncate">@game.Title</p>
-                                <p class="text-info mb-0 small">@game.Price.ToString("0.00") лв.</p>
+                            <img src="@game.CoverImageUrl" class="card-img-top" style="height: 160px; object-fit: cover;">
+                            <div class="card-body p-3 d-flex flex-column">
+                                <p class="text-white mb-2 fw-bold text-truncate" title="@game.Title">@game.Title</p>
+                                <div class="mt-auto d-flex justify-content-between align-items-center">
+                                    <span style="color: #be00ff; font-weight: bold; font-size: 1.1rem;">
+                                        @(game.Price == 0 ? "БЕЗПЛАТНО" : game.Price.ToString("0.00") + " лв.")
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </a>
@@ -166,26 +197,29 @@
             }
         </div>
 
-        <div class="row mt-5 g-4">
+        <div class="row mt-5 g-4 pb-4">
             <div class="col-md-4">
                 <div class="category-box">
-                    <i class="bi bi-tags fs-1 text-primary mb-2 d-block"></i>
-                    <h5 class="text-white">Разгледай по Жанр</h5>
-                    <a asp-controller="Games" asp-action="Index" class="btn btn-sm btn-outline-info mt-2">Към магазина</a>
+                    <i class="bi bi-controller fs-1 mb-3 d-block" style="color: #be00ff;"></i>
+                    <h5 class="text-white fw-bold">Разгледай Каталога</h5>
+                    <p style="color: #c4a6ff; font-size: 0.9rem;">Намерете следващата си любима игра сред десетки заглавия.</p>
+                    <a asp-controller="Games" asp-action="Index" class="btn btn-sm btn-outline-purple mt-2 px-4">Към магазина</a>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="category-box">
-                    <i class="bi bi-lightning-charge fs-1 text-warning mb-2 d-block"></i>
-                    <h5 class="text-white">Нови заглавия</h5>
-                    <a asp-controller="Games" asp-action="Index" class="btn btn-sm btn-outline-info mt-2">Виж новото</a>
+                    <i class="bi bi-star-fill fs-1 mb-3 d-block" style="color: #be00ff;"></i>
+                    <h5 class="text-white fw-bold">Топ Игри Под 50 лв.</h5>
+                    <p style="color: #c4a6ff; font-size: 0.9rem;">Страхотни заглавия на достъпни цени. Не ги изпускайте!</p>
+                    <a asp-controller="Games" asp-action="Index" asp-route-maxPrice="50" class="btn btn-sm btn-outline-purple mt-2 px-4">Виж офертите</a>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="category-box">
-                    <i class="bi bi-percent fs-1 text-success mb-2 d-block"></i>
-                    <h5 class="text-white">Специални цени</h5>
-                    <a asp-controller="Games" asp-action="Index" asp-route-maxPrice="20" class="btn btn-sm btn-outline-info mt-2">Под 20 лв.</a>
+                    <i class="bi bi-gift-fill fs-1 mb-3 d-block" style="color: #be00ff;"></i>
+                    <h5 class="text-white fw-bold">Безплатни Приключения</h5>
+                    <p style="color: #c4a6ff; font-size: 0.9rem;">Играйте веднага, без да харчите нито стотинка.</p>
+                    <a asp-controller="Games" asp-action="Index" asp-route-maxPrice="0" class="btn btn-sm btn-outline-purple mt-2 px-4">Играй безплатно</a>
                 </div>
             </div>
         </div>

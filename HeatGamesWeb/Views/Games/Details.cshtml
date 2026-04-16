@@ -215,10 +215,11 @@
                             else
                             {
                                 <div class="d-flex gap-3 mb-4">
-                                    <form asp-controller="Orders" asp-action="Buy" method="post" class="flex-grow-1 m-0">
+                                    @* ПРОМЕНЕНО: Вече сочи към Cart/Add *@
+                                    <form asp-controller="Cart" asp-action="Add" method="post" class="flex-grow-1 m-0">
                                         <input type="hidden" name="gameId" value="@Model.Id" />
                                         <button type="submit" class="btn btn-magenta btn-lg w-100 fw-bold h-100 d-flex align-items-center justify-content-center">
-                                            <i class="bi bi-cart-plus me-2 fs-5"></i> КУПИ ИГРАТА
+                                            <i class="bi bi-cart-plus me-2 fs-5"></i> ДОБАВИ В КОЛИЧКАТА
                                         </button>
                                     </form>
 
@@ -234,7 +235,7 @@
                         else
                         {
                             <div class="alert text-center mb-4" style="background-color: #1a0033; border: 1px solid #4a0080; color: #c4a6ff;">
-                                Трябва да влезете в профила си, за да купите тази игра.
+                                Трябва да влезете в профила си, за да добавите тази игра в количката.
                                 <a asp-controller="Account" asp-action="Login" class="fw-bold" style="color: #be00ff;">Вход</a>
                             </div>
                         }
@@ -244,7 +245,7 @@
 
                             @if (User.IsInRole("Admin"))
                             {
-                                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning"><i class="bi bi-pencil"></i> Редактирай</a>
+                                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning"><i class="bi bi-pencil" style="color: white;"></i> Редактирай</a>
                             }
                         </div>
                     </div>

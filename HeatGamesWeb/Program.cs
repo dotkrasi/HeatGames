@@ -29,17 +29,27 @@ builder.Services.AddDbContext<HeatGamesDbContext>(options =>
 
 builder.Services.AddIdentity<User, IdentityRole<Guid>>(options =>
 {
-    // ??? ????? ?? ??????? ???????? ?? ???????? ?? ????? ?? ??????????
+    // Настройки на паролата
     options.Password.RequireDigit = false;
     options.Password.RequiredLength = 6;
     options.Password.RequireNonAlphanumeric = false;
     options.Password.RequireUppercase = false;
     options.Password.RequireLowercase = false;
 })
-
 .AddEntityFrameworkStores<HeatGamesDbContext>()
 .AddDefaultTokenProviders();
+
+// ——— НОВО: СТЪПКА 1 (Добавяне на сесия в Services) ———
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromHours(2); // Пази количката 2 часа
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
+// —————————————————————————————————————————————————————
+builder.Services.AddHttpContextAccessor();
 var app = builder.Build();
+
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
@@ -49,10 +59,10 @@ using (var scope = app.Services.CreateScope())
     }
     catch (Exception ex)
     {
-        // ??????? ????????, ??? ???? ?????? ?? ????? ?? ??????????
-        Console.WriteLine($"?????? ??? ???????? ?? ?????: {ex.Message}");
+        Console.WriteLine($"Грешка при сийдване на данни: {ex.Message}");
     }
 }
+
 /*using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
@@ -76,6 +86,11 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+// ——— НОВО: СТЪПКА 1 (Активиране на сесията) ———
+// ВАЖНО: Трябва да е точно тук - между UseRouting и UseAuthorization!
+app.UseSession();
+// ——————————————————————————————————————————————
 
 app.UseAuthorization();
 

@@ -1,6 +1,10 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @using HeatGames.Data.Models
+@using Microsoft.AspNetCore.Http
+@using HeatGamesWeb.Extensions
+@using HeatGamesWeb.ViewModels
 @inject UserManager<User> UserManager
+@inject IHttpContextAccessor HttpContextAccessor
 
 @{
     // Взимаме текущия логнат потребител, за да му покажем баланса горе вдясно
@@ -9,6 +13,10 @@
     {
         currentUser = await UserManager.GetUserAsync(User);
     }
+
+    // Четем бройката игри директно от сесията
+    var sessionCart = HttpContextAccessor.HttpContext?.Session.Get<List<CartItemViewModel>>("ShoppingCart");
+    int cartCount = sessionCart?.Count ?? 0;
 }
 
 <!DOCTYPE html>
@@ -97,6 +105,35 @@
                 color: #ffffff;
             }
 
+        /* 🛒 СТИЛ ЗА КОЛИЧКАТА 🛒 */
+        .cart-icon-container {
+            color: #e6d9ff;
+            transition: all 0.2s ease-in-out;
+            position: relative;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+            .cart-icon-container:hover {
+                color: #be00ff !important;
+                transform: scale(1.1);
+            }
+
+        .cart-badge {
+            background-color: #be00ff; /* Неоново лилаво */
+            color: #ffffff;
+            font-size: 0.65rem;
+            font-weight: bold;
+            padding: 3px 6px;
+            border-radius: 50%;
+            position: absolute;
+            top: -5px;
+            right: -12px;
+            border: 2px solid #000000; /* За да изпъква над иконата */
+            box-shadow: 0 0 8px rgba(190, 0, 255, 0.6);
+        }
+
         /* 🎯🎯🎯 ГЕНЕРАЛЕН ФИКС ЗА ЧЕТЛИВОСТ НА HOVER НА ЦЕЛИЯ САЙТ 🎯🎯🎯 */
         body a {
             transition: color 0.1s ease-in-out !important;
@@ -172,8 +209,7 @@
                                     <li><a class="dropdown-item" asp-controller="Developer" asp-action="Index">Developers</a></li>
                                     <li><a class="dropdown-item" asp-controller="Genre" asp-action="Index">Genres</a></li>
                                     <li><a class="dropdown-item" asp-controller="Platform" asp-action="Index">Platforms</a></li>
-                                    <li><a class="dropdown-item" asp-controller="Games" asp-action="Create">Add New Game</a></li>
-                                    <li><a class="dropdown-item" asp-controller="Orders" asp-action="Manage">All Orders</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Orders" asp-action="Manage">Orders</a></li>
                                 </ul>
                             </li>
                         }
@@ -182,7 +218,17 @@
                     <ul class="navbar-nav align-items-center gap-3">
                         @if (User.Identity?.IsAuthenticated ?? false)
                         {
-                            <li class="nav-item dropdown steam-dropdown ms-2">
+                            <li class="nav-item ms-2 me-4">
+                                <a asp-controller="Cart" asp-action="Index" class="cart-icon-container" title="Моята Количка">
+                                    <i class="bi bi-cart3 fs-4"></i>
+                                    @if (cartCount > 0)
+                                    {
+                                        <span class="cart-badge">@cartCount</span>
+                                    }
+                                </a>
+                            </li>
+
+                            <li class="nav-item dropdown steam-dropdown">
                                 <button class="steam-profile-btn" type="button">
                                     <img src="@(currentUser?.ProfilePictureUrl ?? "https://avatars.steamstatic.com/fef49e7fa7e1997310d705b2a6158ff8dc1cdfeb_full.jpg")" alt="Avatar" width="32" height="32" class="rounded-1" style="object-fit: cover;">
                                     <div class="d-flex flex-column text-start" style="line-height: 1;">
@@ -190,7 +236,7 @@
                                         <span style="font-size: 11px; color: #acb1b8;">@(currentUser?.WalletBalance.ToString("0.00") ?? "0.00") лв.</span>
                                     </div>
                                 </button>
-                                <ul class="dropdown-menu dropdown-menu-end steam-dropdown-menu">
+                                <ul class="dropdown-menu dropdown-menu-end steam-dropdown-menu mt-2">
                                     <li>
                                         <a class="dropdown-item fw-bold" asp-controller="User" asp-action="Index" style="color: #c4a6ff;">
                                             <i class="bi bi-person-fill me-2"></i>Моят Профил

@@ -3,28 +3,104 @@
     ViewData["Title"] = "Детайли за Разработчик";
 }
 
-<div class="container mt-5">
-    <div class="card shadow-sm">
-        <div class="card-header bg-info text-white">
-            <h3 class="mb-0">Детайли за студиото</h3>
-        </div>
-        <div class="card-body">
-            <h4 class="card-title fw-bold">@Model.Name</h4>
-            <p class="card-text mt-3">
-                <strong>Уебсайт:</strong>
-                @if (!string.IsNullOrEmpty(Model.Website))
-                {
-                    <a href="@Model.Website" target="_blank">@Model.Website</a>
-                }
-                else
-                {
-                    <span class="text-muted">Няма въведен уебсайт.</span>
-                }
-            </p>
-        </div>
-        <div class="card-footer bg-white d-flex gap-2">
-            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Редактирай</a>
-            <a asp-action="Index" class="btn btn-outline-secondary">Назад към списъка</a>
+<style>
+    /* ТЪМНО-ЛИЛАВ СТИЛ ЗА ДЕТАЙЛИТЕ */
+    .details-card {
+        background-color: #230046;
+        border: 1px solid #4a0080;
+        border-radius: 8px;
+        color: #e6d9ff;
+    }
+
+    .details-header {
+        background-color: #1a0033;
+        border-bottom: 1px solid #4a0080;
+        border-radius: 8px 8px 0 0;
+        padding: 20px;
+    }
+
+    .details-body {
+        padding: 30px 25px;
+    }
+
+    .details-footer {
+        background-color: #1a0033;
+        border-top: 1px solid #4a0080;
+        border-radius: 0 0 8px 8px;
+        padding: 15px 20px;
+    }
+
+    /* Светещи линкове */
+    .dev-link {
+        color: #be00ff;
+        text-decoration: none;
+        font-weight: bold;
+        transition: 0.2s;
+        font-size: 1.1rem;
+    }
+
+        .dev-link:hover {
+            color: #ffffff;
+            text-decoration: underline;
+            text-shadow: 0 0 8px rgba(190, 0, 255, 0.6);
+        }
+
+    /* Бутон за връщане назад */
+    .btn-outline-purple {
+        color: #c4a6ff;
+        border: 1px solid #4a0080;
+        background-color: transparent;
+        transition: 0.2s;
+    }
+
+        .btn-outline-purple:hover {
+            background-color: #4a0080;
+            color: white;
+        }
+</style>
+
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+
+            <div class="details-card shadow-lg">
+                <div class="details-header d-flex align-items-center">
+                    <i class="bi bi-building-check fs-3 me-3" style="color: #be00ff;"></i>
+                    <h3 class="mb-0 fw-bold text-white">Детайли за студиото</h3>
+                </div>
+
+                <div class="details-body text-center text-md-start">
+                    <h4 class="fw-bold mb-4" style="color: #ffffff; font-size: 2.2rem; letter-spacing: 1px;">
+                        @Model.Name
+                    </h4>
+
+                    <div class="p-3 rounded" style="background-color: #1a0033; border: 1px solid #4a0080;">
+                        <span style="color: #c4a6ff; font-size: 1.1rem;"><i class="bi bi-globe me-2"></i>Официален уебсайт:</span>
+                        <div class="mt-2">
+                            @if (!string.IsNullOrEmpty(Model.Website))
+                            {
+                                <a href="@(Model.Website.StartsWith("http") ? Model.Website : "https://" + Model.Website)" target="_blank" class="dev-link">
+                                    <i class="bi bi-box-arrow-up-right me-1" style="font-size: 0.9rem;"></i> @Model.Website
+                                </a>
+                            }
+                            else
+                            {
+                                <span style="color: #5d5462; font-style: italic;"><i class="bi bi-dash-circle"></i> Няма въведен уебсайт.</span>
+                            }
+                        </div>
+                    </div>
+                </div>
+
+                <div class="details-footer d-flex flex-column flex-sm-row gap-2 justify-content-end">
+                    <a asp-action="Index" class="btn btn-outline-purple fw-bold">
+                        <i class="bi bi-arrow-left me-1"></i> Назад към списъка
+                    </a>
+                    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning fw-bold">
+                        <i class="bi bi-pencil me-1" style="color: white;"></i> Редактирай
+                    </a>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>

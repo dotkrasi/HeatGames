@@ -37,7 +37,7 @@
             box-shadow: 0 4px 15px rgba(190, 0, 255, 0.4);
         }
 
-    /* Бутон за Wishlist */
+    /* Бутон за Wishlist (Недобавена игра) */
     .btn-outline-magenta {
         color: #be00ff;
         border: 2px solid #be00ff;
@@ -46,12 +46,19 @@
     }
 
         .btn-outline-magenta:hover {
-            background-color: #be00ff;
-            color: #ffffff;
-            transform: translateY(-2px);
+            background-color: rgba(190, 0, 255, 0.1);
+            color: #be00ff;
         }
 
-    /* 🎯 Бутон In Cart (когато вече е добавена) */
+    /* 🎯 НОВ СТИЛ ЗА АКТИВЕН WISHLIST (НЕОНОВО РОЗОВО) */
+    .btn-wishlist-active {
+        background-color: #ff3366 !important;
+        border-color: #ff3366 !important;
+        color: white !important;
+        box-shadow: 0 0 20px rgba(255, 51, 102, 0.6) !important;
+    }
+
+    /* Бутон In Cart (когато вече е добавена) */
     .btn-in-cart {
         background-color: #BEEF52;
         color: #000000;
@@ -95,7 +102,6 @@
             box-shadow: 0 0 0 0.25rem rgba(190, 0, 255, 0.25);
         }
 
-    /* Стил за баджовете */
     .badge-genre {
         background-color: #8d00c4;
         color: white;
@@ -113,7 +119,6 @@
 </style>
 
 <div class="container mt-5">
-    @* ——— СЪОБЩЕНИЯ ОТ СЪРВЕРА ——— *@
     @if (TempData["ErrorMessage"] != null)
     {
         <div class="alert alert-danger alert-dismissible fade show shadow-sm" style="background-color: #4d0000; color: #ffcccc; border: 1px solid #ff0000;" role="alert">
@@ -129,7 +134,7 @@
         </div>
     }
 
-    <div class="details-card shadow-lg overflow-hidden">
+    <div class="details-card shadow-lg overflow-hidden mb-5">
         <div class="row g-0">
             <div class="col-md-5">
                 @if (!string.IsNullOrEmpty(Model.CoverImageUrl))
@@ -148,9 +153,7 @@
                     <div class="d-flex justify-content-between align-items-start mb-2">
                         <div>
                             <h1 class="card-title fw-bold mb-0 text-white">@Model.Title</h1>
-
-                            <p class="mt-1 mb-0" style="font-size: 1.1rem; color: #acb1b8;">By: <span style="color: #00d2ff; font-weight: bold;">@Model.DeveloperName</span></p>
-
+                            <p class="mt-1 mb-0" style="font-size: 1.1rem; color: #acb1b8;">Developed by: <span style="color: #00d2ff; font-weight: bold;">@Model.DeveloperName</span></p>
                         </div>
                         <span class="details-price">@(Model.Price == 0 ? "FREE" : Model.Price.ToString("0.00") + " BGN")</span>
                     </div>
@@ -159,7 +162,6 @@
                         <i class="bi bi-calendar-event me-1"></i> Release Date: @Model.ReleaseDate.ToString("dd.MM.yyyy")
                     </p>
 
-                    @* ——— ЖАНРОВЕ ——— *@
                     @if (Model.Genres != null && Model.Genres.Any())
                     {
                         <div class="mb-3">
@@ -173,7 +175,6 @@
                         </div>
                     }
 
-                    @* ——— ПЛАТФОРМИ ——— *@
                     @if (Model.Platforms != null && Model.Platforms.Any())
                     {
                         <div class="mb-4">
@@ -212,7 +213,6 @@
                     <p class="card-text mb-5" style="line-height: 1.6;">@Model.Description</p>
 
                     <div class="mt-auto">
-                        @* ——— БУТОНИ КУПИ / ЖЕЛАНИ / БИБЛИОТЕКА ——— *@
                         @if (User.Identity?.IsAuthenticated ?? false)
                         {
                             bool ownsGame = ViewBag.OwnsGame as bool? ?? false;
@@ -220,10 +220,10 @@
                             if (ownsGame)
                             {
                                 <div class="d-flex gap-3 mb-4">
-                                    <div class="alert alert-success m-0 d-flex align-items-center justify-content-center" style="background-color: #1a0033; border: 1px dashed #BEEF52; color: #BEEF52; padding: 0 15px;" title="You already own this game">
+                                    <div class="alert alert-success m-0 d-flex align-items-center justify-content-center" style="background-color: #1a0033; border: 1px dashed #BEEF52; color: #BEEF52; padding: 0 15px;">
                                         <i class="bi bi-check-circle-fill fs-4"></i>
                                     </div>
-                                    <a asp-controller="Library" asp-action="Index" class="btn btn-lg w-100 fw-bold d-flex align-items-center justify-content-center" style="background-color: #BEEF52; color: #000000; transition: 0.2s; text-transform: uppercase; letter-spacing: 1px;">
+                                    <a asp-controller="Library" asp-action="Index" class="btn btn-lg w-100 fw-bold d-flex align-items-center justify-content-center" style="background-color: #BEEF52; color: #000000; text-transform: uppercase;">
                                         <i class="bi bi-collection-play-fill me-2 fs-5"></i> IN LIBRARY
                                     </a>
                                 </div>
@@ -231,7 +231,6 @@
                             else
                             {
                                 <div class="d-flex gap-3 mb-4">
-                                    @* 🎯 НОВО: Проверка за Количка (In Cart) 🎯 *@
                                     @if (Model.IsInCart)
                                     {
                                         <button disabled class="btn btn-in-cart btn-lg w-100 h-100 d-flex align-items-center justify-content-center">
@@ -242,24 +241,18 @@
                                     {
                                         <form asp-controller="Cart" asp-action="Add" method="post" class="flex-grow-1 m-0">
                                             <input type="hidden" name="gameId" value="@Model.Id" />
-                                            <button type="submit" class="btn btn-magenta btn-lg w-100 fw-bold h-100 d-flex align-items-center justify-content-center">
-                                                <i class="bi bi-cart-plus me-2 fs-5"></i> ADD TO CART
-                                            </button>
+                                            <button type="submit" class="btn btn-magenta btn-lg w-100 fw-bold h-100">ADD TO CART</button>
                                         </form>
                                     }
 
                                     <form asp-controller="Wishlist" asp-action="Toggle" method="post" class="m-0">
                                         <input type="hidden" name="gameId" value="@Model.Id" />
-                                        <button type="submit" class="btn btn-outline-magenta btn-lg h-100 d-flex align-items-center justify-content-center" style="padding-left: 1.5rem; padding-right: 1.5rem;" title="Add/Remove Wishlist">
-                                            @* 🎯 НОВО: Индикатор за Wishlist 🎯 *@
-                                            @if (Model.IsInWishlist)
-                                            {
-                                                <i class="bi bi-heart-fill fs-5" style="color: #ff3366;"></i>
-                                            }
-                                            else
-                                            {
-                                                <i class="bi bi-heart fs-5"></i>
-                                            }
+                                        <button type="submit"
+                                                class="btn btn-lg h-100 d-flex align-items-center justify-content-center
+                                                                        @(Model.IsInWishlist ? "btn-wishlist-active" : "btn-outline-magenta")"
+                                                style="padding-left: 1.5rem; padding-right: 1.5rem;"
+                                                title="@(Model.IsInWishlist ? "Remove from Wishlist" : "Add to Wishlist")">
+                                            <i class="bi @(Model.IsInWishlist ? "bi-heart-fill" : "bi-heart") fs-5"></i>
                                         </button>
                                     </form>
                                 </div>
@@ -268,17 +261,15 @@
                         else
                         {
                             <div class="alert text-center mb-4" style="background-color: #1a0033; border: 1px solid #4a0080; color: #c4a6ff;">
-                                You need to be logged in to add this game to your cart.
-                                <a asp-controller="Account" asp-action="Login" class="fw-bold" style="color: #be00ff;">Sign In</a>
+                                Please <a asp-controller="Account" asp-action="Login" class="fw-bold" style="color: #be00ff;">Sign In</a> to purchase.
                             </div>
                         }
 
                         <div class="d-flex gap-2 pt-3" style="border-top: 1px solid #4a0080;">
-                            <a asp-action="Index" class="btn btn-outline-light"><i class="bi bi-arrow-left"></i> Back to Store</a>
-
+                            <a asp-action="Index" class="btn btn-outline-light">Back to Store</a>
                             @if (User.IsInRole("Admin"))
                             {
-                                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning"><i class="bi bi-pencil" style="color: white;"></i> Edit</a>
+                                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Edit</a>
                             }
                         </div>
                     </div>

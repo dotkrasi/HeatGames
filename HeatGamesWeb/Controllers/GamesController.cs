@@ -25,9 +25,18 @@ namespace HeatGamesWeb.Controllers
         private readonly IGenreService _genreService;
         private readonly IPlatformService _platformService;
         private readonly IWishlistService _wishlistService;
+        private readonly ILibraryService _libraryService; // 🎯 ДОБАВЕНО
         private readonly UserManager<User> _userManager;
 
-        public GamesController(IGameService gameService, IDeveloperService developerService, IReviewService reviewService, IGenreService genreService, IPlatformService platformService, IWishlistService wishlistService, UserManager<User> userManager)
+        public GamesController(
+            IGameService gameService,
+            IDeveloperService developerService,
+            IReviewService reviewService,
+            IGenreService genreService,
+            IPlatformService platformService,
+            IWishlistService wishlistService,
+            ILibraryService libraryService, // 🎯 ДОБАВЕНО
+            UserManager<User> userManager)
         {
             _gameService = gameService;
             _developerService = developerService;
@@ -35,6 +44,7 @@ namespace HeatGamesWeb.Controllers
             _genreService = genreService;
             _platformService = platformService;
             _wishlistService = wishlistService;
+            _libraryService = libraryService; // 🎯
             _userManager = userManager;
         }
 
@@ -42,7 +52,6 @@ namespace HeatGamesWeb.Controllers
         public async Task<IActionResult> Index(string? searchQuery, string? genre, Guid? developerId, decimal? minPrice, decimal? maxPrice, int page = 1)
         {
             int pageSize = 16;
-
             var result = await _gameService.GetAllGamesAsync(searchQuery, genre, developerId, minPrice, maxPrice, page, pageSize);
 
             var cart = HttpContext.Session.Get<List<CartItemViewModel>>("ShoppingCart") ?? new List<CartItemViewModel>();
@@ -66,7 +75,7 @@ namespace HeatGamesWeb.Controllers
                 Price = dto.Price,
                 CoverImageUrl = dto.CoverImageUrl,
                 DeveloperId = dto.DeveloperId,
-                DeveloperName = dto.DeveloperName, // 🎯 ДОБАВЕНО МАПВАНЕ НА ИМЕТО
+                DeveloperName = dto.DeveloperName,
                 Platforms = dto.Platforms,
                 Genres = dto.Genres,
                 IsInCart = cartGameIds.Contains(dto.Id),
@@ -75,7 +84,6 @@ namespace HeatGamesWeb.Controllers
 
             var genres = await _genreService.GetAllGenresAsync();
             ViewBag.Genres = genres;
-
             var developers = await _developerService.GetAllDevelopersAsync();
             ViewBag.Developers = developers;
 
@@ -84,7 +92,6 @@ namespace HeatGamesWeb.Controllers
             ViewBag.CurrentDeveloperId = developerId;
             ViewBag.CurrentMinPrice = minPrice;
             ViewBag.CurrentMaxPrice = maxPrice;
-
             ViewBag.CurrentPage = page;
             ViewBag.TotalCount = result.TotalCount;
             ViewBag.TotalPages = (int)Math.Ceiling((double)result.TotalCount / pageSize);
@@ -92,44 +99,30 @@ namespace HeatGamesWeb.Controllers
             return View(viewModels);
         }
 
-        public async Task<IActionResult> Create()
-        {
-            var developers = await _developerService.GetAllDevelopersAsync();
-            ViewBag.Developers = new SelectList(developers, "Id", "Name");
-            ViewBag.Platforms = await _platformService.GetAllPlatformsAsync();
-            return View();
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(GameViewModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                var gameDto = new GameDto
-                {
-                    Id = Guid.NewGuid(),
-                    Title = model.Title,
-                    Description = model.Description,
-                    Price = model.Price,
-                    ReleaseDate = model.ReleaseDate,
-                    CoverImageUrl = model.CoverImageUrl,
-                    DeveloperId = model.DeveloperId,
-                    SelectedPlatformIds = model.SelectedPlatformIds
-                };
-                await _gameService.CreateGameAsync(gameDto);
-                return RedirectToAction(nameof(Index));
-            }
-            var developers = await _developerService.GetAllDevelopersAsync();
-            ViewBag.Developers = new SelectList(developers, "Id", "Name", model.DeveloperId);
-            return View(model);
-        }
-
         [AllowAnonymous]
         public async Task<IActionResult> Details(Guid id)
         {
             var gameDto = await _gameService.GetGameByIdAsync(id);
             if (gameDto == null) return NotFound();
+
+            bool isInWishlist = false;
+            bool ownsGame = false;
+
+            if (User.Identity?.IsAuthenticated ?? false)
+            {
+                var user = await _userManager.GetUserAsync(User);
+                if (user != null)
+                {
+                    var wishlist = await _wishlistService.GetUserWishlistAsync(user.Id);
+                    isInWishlist = wishlist.Any(w => w.GameId == id);
+
+                    // 🎯 ТУК БЕШЕ ГРЕШКАТА - ОПРАВЕНО Е С ТВОЯ МЕТОД:
+                    ownsGame = await _libraryService.UserOwnsGameAsync(user.Id, id);
+                }
+            }
+
+            var cart = HttpContext.Session.Get<List<CartItemViewModel>>("ShoppingCart") ?? new List<CartItemViewModel>();
+            bool isInCart = cart.Any(c => c.GameId == id);
 
             var viewModel = new GameViewModel
             {
@@ -139,10 +132,14 @@ namespace HeatGamesWeb.Controllers
                 Price = gameDto.Price,
                 ReleaseDate = gameDto.ReleaseDate,
                 CoverImageUrl = gameDto.CoverImageUrl,
-                DeveloperName = gameDto.DeveloperName, // 🎯
+                DeveloperName = gameDto.DeveloperName,
                 Genres = gameDto.Genres,
-                Platforms = gameDto.Platforms
+                Platforms = gameDto.Platforms,
+                IsInCart = isInCart,
+                IsInWishlist = isInWishlist
             };
+
+            ViewBag.OwnsGame = ownsGame;
             ViewBag.Reviews = await _reviewService.GetGameReviewsAsync(id);
             return View(viewModel);
         }

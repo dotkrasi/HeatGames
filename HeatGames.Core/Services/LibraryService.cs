@@ -52,5 +52,12 @@ namespace HeatGames.Core.Services
                 await _context.SaveChangesAsync();
             }
         }
+        public async Task<List<Guid>> GetOwnedGameIdsAsync(Guid userId)
+        {
+            return await _context.LibraryItems
+                .Where(l => l.UserId == userId)
+                .Select(l => l.GameId)
+                .ToListAsync();
+        }
     }
 }

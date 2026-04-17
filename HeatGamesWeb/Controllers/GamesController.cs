@@ -40,16 +40,18 @@ namespace HeatGamesWeb.Controllers
         }
 
         [AllowAnonymous]
-        public async Task<IActionResult> Index(string? searchQuery, string? genre, decimal? minPrice, decimal? maxPrice, int page = 1)
+        public async Task<IActionResult> Index(string? searchQuery, string? genre, Guid? developerId, decimal? minPrice, decimal? maxPrice, int page = 1)
         {
             int pageSize = 16;
-            var result = await _gameService.GetAllGamesAsync(searchQuery, genre, minPrice, maxPrice, page, pageSize);
 
-            // 🎯 СТЪПКА 1: Взимаме кои игри са в количката от сесията
+            // 🎯 Подаваме developerId на сървиса
+            var result = await _gameService.GetAllGamesAsync(searchQuery, genre, developerId, minPrice, maxPrice, page, pageSize);
+
+            // СТЪПКА 1: Взимаме кои игри са в количката от сесията
             var cart = HttpContext.Session.Get<List<CartItemViewModel>>("ShoppingCart") ?? new List<CartItemViewModel>();
             var cartGameIds = cart.Select(c => c.GameId).ToHashSet();
 
-            // 🎯 СТЪПКА 2: Взимаме кои игри са в Wishlist-а (АКО има логнат потребител)
+            // СТЪПКА 2: Взимаме кои игри са в Wishlist-а (АКО има логнат потребител)
             var wishlistGameIds = new HashSet<Guid>();
             if (User.Identity?.IsAuthenticated ?? false)
             {
@@ -61,7 +63,7 @@ namespace HeatGamesWeb.Controllers
                 }
             }
 
-            // 🎯 СТЪПКА 3: Мапваме и "светваме" флаговете
+            // СТЪПКА 3: Мапваме и "светваме" флаговете
             var viewModels = result.Games.Select(dto => new GameViewModel
             {
                 Id = dto.Id,
@@ -75,11 +77,17 @@ namespace HeatGamesWeb.Controllers
                 IsInWishlist = wishlistGameIds.Contains(dto.Id)
             }).ToList();
 
+            // Зареждаме Жанровете за падащото меню
             var genres = await _genreService.GetAllGenresAsync();
             ViewBag.Genres = genres;
 
+            // 🎯 ЗАреждаме Разработчиците за падащото меню
+            var developers = await _developerService.GetAllDevelopersAsync();
+            ViewBag.Developers = developers;
+
             ViewBag.CurrentSearch = searchQuery;
             ViewBag.CurrentGenre = genre;
+            ViewBag.CurrentDeveloperId = developerId; // 🎯 Запазваме избрания девелопър
             ViewBag.CurrentMinPrice = minPrice;
             ViewBag.CurrentMaxPrice = maxPrice;
 

@@ -1,8 +1,13 @@
 ﻿using HeatGames.Core.Services.Interfaces;
+using HeatGames.Data.Models;
 using HeatGamesCore.Services.Interfaces;
+using HeatGamesWeb.Extensions;
 using HeatGamesWeb.Models;
 using HeatGamesWeb.ViewModels;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
@@ -12,30 +17,56 @@ namespace HeatGamesWeb.Controllers
     public class HomeController : Controller
     {
         private readonly IGameService _gameService;
+        private readonly IWishlistService _wishlistService;
+        private readonly UserManager<User> _userManager;
+        private readonly IDeveloperService _developerService; // 🎯 ДОБАВЕНО
 
-        // Инжектираме GameService, за да можем да взимаме игри
-        public HomeController(IGameService gameService)
+        // Инжектираме нужните сървиси за Wishlist, Session(Cart) и Developers
+        public HomeController(IGameService gameService, IWishlistService wishlistService, UserManager<User> userManager, IDeveloperService developerService)
         {
             _gameService = gameService;
+            _wishlistService = wishlistService;
+            _userManager = userManager;
+            _developerService = developerService;
         }
 
         public async Task<IActionResult> Index()
         {
-            // 1. Взимаме данните (които са Tuple: Games + TotalCount)
             var result = await _gameService.GetAllGamesAsync();
 
-            // Превръщаме (Map) в GameViewModel
-            // Използваме result.Games вместо result.Item1 за по-добра четимост
+            // СТЪПКА 1: Взимаме количката от сесията
+            var cart = HttpContext.Session.Get<List<CartItemViewModel>>("ShoppingCart") ?? new List<CartItemViewModel>();
+            var cartGameIds = cart.Select(c => c.GameId).ToHashSet();
+
+            // СТЪПКА 2: Взимаме Wishlist-а (ако има логнат потребител)
+            var wishlistGameIds = new HashSet<Guid>();
+            if (User.Identity?.IsAuthenticated ?? false)
+            {
+                var user = await _userManager.GetUserAsync(User);
+                if (user != null)
+                {
+                    var wishlistItems = await _wishlistService.GetUserWishlistAsync(user.Id);
+                    wishlistGameIds = wishlistItems.Select(w => w.GameId).ToHashSet();
+                }
+            }
+
+            // СТЪПКА 3: Мапваме и "светваме" флаговете
             var viewModel = result.Games.Select(g => new GameViewModel
             {
                 Id = g.Id,
                 Title = g.Title,
                 Price = g.Price,
                 CoverImageUrl = g.CoverImageUrl,
-                Description = g.Description
+                Description = g.Description,
+                IsInCart = cartGameIds.Contains(g.Id),
+                IsInWishlist = wishlistGameIds.Contains(g.Id)
             }).ToList();
 
-            // 2. Подаваме чистия списък на View-то
+            // 🎯 СТЪПКА 4: Взимаме Топ 3 Разработчици за началната страница
+            var allDevelopers = await _developerService.GetAllDevelopersAsync();
+            // Взимаме 3 случайни (или първите 3) студия, за да ги покажем в секцията
+            ViewBag.TopDevelopers = allDevelopers.OrderBy(d => Guid.NewGuid()).Take(3).ToList();
+
             return View(viewModel);
         }
 
@@ -43,8 +74,6 @@ namespace HeatGamesWeb.Controllers
         {
             return View();
         }
-
-        // 🎯 --- НОВИТЕ 3 МЕТОДА ЗА ПРОФЕСИОНАЛНИЯ FOOTER --- 🎯
 
         public IActionResult Faq()
         {
@@ -60,8 +89,6 @@ namespace HeatGamesWeb.Controllers
         {
             return View();
         }
-
-        // ----------------------------------------------------
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

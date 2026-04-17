@@ -3,10 +3,12 @@
 @{
     ViewData["Title"] = "Store";
 
+    // 🎯 ДОБАВЕНО: Проверка и за CurrentDeveloperId
     bool hasFilters = !string.IsNullOrEmpty(ViewBag.CurrentSearch) ||
                       !string.IsNullOrEmpty(ViewBag.CurrentGenre) ||
                       ViewBag.CurrentMaxPrice != null ||
-                      ViewBag.CurrentMinPrice != null;
+                      ViewBag.CurrentMinPrice != null ||
+                      ViewBag.CurrentDeveloperId != null;
 
     int currentPage = ViewBag.CurrentPage != null ? (int)ViewBag.CurrentPage : 1;
     bool isFirstPage = currentPage == 1;
@@ -55,7 +57,7 @@
         border: 1px solid #4a0080;
         border-radius: 4px;
         transition: border-color 0.2s, transform 0.2s;
-        position: relative; /* ВАЖНО: За да позиционираме иконките вътре */
+        position: relative;
     }
 
         .game-card:hover {
@@ -71,7 +73,6 @@
         border-radius: 4px 4px 0 0;
     }
 
-    /* 🎯 НОВИ СТИЛОВЕ ЗА ИНДИКАТОРИТЕ 🎯 */
     .indicator-container {
         position: absolute;
         top: 10px;
@@ -79,7 +80,7 @@
         display: flex;
         gap: 8px;
         z-index: 10;
-        pointer-events: none; /* За да не пречат на кликането върху снимката */
+        pointer-events: none;
     }
 
     .indicator-icon {
@@ -105,7 +106,6 @@
         border: 1px solid #BEEF52;
         text-shadow: 0 0 8px #BEEF52;
     }
-    /* --------------------------------- */
 
     .price-text {
         font-size: 18px;
@@ -218,6 +218,28 @@
                 </div>
 
                 <div class="mb-4">
+                    <label class="form-label text-muted small fw-bold mb-1">DEVELOPER</label>
+                    <select name="developerId" class="form-select filter-input">
+                        <option value="">All Developers</option>
+                        @if (ViewBag.Developers != null)
+                        {
+                            // Предполагам, че моделът ти за Developer e DeveloperDto
+                            foreach (var dev in (IEnumerable<HeatGames.Core.DTOs.DeveloperDto>)ViewBag.Developers)
+                            {
+                                if (ViewBag.CurrentDeveloperId != null && ViewBag.CurrentDeveloperId.ToString() == dev.Id.ToString())
+                                {
+                                    <option value="@dev.Id" selected>@dev.Name</option>
+                                }
+                                else
+                                {
+                                    <option value="@dev.Id">@dev.Name</option>
+                                }
+                            }
+                        }
+                    </select>
+                </div>
+
+                <div class="mb-4">
                     <label class="form-label text-muted small fw-bold mb-1">PRICE (BGN)</label>
                     <div class="d-flex align-items-center gap-2">
                         <input type="number" name="minPrice" value="@ViewBag.CurrentMinPrice" class="form-control filter-input text-center" placeholder="Min" min="0" step="0.01">
@@ -292,7 +314,7 @@
                                 </p>
                                 <div class="mt-auto pt-4 text-end pb-3">
                                     <span class="price-text me-3">
-                                        @(featuredGame.Price == 0 ? "FREE" : featuredGame.Price.ToString("0.00") + " лв.")
+                                        @(featuredGame.Price == 0 ? "FREE" : featuredGame.Price.ToString("0.00") + " BGN")
                                     </span>
                                     <a asp-action="Details" asp-route-id="@featuredGame.Id" class="btn btn-purple fw-bold px-4">Details</a>
                                 </div>
@@ -396,6 +418,7 @@
                                asp-route-page="@(currentPage - 1)"
                                asp-route-searchQuery="@ViewBag.CurrentSearch"
                                asp-route-genre="@ViewBag.CurrentGenre"
+                               asp-route-developerId="@ViewBag.CurrentDeveloperId"
                                asp-route-minPrice="@ViewBag.CurrentMinPrice"
                                asp-route-maxPrice="@ViewBag.CurrentMaxPrice">
                                 &laquo;
@@ -409,6 +432,7 @@
                                    asp-route-page="@i"
                                    asp-route-searchQuery="@ViewBag.CurrentSearch"
                                    asp-route-genre="@ViewBag.CurrentGenre"
+                                   asp-route-developerId="@ViewBag.CurrentDeveloperId"
                                    asp-route-minPrice="@ViewBag.CurrentMinPrice"
                                    asp-route-maxPrice="@ViewBag.CurrentMaxPrice">
                                     @i
@@ -421,6 +445,7 @@
                                asp-route-page="@(currentPage + 1)"
                                asp-route-searchQuery="@ViewBag.CurrentSearch"
                                asp-route-genre="@ViewBag.CurrentGenre"
+                               asp-route-developerId="@ViewBag.CurrentDeveloperId"
                                asp-route-minPrice="@ViewBag.CurrentMinPrice"
                                asp-route-maxPrice="@ViewBag.CurrentMaxPrice">
                                 &raquo;

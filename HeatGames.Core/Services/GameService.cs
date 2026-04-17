@@ -3,6 +3,10 @@ using HeatGamesCore.Services.Interfaces;
 using HeatGames.Core.DTOs;
 using Microsoft.EntityFrameworkCore;
 using HeatGames.Data.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace HeatGames.Core.Services
 {
@@ -15,9 +19,14 @@ namespace HeatGames.Core.Services
             _context = context;
         }
 
-        // 1. В GetAllGamesAsync добавяме minPrice
         public async Task<(IEnumerable<GameDto> Games, int TotalCount)> GetAllGamesAsync(
-    string? searchQuery = null, string? genre = null, decimal? minPrice = null, decimal? maxPrice = null, int page = 1, int pageSize = 16)
+            string? searchQuery = null,
+            string? genre = null,
+            Guid? developerId = null, // 🎯 ДОБАВЕНО
+            decimal? minPrice = null,
+            decimal? maxPrice = null,
+            int page = 1,
+            int pageSize = 16)
         {
             var query = _context.Games
                 .Include(g => g.GameGenres).ThenInclude(gg => gg.Genre)
@@ -36,13 +45,19 @@ namespace HeatGames.Core.Services
                 query = query.Where(g => g.GameGenres.Any(gg => gg.Genre.Name == genre));
             }
 
-            // 3. ФИЛТЪР ПО МИНИМАЛНА ЦЕНА (НОВО)
+            // 🎯 3. ФИЛТЪР ПО DEVELOPER (НОВО)
+            if (developerId.HasValue && developerId.Value != Guid.Empty)
+            {
+                query = query.Where(g => g.DeveloperId == developerId.Value);
+            }
+
+            // 4. ФИЛТЪР ПО МИНИМАЛНА ЦЕНА
             if (minPrice.HasValue)
             {
                 query = query.Where(g => g.Price >= minPrice.Value);
             }
 
-            // 4. ФИЛТЪР ПО МАКСИМАЛНА ЦЕНА
+            // 5. ФИЛТЪР ПО МАКСИМАЛНА ЦЕНА
             if (maxPrice.HasValue)
             {
                 query = query.Where(g => g.Price <= maxPrice.Value);

@@ -1,11 +1,10 @@
 ﻿@model IEnumerable<HeatGames.Core.DTOs.LibraryItemDto>
 
 @{
-    ViewData["Title"] = "Моята Библиотека";
+    ViewData["Title"] = "My Library";
 }
 
 <style>
-    /* ... (Същите тъмно-лилави стилове от преди малко) ... */
     .library-card {
         background-color: #230046;
         border: 1px solid #4a0080;
@@ -61,7 +60,6 @@
             box-shadow: 0 0 15px rgba(190, 239, 82, 0.8);
         }
 
-    /* НОВ СТИЛ ЗА БУТОНА СТОП */
     .btn-stop {
         background-color: #dc3545;
         color: #ffffff;
@@ -78,12 +76,27 @@
             box-shadow: 0 0 15px rgba(220, 53, 69, 0.8);
         }
 
+    .btn-download {
+        background-color: transparent;
+        color: #c4a6ff;
+        border: 1px dashed #be00ff;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: 0.2s;
+    }
+
+        .btn-download:hover {
+            background-color: rgba(190, 0, 255, 0.1);
+            color: #ffffff;
+            border-style: solid;
+        }
+
     .game-stats {
         color: #c4a6ff;
         font-size: 0.85rem;
     }
 
-    /* Анимация за мигане, когато играеш */
     .playing-pulse {
         animation: pulse 1.5s infinite;
         color: #BEEF52 !important;
@@ -108,11 +121,11 @@
 <div class="container mt-5 mb-5">
     <div class="d-flex justify-content-between align-items-end mb-4 pb-3" style="border-bottom: 2px solid #4a0080;">
         <div>
-            <h2 class="fw-bold m-0 text-white"><i class="bi bi-collection-play-fill" style="color: #be00ff;"></i> Библиотека с игри</h2>
+            <h2 class="fw-bold m-0 text-white"><i class="bi bi-collection-play-fill" style="color: #be00ff;"></i> Game Library</h2>
         </div>
         <div>
             <span class="badge" style="background-color: #4a0080; font-size: 1rem; padding: 8px 15px;">
-                @(Model?.Count() ?? 0) Заглавия
+                @(Model?.Count() ?? 0) Titles
             </span>
         </div>
     </div>
@@ -121,9 +134,9 @@
     {
         <div class="empty-library text-center p-5 shadow-lg">
             <i class="bi bi-controller mb-3" style="font-size: 4rem; color: #4a0080;"></i>
-            <h4 class="text-white fw-bold mt-2">Библиотеката ви е празна</h4>
-            <p class="mb-4">Време е за нови приключения!</p>
-            <a asp-controller="Games" asp-action="Index" class="btn btn-magenta px-4 py-2">Към Магазина</a>
+            <h4 class="text-white fw-bold mt-2">Your library is empty</h4>
+            <p class="mb-4">Time for new adventures!</p>
+            <a asp-controller="Games" asp-action="Index" class="btn btn-magenta px-4 py-2">Go to Store</a>
         </div>
     }
     else
@@ -142,15 +155,19 @@
                             <h6 class="card-title fw-bold text-white mb-3">@item.GameTitle</h6>
 
                             <div class="mb-3 game-stats">
-                                <p class="mb-1"><i class="bi bi-calendar-check"></i> Купена: @item.PurchaseDate.ToString("dd.MM.yyyy")</p>
+                                <p class="mb-1"><i class="bi bi-calendar-check"></i> Purchased: @item.PurchaseDate.ToString("dd.MM.yyyy")</p>
                                 <p class="mb-0 text-info fw-bold time-display" id="time-@item.Id" style="color: #be00ff !important;">
-                                    <i class="bi bi-clock-history"></i> Изиграно: <span id="minutes-@item.Id">@item.PlayTimeMinutes</span> мин.
+                                    <i class="bi bi-clock-history"></i> Playtime: <span id="minutes-@item.Id">@item.PlayTimeMinutes</span> min
                                 </p>
                             </div>
 
-                            <div class="mt-auto">
-                                <button class="btn btn-play w-100 py-2 shadow-sm play-btn" data-id="@item.Id" id="btn-@item.Id">
-                                    <i class="bi bi-play-fill fs-5 me-1" id="icon-@item.Id"></i> <span id="text-@item.Id">ИГРАЙ</span>
+                            <div class="mt-auto d-flex flex-column gap-2 action-container" id="actions-@item.Id">
+                                <a asp-controller="Library" asp-action="Download" asp-route-gameId="@item.GameId" class="btn btn-download w-100 py-2 shadow-sm download-btn" data-id="@item.Id">
+                                    <i class="bi bi-cloud-arrow-down-fill me-1 fs-5"></i> DOWNLOAD
+                                </a>
+
+                                <button class="btn btn-play w-100 py-2 shadow-sm play-btn d-none" data-id="@item.Id" id="btn-@item.Id">
+                                    <i class="bi bi-play-fill fs-5 me-1" id="icon-@item.Id"></i> <span id="text-@item.Id">PLAY</span>
                                 </button>
                             </div>
                         </div>
@@ -164,69 +181,88 @@
 @section Scripts {
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            const playButtons = document.querySelectorAll('.play-btn');
 
+            // 1. ЛОГИКА ЗА СВАЛЯНЕ (DOWNLOAD -> PLAY)
+            const actionContainers = document.querySelectorAll('.action-container');
+            actionContainers.forEach(container => {
+                const libraryId = container.id.replace('actions-', '');
+                const downloadBtn = container.querySelector('.download-btn');
+                const playBtn = container.querySelector('.play-btn');
+
+                // Проверяваме дали вече сме я "свалили" (гледаме в паметта на браузъра)
+                if (localStorage.getItem('downloaded_' + libraryId) === 'true') {
+                    downloadBtn.classList.add('d-none'); // Скриваме Download
+                    playBtn.classList.remove('d-none');  // Показваме Play
+                }
+
+                // Когато потребителят кликне DOWNLOAD
+                if (downloadBtn) {
+                    downloadBtn.addEventListener('click', function (e) {
+                        // Записваме в паметта, че е свалена
+                        localStorage.setItem('downloaded_' + libraryId, 'true');
+
+                        // Сменяме бутоните след 1 секунда (за да създадем усещане, че нещо се случва)
+                        setTimeout(() => {
+                            downloadBtn.classList.add('d-none');
+                            playBtn.classList.remove('d-none');
+                        }, 1000);
+                    });
+                }
+            });
+
+            // 2. ЛОГИКА ЗА ИГРАЕНЕ И ТАЙМЕР (Запазена на 100%)
+            const playButtons = document.querySelectorAll('.play-btn');
             playButtons.forEach(btn => {
                 let intervalId = null;
-                let addedMinutes = 0; // Колко минути сме натрупали в тази сесия
+                let addedMinutes = 0;
 
                 btn.addEventListener('click', function () {
-                    const gameId = this.getAttribute('data-id');
-                    const textSpan = document.getElementById(`text-${gameId}`);
-                    const icon = document.getElementById(`icon-${gameId}`);
-                    const minutesSpan = document.getElementById(`minutes-${gameId}`);
-                    const timeDisplay = document.getElementById(`time-${gameId}`);
+                    const libraryId = this.getAttribute('data-id');
+                    const textSpan = document.getElementById(`text-${libraryId}`);
+                    const icon = document.getElementById(`icon-${libraryId}`);
+                    const minutesSpan = document.getElementById(`minutes-${libraryId}`);
+                    const timeDisplay = document.getElementById(`time-${libraryId}`);
 
                     let currentTotalMinutes = parseInt(minutesSpan.innerText);
 
-                    // АКО ИГРАТА В МОМЕНТА Е СПРЯНА -> ПУСКАМЕ Я
+                    // ПУСКАМЕ ИГРАТА
                     if (!this.classList.contains('btn-stop')) {
-                        // Променяме бутона на СТОП
                         this.classList.remove('btn-play');
                         this.classList.add('btn-stop');
-                        textSpan.innerText = 'СТОП';
+                        textSpan.innerText = 'STOP';
                         icon.classList.remove('bi-play-fill');
                         icon.classList.add('bi-stop-fill');
 
-                        // Правим текста да мига в зелено, за да се вижда, че играем
                         timeDisplay.classList.add('playing-pulse');
-
                         addedMinutes = 0;
 
-                        // Пускаме таймера (За теста: 1 реална секунда = 1 изиграна минута)
-                        // В реален проект тук ще е 60000 (1 минута)
                         intervalId = setInterval(() => {
                             addedMinutes++;
                             minutesSpan.innerText = currentTotalMinutes + addedMinutes;
-                        }, 1000); // 1000 милисекунди = 1 секунда
+                        }, 1000);
                     }
-                    // АКО ИГРАТА РАБОТИ -> СПИРАМЕ Я И ЗАПИСВАМЕ В БАЗАТА
+                    // СПИРАМЕ ИГРАТА
                     else {
-                        // Връщаме бутона на ИГРАЙ
                         this.classList.remove('btn-stop');
                         this.classList.add('btn-play');
-                        textSpan.innerText = 'ИГРАЙ';
+                        textSpan.innerText = 'PLAY';
                         icon.classList.remove('bi-stop-fill');
                         icon.classList.add('bi-play-fill');
 
-                        // Спираме мигането
                         timeDisplay.classList.remove('playing-pulse');
-
-                        // Спираме таймера
                         clearInterval(intervalId);
 
-                        // Пращаме заявка към бекенда да запази новите минути
                         if (addedMinutes > 0) {
                             fetch('/Library/SavePlayTime', {
                                 method: 'POST',
                                 headers: {
                                     'Content-Type': 'application/json'
                                 },
-                                body: JSON.stringify({ libraryItemId: gameId, minutesToAdd: addedMinutes })
+                                body: JSON.stringify({ libraryItemId: libraryId, minutesToAdd: addedMinutes })
                             })
                             .then(response => {
                                 if(response.ok) {
-                                    console.log(`Успешно добавени ${addedMinutes} минути към игра ${gameId}`);
+                                    console.log(`Successfully added ${addedMinutes} minutes to library item ${libraryId}`);
                                 }
                             });
                         }

@@ -182,10 +182,10 @@
                         <li class="nav-item dropdown steam-dropdown">
                             <a class="nav-link steam-nav-link" asp-controller="Games" asp-action="Index">STORE</a>
                             <ul class="dropdown-menu steam-dropdown-menu">
-                                <li><a class="dropdown-item" asp-controller="Games" asp-action="Index">Всички игри</a></li>
+                                <li><a class="dropdown-item" asp-controller="Games" asp-action="Index">All Games</a></li>
                                 @if (User.Identity?.IsAuthenticated ?? false)
                                 {
-                                    <li><a class="dropdown-item" asp-controller="Wishlist" asp-action="Index"><i class="bi bi-heart"></i> Списък с желания</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Wishlist" asp-action="Index"><i class="bi bi-heart"></i> Wishlist</a></li>
                                 }
                             </ul>
                         </li>
@@ -195,8 +195,8 @@
                             <li class="nav-item dropdown steam-dropdown">
                                 <a class="nav-link steam-nav-link" asp-controller="Library" asp-action="Index">LIBRARY</a>
                                 <ul class="dropdown-menu steam-dropdown-menu">
-                                    <li><a class="dropdown-item" asp-controller="Library" asp-action="Index">🎮 Моята Библиотека</a></li>
-                                    <li><a class="dropdown-item" asp-controller="Orders" asp-action="Index">🧾 История на поръчките</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Library" asp-action="Index">🎮 My Library</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Orders" asp-action="Index">🧾 Order History</a></li>
                                 </ul>
                             </li>
                         }
@@ -219,7 +219,7 @@
                         @if (User.Identity?.IsAuthenticated ?? false)
                         {
                             <li class="nav-item ms-2 me-4">
-                                <a asp-controller="Cart" asp-action="Index" class="cart-icon-container" title="Моята Количка">
+                                <a asp-controller="Cart" asp-action="Index" class="cart-icon-container" title="My Cart">
                                     <i class="bi bi-cart3 fs-4"></i>
                                     @if (cartCount > 0)
                                     {
@@ -239,12 +239,12 @@
                                 <ul class="dropdown-menu dropdown-menu-end steam-dropdown-menu mt-2">
                                     <li>
                                         <a class="dropdown-item fw-bold" asp-controller="User" asp-action="Index" style="color: #c4a6ff;">
-                                            <i class="bi bi-person-fill me-2"></i>Моят Профил
+                                            <i class="bi bi-person-fill me-2"></i>My Profile
                                         </a>
                                     </li>
                                     <li>
                                         <a class="dropdown-item fw-bold" asp-controller="Wallet" asp-action="Index" style="color: #2bd45f;">
-                                            <i class="bi bi-wallet2 me-2"></i> Портфейл
+                                            <i class="bi bi-wallet2 me-2"></i> Wallet
                                         </a>
                                     </li>
                                     <li><hr class="dropdown-divider bg-secondary"></li>
@@ -261,10 +261,10 @@
                         else
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-primary fw-bold" asp-controller="Account" asp-action="Register">Регистрация</a>
+                                <a class="nav-link text-primary fw-bold" asp-controller="Account" asp-action="Register">Register</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link btn btn-sm btn-success text-white px-3 fw-bold ms-2" asp-controller="Account" asp-action="Login">Вход</a>
+                                <a class="nav-link btn btn-sm btn-success text-white px-3 fw-bold ms-2" asp-controller="Account" asp-action="Login">Login</a>
                             </li>
                         }
                     </ul>

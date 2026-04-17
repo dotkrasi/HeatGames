@@ -15,9 +15,9 @@ namespace HeatGames.Core.Services
             _context = context;
         }
 
-        // 1. В GetAllGamesAsync добавяме Include за платформите
+        // 1. В GetAllGamesAsync добавяме minPrice
         public async Task<(IEnumerable<GameDto> Games, int TotalCount)> GetAllGamesAsync(
-    string? searchQuery = null, string? genre = null, decimal? maxPrice = null, int page = 1, int pageSize = 16) // Вдигаме на 16!
+    string? searchQuery = null, string? genre = null, decimal? minPrice = null, decimal? maxPrice = null, int page = 1, int pageSize = 16)
         {
             var query = _context.Games
                 .Include(g => g.GameGenres).ThenInclude(gg => gg.Genre)
@@ -36,7 +36,13 @@ namespace HeatGames.Core.Services
                 query = query.Where(g => g.GameGenres.Any(gg => gg.Genre.Name == genre));
             }
 
-            // 3. ФИЛТЪР ПО ЦЕНА
+            // 3. ФИЛТЪР ПО МИНИМАЛНА ЦЕНА (НОВО)
+            if (minPrice.HasValue)
+            {
+                query = query.Where(g => g.Price >= minPrice.Value);
+            }
+
+            // 4. ФИЛТЪР ПО МАКСИМАЛНА ЦЕНА
             if (maxPrice.HasValue)
             {
                 query = query.Where(g => g.Price <= maxPrice.Value);
@@ -63,13 +69,14 @@ namespace HeatGames.Core.Services
             return (games, totalCount);
         }
 
-        // 2. В GetGameByIdAsync също добавяме платформите
+        // --- Останалите ти методи остават АБСОЛЮТНО НЕПРОМЕНЕНИ ---
+
         public async Task<GameDto?> GetGameByIdAsync(Guid id)
         {
             var game = await _context.Games
-                .Include(g => g.GameGenres) // Зареждаме жанровете
+                .Include(g => g.GameGenres)
                     .ThenInclude(gg => gg.Genre)
-                .Include(g => g.GamePlatforms) // Зареждаме платформите
+                .Include(g => g.GamePlatforms)
                     .ThenInclude(gp => gp.Platform)
                 .FirstOrDefaultAsync(g => g.Id == id);
 
@@ -84,13 +91,11 @@ namespace HeatGames.Core.Services
                 ReleaseDate = game.ReleaseDate,
                 CoverImageUrl = game.CoverImageUrl,
                 DeveloperId = game.DeveloperId,
-                // ТУК ПЪЛНИМ СПИСЪЦИТЕ С ИМЕНА:
                 Genres = game.GameGenres.Select(gg => gg.Genre.Name).ToList(),
                 Platforms = game.GamePlatforms.Select(gp => gp.Platform.Name).ToList()
             };
         }
 
-        // 3. В CreateGameAsync записваме връзките в GamePlatforms
         public async Task CreateGameAsync(GameDto model)
         {
             var game = new Game
@@ -106,7 +111,6 @@ namespace HeatGames.Core.Services
 
             await _context.Games.AddAsync(game);
 
-            // Добавяме платформите
             foreach (var platformId in model.SelectedPlatformIds)
             {
                 await _context.GamePlatforms.AddAsync(new GamePlatform
@@ -119,17 +123,15 @@ namespace HeatGames.Core.Services
             await _context.SaveChangesAsync();
         }
 
-        // 4. В UpdateGameAsync изтриваме старите и добавяме новите платформи
         public async Task<bool> UpdateGameAsync(GameDto model)
         {
             var game = await _context.Games
                 .Include(g => g.GamePlatforms)
-                .Include(g => g.GameGenres) // ВКЛЮЧИ ЖАНРОВЕТЕ
+                .Include(g => g.GameGenres)
                 .FirstOrDefaultAsync(g => g.Id == model.Id);
 
             if (game == null) return false;
 
-            // Обновяване на основни данни
             game.Title = model.Title;
             game.Description = model.Description;
             game.Price = model.Price;
@@ -137,7 +139,6 @@ namespace HeatGames.Core.Services
             game.CoverImageUrl = model.CoverImageUrl;
             game.DeveloperId = model.DeveloperId;
 
-            // 1. Обновяване на Платформи (както досега)
             _context.GamePlatforms.RemoveRange(game.GamePlatforms);
             if (model.SelectedPlatformIds != null)
             {
@@ -147,8 +148,7 @@ namespace HeatGames.Core.Services
                 }
             }
 
-            // 2. ОБНОВЯВАНЕ НА ЖАНРОВЕ
-            _context.GameGenres.RemoveRange(game.GameGenres); // Махаме старите
+            _context.GameGenres.RemoveRange(game.GameGenres);
             if (model.SelectedGenreIds != null)
             {
                 foreach (var gId in model.SelectedGenreIds)
@@ -167,30 +167,22 @@ namespace HeatGames.Core.Services
 
             if (game != null)
             {
-                // 1. Изтриваме играта от библиотеките на потребителите
                 var libraryItems = _context.LibraryItems.Where(l => l.GameId == id);
                 _context.LibraryItems.RemoveRange(libraryItems);
 
-                // 2. Изтриваме връзките на играта с жанровете (GameGenres)
                 var gameGenres = _context.GameGenres.Where(gg => gg.GameId == id);
                 _context.GameGenres.RemoveRange(gameGenres);
 
-                // 3. Изтриваме всички ревюта, написани за тази игра
                 var reviews = _context.Reviews.Where(r => r.GameId == id);
                 _context.Reviews.RemoveRange(reviews);
 
-                // 4. АКО ИМАШ Wishlist таблица, разкоментирай тези редове:
                 var wishlistItems = _context.Wishlists.Where(w => w.GameId == id);
                 _context.Wishlists.RemoveRange(wishlistItems);
 
-                // 5.АКО ИМАШ OrderItems(история на поръчките), разкоментирай тези редове:
                 var orderItems = _context.OrderItems.Where(o => o.GameId == id);
                 _context.OrderItems.RemoveRange(orderItems);
 
-                // НАКРАЯ: След като сме изчистили всички зависимости, спокойно трием самата игра!
                 _context.Games.Remove(game);
-
-                // Запазваме всички промени наведнъж
                 await _context.SaveChangesAsync();
             }
         }

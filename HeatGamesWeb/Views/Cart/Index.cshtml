@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<HeatGamesWeb.ViewModels.CartItemViewModel>
 
 @{
-    ViewData["Title"] = "Моята Количка";
+    ViewData["Title"] = "My Cart";
     decimal totalPrice = Model?.Sum(i => i.Price) ?? 0;
 }
 
@@ -121,6 +121,15 @@
 <div class="cart-wrapper pt-4">
     <div class="container">
 
+        @* 🎯 ТУК ДОБАВЯМЕ КУТИИТЕ ЗА ГРЕШКИ И УСПЕХ *@
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <div class="alert alert-danger alert-dismissible fade show shadow-sm mb-4" style="background-color: #4d0000; color: #ffcccc; border: 1px solid #ff0000;" role="alert">
+                <i class="bi bi-exclamation-triangle-fill me-2"></i> @TempData["ErrorMessage"]
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        }
+
         @if (TempData["SuccessMessage"] != null)
         {
             <div class="alert alert-success alert-dismissible fade show shadow-sm mb-4" style="background-color: #003311; color: #ccffcc; border: 1px solid #00ff00;" role="alert">
@@ -129,16 +138,16 @@
             </div>
         }
 
-        <h1 class="cart-header"><i class="bi bi-cart3 me-2" style="color: #be00ff;"></i> Вашата Количка</h1>
+        <h1 class="cart-header"><i class="bi bi-cart3 me-2" style="color: #be00ff;"></i> My Cart</h1>
 
         @if (!Model.Any())
         {
             <div class="empty-cart-box">
                 <i class="bi bi-cart-x" style="font-size: 4rem; color: #4a0080;"></i>
-                <h3 class="mt-3 text-white">Количката ви е празна</h3>
-                <p style="color: #acb1b8;">Все още не сте добавили никакви игри. Разгледайте нашия каталог!</p>
+                <h3 class="mt-3 text-white">Your cart is empty</h3>
+                <p style="color: #acb1b8;">You haven't added any games yet. Browse our catalog!</p>
                 <a asp-controller="Games" asp-action="Index" class="btn btn-outline-light mt-3 px-4 fw-bold">
-                    Към Магазина
+                    Go to Store
                 </a>
             </div>
         }
@@ -153,17 +162,17 @@
                                 <img src="@item.CoverImageUrl" class="cart-item-img" alt="@item.Title">
                                 <div>
                                     <div class="cart-item-title">@item.Title</div>
-                                    <div class="text-muted small">Цифрово копие</div>
+                                    <div class="text-muted small">Digital Copy</div>
                                 </div>
                             </div>
 
                             <div class="d-flex align-items-center gap-4">
                                 <div class="cart-item-price">
-                                    @(item.Price == 0 ? "БЕЗПЛАТНО" : item.Price.ToString("0.00") + " лв.")
+                                    @(item.Price == 0 ? "FREE" : item.Price.ToString("0.00") + " лв.")
                                 </div>
                                 <form asp-controller="Cart" asp-action="Remove" method="post" class="m-0">
                                     <input type="hidden" name="gameId" value="@item.GameId" />
-                                    <button type="submit" class="btn btn-remove rounded-1" title="Премахни">
+                                    <button type="submit" class="btn btn-remove rounded-1" title="Remove">
                                         <i class="bi bi-trash3"></i>
                                     </button>
                                 </form>
@@ -174,27 +183,27 @@
 
                 <div class="col-lg-4">
                     <div class="summary-card shadow-lg">
-                        <h4 class="fw-bold text-white mb-4 border-bottom border-secondary pb-2">Обобщение</h4>
+                        <h4 class="fw-bold text-white mb-4 border-bottom border-secondary pb-2">Order Summary</h4>
 
                         <div class="d-flex justify-content-between mb-3" style="color: #c4a6ff; font-size: 1.1rem;">
-                            <span>Брой игри:</span>
+                            <span>Items:</span>
                             <span class="fw-bold text-white">@Model.Count()</span>
                         </div>
 
                         <div class="d-flex justify-content-between align-items-end mt-4 pt-3 border-top border-secondary">
-                            <span style="color: #acb1b8; font-size: 1.2rem;">ОБЩО:</span>
+                            <span style="color: #acb1b8; font-size: 1.2rem;">TOTAL:</span>
                             <span class="summary-total">@totalPrice.ToString("0.00") лв.</span>
                         </div>
 
                         <form asp-controller="Orders" asp-action="Checkout" method="post">
                             <button type="submit" class="btn btn-checkout">
-                                <i class="bi bi-wallet2 me-2 fs-5"></i> ПЛАТИ СЕГА
+                                <i class="bi bi-wallet2 me-2 fs-5"></i> CHECKOUT
                             </button>
                         </form>
 
                         <div class="text-center mt-3">
                             <a asp-controller="Games" asp-action="Index" style="color: #c4a6ff; text-decoration: none; font-size: 0.9rem;">
-                                <i class="bi bi-arrow-left me-1"></i> Продължи пазаруването
+                                <i class="bi bi-arrow-left me-1"></i> Continue Shopping
                             </a>
                         </div>
                     </div>

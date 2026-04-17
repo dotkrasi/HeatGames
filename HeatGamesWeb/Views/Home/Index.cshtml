@@ -6,7 +6,6 @@
     var sliderGames = Model.OrderBy(g => Guid.NewGuid()).Take(3).ToList();
     var trendingGames = Model.Skip(3).Take(4).ToList();
 
-    // Взимаме разработчиците от ViewBag
     var topDevelopers = ViewBag.TopDevelopers as List<HeatGames.Core.DTOs.DeveloperDto> ?? new List<HeatGames.Core.DTOs.DeveloperDto>();
 }
 
@@ -161,7 +160,6 @@
             color: white;
         }
 
-    /* 🎯 НОВИ СТИЛОВЕ ЗА РАЗРАБОТЧИЦИТЕ 🎯 */
     .developer-card {
         background: #1a0033;
         border: 1px solid #4a0080;
@@ -262,7 +260,9 @@
 
                             <img src="@game.CoverImageUrl" class="card-img-top" style="height: 160px; object-fit: cover;">
                             <div class="card-body p-3 d-flex flex-column">
-                                <p class="text-white mb-2 fw-bold text-truncate" title="@game.Title">@game.Title</p>
+                                <p class="text-white mb-0 fw-bold text-truncate" title="@game.Title">@game.Title</p>
+                                <p class="mb-2 text-truncate" style="font-size: 0.8rem; color: #acb1b8;">By: <span style="color: #00d2ff;">@game.DeveloperName</span></p>
+
                                 <div class="mt-auto d-flex justify-content-between align-items-center">
                                     <span style="color: #be00ff; font-weight: bold; font-size: 1.1rem;">
                                         @(game.Price == 0 ? "FREE" : game.Price.ToString("0.00") + " BGN")

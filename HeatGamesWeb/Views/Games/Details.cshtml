@@ -7,14 +7,14 @@
 <style>
     /* СПЕЦИАЛНИ ТЪМНИ СТИЛОВЕ ЗА ДЕТАЙЛИТЕ НА ИГРАТА */
     .details-card {
-        background-color: #230046; /* Тъмно лилаво */
+        background-color: #230046;
         border: 1px solid #4a0080;
         border-radius: 8px;
         color: #e6d9ff;
     }
 
     .details-price {
-        color: #be00ff; /* Ярко лилаво (Магента) */
+        color: #be00ff;
         font-size: 2.2rem;
         font-weight: 900;
         text-shadow: 0 0 10px rgba(190, 0, 255, 0.3);
@@ -51,9 +51,20 @@
             transform: translateY(-2px);
         }
 
+    /* 🎯 Бутон In Cart (когато вече е добавена) */
+    .btn-in-cart {
+        background-color: #BEEF52;
+        color: #000000;
+        border: none;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        cursor: default;
+    }
+
     /* Ревюта */
     .review-form-card {
-        background-color: #1a0033; /* Още по-тъмно за формата */
+        background-color: #1a0033;
         border: 1px solid #4a0080;
         color: #e6d9ff;
     }
@@ -106,14 +117,14 @@
     @if (TempData["ErrorMessage"] != null)
     {
         <div class="alert alert-danger alert-dismissible fade show shadow-sm" style="background-color: #4d0000; color: #ffcccc; border: 1px solid #ff0000;" role="alert">
-            <strong>Грешка!</strong> @TempData["ErrorMessage"]
+            <strong>Error!</strong> @TempData["ErrorMessage"]
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     }
     @if (TempData["SuccessMessage"] != null)
     {
         <div class="alert alert-success alert-dismissible fade show shadow-sm" style="background-color: #003311; color: #ccffcc; border: 1px solid #00ff00;" role="alert">
-            <strong>Успех!</strong> @TempData["SuccessMessage"]
+            <strong>Success!</strong> @TempData["SuccessMessage"]
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     }
@@ -135,19 +146,24 @@
             <div class="col-md-7">
                 <div class="card-body p-5 d-flex flex-column h-100">
                     <div class="d-flex justify-content-between align-items-start mb-2">
-                        <h1 class="card-title fw-bold mb-0 text-white">@Model.Title</h1>
-                        <span class="details-price">@Model.Price.ToString("0.00") лв.</span>
+                        <div>
+                            <h1 class="card-title fw-bold mb-0 text-white">@Model.Title</h1>
+
+                            <p class="mt-1 mb-0" style="font-size: 1.1rem; color: #acb1b8;">By: <span style="color: #00d2ff; font-weight: bold;">@Model.DeveloperName</span></p>
+
+                        </div>
+                        <span class="details-price">@(Model.Price == 0 ? "FREE" : Model.Price.ToString("0.00") + " BGN")</span>
                     </div>
 
-                    <p style="color: #c4a6ff;" class="mb-3">
-                        <i class="bi bi-calendar-event me-1"></i> Излязла на: @Model.ReleaseDate.ToString("dd.MM.yyyy")
+                    <p style="color: #c4a6ff;" class="mb-4">
+                        <i class="bi bi-calendar-event me-1"></i> Release Date: @Model.ReleaseDate.ToString("dd.MM.yyyy")
                     </p>
 
-                    @* ——— НОВО: ЖАНРОВЕ ——— *@
+                    @* ——— ЖАНРОВЕ ——— *@
                     @if (Model.Genres != null && Model.Genres.Any())
                     {
                         <div class="mb-3">
-                            <span class="fw-bold d-block mb-1" style="color: #c4a6ff; font-size: 0.9rem;">ЖАНРОВЕ:</span>
+                            <span class="fw-bold d-block mb-2" style="color: #c4a6ff; font-size: 0.9rem;">GENRES:</span>
                             <div class="d-flex flex-wrap gap-2">
                                 @foreach (var genre in Model.Genres)
                                 {
@@ -157,11 +173,11 @@
                         </div>
                     }
 
-                    @* ——— НОВО: ПЛАТФОРМИ ——— *@
+                    @* ——— ПЛАТФОРМИ ——— *@
                     @if (Model.Platforms != null && Model.Platforms.Any())
                     {
                         <div class="mb-4">
-                            <span class="fw-bold d-block mb-1" style="color: #c4a6ff; font-size: 0.9rem;">НАЛИЧНО ЗА:</span>
+                            <span class="fw-bold d-block mb-2" style="color: #c4a6ff; font-size: 0.9rem;">AVAILABLE ON:</span>
                             <div class="d-flex flex-wrap gap-2">
                                 @foreach (var platform in Model.Platforms)
                                 {
@@ -192,7 +208,7 @@
                         </div>
                     }
 
-                    <h5 class="fw-bold" style="color: #c4a6ff;">ОПИСАНИЕ:</h5>
+                    <h5 class="fw-bold mt-2" style="color: #c4a6ff;">DESCRIPTION:</h5>
                     <p class="card-text mb-5" style="line-height: 1.6;">@Model.Description</p>
 
                     <div class="mt-auto">
@@ -204,29 +220,46 @@
                             if (ownsGame)
                             {
                                 <div class="d-flex gap-3 mb-4">
-                                    <div class="alert alert-success m-0 d-flex align-items-center justify-content-center" style="background-color: #1a0033; border: 1px dashed #BEEF52; color: #BEEF52; padding: 0 15px;" title="Вече притежавате тази игра">
+                                    <div class="alert alert-success m-0 d-flex align-items-center justify-content-center" style="background-color: #1a0033; border: 1px dashed #BEEF52; color: #BEEF52; padding: 0 15px;" title="You already own this game">
                                         <i class="bi bi-check-circle-fill fs-4"></i>
                                     </div>
                                     <a asp-controller="Library" asp-action="Index" class="btn btn-lg w-100 fw-bold d-flex align-items-center justify-content-center" style="background-color: #BEEF52; color: #000000; transition: 0.2s; text-transform: uppercase; letter-spacing: 1px;">
-                                        <i class="bi bi-collection-play-fill me-2 fs-5"></i> Към Библиотеката
+                                        <i class="bi bi-collection-play-fill me-2 fs-5"></i> IN LIBRARY
                                     </a>
                                 </div>
                             }
                             else
                             {
                                 <div class="d-flex gap-3 mb-4">
-                                    @* ПРОМЕНЕНО: Вече сочи към Cart/Add *@
-                                    <form asp-controller="Cart" asp-action="Add" method="post" class="flex-grow-1 m-0">
-                                        <input type="hidden" name="gameId" value="@Model.Id" />
-                                        <button type="submit" class="btn btn-magenta btn-lg w-100 fw-bold h-100 d-flex align-items-center justify-content-center">
-                                            <i class="bi bi-cart-plus me-2 fs-5"></i> ДОБАВИ В КОЛИЧКАТА
+                                    @* 🎯 НОВО: Проверка за Количка (In Cart) 🎯 *@
+                                    @if (Model.IsInCart)
+                                    {
+                                        <button disabled class="btn btn-in-cart btn-lg w-100 h-100 d-flex align-items-center justify-content-center">
+                                            <i class="bi bi-cart-check-fill me-2 fs-5"></i> IN CART
                                         </button>
-                                    </form>
+                                    }
+                                    else
+                                    {
+                                        <form asp-controller="Cart" asp-action="Add" method="post" class="flex-grow-1 m-0">
+                                            <input type="hidden" name="gameId" value="@Model.Id" />
+                                            <button type="submit" class="btn btn-magenta btn-lg w-100 fw-bold h-100 d-flex align-items-center justify-content-center">
+                                                <i class="bi bi-cart-plus me-2 fs-5"></i> ADD TO CART
+                                            </button>
+                                        </form>
+                                    }
 
                                     <form asp-controller="Wishlist" asp-action="Toggle" method="post" class="m-0">
                                         <input type="hidden" name="gameId" value="@Model.Id" />
-                                        <button type="submit" class="btn btn-outline-magenta btn-lg h-100 d-flex align-items-center justify-content-center" style="padding-left: 1.5rem; padding-right: 1.5rem;" title="Добави/Премахни от Желани">
-                                            <i class="bi bi-heart-fill fs-5"></i>
+                                        <button type="submit" class="btn btn-outline-magenta btn-lg h-100 d-flex align-items-center justify-content-center" style="padding-left: 1.5rem; padding-right: 1.5rem;" title="Add/Remove Wishlist">
+                                            @* 🎯 НОВО: Индикатор за Wishlist 🎯 *@
+                                            @if (Model.IsInWishlist)
+                                            {
+                                                <i class="bi bi-heart-fill fs-5" style="color: #ff3366;"></i>
+                                            }
+                                            else
+                                            {
+                                                <i class="bi bi-heart fs-5"></i>
+                                            }
                                         </button>
                                     </form>
                                 </div>
@@ -235,17 +268,17 @@
                         else
                         {
                             <div class="alert text-center mb-4" style="background-color: #1a0033; border: 1px solid #4a0080; color: #c4a6ff;">
-                                Трябва да влезете в профила си, за да добавите тази игра в количката.
-                                <a asp-controller="Account" asp-action="Login" class="fw-bold" style="color: #be00ff;">Вход</a>
+                                You need to be logged in to add this game to your cart.
+                                <a asp-controller="Account" asp-action="Login" class="fw-bold" style="color: #be00ff;">Sign In</a>
                             </div>
                         }
 
                         <div class="d-flex gap-2 pt-3" style="border-top: 1px solid #4a0080;">
-                            <a asp-action="Index" class="btn btn-outline-light"><i class="bi bi-arrow-left"></i> Назад към магазина</a>
+                            <a asp-action="Index" class="btn btn-outline-light"><i class="bi bi-arrow-left"></i> Back to Store</a>
 
                             @if (User.IsInRole("Admin"))
                             {
-                                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning"><i class="bi bi-pencil" style="color: white;"></i> Редактирай</a>
+                                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning"><i class="bi bi-pencil" style="color: white;"></i> Edit</a>
                             }
                         </div>
                     </div>
@@ -256,40 +289,40 @@
 
     @* ——— СЕКЦИЯ ЗА РЕВЮТА ——— *@
     <div class="mt-5 mb-5">
-        <h3 class="fw-bold mb-4 text-white"><i class="bi bi-chat-left-text" style="color: #be00ff;"></i> Отзиви от играчи</h3>
+        <h3 class="fw-bold mb-4 text-white"><i class="bi bi-chat-left-text" style="color: #be00ff;"></i> Player Reviews</h3>
 
         @if (User.Identity?.IsAuthenticated ?? false)
         {
             <div class="card review-form-card shadow-sm mb-5 rounded">
                 <div class="card-body p-4">
-                    <h5 class="fw-bold mb-4" style="color: #c4a6ff;">Напишете ревю за играта</h5>
+                    <h5 class="fw-bold mb-4" style="color: #c4a6ff;">Write a review for this game</h5>
                     <form asp-controller="Reviews" asp-action="Add" method="post">
                         <input type="hidden" name="gameId" value="@Model.Id" />
 
                         <div class="mb-4">
-                            <label class="form-label fw-bold">Препоръчвате ли тази игра?</label>
+                            <label class="form-label fw-bold">Do you recommend this game?</label>
                             <div class="d-flex gap-4 mt-2">
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="isPositive" id="radioYes" value="true" checked style="background-color: #000; border-color: #4a0080;">
                                     <label class="form-check-label text-success fw-bold fs-5" for="radioYes">
-                                        <i class="bi bi-hand-thumbs-up-fill"></i> Да
+                                        <i class="bi bi-hand-thumbs-up-fill"></i> Yes
                                     </label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="isPositive" id="radioNo" value="false" style="background-color: #000; border-color: #4a0080;">
                                     <label class="form-check-label text-danger fw-bold fs-5" for="radioNo">
-                                        <i class="bi bi-hand-thumbs-down-fill"></i> Не
+                                        <i class="bi bi-hand-thumbs-down-fill"></i> No
                                     </label>
                                 </div>
                             </div>
                         </div>
 
                         <div class="mb-4">
-                            <label for="comment" class="form-label fw-bold">Вашият коментар</label>
-                            <textarea class="form-control form-control-dark" id="comment" name="comment" rows="3" required placeholder="Споделете мнението си..."></textarea>
+                            <label for="comment" class="form-label fw-bold">Your Comment</label>
+                            <textarea class="form-control form-control-dark" id="comment" name="comment" rows="3" required placeholder="Share your thoughts..."></textarea>
                         </div>
 
-                        <button type="submit" class="btn btn-magenta fw-bold px-4">Публикувай ревю</button>
+                        <button type="submit" class="btn btn-magenta fw-bold px-4">Post Review</button>
                     </form>
                 </div>
             </div>
@@ -304,7 +337,7 @@
                     <div class="col-12">
                         <div class="alert text-center py-5" style="background-color: #1a0033; border: 1px dashed #4a0080; color: #c4a6ff;">
                             <i class="bi bi-chat-square-dots fs-1 mb-3 d-block"></i>
-                            Все още няма ревюта за тази игра. Бъдете първият!
+                            There are no reviews for this game yet. Be the first!
                         </div>
                     </div>
                 }
@@ -321,11 +354,11 @@
                                 <div class="card-body p-4">
                                     @if (review.IsPositive)
                                     {
-                                        <h6 class="text-success fw-bold mb-3"><i class="bi bi-hand-thumbs-up-fill fs-5 me-2"></i> Препоръчва играта</h6>
+                                        <h6 class="text-success fw-bold mb-3"><i class="bi bi-hand-thumbs-up-fill fs-5 me-2"></i> Recommends this game</h6>
                                     }
                                     else
                                     {
-                                        <h6 class="text-danger fw-bold mb-3"><i class="bi bi-hand-thumbs-down-fill fs-5 me-2"></i> Не препоръчва играта</h6>
+                                        <h6 class="text-danger fw-bold mb-3"><i class="bi bi-hand-thumbs-down-fill fs-5 me-2"></i> Doesn't recommend this game</h6>
                                     }
                                     <p class="card-text" style="color: #e6d9ff; line-height: 1.5;">@review.Comment</p>
                                 </div>

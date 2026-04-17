@@ -24,7 +24,6 @@ namespace HeatGamesWeb.Controllers
         private readonly IReviewService _reviewService;
         private readonly IGenreService _genreService;
         private readonly IPlatformService _platformService;
-        // 🎯 ДОБАВЕНИ СЪРВИСИ:
         private readonly IWishlistService _wishlistService;
         private readonly UserManager<User> _userManager;
 
@@ -44,14 +43,11 @@ namespace HeatGamesWeb.Controllers
         {
             int pageSize = 16;
 
-            // 🎯 Подаваме developerId на сървиса
             var result = await _gameService.GetAllGamesAsync(searchQuery, genre, developerId, minPrice, maxPrice, page, pageSize);
 
-            // СТЪПКА 1: Взимаме кои игри са в количката от сесията
             var cart = HttpContext.Session.Get<List<CartItemViewModel>>("ShoppingCart") ?? new List<CartItemViewModel>();
             var cartGameIds = cart.Select(c => c.GameId).ToHashSet();
 
-            // СТЪПКА 2: Взимаме кои игри са в Wishlist-а (АКО има логнат потребител)
             var wishlistGameIds = new HashSet<Guid>();
             if (User.Identity?.IsAuthenticated ?? false)
             {
@@ -63,7 +59,6 @@ namespace HeatGamesWeb.Controllers
                 }
             }
 
-            // СТЪПКА 3: Мапваме и "светваме" флаговете
             var viewModels = result.Games.Select(dto => new GameViewModel
             {
                 Id = dto.Id,
@@ -71,23 +66,22 @@ namespace HeatGamesWeb.Controllers
                 Price = dto.Price,
                 CoverImageUrl = dto.CoverImageUrl,
                 DeveloperId = dto.DeveloperId,
+                DeveloperName = dto.DeveloperName, // 🎯 ДОБАВЕНО МАПВАНЕ НА ИМЕТО
                 Platforms = dto.Platforms,
                 Genres = dto.Genres,
                 IsInCart = cartGameIds.Contains(dto.Id),
                 IsInWishlist = wishlistGameIds.Contains(dto.Id)
             }).ToList();
 
-            // Зареждаме Жанровете за падащото меню
             var genres = await _genreService.GetAllGenresAsync();
             ViewBag.Genres = genres;
 
-            // 🎯 ЗАреждаме Разработчиците за падащото меню
             var developers = await _developerService.GetAllDevelopersAsync();
             ViewBag.Developers = developers;
 
             ViewBag.CurrentSearch = searchQuery;
             ViewBag.CurrentGenre = genre;
-            ViewBag.CurrentDeveloperId = developerId; // 🎯 Запазваме избрания девелопър
+            ViewBag.CurrentDeveloperId = developerId;
             ViewBag.CurrentMinPrice = minPrice;
             ViewBag.CurrentMaxPrice = maxPrice;
 
@@ -98,7 +92,6 @@ namespace HeatGamesWeb.Controllers
             return View(viewModels);
         }
 
-        // --- Останалите методи остават същите ---
         public async Task<IActionResult> Create()
         {
             var developers = await _developerService.GetAllDevelopersAsync();
@@ -146,6 +139,7 @@ namespace HeatGamesWeb.Controllers
                 Price = gameDto.Price,
                 ReleaseDate = gameDto.ReleaseDate,
                 CoverImageUrl = gameDto.CoverImageUrl,
+                DeveloperName = gameDto.DeveloperName, // 🎯
                 Genres = gameDto.Genres,
                 Platforms = gameDto.Platforms
             };

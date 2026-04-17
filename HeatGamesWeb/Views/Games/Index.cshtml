@@ -3,7 +3,6 @@
 @{
     ViewData["Title"] = "Store";
 
-    // 🎯 ДОБАВЕНО: Проверка и за CurrentDeveloperId
     bool hasFilters = !string.IsNullOrEmpty(ViewBag.CurrentSearch) ||
                       !string.IsNullOrEmpty(ViewBag.CurrentGenre) ||
                       ViewBag.CurrentMaxPrice != null ||
@@ -223,7 +222,6 @@
                         <option value="">All Developers</option>
                         @if (ViewBag.Developers != null)
                         {
-                            // Предполагам, че моделът ти за Developer e DeveloperDto
                             foreach (var dev in (IEnumerable<HeatGames.Core.DTOs.DeveloperDto>)ViewBag.Developers)
                             {
                                 if (ViewBag.CurrentDeveloperId != null && ViewBag.CurrentDeveloperId.ToString() == dev.Id.ToString())
@@ -364,9 +362,10 @@
                             </a>
 
                             <div class="card-body d-flex flex-column p-3">
-                                <h6 class="card-title fw-bold mb-1" style="color: #ffffff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="@item.Title">
+                                <h6 class="card-title fw-bold mb-0" style="color: #ffffff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="@item.Title">
                                     @item.Title
                                 </h6>
+                                <p class="mb-2 text-truncate" style="font-size: 0.8rem; color: #acb1b8;">By: <span style="color: #00d2ff;">@item.DeveloperName</span></p>
 
                                 <div class="mb-2">
                                     @if (item.Platforms != null && item.Platforms.Any())

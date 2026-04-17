@@ -22,7 +22,7 @@ namespace HeatGames.Core.Services
         public async Task<(IEnumerable<GameDto> Games, int TotalCount)> GetAllGamesAsync(
             string? searchQuery = null,
             string? genre = null,
-            Guid? developerId = null, // 🎯 ДОБАВЕНО
+            Guid? developerId = null,
             decimal? minPrice = null,
             decimal? maxPrice = null,
             int page = 1,
@@ -33,31 +33,26 @@ namespace HeatGames.Core.Services
                 .Include(g => g.GamePlatforms).ThenInclude(gp => gp.Platform)
                 .AsQueryable();
 
-            // 1. ФИЛТЪР ПО ТЪРСЕНЕ (ИМЕ)
             if (!string.IsNullOrWhiteSpace(searchQuery))
             {
                 query = query.Where(g => g.Title.ToLower().Contains(searchQuery.ToLower()));
             }
 
-            // 2. ФИЛТЪР ПО ЖАНР
             if (!string.IsNullOrWhiteSpace(genre))
             {
                 query = query.Where(g => g.GameGenres.Any(gg => gg.Genre.Name == genre));
             }
 
-            // 🎯 3. ФИЛТЪР ПО DEVELOPER (НОВО)
             if (developerId.HasValue && developerId.Value != Guid.Empty)
             {
                 query = query.Where(g => g.DeveloperId == developerId.Value);
             }
 
-            // 4. ФИЛТЪР ПО МИНИМАЛНА ЦЕНА
             if (minPrice.HasValue)
             {
                 query = query.Where(g => g.Price >= minPrice.Value);
             }
 
-            // 5. ФИЛТЪР ПО МАКСИМАЛНА ЦЕНА
             if (maxPrice.HasValue)
             {
                 query = query.Where(g => g.Price <= maxPrice.Value);
@@ -66,7 +61,7 @@ namespace HeatGames.Core.Services
             int totalCount = await query.CountAsync();
 
             var games = await query
-                .OrderByDescending(g => g.ReleaseDate) // Най-новите първи
+                .OrderByDescending(g => g.ReleaseDate)
                 .Skip((page - 1) * pageSize)
                 .Take(pageSize)
                 .Select(g => new GameDto
@@ -76,6 +71,7 @@ namespace HeatGames.Core.Services
                     Price = g.Price,
                     CoverImageUrl = g.CoverImageUrl,
                     DeveloperId = g.DeveloperId,
+                    DeveloperName = g.Developer.Name, // 🎯 ДОБАВЕНО ИЗВЛИЧАНЕТО НА ИМЕТО
                     Platforms = g.GamePlatforms.Select(p => p.Platform.Name).ToList(),
                     Genres = g.GameGenres.Select(gg => gg.Genre.Name).ToList()
                 })
@@ -84,11 +80,10 @@ namespace HeatGames.Core.Services
             return (games, totalCount);
         }
 
-        // --- Останалите ти методи остават АБСОЛЮТНО НЕПРОМЕНЕНИ ---
-
         public async Task<GameDto?> GetGameByIdAsync(Guid id)
         {
             var game = await _context.Games
+                .Include(g => g.Developer) // Добре е да инклуднем и Developer
                 .Include(g => g.GameGenres)
                     .ThenInclude(gg => gg.Genre)
                 .Include(g => g.GamePlatforms)
@@ -106,6 +101,7 @@ namespace HeatGames.Core.Services
                 ReleaseDate = game.ReleaseDate,
                 CoverImageUrl = game.CoverImageUrl,
                 DeveloperId = game.DeveloperId,
+                DeveloperName = game.Developer?.Name, // 🎯 Добавено
                 Genres = game.GameGenres.Select(gg => gg.Genre.Name).ToList(),
                 Platforms = game.GamePlatforms.Select(gp => gp.Platform.Name).ToList()
             };

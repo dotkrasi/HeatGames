@@ -19,9 +19,8 @@ namespace HeatGamesWeb.Controllers
         private readonly IGameService _gameService;
         private readonly IWishlistService _wishlistService;
         private readonly UserManager<User> _userManager;
-        private readonly IDeveloperService _developerService; // 🎯 ДОБАВЕНО
+        private readonly IDeveloperService _developerService;
 
-        // Инжектираме нужните сървиси за Wishlist, Session(Cart) и Developers
         public HomeController(IGameService gameService, IWishlistService wishlistService, UserManager<User> userManager, IDeveloperService developerService)
         {
             _gameService = gameService;
@@ -34,11 +33,9 @@ namespace HeatGamesWeb.Controllers
         {
             var result = await _gameService.GetAllGamesAsync();
 
-            // СТЪПКА 1: Взимаме количката от сесията
             var cart = HttpContext.Session.Get<List<CartItemViewModel>>("ShoppingCart") ?? new List<CartItemViewModel>();
             var cartGameIds = cart.Select(c => c.GameId).ToHashSet();
 
-            // СТЪПКА 2: Взимаме Wishlist-а (ако има логнат потребител)
             var wishlistGameIds = new HashSet<Guid>();
             if (User.Identity?.IsAuthenticated ?? false)
             {
@@ -50,7 +47,6 @@ namespace HeatGamesWeb.Controllers
                 }
             }
 
-            // СТЪПКА 3: Мапваме и "светваме" флаговете
             var viewModel = result.Games.Select(g => new GameViewModel
             {
                 Id = g.Id,
@@ -58,13 +54,13 @@ namespace HeatGamesWeb.Controllers
                 Price = g.Price,
                 CoverImageUrl = g.CoverImageUrl,
                 Description = g.Description,
+                DeveloperId = g.DeveloperId,
+                DeveloperName = g.DeveloperName, // 🎯 ДОБАВЕНО МАПВАНЕ НА ИМЕТО
                 IsInCart = cartGameIds.Contains(g.Id),
                 IsInWishlist = wishlistGameIds.Contains(g.Id)
             }).ToList();
 
-            // 🎯 СТЪПКА 4: Взимаме Топ 3 Разработчици за началната страница
             var allDevelopers = await _developerService.GetAllDevelopersAsync();
-            // Взимаме 3 случайни (или първите 3) студия, за да ги покажем в секцията
             ViewBag.TopDevelopers = allDevelopers.OrderBy(d => Guid.NewGuid()).Take(3).ToList();
 
             return View(viewModel);

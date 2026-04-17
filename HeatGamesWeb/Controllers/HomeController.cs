@@ -1,50 +1,72 @@
-﻿using HeatGames.Core.Services.Interfaces; // Увери се, че това е твоят namespace за интерфейсите
+﻿using HeatGames.Core.Services.Interfaces;
 using HeatGamesCore.Services.Interfaces;
 using HeatGamesWeb.Models;
+using HeatGamesWeb.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Linq;
 using System.Threading.Tasks;
 
-public class HomeController : Controller
+namespace HeatGamesWeb.Controllers
 {
-    private readonly IGameService _gameService;
-
-    // Инжектираме GameService, за да можем да взимаме игри
-    public HomeController(IGameService gameService)
+    public class HomeController : Controller
     {
-        _gameService = gameService;
-    }
+        private readonly IGameService _gameService;
 
-    public async Task<IActionResult> Index()
-    {
-        // 1. Взимаме данните (които са Tuple: игри + бройка)
-        var result = await _gameService.GetAllGamesAsync();
-
-        // result.Item1 са игрите (IEnumerable<GameDto>)
-        // Трябва да ги превърнем (Map) в GameViewModel
-        var viewModel = result.Item1.Select(g => new HeatGamesWeb.ViewModels.GameViewModel
+        // Инжектираме GameService, за да можем да взимаме игри
+        public HomeController(IGameService gameService)
         {
-            Id = g.Id,
-            Title = g.Title,
-            Price = g.Price,
-            CoverImageUrl = g.CoverImageUrl,
-            Description = g.Description,
-            // Добави и другите свойства, ако са нужни за началната страница
-        }).ToList();
+            _gameService = gameService;
+        }
 
-        // 2. Подаваме чистия списък на View-то
-        return View(viewModel);
-    }
+        public async Task<IActionResult> Index()
+        {
+            // 1. Взимаме данните (които са Tuple: Games + TotalCount)
+            var result = await _gameService.GetAllGamesAsync();
 
-    public IActionResult Privacy()
-    {
-        return View();
-    }
+            // Превръщаме (Map) в GameViewModel
+            // Използваме result.Games вместо result.Item1 за по-добра четимост
+            var viewModel = result.Games.Select(g => new GameViewModel
+            {
+                Id = g.Id,
+                Title = g.Title,
+                Price = g.Price,
+                CoverImageUrl = g.CoverImageUrl,
+                Description = g.Description
+            }).ToList();
 
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
-    {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            // 2. Подаваме чистия списък на View-то
+            return View(viewModel);
+        }
+
+        public IActionResult Privacy()
+        {
+            return View();
+        }
+
+        // 🎯 --- НОВИТЕ 3 МЕТОДА ЗА ПРОФЕСИОНАЛНИЯ FOOTER --- 🎯
+
+        public IActionResult Faq()
+        {
+            return View();
+        }
+
+        public IActionResult RefundPolicy()
+        {
+            return View();
+        }
+
+        public IActionResult TermsOfService()
+        {
+            return View();
+        }
+
+        // ----------------------------------------------------
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
     }
 }
-

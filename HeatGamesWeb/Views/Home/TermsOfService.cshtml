@@ -1,0 +1,66 @@
+﻿@{
+    ViewData["Title"] = "Terms of Service";
+}
+
+<style>
+    .policy-wrapper {
+        background-color: #000000;
+        min-height: 75vh;
+        color: #e6d9ff;
+    }
+
+    .policy-card {
+        background-color: #1a0033;
+        border: 1px solid #4a0080;
+        border-radius: 8px;
+        padding: 40px;
+    }
+
+    h3 {
+        color: #ffffff;
+        margin-top: 35px;
+        margin-bottom: 15px;
+        font-weight: bold;
+        font-size: 1.4rem;
+    }
+
+    p, li {
+        color: #acb1b8;
+        line-height: 1.8;
+        font-size: 1.05rem;
+    }
+</style>
+
+<div class="policy-wrapper pt-5 pb-5">
+    <div class="container">
+        <div class="policy-card shadow-lg">
+            <h1 class="fw-bold text-white mb-2"><i class="bi bi-file-earmark-text me-2" style="color: #be00ff;"></i> Terms of Service</h1>
+            <p class="text-muted mb-4">Effective as of: @DateTime.Now.AddDays(-30).ToString("dd.MM.yyyy")</p>
+            <hr style="border-color: #4a0080;" class="mb-5" />
+
+            <p>Welcome to HeatGames. By accessing or using our platform, you agree to be bound by these Terms of Service. Please read them carefully.</p>
+
+            <h3>1. Account Registration</h3>
+            <p>To use certain features of the Service (such as buying games and adding them to your library), you must register an account. You agree to provide accurate, current, and complete information during the registration process and to keep it updated. You are solely responsible for maintaining the security of your password.</p>
+
+            <h3>2. Digital Content & Licenses</h3>
+            <p>All games, software, and other digital content available on HeatGames are <strong>licensed, not sold</strong>. This license does not grant you ownership of the content. You may not distribute, resell, modify, or reverse engineer products acquired through our platform.</p>
+
+            <h3>3. User Conduct</h3>
+            <p>As a user of the platform, you agree NOT to use the Service to:</p>
+            <ul class="mb-4">
+                <li>Engage in illegal or unauthorized activities.</li>
+                <li>Distribute viruses, malware, or other dangerous code.</li>
+                <li>Attempt to bypass our payment, security, or download systems.</li>
+                <li>Harass, abuse, or post inappropriate content in game reviews.</li>
+            </ul>
+
+            <h3>4. Termination of Access</h3>
+            <p>We reserve the right to terminate or suspend your access to your account immediately, without prior notice, for any reason, including breach of these Terms. Upon termination, your right to use the Service and access your Game Library will immediately cease.</p>
+
+            <div class="text-center mt-5 pt-4" style="border-top: 1px solid #4a0080;">
+                <p class="small text-muted m-0">If you have any questions regarding these terms, please contact HeatGames support.</p>
+            </div>
+        </div>
+    </div>
+</div>

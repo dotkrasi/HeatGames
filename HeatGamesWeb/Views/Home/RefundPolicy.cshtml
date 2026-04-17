@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "Refund Policy";
+}
+
+<style>
+    .policy-wrapper {
+        background-color: #000000;
+        min-height: 75vh;
+        color: #e6d9ff;
+    }
+
+    .policy-card {
+        background-color: #1a0033;
+        border: 1px solid #4a0080;
+        border-radius: 8px;
+        padding: 40px;
+    }
+
+    h3 {
+        color: #ffffff;
+        margin-top: 35px;
+        margin-bottom: 15px;
+        font-weight: bold;
+        font-size: 1.5rem;
+    }
+
+    p, li {
+        color: #acb1b8;
+        line-height: 1.8;
+        font-size: 1.05rem;
+    }
+</style>
+
+<div class="policy-wrapper pt-5 pb-5">
+    <div class="container">
+        <div class="policy-card shadow-lg">
+            <h1 class="fw-bold text-white mb-2"><i class="bi bi-arrow-counterclockwise me-2" style="color: #be00ff;"></i> Refund Policy</h1>
+            <p class="text-muted mb-4">Last updated: @DateTime.Now.ToString("MMMM yyyy")</p>
+            <hr style="border-color: #4a0080;" class="mb-5" />
+
+            <p>At HeatGames, we want you to shop confidently and with peace of mind. That's why we offer a simple, transparent, and fair refund policy for our digital products.</p>
+
+            <h3>The 14 Days / 2 Hours Rule</h3>
+            <p>You can request a refund for almost any purchase on HeatGames—for any reason. Maybe your PC doesn't meet the system requirements, you bought a game by mistake, or you just played it for an hour and didn't like it.</p>
+            <p>We will refund the full amount to your HeatGames Wallet, provided the request is made within <strong>14 days of purchase</strong> and the title has been played for <strong>less than 2 hours</strong>.</p>
+
+            <h3>Where do the refunds go?</h3>
+            <p>Approved refund requests will automatically be credited back to your <strong>HeatGames Wallet</strong> balance. You can use these funds immediately to purchase other titles from our store.</p>
+
+            <h3>Abuse of the System</h3>
+            <p>Refunds are designed to remove the risk from purchasing—not as a way to get free games. If it appears to us that you are abusing refunds (for example, constantly buying and refunding games), we reserve the right to stop offering them to you. We do not consider it abuse to request a refund on a title that was purchased just before a sale and then immediately rebuying that title for the sale price.</p>
+        </div>
+    </div>
+</div>

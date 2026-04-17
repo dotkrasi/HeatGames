@@ -1,9 +1,8 @@
 ﻿@model IEnumerable<HeatGamesWeb.ViewModels.GameViewModel>
 
 @{
-    ViewData["Title"] = "Каталог с игри";
+    ViewData["Title"] = "Store";
 
-    // Добавихме и проверка за MinPrice
     bool hasFilters = !string.IsNullOrEmpty(ViewBag.CurrentSearch) ||
                       !string.IsNullOrEmpty(ViewBag.CurrentGenre) ||
                       ViewBag.CurrentMaxPrice != null ||
@@ -30,7 +29,6 @@
 }
 
 <style>
-    /* Тъмен сайдбар с формата */
     .store-sidebar {
         background-color: #230046;
         border: 1px solid #4a0080;
@@ -57,6 +55,7 @@
         border: 1px solid #4a0080;
         border-radius: 4px;
         transition: border-color 0.2s, transform 0.2s;
+        position: relative; /* ВАЖНО: За да позиционираме иконките вътре */
     }
 
         .game-card:hover {
@@ -71,6 +70,42 @@
         object-fit: cover;
         border-radius: 4px 4px 0 0;
     }
+
+    /* 🎯 НОВИ СТИЛОВЕ ЗА ИНДИКАТОРИТЕ 🎯 */
+    .indicator-container {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        display: flex;
+        gap: 8px;
+        z-index: 10;
+        pointer-events: none; /* За да не пречат на кликането върху снимката */
+    }
+
+    .indicator-icon {
+        background-color: rgba(0, 0, 0, 0.7);
+        border-radius: 50%;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+
+    .wishlist-active {
+        color: #ff3366;
+        border: 1px solid #ff3366;
+        text-shadow: 0 0 8px #ff3366;
+    }
+
+    .cart-active {
+        color: #BEEF52;
+        border: 1px solid #BEEF52;
+        text-shadow: 0 0 8px #BEEF52;
+    }
+    /* --------------------------------- */
 
     .price-text {
         font-size: 18px;
@@ -109,7 +144,6 @@
             color: #ffffff;
         }
 
-    /* Стил за Input полетата и Dropdown-а */
     .filter-input {
         background-color: #000000;
         border: 1px solid #4a0080;
@@ -123,7 +157,6 @@
             box-shadow: 0 0 5px rgba(190, 0, 255, 0.5);
         }
 
-    /* За да направим стрелката на select-а бяла/видима */
     .form-select.filter-input {
         background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23e6d9ff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
     }
@@ -150,23 +183,23 @@
     <div class="col-md-4 col-lg-3 mb-4">
         <div class="store-sidebar shadow-lg sticky-top" style="top: 20px; z-index: 99;">
             <h5 class="text-uppercase fw-bold mb-4 border-bottom border-secondary pb-2" style="color: #e6d9ff;">
-                <i class="bi bi-funnel-fill" style="color: #be00ff;"></i> Филтри
+                <i class="bi bi-funnel-fill" style="color: #be00ff;"></i> Filters
             </h5>
 
             <form asp-action="Index" method="get">
 
                 <div class="mb-4">
-                    <label class="form-label text-muted small fw-bold mb-1">ИМЕ НА ИГРА</label>
+                    <label class="form-label text-muted small fw-bold mb-1">GAME TITLE</label>
                     <div class="input-group">
                         <span class="input-group-text filter-input border-end-0 text-muted"><i class="bi bi-search"></i></span>
-                        <input type="text" name="searchQuery" value="@ViewBag.CurrentSearch" class="form-control filter-input border-start-0 ps-0" placeholder="Търси...">
+                        <input type="text" name="searchQuery" value="@ViewBag.CurrentSearch" class="form-control filter-input border-start-0 ps-0" placeholder="Search...">
                     </div>
                 </div>
 
                 <div class="mb-4">
-                    <label class="form-label text-muted small fw-bold mb-1">ЖАНР</label>
+                    <label class="form-label text-muted small fw-bold mb-1">GENRE</label>
                     <select name="genre" class="form-select filter-input">
-                        <option value="">Всички жанрове</option>
+                        <option value="">All Genres</option>
                         @if (ViewBag.Genres != null)
                         {
                             foreach (var genre in (IEnumerable<HeatGames.Core.DTOs.GenreDto>)ViewBag.Genres)
@@ -185,22 +218,22 @@
                 </div>
 
                 <div class="mb-4">
-                    <label class="form-label text-muted small fw-bold mb-1">ЦЕНА (ЛВ.)</label>
+                    <label class="form-label text-muted small fw-bold mb-1">PRICE (BGN)</label>
                     <div class="d-flex align-items-center gap-2">
-                        <input type="number" name="minPrice" value="@ViewBag.CurrentMinPrice" class="form-control filter-input text-center" placeholder="От" min="0" step="0.01">
+                        <input type="number" name="minPrice" value="@ViewBag.CurrentMinPrice" class="form-control filter-input text-center" placeholder="Min" min="0" step="0.01">
                         <span style="color: #acb1b8;">-</span>
-                        <input type="number" name="maxPrice" value="@ViewBag.CurrentMaxPrice" class="form-control filter-input text-center" placeholder="До" min="0" step="0.01">
+                        <input type="number" name="maxPrice" value="@ViewBag.CurrentMaxPrice" class="form-control filter-input text-center" placeholder="Max" min="0" step="0.01">
                     </div>
                 </div>
 
                 <button type="submit" class="btn btn-purple w-100 fw-bold py-2 mb-2">
-                    ПРИЛОЖИ ФИЛТРИ
+                    APPLY FILTERS
                 </button>
 
                 @if (hasFilters)
                 {
                     <a asp-action="Index" class="btn btn-outline-danger w-100 fw-bold border-0 mt-1">
-                        <i class="bi bi-x-circle me-1"></i> Изчисти
+                        <i class="bi bi-x-circle me-1"></i> Clear All
                     </a>
                 }
             </form>
@@ -212,18 +245,18 @@
             <h2 style="color: #e6d9ff;" class="fw-bold">
                 @if (hasFilters)
                 {
-                    <span><i class="bi bi-list-stars me-2 text-info"></i> Резултати (@ViewBag.TotalCount)</span>
+                    <span><i class="bi bi-list-stars me-2 text-info"></i> Results (@ViewBag.TotalCount)</span>
                 }
                 else
                 {
-                    <span><i class="bi bi-shop me-2 text-info"></i> Магазин</span>
+                    <span><i class="bi bi-shop me-2 text-info"></i> Store Catalog</span>
                 }
             </h2>
 
             @if (User.IsInRole("Admin"))
             {
                 <a asp-action="Create" class="btn btn-purple shadow-sm fw-bold">
-                    <i class="bi bi-plus-circle me-1"></i> Добави игра
+                    <i class="bi bi-plus-circle me-1"></i> Add Game
                 </a>
             }
         </div>
@@ -232,14 +265,13 @@
         {
             <div class="alert text-center py-5 shadow-sm" style="background-color: #1a0033; border: 1px dashed #4a0080; color: #c4a6ff; border-radius: 8px;">
                 <i class="bi bi-search fs-1 d-block mb-3"></i>
-                <h4 class="text-white fw-bold">Няма намерени игри</h4>
-                <p>Опитайте да промените филтрите или ценовия диапазон.</p>
-                <a asp-action="Index" class="btn btn-outline-purple mt-2 fw-bold">Виж всички игри</a>
+                <h4 class="text-white fw-bold">No games found</h4>
+                <p>Try adjusting your filters or price range.</p>
+                <a asp-action="Index" class="btn btn-outline-purple mt-2 fw-bold">View All Games</a>
             </div>
         }
         else
         {
-            @* БАНЕРЪТ ЗА ИГРА НА СЕДМИЦАТА *@
             @if (featuredGame != null)
             {
                 <div class="featured-game-card shadow-lg">
@@ -256,13 +288,13 @@
                             <div class="card-body p-4 d-flex flex-column h-100" style="background-color: #230046;">
                                 <h3 class="card-title fw-bold text-white mb-2">@featuredGame.Title</h3>
                                 <p class="card-text mt-3" style="color: #c4a6ff; font-size: 14px;">
-                                    Избрана игра за тази седмица. Не пропускайте възможността да я добавите в библиотеката си!
+                                    Featured game of the week. Don't miss the chance to add it to your library!
                                 </p>
                                 <div class="mt-auto pt-4 text-end pb-3">
                                     <span class="price-text me-3">
-                                        @(featuredGame.Price == 0 ? "БЕЗПЛАТНО" : featuredGame.Price.ToString("0.00") + " лв.")
+                                        @(featuredGame.Price == 0 ? "FREE" : featuredGame.Price.ToString("0.00") + " лв.")
                                     </span>
-                                    <a asp-action="Details" asp-route-id="@featuredGame.Id" class="btn btn-purple fw-bold px-4">Детайли</a>
+                                    <a asp-action="Details" asp-route-id="@featuredGame.Id" class="btn btn-purple fw-bold px-4">Details</a>
                                 </div>
                             </div>
                         </div>
@@ -272,7 +304,7 @@
 
             @if (!hasFilters && isFirstPage)
             {
-                <h4 class="fw-bold mb-3 mt-5 border-bottom border-secondary pb-2" style="color: #e6d9ff;">Всички игри</h4>
+                <h4 class="fw-bold mb-3 mt-5 border-bottom border-secondary pb-2" style="color: #e6d9ff;">All Games</h4>
             }
 
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
@@ -280,6 +312,22 @@
                 {
                     <div class="col">
                         <div class="card h-100 game-card shadow-sm border-0">
+
+                            <div class="indicator-container">
+                                @if (item.IsInWishlist)
+                                {
+                                    <div class="indicator-icon wishlist-active" title="In Wishlist">
+                                        <i class="bi bi-heart-fill"></i>
+                                    </div>
+                                }
+                                @if (item.IsInCart)
+                                {
+                                    <div class="indicator-icon cart-active" title="In Cart">
+                                        <i class="bi bi-cart-check-fill"></i>
+                                    </div>
+                                }
+                            </div>
+
                             <a asp-action="Details" asp-route-id="@item.Id" class="text-decoration-none">
                                 @if (!string.IsNullOrEmpty(item.CoverImageUrl))
                                 {
@@ -311,13 +359,13 @@
                                 <div class="mt-auto pt-3 d-flex justify-content-between align-items-center">
                                     @if (item.Price == 0)
                                     {
-                                        <span class="price-text-sm text-success">БЕЗПЛАТНО</span>
+                                        <span class="price-text-sm text-success">FREE</span>
                                     }
                                     else
                                     {
-                                        <span class="price-text-sm">@item.Price.ToString("0.00") лв.</span>
+                                        <span class="price-text-sm">@item.Price.ToString("0.00") BGN</span>
                                     }
-                                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-purple fw-bold px-3">Детайли</a>
+                                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-purple fw-bold px-3">View</a>
                                 </div>
 
                                 @if (User.IsInRole("Admin"))
@@ -338,7 +386,6 @@
                 }
             </div>
 
-            @* ПАГИНАЦИЯ *@
             @if (ViewBag.TotalPages != null && ViewBag.TotalPages > 1)
             {
                 int totalPages = ViewBag.TotalPages;

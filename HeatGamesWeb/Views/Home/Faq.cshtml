@@ -1,0 +1,92 @@
+﻿@{
+    ViewData["Title"] = "FAQ";
+}
+
+<style>
+    .policy-wrapper {
+        background-color: #000000;
+        min-height: 75vh;
+        color: #e6d9ff;
+    }
+
+    .accordion-item {
+        background-color: #1a0033;
+        border: 1px solid #4a0080;
+        margin-bottom: 15px;
+        border-radius: 8px !important;
+        overflow: hidden;
+    }
+
+    .accordion-button {
+        background-color: #230046;
+        color: #ffffff;
+        font-weight: bold;
+        box-shadow: none !important;
+        padding: 20px;
+    }
+
+        .accordion-button:not(.collapsed) {
+            background-color: #4a0080;
+            color: #ffffff;
+        }
+
+        .accordion-button::after {
+            filter: invert(1); /* Makes the arrow white */
+        }
+
+    .accordion-body {
+        color: #acb1b8;
+        padding: 20px;
+        line-height: 1.6;
+    }
+</style>
+
+<div class="policy-wrapper pt-5 pb-5">
+    <div class="container">
+        <h1 class="fw-bold text-white mb-3"><i class="bi bi-question-circle me-2" style="color: #be00ff;"></i> Frequently Asked Questions</h1>
+        <p class="mb-5" style="color: #acb1b8; font-size: 1.1rem;">Find answers to the most common questions about HeatGames.</p>
+
+        <div class="accordion shadow-lg" id="faqAccordion">
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        How can I download a game after I buy it?
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        As soon as your payment is successful, the game is automatically added to your <strong>Library</strong>. Just navigate to the "My Library" page and click the "DOWNLOAD" button next to your chosen title.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        What payment methods do you accept?
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Currently, all purchases are made using your <strong>HeatGames Wallet</strong>. You can easily top up your wallet balance from your Profile page using standard digital payment methods.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        What if my computer can't run the game?
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Don't worry! We offer a full refund if you request it within 14 days of purchase and have less than 2 hours of playtime on record. For more details, check out our <a asp-action="RefundPolicy" style="color: #be00ff; text-decoration: none; font-weight: bold;">Refund Policy</a>.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

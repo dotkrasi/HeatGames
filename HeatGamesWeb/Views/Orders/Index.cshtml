@@ -1,47 +1,106 @@
 ﻿@model IEnumerable<HeatGames.Core.DTOs.OrderDto>
 
 @{
-    ViewData["Title"] = "История на поръчките";
+    ViewData["Title"] = "Order History";
 }
 
-<h2 class="mt-4 mb-4 fw-bold"><i class="bi bi-receipt"></i> История на поръчките</h2>
+<style>
+    /* ТЪМНО-ЛИЛАВ СТИЛ ЗА ИСТОРИЯТА НА ПОРЪЧКИТЕ */
+    .history-card {
+        background-color: #230046;
+        border: 1px solid #4a0080;
+        border-radius: 8px;
+        color: #e6d9ff;
+        padding: 20px;
+    }
 
-@if (!Model.Any())
-{
-    <div class="alert alert-info text-center shadow-sm">
-        Нямате направени поръчки.
-    </div>
-}
-else
-{
-    <div class="table-responsive shadow-sm rounded">
-        <table class="table table-hover table-bordered mb-0">
-            <thead class="table-dark">
-                <tr>
-                    <th>№ Поръчка</th>
-                    <th>Дата</th>
-                    <th>Артикули</th>
-                    <th class="text-end">Общо платено</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var order in Model)
-                {
-                    <tr>
-                        <td class="text-muted small align-middle">@order.Id</td>
-                        <td class="align-middle">@order.OrderDate.ToString("dd.MM.yyyy HH:mm")</td>
-                        <td class="align-middle">
-                            <ul class="list-unstyled mb-0">
-                                @foreach (var item in order.OrderItems)
-                                {
-                                    <li><strong>@item.GameTitle</strong> <span class="text-muted">(@item.PriceAtPurchase лв.)</span></li>
-                                }
-                            </ul>
-                        </td>
-                        <td class="text-end align-middle fw-bold text-success">@order.TotalAmount лв.</td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    </div>
-}
+    .table-dark-purple {
+        color: #e6d9ff;
+        background-color: transparent;
+        border-color: #4a0080;
+    }
+
+        .table-dark-purple th {
+            border-bottom: 2px solid #8d00c4;
+            color: #c4a6ff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background-color: transparent;
+        }
+
+        .table-dark-purple td {
+            border-bottom: 1px solid #4a0080;
+            vertical-align: middle;
+            background-color: transparent;
+            color: #e6d9ff; /* Форсираме светъл текст по подразбиране */
+        }
+
+        /* 🎯 Форсираме бял текст и светъл фон при hover */
+        .table-dark-purple tbody tr:hover td,
+        .table-dark-purple tbody tr:hover th {
+            background-color: #1a0033 !important;
+            color: #ffffff !important;
+        }
+
+            /* Запазваме специфичните цветове вътре в клетките при hover */
+            .table-dark-purple tbody tr:hover td .text-muted {
+                color: #d1d5db !important;
+            }
+
+            .table-dark-purple tbody tr:hover td .text-success {
+                color: #198754 !important;
+            }
+</style>
+
+<div class="container mt-5 mb-5">
+    <h2 class="mb-4 fw-bold" style="color: #e6d9ff;">
+        <i class="bi bi-receipt" style="color: #be00ff;"></i> Order History
+    </h2>
+
+    @if (!Model.Any())
+    {
+        <div class="alert text-center shadow-sm" style="background-color: #1a0033; border: 1px dashed #4a0080; color: #c4a6ff;">
+            <i class="bi bi-info-circle fs-4 d-block mb-2"></i>
+            You have no orders yet.
+        </div>
+    }
+    else
+    {
+        <div class="history-card shadow-lg">
+            <div class="table-responsive rounded">
+                <table class="table table-dark-purple table-hover mb-0">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Date</th>
+                            <th>Items</th>
+                            <th class="text-end">Total Paid</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var order in Model)
+                        {
+                            <tr>
+                                <td class="text-muted small align-middle" style="font-family: monospace;">@order.Id.ToString().Substring(0, 8)...</td>
+                                <td class="align-middle">@order.OrderDate.ToString("dd.MM.yyyy HH:mm")</td>
+                                <td class="align-middle">
+                                    <ul class="list-unstyled mb-0">
+                                        @foreach (var item in order.OrderItems)
+                                        {
+                                            <li>
+                                                <i class="bi bi-controller me-1" style="color: #c4a6ff;"></i>
+                                                <strong>@item.GameTitle</strong>
+                                                <span class="text-muted">(@item.PriceAtPurchase.ToString("0.00") BGN)</span>
+                                            </li>
+                                        }
+                                    </ul>
+                                </td>
+                                <td class="text-end align-middle fw-bold text-success fs-5">@order.TotalAmount.ToString("0.00") BGN</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    }
+</div>

@@ -1,7 +1,6 @@
-﻿@* Предполагам, че моделът ти се казва GenreViewModel или директно Genre. Ако гръмне заради модела, просто смени името тук горе! *@
-@model IEnumerable<HeatGames.Core.DTOs.GenreDto>
+﻿@model IEnumerable<HeatGames.Core.DTOs.GenreDto>
 @{
-    ViewData["Title"] = "Управление на жанрове";
+    ViewData["Title"] = "Manage Genres";
 }
 
 <style>
@@ -30,8 +29,11 @@
             vertical-align: middle;
         }
 
-        .table-dark-purple tbody tr:hover {
-            background-color: #1a0033;
+        /* 🎯 Форсираме бял текст и светъл фон при hover */
+        .table-dark-purple tbody tr:hover td,
+        .table-dark-purple tbody tr:hover th {
+            background-color: #1a0033 !important;
+            color: #ffffff !important;
         }
 
     .btn-magenta {
@@ -57,11 +59,11 @@
 
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h2 style="color: #e6d9ff;" class="fw-bold">
-                    <i class="bi bi-tags-fill" style="color: #be00ff;"></i> Всички Жанрове
+                    <i class="bi bi-tags-fill" style="color: #be00ff;"></i> All Genres
                 </h2>
 
                 <a asp-action="Create" class="btn btn-magenta fw-bold shadow-sm">
-                    <i class="bi bi-plus-circle"></i> Добави нов
+                    <i class="bi bi-plus-circle"></i> Add New
                 </a>
             </div>
 
@@ -70,7 +72,7 @@
                 {
                     <div class="alert text-center m-0" style="background-color: #1a0033; border: 1px dashed #4a0080; color: #c4a6ff;">
                         <i class="bi bi-exclamation-circle fs-4 d-block mb-2"></i>
-                        Все още няма добавени жанрове в базата.
+                        No genres added to the database yet.
                     </div>
                 }
                 else
@@ -79,8 +81,8 @@
                         <table class="table table-dark-purple table-hover mb-0">
                             <thead>
                                 <tr>
-                                    <th>Име на жанр</th>
-                                    <th class="text-end">Действия</th>
+                                    <th>Genre Name</th>
+                                    <th class="text-end">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -89,10 +91,10 @@
                                     <tr>
                                         <td class="fw-bold fs-5">@genre.Name</td>
                                         <td class="text-end">
-                                            <a asp-action="Edit" asp-route-id="@genre.Id" class="btn btn-sm btn-warning fw-bold me-2">
+                                            <a asp-action="Edit" asp-route-id="@genre.Id" class="btn btn-sm btn-warning fw-bold me-2" title="Edit">
                                                 <i class="bi bi-pencil" style="color: white;"></i>
                                             </a>
-                                            <a asp-action="Delete" asp-route-id="@genre.Id" class="btn btn-sm btn-danger fw-bold">
+                                            <a asp-action="Delete" asp-route-id="@genre.Id" class="btn btn-sm btn-danger fw-bold" title="Delete">
                                                 <i class="bi bi-trash" style="color: white;"></i>
                                             </a>
                                         </td>

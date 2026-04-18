@@ -1,7 +1,7 @@
 ﻿@model HeatGamesWeb.ViewModels.GameViewModel
 
 @{
-    ViewData["Title"] = "Добави нова игра";
+    ViewData["Title"] = "Add New Game";
 }
 
 <style>
@@ -32,7 +32,6 @@
             box-shadow: 0 0 0 0.25rem rgba(190, 0, 255, 0.25);
         }
 
-        /* Оправяме цвета на опциите в падащото меню */
         .form-select option {
             background-color: #000000;
             color: #e6d9ff;
@@ -61,7 +60,6 @@
             box-shadow: 0 4px 15px rgba(190, 0, 255, 0.4);
         }
 
-    /* Стил за чекбоксовете */
     .form-check-input {
         background-color: #000;
         border-color: #4a0080;
@@ -79,7 +77,7 @@
             <div class="admin-card shadow-lg">
                 <div class="admin-header p-4 d-flex align-items-center gap-3">
                     <i class="bi bi-controller fs-2" style="color: #be00ff;"></i>
-                    <h3 class="mb-0 text-white fw-bold">Добави нова игра</h3>
+                    <h3 class="mb-0 text-white fw-bold">Add New Game</h3>
                 </div>
 
                 <div class="card-body p-4 p-md-5">
@@ -87,44 +85,69 @@
                         <div asp-validation-summary="ModelOnly" class="text-danger fw-bold mb-3"></div>
 
                         <div class="mb-4">
-                            <label asp-for="Title" class="form-label fw-bold"><i class="bi bi-fonts me-1 text-muted"></i> @Html.DisplayNameFor(m => m.Title)</label>
-                            <input asp-for="Title" class="form-control admin-input" placeholder="Въведете заглавие на играта..." />
+                            <label asp-for="Title" class="form-label fw-bold"><i class="bi bi-fonts me-1 text-muted"></i> Title</label>
+                            <input asp-for="Title" class="form-control admin-input" placeholder="Enter game title..." />
                             <span asp-validation-for="Title" class="text-danger small fw-bold"></span>
                         </div>
 
                         <div class="mb-4">
-                            <label asp-for="Description" class="form-label fw-bold"><i class="bi bi-card-text me-1 text-muted"></i> @Html.DisplayNameFor(m => m.Description)</label>
-                            <textarea asp-for="Description" class="form-control admin-input" rows="4" placeholder="Кратко резюме на историята и геймплея..."></textarea>
+                            <label asp-for="Description" class="form-label fw-bold"><i class="bi bi-card-text me-1 text-muted"></i> Description</label>
+                            <textarea asp-for="Description" class="form-control admin-input" rows="4" placeholder="Brief summary of the story and gameplay..."></textarea>
                             <span asp-validation-for="Description" class="text-danger small fw-bold"></span>
                         </div>
 
                         <div class="row">
                             <div class="col-md-6 mb-4">
-                                <label asp-for="Price" class="form-label fw-bold"><i class="bi bi-tag-fill me-1 text-muted"></i> @Html.DisplayNameFor(m => m.Price)</label>
+                                <label asp-for="Price" class="form-label fw-bold"><i class="bi bi-tag-fill me-1 text-muted"></i> Price</label>
                                 <div class="input-group">
                                     <input asp-for="Price" class="form-control admin-input" type="number" step="0.01" placeholder="0.00" />
-                                    <span class="input-group-text input-group-text-dark">лв.</span>
+                                    <span class="input-group-text input-group-text-dark">BGN</span>
                                 </div>
                                 <span asp-validation-for="Price" class="text-danger small fw-bold"></span>
                             </div>
 
                             <div class="col-md-6 mb-4">
-                                <label asp-for="ReleaseDate" class="form-label fw-bold"><i class="bi bi-calendar-date me-1 text-muted"></i> @Html.DisplayNameFor(m => m.ReleaseDate)</label>
+                                <label asp-for="ReleaseDate" class="form-label fw-bold"><i class="bi bi-calendar-date me-1 text-muted"></i> Release Date</label>
                                 <input asp-for="ReleaseDate" class="form-control admin-input" type="date" />
                                 <span asp-validation-for="ReleaseDate" class="text-danger small fw-bold"></span>
                             </div>
                         </div>
 
                         <div class="mb-4">
-                            <label asp-for="DeveloperId" class="form-label fw-bold"><i class="bi bi-building me-1 text-muted"></i> @Html.DisplayNameFor(m => m.DeveloperId)</label>
+                            <label asp-for="DeveloperId" class="form-label fw-bold"><i class="bi bi-building me-1 text-muted"></i> Developer (Studio)</label>
                             <select asp-for="DeveloperId" class="form-select admin-input" asp-items="ViewBag.Developers">
-                                <option value="">-- Избери разработчик (Студио) --</option>
+                                <option value="">-- Select Developer --</option>
                             </select>
                             <span asp-validation-for="DeveloperId" class="text-danger small fw-bold"></span>
                         </div>
 
+                        @* 🎯 СЕКЦИЯ ЗА ЖАНРОВЕ (ДОБАВЕНА) *@
                         <div class="mb-4">
-                            <label class="form-label fw-bold"><i class="bi bi-pc-display me-1 text-muted"></i> Налични платформи</label>
+                            <label class="form-label fw-bold"><i class="bi bi-tags-fill me-1 text-muted"></i> Genres</label>
+                            <div class="d-flex flex-wrap gap-3 p-3 rounded" style="background-color: #1a0033; border: 1px solid #4a0080;">
+                                @if (ViewBag.Genres != null)
+                                {
+                                    foreach (var genre in (IEnumerable<HeatGames.Core.DTOs.GenreDto>)ViewBag.Genres)
+                                    {
+                                        <div class="form-check form-check-inline m-0 me-3">
+                                            <input class="form-check-input" type="checkbox" name="SelectedGenreIds" value="@genre.Id"
+                                                   id="genre-@genre.Id" @(Model?.SelectedGenreIds?.Contains(genre.Id) == true ? "checked" : "")>
+                                            <label class="form-check-label text-white" for="genre-@genre.Id">
+                                                @genre.Name
+                                            </label>
+                                        </div>
+                                    }
+                                }
+                                else
+                                {
+                                    <span class="text-muted small">No genres available.</span>
+                                }
+                            </div>
+                        </div>
+
+                        @* СЕКЦИЯ ЗА ПЛАТФОРМИ *@
+                        <div class="mb-4">
+                            <label class="form-label fw-bold"><i class="bi bi-pc-display me-1 text-muted"></i> Platforms</label>
                             <div class="d-flex flex-wrap gap-3 p-3 rounded" style="background-color: #1a0033; border: 1px solid #4a0080;">
                                 @if (ViewBag.Platforms != null)
                                 {
@@ -141,23 +164,23 @@
                                 }
                                 else
                                 {
-                                    <span class="text-muted small">Няма добавени платформи в базата.</span>
+                                    <span class="text-muted small">No platforms available.</span>
                                 }
                             </div>
                         </div>
 
                         <div class="mb-5">
-                            <label asp-for="CoverImageUrl" class="form-label fw-bold"><i class="bi bi-image me-1 text-muted"></i> @Html.DisplayNameFor(m => m.CoverImageUrl)</label>
+                            <label asp-for="CoverImageUrl" class="form-label fw-bold"><i class="bi bi-image me-1 text-muted"></i> Cover URL</label>
                             <input asp-for="CoverImageUrl" class="form-control admin-input" placeholder="https://..." />
-                            <div class="form-text mt-1" style="color: #c4a6ff;">Поставете линк към обложката на играта (препоръчително от Steam).</div>
+                            <div class="form-text mt-1" style="color: #c4a6ff;">Enter the URL for the game cover (Steam image links recommended).</div>
                             <span asp-validation-for="CoverImageUrl" class="text-danger small fw-bold"></span>
                         </div>
 
                         <hr style="border-color: #4a0080;" class="my-4" />
 
                         <div class="d-flex justify-content-between align-items-center">
-                            <a asp-action="Index" class="btn btn-outline-light"><i class="bi bi-arrow-left"></i> Назад към каталога</a>
-                            <button type="submit" class="btn btn-magenta fw-bold px-4 py-2"><i class="bi bi-cloud-arrow-up-fill me-1"></i> Запази играта</button>
+                            <a asp-action="Index" class="btn btn-outline-light"><i class="bi bi-arrow-left"></i> Back to Catalog</a>
+                            <button type="submit" class="btn btn-magenta fw-bold px-4 py-2"><i class="bi bi-cloud-arrow-up-fill me-1"></i> Save Game</button>
                         </div>
                     </form>
                 </div>

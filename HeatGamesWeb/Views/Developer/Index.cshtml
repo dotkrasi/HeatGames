@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<HeatGames.Core.DTOs.DeveloperDto>
 @{
-    ViewData["Title"] = "Разработчици";
+    ViewData["Title"] = "Developers";
 }
 
 <style>
@@ -29,9 +29,17 @@
             vertical-align: middle;
         }
 
-        .table-dark-purple tbody tr:hover {
-            background-color: #1a0033;
+        /* 🎯 Форсираме бял текст и светъл фон при hover */
+        .table-dark-purple tbody tr:hover td,
+        .table-dark-purple tbody tr:hover th {
+            background-color: #1a0033 !important;
+            color: #ffffff !important;
         }
+
+            /* Запазваме иконата видима при hover */
+            .table-dark-purple tbody tr:hover td .text-muted {
+                color: #d1d5db !important;
+            }
 
     /* Светещи линкове за уебсайтовете */
     .dev-link {
@@ -70,11 +78,11 @@
 
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h2 style="color: #e6d9ff;" class="fw-bold">
-                    <i class="bi bi-buildings-fill" style="color: #be00ff;"></i> Студиа / Разработчици
+                    <i class="bi bi-buildings-fill" style="color: #be00ff;"></i> Studios / Developers
                 </h2>
 
                 <a asp-action="Create" class="btn btn-magenta fw-bold shadow-sm">
-                    <i class="bi bi-plus-circle" style="color: white;"></i> Добави Студио
+                    <i class="bi bi-plus-circle" style="color: white;"></i> Add Studio
                 </a>
             </div>
 
@@ -83,7 +91,7 @@
                 {
                     <div class="alert text-center m-0" style="background-color: #1a0033; border: 1px dashed #4a0080; color: #c4a6ff;">
                         <i class="bi bi-exclamation-circle fs-4 d-block mb-2"></i>
-                        Все още няма добавени разработчици в базата.
+                        No developers added to the database yet.
                     </div>
                 }
                 else
@@ -92,9 +100,9 @@
                         <table class="table table-dark-purple table-hover mb-0">
                             <thead>
                                 <tr>
-                                    <th>Име на студиото</th>
-                                    <th>Уебсайт</th>
-                                    <th class="text-end">Действия</th>
+                                    <th>Studio Name</th>
+                                    <th>Website</th>
+                                    <th class="text-end">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -113,17 +121,17 @@
                                             }
                                             else
                                             {
-                                                <span style="color: #5d5462;"><i class="bi bi-dash-circle"></i> Няма сайт</span>
+                                                <span style="color: #5d5462;"><i class="bi bi-dash-circle"></i> No website</span>
                                             }
                                         </td>
                                         <td class="text-end">
-                                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning fw-bold" title="Редактирай">
+                                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning fw-bold" title="Edit">
                                                 <i class="bi bi-pencil" style="color: white;"></i>
                                             </a>
-                                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info fw-bold mx-1" title="Детайли">
+                                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info fw-bold mx-1" title="Details">
                                                 <i class="bi bi-info-circle" style="color: white;"></i>
                                             </a>
-                                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger fw-bold" title="Изтрий">
+                                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger fw-bold" title="Delete">
                                                 <i class="bi bi-trash" style="color: white;"></i>
                                             </a>
                                         </td>

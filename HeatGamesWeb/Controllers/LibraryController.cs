@@ -1,24 +1,24 @@
 ﻿using HeatGames.Core.Services.Interfaces;
 using HeatGames.Data.Models;
-using HeatGamesCore.Services.Interfaces; // Добавено за IGameService
+using HeatGamesCore.Services.Interfaces; // Added for IGameService
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.IO;          // Добавено за MemoryStream
-using System.IO.Compression; // Добавено за ZipArchive
+using System.IO;          // Added for MemoryStream
+using System.IO.Compression; // Added for ZipArchive
 using System.Threading.Tasks;
 
 namespace HeatGamesWeb.Controllers
 {
-    [Authorize] // Само за логнати
+    [Authorize] // Only for logged-in users
     public class LibraryController : Controller
     {
         private readonly ILibraryService _libraryService;
         private readonly UserManager<User> _userManager;
-        private readonly IGameService _gameService; // ДОБАВЕНО: Инжектираме GameService
+        private readonly IGameService _gameService; // ADDED: Injecting GameService
 
-        // ДОБАВЕНО: Добавяме IGameService в конструктора
+        // ADDED: Adding IGameService to the constructor
         public LibraryController(ILibraryService libraryService, UserManager<User> userManager, IGameService gameService)
         {
             _libraryService = libraryService;
@@ -26,7 +26,7 @@ namespace HeatGamesWeb.Controllers
             _gameService = gameService;
         }
 
-        // 🔹 GET: Моите Игри
+        // 🔹 GET: My Games
         public async Task<IActionResult> Index()
         {
             var user = await _userManager.GetUserAsync(User);
@@ -36,42 +36,42 @@ namespace HeatGamesWeb.Controllers
             return View(libraryItems);
         }
 
-        // 🔹 НОВО: GET: Изтегляне на играта (Генерира динамичен .zip файл)
+        // 🔹 NEW: GET: Download the game (Generates a dynamic .zip file)
         [HttpGet]
         public async Task<IActionResult> Download(Guid gameId)
         {
-            // 1. Взимаме играта, за да й вземем заглавието
+            // 1. Get the game to retrieve its title
             var game = await _gameService.GetGameByIdAsync(gameId);
             if (game == null) return NotFound();
 
-            // 2. Почистваме името на играта от забранени символи за файл
+            // 2. Clean the game title from invalid file characters
             string safeFileName = string.Join("_", game.Title.Split(Path.GetInvalidFileNameChars()));
 
-            // 3. Създаваме ZIP архив динамично в паметта
+            // 3. Create a ZIP archive dynamically in memory
             using (var memoryStream = new MemoryStream())
             {
                 using (var archive = new ZipArchive(memoryStream, ZipArchiveMode.Create, true))
                 {
-                    // Създаваме малко текстово файлче вътре в ZIP-а
+                    // Create a small text file inside the ZIP
                     var readmeEntry = archive.CreateEntry("readme.txt");
                     using (var entryStream = readmeEntry.Open())
                     using (var streamWriter = new StreamWriter(entryStream))
                     {
                         streamWriter.WriteLine($"=== {game.Title} ===");
-                        streamWriter.WriteLine("Благодарим ви, че закупихте тази игра от HeatGames!");
-                        streamWriter.WriteLine("Това е демонстрационен файл за изтегляне.");
-                        streamWriter.WriteLine("Пожелаваме ви приятна игра!");
+                        streamWriter.WriteLine("Thank you for purchasing this game from HeatGames!");
+                        streamWriter.WriteLine("This is a demonstration download file.");
+                        streamWriter.WriteLine("Have fun playing!");
                     }
                 }
 
-                // 4. Връщаме ZIP файла на потребителя
+                // 4. Return the ZIP file to the user
                 var zipBytes = memoryStream.ToArray();
                 return File(zipBytes, "application/zip", $"{safeFileName}.zip");
             }
         }
 
         [HttpPost]
-        [IgnoreAntiforgeryToken] // Игнорираме защитата специално за този AJAX call, за да е по-лесно за теста
+        [IgnoreAntiforgeryToken] // Ignoring protection specifically for this AJAX call to make testing easier
         public async Task<IActionResult> SavePlayTime([FromBody] PlayTimeRequest request)
         {
             if (request == null || request.LibraryItemId == Guid.Empty)
@@ -79,13 +79,13 @@ namespace HeatGamesWeb.Controllers
                 return BadRequest();
             }
 
-            // Викаме СЪРВИСА, както си му е редът!
+            // Call the SERVICE appropriately!
             await _libraryService.UpdatePlayTimeAsync(request.LibraryItemId, request.MinutesToAdd);
 
             return Ok();
         }
 
-        // Този помощен клас може да стои най-отдолу в контролера (извън самия клас LibraryController) или в папката с DTO-та
+        // This helper class can stay at the bottom of the controller or in the DTOs folder
         public class PlayTimeRequest
         {
             public Guid LibraryItemId { get; set; }

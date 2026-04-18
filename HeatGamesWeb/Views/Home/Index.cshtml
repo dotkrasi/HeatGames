@@ -3,10 +3,24 @@
 @{
     ViewData["Title"] = "Home";
 
-    var sliderGames = Model.OrderBy(g => Guid.NewGuid()).Take(3).ToList();
-    var trendingGames = Model.Skip(3).Take(4).ToList();
-
     var topDevelopers = ViewBag.TopDevelopers as List<HeatGames.Core.DTOs.DeveloperDto> ?? new List<HeatGames.Core.DTOs.DeveloperDto>();
+
+    // 🎯 ЛОГИКА ЗА RECOMMENDED (СМЕНЯ СЕ НА ВСЯКА МИНУТА)
+    var sliderGames = new List<HeatGamesWeb.ViewModels.GameViewModel>();
+    var trendingGames = new List<HeatGamesWeb.ViewModels.GameViewModel>();
+
+    if (Model.Any())
+    {
+        var now = DateTime.Now;
+        int timeSeed = now.Year + now.Month + now.Day + now.Hour + now.Minute;
+
+        Random seededRandom = new Random(timeSeed);
+
+        var shuffledGames = Model.OrderBy(x => seededRandom.Next()).ToList();
+
+        sliderGames = shuffledGames.Take(3).ToList();
+        trendingGames = shuffledGames.Skip(3).Take(4).ToList();
+    }
 }
 
 <style>
@@ -198,82 +212,102 @@
     <section class="steam-banner-section">
         <div class="container">
             <h2 class="section-header">Recommended For You</h2>
-            <div id="steamHomeCarousel" class="carousel slide slider-container overflow-hidden" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    @for (int i = 0; i < sliderGames.Count; i++)
-                    {
-                        var game = sliderGames[i];
-                        <div class="carousel-item @(i == 0 ? "active" : "")">
-                            <div class="row g-0">
-                                <div class="col-md-8">
-                                    <img src="@game.CoverImageUrl" class="slider-img w-100" alt="@game.Title">
-                                </div>
-                                <div class="col-md-4 slider-info d-flex flex-column justify-content-center">
-                                    <h2 class="fw-bold mb-2 text-white">@game.Title</h2>
-                                    <p class="mb-4" style="color: #c4a6ff; font-size: 0.95rem;">Discover new worlds and embark on an adventure. Available now on HeatGames!</p>
 
-                                    <div class="mb-4 mt-auto">
-                                        <span class="price-badge-steam">
-                                            @(game.Price == 0 ? "FREE" : game.Price.ToString("0.00") + " BGN")
-                                        </span>
+            @if (sliderGames.Any())
+            {
+                <div id="steamHomeCarousel" class="carousel slide slider-container overflow-hidden" data-bs-ride="carousel" data-bs-pause="false">
+                    <div class="carousel-inner">
+                        @for (int i = 0; i < sliderGames.Count; i++)
+                        {
+                            var game = sliderGames[i];
+                            <div class="carousel-item @(i == 0 ? "active" : "")" data-bs-interval="5000">
+                                <div class="row g-0">
+                                    <div class="col-md-8">
+                                        <img src="@game.CoverImageUrl" class="slider-img w-100" alt="@game.Title">
                                     </div>
+                                    <div class="col-md-4 slider-info d-flex flex-column justify-content-center">
+                                        <h2 class="fw-bold mb-2 text-white">@game.Title</h2>
+                                        <p class="mb-4" style="color: #c4a6ff; font-size: 0.95rem;">Discover new worlds and embark on an adventure. Available now on HeatGames!</p>
 
-                                    <a asp-controller="Games" asp-action="Details" asp-route-id="@game.Id" class="btn btn-buy-steam align-self-start">VIEW DETAILS</a>
+                                        <div class="mb-4 mt-auto">
+                                            <span class="price-badge-steam">
+                                                @(game.Price == 0 ? "FREE" : game.Price.ToString("0.00") + " BGN")
+                                            </span>
+                                        </div>
+
+                                        <a asp-controller="Games" asp-action="Details" asp-route-id="@game.Id" class="btn btn-buy-steam align-self-start">VIEW DETAILS</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    }
+                        }
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#steamHomeCarousel" data-bs-slide="prev" style="width: 5%;">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#steamHomeCarousel" data-bs-slide="next" style="width: 5%;">
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#steamHomeCarousel" data-bs-slide="prev" style="width: 5%;">
-                    <span class="carousel-control-prev-icon"></span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#steamHomeCarousel" data-bs-slide="next" style="width: 5%;">
-                    <span class="carousel-control-next-icon"></span>
-                </button>
-            </div>
+            }
+            else
+            {
+                <div class="alert text-center py-4" style="background-color: #1a0033; border: 1px solid #4a0080; color: #c4a6ff;">
+                    No games available to recommend at this time.
+                </div>
+            }
         </div>
     </section>
 
     <div class="container mt-4">
         <h2 class="section-header">Trending Now</h2>
-        <div class="row g-4">
-            @foreach (var game in trendingGames)
-            {
-                <div class="col-md-3">
-                    <a asp-controller="Games" asp-action="Details" asp-route-id="@game.Id" class="text-decoration-none">
-                        <div class="card mini-game-card">
 
-                            <div class="indicator-container">
-                                @if (game.IsInWishlist)
-                                {
-                                    <div class="indicator-icon wishlist-active" title="In Wishlist">
-                                        <i class="bi bi-heart-fill"></i>
+        @if (trendingGames.Any())
+        {
+            <div class="row g-4">
+                @foreach (var game in trendingGames)
+                {
+                    <div class="col-md-3">
+                        <a asp-controller="Games" asp-action="Details" asp-route-id="@game.Id" class="text-decoration-none">
+                            <div class="card mini-game-card">
+
+                                <div class="indicator-container">
+                                    @if (game.IsInWishlist)
+                                    {
+                                        <div class="indicator-icon wishlist-active" title="In Wishlist">
+                                            <i class="bi bi-heart-fill"></i>
+                                        </div>
+                                    }
+                                    @if (game.IsInCart)
+                                    {
+                                        <div class="indicator-icon cart-active" title="In Cart">
+                                            <i class="bi bi-cart-check-fill"></i>
+                                        </div>
+                                    }
+                                </div>
+
+                                <img src="@game.CoverImageUrl" class="card-img-top" style="height: 160px; object-fit: cover;">
+                                <div class="card-body p-3 d-flex flex-column">
+                                    <p class="text-white mb-0 fw-bold text-truncate" title="@game.Title">@game.Title</p>
+                                    <p class="mb-2 text-truncate" style="font-size: 0.8rem; color: #acb1b8;">By: <span style="color: #00d2ff;">@game.DeveloperName</span></p>
+
+                                    <div class="mt-auto d-flex justify-content-between align-items-center">
+                                        <span style="color: #be00ff; font-weight: bold; font-size: 1.1rem;">
+                                            @(game.Price == 0 ? "FREE" : game.Price.ToString("0.00") + " BGN")
+                                        </span>
                                     </div>
-                                }
-                                @if (game.IsInCart)
-                                {
-                                    <div class="indicator-icon cart-active" title="In Cart">
-                                        <i class="bi bi-cart-check-fill"></i>
-                                    </div>
-                                }
-                            </div>
-
-                            <img src="@game.CoverImageUrl" class="card-img-top" style="height: 160px; object-fit: cover;">
-                            <div class="card-body p-3 d-flex flex-column">
-                                <p class="text-white mb-0 fw-bold text-truncate" title="@game.Title">@game.Title</p>
-                                <p class="mb-2 text-truncate" style="font-size: 0.8rem; color: #acb1b8;">By: <span style="color: #00d2ff;">@game.DeveloperName</span></p>
-
-                                <div class="mt-auto d-flex justify-content-between align-items-center">
-                                    <span style="color: #be00ff; font-weight: bold; font-size: 1.1rem;">
-                                        @(game.Price == 0 ? "FREE" : game.Price.ToString("0.00") + " BGN")
-                                    </span>
                                 </div>
                             </div>
-                        </div>
-                    </a>
-                </div>
-            }
-        </div>
+                        </a>
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <div class="alert text-center py-3" style="background-color: #1a0033; border: 1px solid #4a0080; color: #c4a6ff;">
+                No trending games to display.
+            </div>
+        }
 
         @if (topDevelopers.Any())
         {
@@ -325,3 +359,19 @@
         </div>
     </div>
 </div>
+
+@section Scripts {
+    <script>
+        // Проверяваме на всяка 1 секунда дали се е сменила минутата.
+        // Ако часовникът ти удари напр. от 15:45 на 15:46 -> страницата се презарежда
+        // и C# генерира 3 чисто нови игри.
+        let initialMinute = new Date().getMinutes();
+
+        setInterval(function() {
+            let currentMinute = new Date().getMinutes();
+            if (currentMinute !== initialMinute) {
+                window.location.reload();
+            }
+        }, 1000);
+    </script>
+}

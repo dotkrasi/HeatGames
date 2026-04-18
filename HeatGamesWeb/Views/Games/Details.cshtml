@@ -37,6 +37,21 @@
             box-shadow: 0 4px 15px rgba(190, 0, 255, 0.4);
         }
 
+    /* 🎯 НОВ СТИЛ ЗА БУТОНА "BACK TO STORE" */
+    .btn-back-store {
+        color: #ffffff;
+        border: 1px solid #4a0080;
+        background-color: rgba(26, 0, 51, 0.5);
+        transition: 0.3s;
+    }
+
+        .btn-back-store:hover {
+            border-color: #be00ff;
+            background-color: #1a0033;
+            color: #ffffff;
+            box-shadow: 0 0 10px rgba(190, 0, 255, 0.4);
+        }
+
     /* Бутон за Wishlist (Недобавена игра) */
     .btn-outline-magenta {
         color: #be00ff;
@@ -189,17 +204,14 @@
                                         }
                                         else if (platform.Contains("PlayStation"))
                                         {
-
                                             <i class="bi bi-playstation me-1"></i>
                                         }
                                         else if (platform.Contains("Xbox"))
                                         {
-
                                             <i class="bi bi-xbox me-1"></i>
                                         }
                                         else if (platform.Contains("Switch"))
                                         {
-
                                             <i class="bi bi-nintendo-switch me-1"></i>
                                         }
                                         @platform
@@ -249,7 +261,7 @@
                                         <input type="hidden" name="gameId" value="@Model.Id" />
                                         <button type="submit"
                                                 class="btn btn-lg h-100 d-flex align-items-center justify-content-center
-                                                                                @(Model.IsInWishlist ? "btn-wishlist-active" : "btn-outline-magenta")"
+                                                @(Model.IsInWishlist ? "btn-wishlist-active" : "btn-outline-magenta")"
                                                 style="padding-left: 1.5rem; padding-right: 1.5rem;"
                                                 title="@(Model.IsInWishlist ? "Remove from Wishlist" : "Add to Wishlist")">
                                             <i class="bi @(Model.IsInWishlist ? "bi-heart-fill" : "bi-heart") fs-5"></i>
@@ -266,7 +278,9 @@
                         }
 
                         <div class="d-flex gap-2 pt-3" style="border-top: 1px solid #4a0080;">
-                            <a asp-action="Index" class="btn btn-outline-light">Back to Store</a>
+                            @* 🎯 ТУК ИЗПОЛЗВАМЕ НОВИЯ КЛАС btn-back-store *@
+                            <a asp-action="Index" class="btn btn-back-store">Back to Store</a>
+
                             @if (User.IsInRole("Admin"))
                             {
                                 <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Edit</a>

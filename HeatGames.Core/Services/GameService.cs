@@ -83,11 +83,9 @@ namespace HeatGames.Core.Services
         public async Task<GameDto?> GetGameByIdAsync(Guid id)
         {
             var game = await _context.Games
-                .Include(g => g.Developer) // Добре е да инклуднем и Developer
-                .Include(g => g.GameGenres)
-                    .ThenInclude(gg => gg.Genre)
-                .Include(g => g.GamePlatforms)
-                    .ThenInclude(gp => gp.Platform)
+                .Include(g => g.Developer)
+                .Include(g => g.GameGenres).ThenInclude(gg => gg.Genre)
+                .Include(g => g.GamePlatforms).ThenInclude(gp => gp.Platform)
                 .FirstOrDefaultAsync(g => g.Id == id);
 
             if (game == null) return null;
@@ -101,12 +99,15 @@ namespace HeatGames.Core.Services
                 ReleaseDate = game.ReleaseDate,
                 CoverImageUrl = game.CoverImageUrl,
                 DeveloperId = game.DeveloperId,
-                DeveloperName = game.Developer?.Name, // 🎯 Добавено
+                DeveloperName = game.Developer?.Name,
                 Genres = game.GameGenres.Select(gg => gg.Genre.Name).ToList(),
-                Platforms = game.GamePlatforms.Select(gp => gp.Platform.Name).ToList()
+                Platforms = game.GamePlatforms.Select(gp => gp.Platform.Name).ToList(),
+
+                // 🎯 ВАЖНО: Попълваме ID-тата за Edit формата
+                SelectedGenreIds = game.GameGenres.Select(gg => gg.GenreId).ToList(),
+                SelectedPlatformIds = game.GamePlatforms.Select(gp => gp.PlatformId).ToList()
             };
         }
-
         public async Task CreateGameAsync(GameDto model)
         {
             var game = new Game
@@ -122,13 +123,22 @@ namespace HeatGames.Core.Services
 
             await _context.Games.AddAsync(game);
 
-            foreach (var platformId in model.SelectedPlatformIds)
+            // 🎯 Записваме Платформите
+            if (model.SelectedPlatformIds != null)
             {
-                await _context.GamePlatforms.AddAsync(new GamePlatform
+                foreach (var pId in model.SelectedPlatformIds)
                 {
-                    GameId = game.Id,
-                    PlatformId = platformId
-                });
+                    await _context.GamePlatforms.AddAsync(new GamePlatform { GameId = game.Id, PlatformId = pId });
+                }
+            }
+
+            // 🎯 Записваме Жанровете (Това липсваше!)
+            if (model.SelectedGenreIds != null)
+            {
+                foreach (var gId in model.SelectedGenreIds)
+                {
+                    await _context.GameGenres.AddAsync(new GameGenre { GameId = game.Id, GenreId = gId });
+                }
             }
 
             await _context.SaveChangesAsync();
@@ -150,21 +160,23 @@ namespace HeatGames.Core.Services
             game.CoverImageUrl = model.CoverImageUrl;
             game.DeveloperId = model.DeveloperId;
 
+            // Обновяваме платформи
             _context.GamePlatforms.RemoveRange(game.GamePlatforms);
             if (model.SelectedPlatformIds != null)
             {
                 foreach (var pId in model.SelectedPlatformIds)
                 {
-                    game.GamePlatforms.Add(new GamePlatform { PlatformId = pId });
+                    _context.GamePlatforms.Add(new GamePlatform { GameId = game.Id, PlatformId = pId });
                 }
             }
 
+            // Обновяваме жанрове
             _context.GameGenres.RemoveRange(game.GameGenres);
             if (model.SelectedGenreIds != null)
             {
                 foreach (var gId in model.SelectedGenreIds)
                 {
-                    game.GameGenres.Add(new GameGenre { GenreId = gId });
+                    _context.GameGenres.Add(new GameGenre { GameId = game.Id, GenreId = gId });
                 }
             }
 

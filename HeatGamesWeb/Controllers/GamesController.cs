@@ -25,7 +25,7 @@ namespace HeatGamesWeb.Controllers
         private readonly IGenreService _genreService;
         private readonly IPlatformService _platformService;
         private readonly IWishlistService _wishlistService;
-        private readonly ILibraryService _libraryService; // 🎯 ДОБАВЕНО
+        private readonly ILibraryService _libraryService;
         private readonly UserManager<User> _userManager;
 
         public GamesController(
@@ -35,7 +35,7 @@ namespace HeatGamesWeb.Controllers
             IGenreService genreService,
             IPlatformService platformService,
             IWishlistService wishlistService,
-            ILibraryService libraryService, // 🎯 ДОБАВЕНО
+            ILibraryService libraryService,
             UserManager<User> userManager)
         {
             _gameService = gameService;
@@ -44,7 +44,7 @@ namespace HeatGamesWeb.Controllers
             _genreService = genreService;
             _platformService = platformService;
             _wishlistService = wishlistService;
-            _libraryService = libraryService; // 🎯
+            _libraryService = libraryService;
             _userManager = userManager;
         }
 
@@ -115,8 +115,6 @@ namespace HeatGamesWeb.Controllers
                 {
                     var wishlist = await _wishlistService.GetUserWishlistAsync(user.Id);
                     isInWishlist = wishlist.Any(w => w.GameId == id);
-
-                    // 🎯 ТУК БЕШЕ ГРЕШКАТА - ОПРАВЕНО Е С ТВОЯ МЕТОД:
                     ownsGame = await _libraryService.UserOwnsGameAsync(user.Id, id);
                 }
             }
@@ -144,6 +142,60 @@ namespace HeatGamesWeb.Controllers
             return View(viewModel);
         }
 
+        // 🎯 ОПРАВЕН МЕТОД CREATE (GET)
+        [HttpGet]
+        public async Task<IActionResult> Create()
+        {
+            var developers = await _developerService.GetAllDevelopersAsync();
+            ViewBag.Developers = new SelectList(developers, "Id", "Name");
+
+            ViewBag.Platforms = await _platformService.GetAllPlatformsAsync();
+            ViewBag.Genres = await _genreService.GetAllGenresAsync(); // Това липсваше!
+
+            // Подаваме празен модел, за да не гърмят листите във View-то
+            var model = new GameViewModel
+            {
+                SelectedPlatformIds = new List<Guid>(),
+                SelectedGenreIds = new List<Guid>()
+            };
+
+            return View(model);
+        }
+
+        // 🎯 ОПРАВЕН МЕТОД CREATE (POST)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(GameViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var gameDto = new GameDto
+                {
+                    Id = Guid.NewGuid(),
+                    Title = model.Title,
+                    Description = model.Description,
+                    Price = model.Price,
+                    ReleaseDate = model.ReleaseDate,
+                    CoverImageUrl = model.CoverImageUrl,
+                    DeveloperId = model.DeveloperId,
+                    SelectedPlatformIds = model.SelectedPlatformIds ?? new List<Guid>(),
+                    SelectedGenreIds = model.SelectedGenreIds ?? new List<Guid>()
+                };
+
+                await _gameService.CreateGameAsync(gameDto);
+                return RedirectToAction(nameof(Index));
+            }
+
+            // Ако формата има грешка, трябва отново да заредим всички ViewBag данни
+            var developers = await _developerService.GetAllDevelopersAsync();
+            ViewBag.Developers = new SelectList(developers, "Id", "Name", model.DeveloperId);
+            ViewBag.Platforms = await _platformService.GetAllPlatformsAsync();
+            ViewBag.Genres = await _genreService.GetAllGenresAsync();
+
+            return View(model);
+        }
+
+        // 🎯 ОПРАВЕН МЕТОД EDIT (GET)
         [HttpGet]
         public async Task<IActionResult> Edit(Guid id)
         {
@@ -159,17 +211,19 @@ namespace HeatGamesWeb.Controllers
                 ReleaseDate = gameDto.ReleaseDate,
                 CoverImageUrl = gameDto.CoverImageUrl,
                 DeveloperId = gameDto.DeveloperId,
-                SelectedPlatformIds = gameDto.SelectedPlatformIds,
-                SelectedGenreIds = gameDto.SelectedGenreIds
+                SelectedPlatformIds = gameDto.SelectedPlatformIds ?? new List<Guid>(),
+                SelectedGenreIds = gameDto.SelectedGenreIds ?? new List<Guid>()
             };
 
             var developers = await _developerService.GetAllDevelopersAsync();
             ViewBag.Developers = new SelectList(developers, "Id", "Name", viewModel.DeveloperId);
             ViewBag.Platforms = await _platformService.GetAllPlatformsAsync();
-            ViewBag.Genres = await _genreService.GetAllGenresAsync();
+            ViewBag.Genres = await _genreService.GetAllGenresAsync(); // Това липсваше!
+
             return View(viewModel);
         }
 
+        // 🎯 ОПРАВЕН МЕТОД EDIT (POST)
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Guid id, GameViewModel model)
@@ -187,16 +241,21 @@ namespace HeatGamesWeb.Controllers
                     ReleaseDate = model.ReleaseDate,
                     CoverImageUrl = model.CoverImageUrl,
                     DeveloperId = model.DeveloperId,
-                    SelectedPlatformIds = model.SelectedPlatformIds,
-                    SelectedGenreIds = model.SelectedGenreIds
+                    SelectedPlatformIds = model.SelectedPlatformIds ?? new List<Guid>(),
+                    SelectedGenreIds = model.SelectedGenreIds ?? new List<Guid>()
                 };
+
                 var success = await _gameService.UpdateGameAsync(gameDto);
                 if (!success) return NotFound();
                 return RedirectToAction(nameof(Index));
             }
+
+            // Ако формата има грешка, трябва отново да заредим всички ViewBag данни
             var developers = await _developerService.GetAllDevelopersAsync();
             ViewBag.Developers = new SelectList(developers, "Id", "Name", model.DeveloperId);
             ViewBag.Platforms = await _platformService.GetAllPlatformsAsync();
+            ViewBag.Genres = await _genreService.GetAllGenresAsync();
+
             return View(model);
         }
 

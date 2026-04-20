@@ -8,7 +8,6 @@ namespace HeatGames.Data.Configuration
     {
         public void Configure(EntityTypeBuilder<Developer> builder)
         {
-            // Налагаме ограниченията на ниво SQL база данни
             builder.Property(d => d.Name)
                    .IsRequired()
                    .HasMaxLength(100);

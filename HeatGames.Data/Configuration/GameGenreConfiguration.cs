@@ -35,16 +35,14 @@ namespace HeatGames.Data.Configurations
                 new GameGenre { GameId = Guid.Parse("0000000d-0000-0000-0000-000000000000"), GenreId = actionId }, new GameGenre { GameId = Guid.Parse("0000000d-0000-0000-0000-000000000000"), GenreId = advId },
                 new GameGenre { GameId = Guid.Parse("0000000e-0000-0000-0000-000000000000"), GenreId = actionId }, new GameGenre { GameId = Guid.Parse("0000000e-0000-0000-0000-000000000000"), GenreId = rpgId },
                 new GameGenre { GameId = Guid.Parse("0000000f-0000-0000-0000-000000000000"), GenreId = shooterId }, new GameGenre { GameId = Guid.Parse("0000000f-0000-0000-0000-000000000000"), GenreId = strategyId },
-
-                // 16-32
-                new GameGenre { GameId = Guid.Parse("00000010-0000-0000-0000-000000000000"), GenreId = strategyId }, // Sims 4
-                new GameGenre { GameId = Guid.Parse("00000011-0000-0000-0000-000000000000"), GenreId = actionId }, // FC 24
+                new GameGenre { GameId = Guid.Parse("00000010-0000-0000-0000-000000000000"), GenreId = strategyId },
+                new GameGenre { GameId = Guid.Parse("00000011-0000-0000-0000-000000000000"), GenreId = actionId },
                 new GameGenre { GameId = Guid.Parse("00000012-0000-0000-0000-000000000000"), GenreId = rpgId }, new GameGenre { GameId = Guid.Parse("00000012-0000-0000-0000-000000000000"), GenreId = shooterId }, // Mass Effect
                 new GameGenre { GameId = Guid.Parse("00000013-0000-0000-0000-000000000000"), GenreId = rpgId }, new GameGenre { GameId = Guid.Parse("00000013-0000-0000-0000-000000000000"), GenreId = actionId }, // AC Odyssey
                 new GameGenre { GameId = Guid.Parse("00000014-0000-0000-0000-000000000000"), GenreId = shooterId }, new GameGenre { GameId = Guid.Parse("00000014-0000-0000-0000-000000000000"), GenreId = actionId }, // Far Cry 6
                 new GameGenre { GameId = Guid.Parse("00000015-0000-0000-0000-000000000000"), GenreId = actionId }, new GameGenre { GameId = Guid.Parse("00000015-0000-0000-0000-000000000000"), GenreId = advId }, // Watch Dogs
-                new GameGenre { GameId = Guid.Parse("00000016-0000-0000-0000-000000000000"), GenreId = shooterId }, // L4D2
-                new GameGenre { GameId = Guid.Parse("00000017-0000-0000-0000-000000000000"), GenreId = shooterId }, // TF2
+                new GameGenre { GameId = Guid.Parse("00000016-0000-0000-0000-000000000000"), GenreId = shooterId },
+                new GameGenre { GameId = Guid.Parse("00000017-0000-0000-0000-000000000000"), GenreId = shooterId },
                 new GameGenre { GameId = Guid.Parse("00000018-0000-0000-0000-000000000000"), GenreId = rpgId }, new GameGenre { GameId = Guid.Parse("00000018-0000-0000-0000-000000000000"), GenreId = actionId }, // Dark Souls 3
                 new GameGenre { GameId = Guid.Parse("00000019-0000-0000-0000-000000000000"), GenreId = rpgId }, new GameGenre { GameId = Guid.Parse("00000019-0000-0000-0000-000000000000"), GenreId = actionId }, // Bloodborne
                 new GameGenre { GameId = Guid.Parse("0000001a-0000-0000-0000-000000000000"), GenreId = rpgId }, new GameGenre { GameId = Guid.Parse("0000001a-0000-0000-0000-000000000000"), GenreId = strategyId }, // DOS 2

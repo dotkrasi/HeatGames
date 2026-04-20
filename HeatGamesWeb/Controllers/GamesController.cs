@@ -142,7 +142,6 @@ namespace HeatGamesWeb.Controllers
             return View(viewModel);
         }
 
-        // 🎯 ОПРАВЕН МЕТОД CREATE (GET)
         [HttpGet]
         public async Task<IActionResult> Create()
         {
@@ -152,7 +151,6 @@ namespace HeatGamesWeb.Controllers
             ViewBag.Platforms = await _platformService.GetAllPlatformsAsync();
             ViewBag.Genres = await _genreService.GetAllGenresAsync(); // Това липсваше!
 
-            // Подаваме празен модел, за да не гърмят листите във View-то
             var model = new GameViewModel
             {
                 SelectedPlatformIds = new List<Guid>(),
@@ -162,7 +160,6 @@ namespace HeatGamesWeb.Controllers
             return View(model);
         }
 
-        // 🎯 ОПРАВЕН МЕТОД CREATE (POST)
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(GameViewModel model)
@@ -186,7 +183,6 @@ namespace HeatGamesWeb.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            // Ако формата има грешка, трябва отново да заредим всички ViewBag данни
             var developers = await _developerService.GetAllDevelopersAsync();
             ViewBag.Developers = new SelectList(developers, "Id", "Name", model.DeveloperId);
             ViewBag.Platforms = await _platformService.GetAllPlatformsAsync();
@@ -195,7 +191,6 @@ namespace HeatGamesWeb.Controllers
             return View(model);
         }
 
-        // 🎯 ОПРАВЕН МЕТОД EDIT (GET)
         [HttpGet]
         public async Task<IActionResult> Edit(Guid id)
         {
@@ -223,7 +218,6 @@ namespace HeatGamesWeb.Controllers
             return View(viewModel);
         }
 
-        // 🎯 ОПРАВЕН МЕТОД EDIT (POST)
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Guid id, GameViewModel model)
@@ -250,7 +244,6 @@ namespace HeatGamesWeb.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            // Ако формата има грешка, трябва отново да заредим всички ViewBag данни
             var developers = await _developerService.GetAllDevelopersAsync();
             ViewBag.Developers = new SelectList(developers, "Id", "Name", model.DeveloperId);
             ViewBag.Platforms = await _platformService.GetAllPlatformsAsync();

@@ -71,7 +71,7 @@ namespace HeatGames.Core.Services
                     Price = g.Price,
                     CoverImageUrl = g.CoverImageUrl,
                     DeveloperId = g.DeveloperId,
-                    DeveloperName = g.Developer.Name, // 🎯 ДОБАВЕНО ИЗВЛИЧАНЕТО НА ИМЕТО
+                    DeveloperName = g.Developer.Name,
                     Platforms = g.GamePlatforms.Select(p => p.Platform.Name).ToList(),
                     Genres = g.GameGenres.Select(gg => gg.Genre.Name).ToList()
                 })
@@ -103,7 +103,6 @@ namespace HeatGames.Core.Services
                 Genres = game.GameGenres.Select(gg => gg.Genre.Name).ToList(),
                 Platforms = game.GamePlatforms.Select(gp => gp.Platform.Name).ToList(),
 
-                // 🎯 ВАЖНО: Попълваме ID-тата за Edit формата
                 SelectedGenreIds = game.GameGenres.Select(gg => gg.GenreId).ToList(),
                 SelectedPlatformIds = game.GamePlatforms.Select(gp => gp.PlatformId).ToList()
             };
@@ -123,7 +122,6 @@ namespace HeatGames.Core.Services
 
             await _context.Games.AddAsync(game);
 
-            // 🎯 Записваме Платформите
             if (model.SelectedPlatformIds != null)
             {
                 foreach (var pId in model.SelectedPlatformIds)
@@ -132,7 +130,6 @@ namespace HeatGames.Core.Services
                 }
             }
 
-            // 🎯 Записваме Жанровете (Това липсваше!)
             if (model.SelectedGenreIds != null)
             {
                 foreach (var gId in model.SelectedGenreIds)
@@ -160,7 +157,6 @@ namespace HeatGames.Core.Services
             game.CoverImageUrl = model.CoverImageUrl;
             game.DeveloperId = model.DeveloperId;
 
-            // Обновяваме платформи
             _context.GamePlatforms.RemoveRange(game.GamePlatforms);
             if (model.SelectedPlatformIds != null)
             {
@@ -170,7 +166,6 @@ namespace HeatGames.Core.Services
                 }
             }
 
-            // Обновяваме жанрове
             _context.GameGenres.RemoveRange(game.GameGenres);
             if (model.SelectedGenreIds != null)
             {

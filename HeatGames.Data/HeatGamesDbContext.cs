@@ -29,7 +29,6 @@ namespace HeatGames.Data
         public DbSet<LibraryItem> LibraryItems { get; set; }
         public DbSet<Wishlist> Wishlists { get; set; }
 
-        // Тук ще "закачим" нашите Fluent API конфигурации!
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

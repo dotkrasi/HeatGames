@@ -6,7 +6,6 @@
 }
 
 <style>
-    /* Тъмен стил за количката */
     .cart-wrapper {
         background-color: #000000;
         min-height: 80vh;
@@ -22,7 +21,6 @@
         margin-bottom: 30px;
     }
 
-    /* Карта за единична игра */
     .cart-item-card {
         background-color: #1a0033;
         border: 1px solid #4a0080;
@@ -71,7 +69,6 @@
             border-color: #ff4d4d;
         }
 
-    /* Дясна колона - Обобщение */
     .summary-card {
         background: linear-gradient(135deg, #1a0033 0%, #230046 100%);
         border: 1px solid #4a0080;
@@ -84,7 +81,7 @@
     .summary-total {
         font-size: 2.2rem;
         font-weight: 900;
-        color: #BEEF52; /* Неоново зелено за тотала */
+        color: #BEEF52;
         text-shadow: 0 0 10px rgba(190, 239, 82, 0.3);
     }
 
@@ -121,7 +118,6 @@
 <div class="cart-wrapper pt-4">
     <div class="container">
 
-        @* 🎯 ТУК ДОБАВЯМЕ КУТИИТЕ ЗА ГРЕШКИ И УСПЕХ *@
         @if (TempData["ErrorMessage"] != null)
         {
             <div class="alert alert-danger alert-dismissible fade show shadow-sm mb-4" style="background-color: #4d0000; color: #ffcccc; border: 1px solid #ff0000;" role="alert">

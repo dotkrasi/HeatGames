@@ -8,7 +8,7 @@ namespace HeatGames.Core.Services.Interfaces
     public interface ILibraryService
     {
         Task<IEnumerable<LibraryItemDto>> GetUserLibraryAsync(Guid userId);
-        Task<bool> UserOwnsGameAsync(Guid userId, Guid gameId); // Проверка дали притежава играта
+        Task<bool> UserOwnsGameAsync(Guid userId, Guid gameId);
         Task UpdatePlayTimeAsync(Guid libraryItemId, int minutesToAdd);
         Task<List<Guid>> GetOwnedGameIdsAsync(Guid userId);
     }

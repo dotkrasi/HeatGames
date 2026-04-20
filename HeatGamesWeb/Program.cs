@@ -11,7 +11,6 @@ using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IGameService, GameService>();
 builder.Services.AddScoped<IDeveloperService, DeveloperService>();
@@ -29,7 +28,6 @@ builder.Services.AddDbContext<HeatGamesDbContext>(options =>
 
 builder.Services.AddIdentity<User, IdentityRole<Guid>>(options =>
 {
-    // Настройки на паролата
     options.Password.RequireDigit = false;
     options.Password.RequiredLength = 6;
     options.Password.RequireNonAlphanumeric = false;
@@ -39,14 +37,12 @@ builder.Services.AddIdentity<User, IdentityRole<Guid>>(options =>
 .AddEntityFrameworkStores<HeatGamesDbContext>()
 .AddDefaultTokenProviders();
 
-// ——— НОВО: СТЪПКА 1 (Добавяне на сесия в Services) ———
 builder.Services.AddSession(options =>
 {
-    options.IdleTimeout = TimeSpan.FromHours(2); // Пази количката 2 часа
+    options.IdleTimeout = TimeSpan.FromHours(2);
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
 });
-// —————————————————————————————————————————————————————
 builder.Services.AddHttpContextAccessor();
 var app = builder.Build();
 
@@ -63,16 +59,7 @@ using (var scope = app.Services.CreateScope())
     }
 }
 
-/*using (var scope = app.Services.CreateScope())
-{
-    var services = scope.ServiceProvider;
 
-    // Твоят стар сийдър за админа (не го пипай, ако го има)
-    // await IdentitySeeder.SeedAdminAsync(services);
-
-    // НОВОТО: Извикваме DbSeeder-а
-    await HeatGames.Data.DbSeeder.SeedDataAsync(services); // Увери се, че пътят (namespace) е правилен!
-}*/
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -87,10 +74,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-// ——— НОВО: СТЪПКА 1 (Активиране на сесията) ———
-// ВАЖНО: Трябва да е точно тук - между UseRouting и UseAuthorization!
 app.UseSession();
-// ——————————————————————————————————————————————
 
 app.UseAuthorization();
 

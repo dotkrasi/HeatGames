@@ -1,24 +1,23 @@
 ﻿using HeatGames.Core.Services.Interfaces;
 using HeatGames.Data.Models;
-using HeatGamesCore.Services.Interfaces; // Added for IGameService
+using HeatGamesCore.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.IO;          // Added for MemoryStream
-using System.IO.Compression; // Added for ZipArchive
+using System.IO;
+using System.IO.Compression;
 using System.Threading.Tasks;
 
 namespace HeatGamesWeb.Controllers
 {
-    [Authorize] // Only for logged-in users
+    [Authorize]
     public class LibraryController : Controller
     {
         private readonly ILibraryService _libraryService;
         private readonly UserManager<User> _userManager;
-        private readonly IGameService _gameService; // ADDED: Injecting GameService
+        private readonly IGameService _gameService;
 
-        // ADDED: Adding IGameService to the constructor
         public LibraryController(ILibraryService libraryService, UserManager<User> userManager, IGameService gameService)
         {
             _libraryService = libraryService;
@@ -26,7 +25,6 @@ namespace HeatGamesWeb.Controllers
             _gameService = gameService;
         }
 
-        // 🔹 GET: My Games
         public async Task<IActionResult> Index()
         {
             var user = await _userManager.GetUserAsync(User);
@@ -36,23 +34,18 @@ namespace HeatGamesWeb.Controllers
             return View(libraryItems);
         }
 
-        // 🔹 NEW: GET: Download the game (Generates a dynamic .zip file)
         [HttpGet]
         public async Task<IActionResult> Download(Guid gameId)
         {
-            // 1. Get the game to retrieve its title
             var game = await _gameService.GetGameByIdAsync(gameId);
             if (game == null) return NotFound();
 
-            // 2. Clean the game title from invalid file characters
             string safeFileName = string.Join("_", game.Title.Split(Path.GetInvalidFileNameChars()));
 
-            // 3. Create a ZIP archive dynamically in memory
             using (var memoryStream = new MemoryStream())
             {
                 using (var archive = new ZipArchive(memoryStream, ZipArchiveMode.Create, true))
                 {
-                    // Create a small text file inside the ZIP
                     var readmeEntry = archive.CreateEntry("readme.txt");
                     using (var entryStream = readmeEntry.Open())
                     using (var streamWriter = new StreamWriter(entryStream))
@@ -64,14 +57,13 @@ namespace HeatGamesWeb.Controllers
                     }
                 }
 
-                // 4. Return the ZIP file to the user
                 var zipBytes = memoryStream.ToArray();
                 return File(zipBytes, "application/zip", $"{safeFileName}.zip");
             }
         }
 
         [HttpPost]
-        [IgnoreAntiforgeryToken] // Ignoring protection specifically for this AJAX call to make testing easier
+        [IgnoreAntiforgeryToken]
         public async Task<IActionResult> SavePlayTime([FromBody] PlayTimeRequest request)
         {
             if (request == null || request.LibraryItemId == Guid.Empty)
@@ -79,13 +71,11 @@ namespace HeatGamesWeb.Controllers
                 return BadRequest();
             }
 
-            // Call the SERVICE appropriately!
             await _libraryService.UpdatePlayTimeAsync(request.LibraryItemId, request.MinutesToAdd);
 
             return Ok();
         }
 
-        // This helper class can stay at the bottom of the controller or in the DTOs folder
         public class PlayTimeRequest
         {
             public Guid LibraryItemId { get; set; }

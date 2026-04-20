@@ -5,7 +5,6 @@
 }
 
 <style>
-    /* ТЪМНО-ЛИЛАВ СТИЛ ЗА АДМИН ПАНЕЛА */
     .admin-card {
         background-color: #230046;
         border: 1px solid #4a0080;
@@ -15,7 +14,7 @@
 
     .admin-header {
         background-color: #1a0033;
-        border-bottom: 2px solid #ffc107; /* Жълт акцент за редакция */
+        border-bottom: 2px solid #ffc107;
         border-radius: 8px 8px 0 0;
     }
 
@@ -55,7 +54,6 @@
             box-shadow: 0 4px 15px rgba(255, 193, 7, 0.4);
         }
 
-    /* Стил за чекбоксовете */
     .form-check-input {
         background-color: #000;
         border-color: #4a0080;
@@ -117,7 +115,6 @@
                             <span asp-validation-for="DeveloperId" class="text-danger small fw-bold"></span>
                         </div>
 
-                        @* ——— СЕКЦИЯ ЗА ЖАНРОВЕ ——— *@
                         <div class="mb-4">
                             <label class="form-label fw-bold"><i class="bi bi-tags-fill me-1 text-muted"></i> Жанрове</label>
                             <div class="d-flex flex-wrap gap-3 p-3 rounded" style="background-color: #1a0033; border: 1px solid #4a0080;">
@@ -138,7 +135,6 @@
                             </div>
                         </div>
 
-                        @* ——— СЕКЦИЯ ЗА ПЛАТФОРМИ ——— *@
                         <div class="mb-4">
                             <label class="form-label fw-bold"><i class="bi bi-pc-display me-1 text-muted"></i> Платформи</label>
                             <div class="d-flex flex-wrap gap-3 p-3 rounded" style="background-color: #1a0033; border: 1px solid #4a0080;">

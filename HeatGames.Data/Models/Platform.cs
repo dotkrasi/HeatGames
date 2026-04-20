@@ -13,7 +13,6 @@ namespace HeatGames.Data.Models
         [MaxLength(50)]
         public string Name { get; set; } = null!;
 
-        // Навигационно свойство за много-към-много връзката
         public ICollection<GamePlatform> GamePlatforms { get; set; } = new List<GamePlatform>();
     }
 }

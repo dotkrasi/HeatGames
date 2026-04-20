@@ -10,11 +10,9 @@ namespace HeatGames.Data.Configuration
     {
         public static async Task SeedRolesAndAdminAsync(IServiceProvider serviceProvider)
         {
-            // 1. Взимаме нужните сървиси, като изрично указваме <Guid> и твоя <User> модел
             var roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole<Guid>>>();
             var userManager = serviceProvider.GetRequiredService<UserManager<User>>();
 
-            // 2. Създаваме ролите
             string[] roleNames = { "Admin", "User" };
 
             foreach (var roleName in roleNames)
@@ -26,7 +24,6 @@ namespace HeatGames.Data.Configuration
                 }
             }
 
-            // 3. Създаваме първия Администратор (ако не съществува)
             var adminEmail = "admin@heatgames.com";
             var adminNickname = "admin";
             var adminUser = await userManager.FindByEmailAsync(adminEmail);
@@ -38,15 +35,13 @@ namespace HeatGames.Data.Configuration
                     UserName = adminNickname,
                     Email = adminEmail,
                     EmailConfirmed = true,
-                    WalletBalance = 1000.00m, // Даваме му малко пари в портфейла за тестове
+                    WalletBalance = 1000.00m,
                     RegistrationDate = DateTime.UtcNow
                 };
 
-                // Създаваме потребителя с парола
                 var createPowerUser = await userManager.CreateAsync(newAdmin, "Admin123!");
                 if (createPowerUser.Succeeded)
                 {
-                    // Чак сега го добавяме към ролята
                     await userManager.AddToRoleAsync(newAdmin, "Admin");
                 }
             }

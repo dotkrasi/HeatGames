@@ -44,12 +44,10 @@ namespace HeatGames.Core.Services
 
             if (existingItem != null)
             {
-                // Ако я има в списъка -> премахваме я
                 _context.Wishlists.Remove(existingItem);
             }
             else
             {
-                // Ако я няма -> добавяме я
                 await _context.Wishlists.AddAsync(new Wishlist
                 {
                     Id = Guid.NewGuid(),
@@ -60,7 +58,7 @@ namespace HeatGames.Core.Services
             }
 
             await _context.SaveChangesAsync();
-            return true; // Връща true при успешна операция
+            return true;
         }
     }
 }

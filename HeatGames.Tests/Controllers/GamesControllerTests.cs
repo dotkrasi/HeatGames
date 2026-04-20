@@ -55,7 +55,6 @@ namespace HeatGames.Tests.Controllers
                 _mockUserManager.Object
             );
 
-            // Mock Session
             var mockSession = new Mock<ISession>();
             var sessionData = JsonSerializer.Serialize(new List<CartItemViewModel>());
             var sessionBytes = System.Text.Encoding.UTF8.GetBytes(sessionData);

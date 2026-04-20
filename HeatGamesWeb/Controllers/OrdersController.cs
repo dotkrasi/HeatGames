@@ -1,7 +1,7 @@
 ﻿using HeatGames.Core.Services.Interfaces;
 using HeatGames.Data.Models;
-using HeatGamesWeb.Extensions; // За сесията (SessionExtensions)
-using HeatGamesWeb.ViewModels; // За CartItemViewModel
+using HeatGamesWeb.Extensions;
+using HeatGamesWeb.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -12,20 +12,18 @@ using System.Threading.Tasks;
 
 namespace HeatGamesWeb.Controllers
 {
-    [Authorize] // Само логнати потребители могат да купуват и виждат поръчки
+    [Authorize]
     public class OrdersController : Controller
     {
         private readonly IOrderService _orderService;
         private readonly UserManager<User> _userManager;
 
-        // Инжектираме OrderService и UserManager
         public OrdersController(IOrderService orderService, UserManager<User> userManager)
         {
             _orderService = orderService;
             _userManager = userManager;
         }
 
-        // 🔹 GET: История на поръчките
         public async Task<IActionResult> Index()
         {
             var user = await _userManager.GetUserAsync(User);
@@ -35,7 +33,6 @@ namespace HeatGamesWeb.Controllers
             return View(orders);
         }
 
-        // 🔹 POST: Създаване на поръчка (Директно купуване на 1 игра)
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Buy(Guid gameId)
@@ -57,7 +54,6 @@ namespace HeatGamesWeb.Controllers
             }
         }
 
-        // 🔹 POST: ПЛАЩАНЕ НА ЦЯЛАТА КОЛИЧКА (Checkout)
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Checkout()
@@ -65,7 +61,6 @@ namespace HeatGamesWeb.Controllers
             var user = await _userManager.GetUserAsync(User);
             if (user == null) return Challenge();
 
-            // Взимаме количката от сесията
             var cart = HttpContext.Session.Get<List<CartItemViewModel>>("ShoppingCart");
 
             if (cart == null || !cart.Any())
@@ -74,7 +69,6 @@ namespace HeatGamesWeb.Controllers
                 return RedirectToAction("Index", "Cart");
             }
 
-            // Проверяваме предварително дали има достатъчно пари за ВСИЧКИ игри
             decimal totalAmount = cart.Sum(i => i.Price);
             if (user.WalletBalance < totalAmount)
             {
@@ -85,7 +79,6 @@ namespace HeatGamesWeb.Controllers
             bool hasError = false;
             string lastError = "";
 
-            // Купуваме всяка игра от количката
             foreach (var item in cart)
             {
                 var result = await _orderService.PurchaseGameAsync(user.Id, item.GameId);
@@ -103,13 +96,12 @@ namespace HeatGamesWeb.Controllers
             else
             {
                 TempData["SuccessMessage"] = "Успешно закупихте всички игри от количката!";
-                HttpContext.Session.Remove("ShoppingCart"); // Изчистваме количката след успева покупка
+                HttpContext.Session.Remove("ShoppingCart");
             }
 
             return RedirectToAction("Index", "Library");
         }
 
-        // 🔹 GET: Всички поръчки (САМО ЗА АДМИНИ)
         [Authorize(Roles = "Admin")]
         [HttpGet]
         public async Task<IActionResult> Manage()

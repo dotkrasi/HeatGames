@@ -48,7 +48,7 @@ namespace HeatGames.Core.Services
         public async Task<IEnumerable<OrderDto>> GetAllOrdersAsync()
         {
             return await _context.Orders
-                .Include(o => o.User) // ВАЖНО: Зареждаме потребителя
+                .Include(o => o.User)
                 .Include(o => o.OrderItems)
                 .ThenInclude(oi => oi.Game)
                 .OrderByDescending(o => o.OrderDate)
@@ -56,7 +56,7 @@ namespace HeatGames.Core.Services
                 {
                     Id = o.Id,
                     UserId = o.UserId,
-                    UserName = o.User.UserName!, // Взимаме името на купувача
+                    UserName = o.User.UserName!,
                     OrderDate = o.OrderDate,
                     TotalAmount = o.TotalAmount,
                     OrderItems = o.OrderItems.Select(oi => new OrderItemDto
@@ -74,28 +74,22 @@ namespace HeatGames.Core.Services
 
         public async Task<(bool Success, string Message)> PurchaseGameAsync(Guid userId, Guid gameId)
         {
-            // 1. Взимаме потребителя и играта
             var user = await _context.Users.FindAsync(userId);
             var game = await _context.Games.FindAsync(gameId);
 
             if (user == null || game == null)
                 return (false, "Потребителят или играта не бяха намерени.");
 
-            // 2. Проверка дали вече притежава играта
             var ownsGame = await _context.LibraryItems.AnyAsync(l => l.UserId == userId && l.GameId == gameId);
             if (ownsGame)
                 return (false, "Вече притежавате тази игра във вашата библиотека.");
 
-            // 3. Проверка за наличност на средства
             if (user.WalletBalance < game.Price)
                 return (false, "Нямате достатъчно средства в портфейла.");
 
-            // === ТРАНЗАКЦИЯ: Започваме същинската покупка ===
 
-            // Стъпка А: Взимаме му парите
             user.WalletBalance -= game.Price;
 
-            // Стъпка Б: Създаваме Поръчка
             var order = new Order
             {
                 Id = Guid.NewGuid(),
@@ -105,7 +99,6 @@ namespace HeatGames.Core.Services
             };
             await _context.Orders.AddAsync(order);
 
-            // Стъпка В: Създаваме OrderItem
             var orderItem = new OrderItem
             {
                 Id = Guid.NewGuid(),
@@ -115,7 +108,6 @@ namespace HeatGames.Core.Services
             };
             await _context.OrderItems.AddAsync(orderItem);
 
-            // Стъпка Г: Добавяме играта в Библиотеката му
             var libraryItem = new LibraryItem
             {
                 Id = Guid.NewGuid(),
@@ -126,14 +118,12 @@ namespace HeatGames.Core.Services
             };
             await _context.LibraryItems.AddAsync(libraryItem);
 
-            // Стъпка Д: Ако играта е била в Wishlist-а, я премахваме автоматично
             var wishlistItem = await _context.Wishlists.FirstOrDefaultAsync(w => w.UserId == userId && w.GameId == gameId);
             if (wishlistItem != null)
             {
                 _context.Wishlists.Remove(wishlistItem);
             }
 
-            // Запазваме всичко наведнъж. Ако нещо гръмне, нищо няма да се запише (EF Core го прави автоматично!)
             await _context.SaveChangesAsync();
 
             return (true, "Успешна покупка! Играта е добавена във вашата библиотека.");

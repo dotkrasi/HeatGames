@@ -18,7 +18,6 @@ namespace HeatGamesWeb.ViewModels
 
         public DateTime RegistrationDate { get; set; } = DateTime.UtcNow;
 
-        // Навигационни свойства    
 
     }
 }

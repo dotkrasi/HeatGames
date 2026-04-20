@@ -13,7 +13,6 @@ namespace HeatGames.Data.Configuration
                    .IsRequired()
                    .HasMaxLength(50);
 
-            // Сийдваме началните платформи
             builder.HasData(
                 new Platform { Id = Guid.Parse("11111111-2222-3333-4444-555555555555"), Name = "PC (Windows)" },
                 new Platform { Id = Guid.Parse("22222222-3333-4444-5555-666666666666"), Name = "PlayStation 5" },

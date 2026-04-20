@@ -68,8 +68,6 @@ namespace HeatGames.Core.Services
             var platform = await _context.Platforms.FindAsync(id);
             if (platform != null)
             {
-                // Заради каскадното изтриване във Fluent API, това автоматично
-                // ще изтрие и записите в свързващата таблица GamePlatforms!
                 _context.Platforms.Remove(platform);
                 await _context.SaveChangesAsync();
             }

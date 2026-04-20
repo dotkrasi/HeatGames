@@ -24,7 +24,7 @@ namespace HeatGames.Core.Services
             return await _context.Reviews
                 .Include(r => r.User)
                 .Where(r => r.GameId == gameId)
-                .OrderByDescending(r => r.CreatedOn) // Най-новите първи
+                .OrderByDescending(r => r.CreatedOn)
                 .Select(r => new ReviewDto
                 {
                     Id = r.Id,
@@ -40,17 +40,10 @@ namespace HeatGames.Core.Services
 
         public async Task<bool> AddReviewAsync(ReviewDto dto)
         {
-            // Проверка 1: Има ли играта в библиотеката си?
             var ownsGame = await _context.LibraryItems
                 .AnyAsync(l => l.UserId == dto.UserId && l.GameId == dto.GameId);
 
             if (!ownsGame) return false;
-
-            // Проверка 2: Дали вече не е писал ревю за тази игра?
-        /*    var alreadyReviewed = await _context.Reviews
-                .AnyAsync(r => r.UserId == dto.UserId && r.GameId == dto.GameId);
-
-            if (alreadyReviewed) return false;*/
 
             var review = new Review
             {

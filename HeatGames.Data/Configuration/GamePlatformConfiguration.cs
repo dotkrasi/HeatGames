@@ -17,7 +17,6 @@ namespace HeatGames.Data.Configurations
             var switchId = Guid.Parse("44444444-5555-6666-7777-888888888888");
 
             builder.HasData(
-                // 1-15
                 new GamePlatform { GameId = Guid.Parse("00000001-0000-0000-0000-000000000000"), PlatformId = pcId }, new GamePlatform { GameId = Guid.Parse("00000001-0000-0000-0000-000000000000"), PlatformId = ps5Id }, new GamePlatform { GameId = Guid.Parse("00000001-0000-0000-0000-000000000000"), PlatformId = xboxId },
                 new GamePlatform { GameId = Guid.Parse("00000002-0000-0000-0000-000000000000"), PlatformId = pcId }, new GamePlatform { GameId = Guid.Parse("00000002-0000-0000-0000-000000000000"), PlatformId = ps5Id }, new GamePlatform { GameId = Guid.Parse("00000002-0000-0000-0000-000000000000"), PlatformId = xboxId },
                 new GamePlatform { GameId = Guid.Parse("00000003-0000-0000-0000-000000000000"), PlatformId = pcId }, new GamePlatform { GameId = Guid.Parse("00000003-0000-0000-0000-000000000000"), PlatformId = ps5Id }, new GamePlatform { GameId = Guid.Parse("00000003-0000-0000-0000-000000000000"), PlatformId = xboxId },
@@ -33,8 +32,6 @@ namespace HeatGames.Data.Configurations
                 new GamePlatform { GameId = Guid.Parse("0000000d-0000-0000-0000-000000000000"), PlatformId = pcId }, new GamePlatform { GameId = Guid.Parse("0000000d-0000-0000-0000-000000000000"), PlatformId = ps5Id }, new GamePlatform { GameId = Guid.Parse("0000000d-0000-0000-0000-000000000000"), PlatformId = xboxId },
                 new GamePlatform { GameId = Guid.Parse("0000000e-0000-0000-0000-000000000000"), PlatformId = pcId }, new GamePlatform { GameId = Guid.Parse("0000000e-0000-0000-0000-000000000000"), PlatformId = ps5Id }, new GamePlatform { GameId = Guid.Parse("0000000e-0000-0000-0000-000000000000"), PlatformId = xboxId },
                 new GamePlatform { GameId = Guid.Parse("0000000f-0000-0000-0000-000000000000"), PlatformId = pcId }, new GamePlatform { GameId = Guid.Parse("0000000f-0000-0000-0000-000000000000"), PlatformId = ps5Id }, new GamePlatform { GameId = Guid.Parse("0000000f-0000-0000-0000-000000000000"), PlatformId = xboxId },
-
-                // 16-32
                 new GamePlatform { GameId = Guid.Parse("00000010-0000-0000-0000-000000000000"), PlatformId = pcId },
                 new GamePlatform { GameId = Guid.Parse("00000011-0000-0000-0000-000000000000"), PlatformId = pcId }, new GamePlatform { GameId = Guid.Parse("00000011-0000-0000-0000-000000000000"), PlatformId = ps5Id }, new GamePlatform { GameId = Guid.Parse("00000011-0000-0000-0000-000000000000"), PlatformId = xboxId },
                 new GamePlatform { GameId = Guid.Parse("00000012-0000-0000-0000-000000000000"), PlatformId = pcId }, new GamePlatform { GameId = Guid.Parse("00000012-0000-0000-0000-000000000000"), PlatformId = ps5Id }, new GamePlatform { GameId = Guid.Parse("00000012-0000-0000-0000-000000000000"), PlatformId = xboxId },

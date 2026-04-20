@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace HeatGamesWeb.Controllers
 {
-    [Authorize] // Само логнати могат да ползват количка
+    [Authorize]
     public class CartController : Controller
     {
         private readonly IGameService _gameService;
@@ -18,16 +18,14 @@ namespace HeatGamesWeb.Controllers
             _gameService = gameService;
         }
 
-        // 1. Показва страницата с количката (Ще я направим след малко)
         public IActionResult Index()
         {
             var cart = HttpContext.Session.Get<List<CartItemViewModel>>(CartSessionKey) ?? new List<CartItemViewModel>();
             return View(cart);
         }
 
-        // 2. ДОБАВЯНЕ В КОЛИЧКАТА (Този метод се вика от Детайлната страница)
         [HttpPost]
-        public async Task<IActionResult> Add(Guid gameId) // ПРОМЕНЕНО НА Guid
+        public async Task<IActionResult> Add(Guid gameId)
         {
             var cart = HttpContext.Session.Get<List<CartItemViewModel>>(CartSessionKey) ?? new List<CartItemViewModel>();
 
@@ -58,7 +56,7 @@ namespace HeatGamesWeb.Controllers
         }
 
         [HttpPost]
-        public IActionResult Remove(Guid gameId) // ПРОМЕНЕНО НА Guid
+        public IActionResult Remove(Guid gameId)
         {
             var cart = HttpContext.Session.Get<List<CartItemViewModel>>(CartSessionKey) ?? new List<CartItemViewModel>();
             var itemToRemove = cart.FirstOrDefault(c => c.GameId == gameId);

@@ -5,7 +5,6 @@
 
     var topDevelopers = ViewBag.TopDevelopers as List<HeatGames.Core.DTOs.DeveloperDto> ?? new List<HeatGames.Core.DTOs.DeveloperDto>();
 
-    // 🎯 ЛОГИКА ЗА RECOMMENDED (СМЕНЯ СЕ НА ВСЯКА МИНУТА)
     var sliderGames = new List<HeatGamesWeb.ViewModels.GameViewModel>();
     var trendingGames = new List<HeatGamesWeb.ViewModels.GameViewModel>();
 
@@ -362,9 +361,6 @@
 
 @section Scripts {
     <script>
-        // Проверяваме на всяка 1 секунда дали се е сменила минутата.
-        // Ако часовникът ти удари напр. от 15:45 на 15:46 -> страницата се презарежда
-        // и C# генерира 3 чисто нови игри.
         let initialMinute = new Date().getMinutes();
 
         setInterval(function() {

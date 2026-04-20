@@ -34,7 +34,6 @@ namespace HeatGamesWeb.Controllers
 
             var wishlistItems = await _wishlistService.GetUserWishlistAsync(user.Id);
 
-            // Използваме новия метод за масово вземане на ID-та, за да филтрираме списъка
             var ownedGameIds = await _libraryService.GetOwnedGameIdsAsync(user.Id);
             var filteredItems = wishlistItems.Where(w => !ownedGameIds.Contains(w.GameId)).ToList();
 
@@ -48,7 +47,6 @@ namespace HeatGamesWeb.Controllers
             var user = await _userManager.GetUserAsync(User);
             if (user == null) return Challenge();
 
-            // 🎯 ИЗПОЛЗВАМЕ ТВОЯ МЕТОД ТУК:
             bool isOwned = await _libraryService.UserOwnsGameAsync(user.Id, gameId);
 
             if (isOwned)

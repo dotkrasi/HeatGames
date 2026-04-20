@@ -11,7 +11,7 @@ namespace HeatGames.Data.Configuration
             builder.HasOne(o => o.User)
                    .WithMany(u => u.Orders)
                    .HasForeignKey(o => o.UserId)
-                   .OnDelete(DeleteBehavior.Cascade); // Триф потребител -> трият се поръчките му
+                   .OnDelete(DeleteBehavior.Cascade);
 
             builder.Property(o => o.TotalAmount)
                    .HasColumnType("decimal(18,2)");

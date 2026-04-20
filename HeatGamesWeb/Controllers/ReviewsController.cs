@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace HeatGamesWeb.Controllers
 {
-    [Authorize] // Само логнати могат да пишат ревюта
+    [Authorize]
     public class ReviewsController : Controller
     {
         private readonly IReviewService _reviewService;

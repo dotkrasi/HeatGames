@@ -120,7 +120,6 @@
 
 <div class="container mt-5 mb-5">
 
-    @* 🎯 СЪОБЩЕНИЯТА ОТ СЪРВЕРА СЕ ПОКАЗВАТ ТУК (НАПР. СЛЕД ПОКУПКА) *@
     @if (TempData["SuccessMessage"] != null)
     {
         <div class="alert alert-success alert-dismissible fade show shadow-sm mb-4" style="background-color: #003311; color: #ccffcc; border: 1px solid #00ff00;" role="alert">
@@ -199,26 +198,21 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
 
-            // 1. ЛОГИКА ЗА СВАЛЯНЕ (DOWNLOAD -> PLAY)
             const actionContainers = document.querySelectorAll('.action-container');
             actionContainers.forEach(container => {
                 const libraryId = container.id.replace('actions-', '');
                 const downloadBtn = container.querySelector('.download-btn');
                 const playBtn = container.querySelector('.play-btn');
 
-                // Проверяваме дали вече сме я "свалили" (гледаме в паметта на браузъра)
                 if (localStorage.getItem('downloaded_' + libraryId) === 'true') {
-                    downloadBtn.classList.add('d-none'); // Скриваме Download
-                    playBtn.classList.remove('d-none');  // Показваме Play
+                    downloadBtn.classList.add('d-none');
+                    playBtn.classList.remove('d-none'); 
                 }
 
-                // Когато потребителят кликне DOWNLOAD
                 if (downloadBtn) {
                     downloadBtn.addEventListener('click', function (e) {
-                        // Записваме в паметта, че е свалена
                         localStorage.setItem('downloaded_' + libraryId, 'true');
 
-                        // Сменяме бутоните след 1 секунда (за да създадем усещане, че нещо се случва)
                         setTimeout(() => {
                             downloadBtn.classList.add('d-none');
                             playBtn.classList.remove('d-none');
@@ -227,7 +221,6 @@
                 }
             });
 
-            // 2. ЛОГИКА ЗА ИГРАЕНЕ И ТАЙМЕР
             const playButtons = document.querySelectorAll('.play-btn');
             playButtons.forEach(btn => {
                 let intervalId = null;
@@ -242,7 +235,6 @@
 
                     let currentTotalMinutes = parseInt(minutesSpan.innerText);
 
-                    // ПУСКАМЕ ИГРАТА
                     if (!this.classList.contains('btn-stop')) {
                         this.classList.remove('btn-play');
                         this.classList.add('btn-stop');
@@ -256,9 +248,8 @@
                         intervalId = setInterval(() => {
                             addedMinutes++;
                             minutesSpan.innerText = currentTotalMinutes + addedMinutes;
-                        }, 1000); // Симулира 1 минута играене на всяка секунда (за тестване)
+                        }, 1000);
                     }
-                    // СПИРАМЕ ИГРАТА
                     else {
                         this.classList.remove('btn-stop');
                         this.classList.add('btn-play');

@@ -18,7 +18,6 @@ namespace HeatGames.Data.Models
 
         public DateTime RegistrationDate { get; set; } = DateTime.UtcNow;
 
-        // Навигационни свойства    
         public ICollection<Order> Orders { get; set; }
         public ICollection<LibraryItem> LibraryItems { get; set; }
         public ICollection<Wishlist> Wishlists { get; set; }

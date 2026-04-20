@@ -55,7 +55,7 @@ namespace HeatGamesWeb.Controllers
                 CoverImageUrl = g.CoverImageUrl,
                 Description = g.Description,
                 DeveloperId = g.DeveloperId,
-                DeveloperName = g.DeveloperName, // 🎯 ДОБАВЕНО МАПВАНЕ НА ИМЕТО
+                DeveloperName = g.DeveloperName,
                 IsInCart = cartGameIds.Contains(g.Id),
                 IsInWishlist = wishlistGameIds.Contains(g.Id)
             }).ToList();

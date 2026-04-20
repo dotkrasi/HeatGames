@@ -5,7 +5,6 @@
 }
 
 <style>
-    /* СПЕЦИАЛНИ ТЪМНИ СТИЛОВЕ ЗА ДЕТАЙЛИТЕ НА ИГРАТА */
     .details-card {
         background-color: #230046;
         border: 1px solid #4a0080;
@@ -20,7 +19,6 @@
         text-shadow: 0 0 10px rgba(190, 0, 255, 0.3);
     }
 
-    /* Бутонът за Купуване (Магента) */
     .btn-magenta {
         background-color: #be00ff;
         color: #ffffff;
@@ -37,7 +35,6 @@
             box-shadow: 0 4px 15px rgba(190, 0, 255, 0.4);
         }
 
-    /* 🎯 НОВ СТИЛ ЗА БУТОНА "BACK TO STORE" */
     .btn-back-store {
         color: #ffffff;
         border: 1px solid #4a0080;
@@ -52,7 +49,6 @@
             box-shadow: 0 0 10px rgba(190, 0, 255, 0.4);
         }
 
-    /* Бутон за Wishlist (Недобавена игра) */
     .btn-outline-magenta {
         color: #be00ff;
         border: 2px solid #be00ff;
@@ -65,7 +61,6 @@
             color: #be00ff;
         }
 
-    /* 🎯 НОВ СТИЛ ЗА АКТИВЕН WISHLIST (НЕОНОВО РОЗОВО) */
     .btn-wishlist-active {
         background-color: #ff3366 !important;
         border-color: #ff3366 !important;
@@ -73,7 +68,6 @@
         box-shadow: 0 0 20px rgba(255, 51, 102, 0.6) !important;
     }
 
-    /* Бутон In Cart (когато вече е добавена) */
     .btn-in-cart {
         background-color: #BEEF52;
         color: #000000;
@@ -84,7 +78,6 @@
         cursor: default;
     }
 
-    /* Ревюта */
     .review-form-card {
         background-color: #1a0033;
         border: 1px solid #4a0080;
@@ -103,7 +96,6 @@
         color: #c4a6ff;
     }
 
-    /* Тъмни Input полета */
     .form-control-dark {
         background-color: #000000;
         color: #e6d9ff;
@@ -278,7 +270,6 @@
                         }
 
                         <div class="d-flex gap-2 pt-3" style="border-top: 1px solid #4a0080;">
-                            @* 🎯 ТУК ИЗПОЛЗВАМЕ НОВИЯ КЛАС btn-back-store *@
                             <a asp-action="Index" class="btn btn-back-store">Back to Store</a>
 
                             @if (User.IsInRole("Admin"))
@@ -292,7 +283,6 @@
         </div>
     </div>
 
-    @* ——— СЕКЦИЯ ЗА РЕВЮТА ——— *@
     <div class="mt-5 mb-5">
         <h3 class="fw-bold mb-4 text-white"><i class="bi bi-chat-left-text" style="color: #be00ff;"></i> Player Reviews</h3>
 

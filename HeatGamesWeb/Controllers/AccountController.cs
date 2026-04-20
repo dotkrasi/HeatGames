@@ -17,7 +17,6 @@ namespace HeatGamesWeb.Controllers
             _signInManager = signInManager;
         }
 
-        // 🔹 РЕГИСТРАЦИЯ
         public IActionResult Register()
         {
             return View();
@@ -33,17 +32,15 @@ namespace HeatGamesWeb.Controllers
                 {
                     UserName = model.Username,
                     Email = model.Email,
-                    WalletBalance = 0m // Новите потребители започват с 0 лв.
+                    WalletBalance = 0m
                 };
 
                 var result = await _userManager.CreateAsync(user, model.Password);
 
                 if (result.Succeeded)
                 {
-                    // Автоматично му даваме роля "User" (обикновен потребител)
                     await _userManager.AddToRoleAsync(user, "User");
 
-                    // Логваме го автоматично след регистрация
                     await _signInManager.SignInAsync(user, isPersistent: false);
                     return RedirectToAction("Index", "Home");
                 }
@@ -56,7 +53,6 @@ namespace HeatGamesWeb.Controllers
             return View(model);
         }
 
-        // 🔹 ВХОД (LOGIN)
         public IActionResult Login(string? returnUrl = null)
         {
             var model = new LoginViewModel { ReturnUrl = returnUrl };
@@ -73,7 +69,6 @@ namespace HeatGamesWeb.Controllers
 
                 if (result.Succeeded)
                 {
-                    // Ако идва от заключена страница (напр. /Games/Create), го връщаме там
                     if (!string.IsNullOrEmpty(model.ReturnUrl) && Url.IsLocalUrl(model.ReturnUrl))
                     {
                         return Redirect(model.ReturnUrl);
@@ -86,7 +81,6 @@ namespace HeatGamesWeb.Controllers
             return View(model);
         }
 
-        // 🔹 ИЗХОД (LOGOUT)
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Logout()

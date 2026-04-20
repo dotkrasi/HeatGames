@@ -17,14 +17,12 @@ namespace HeatGamesWeb.Controllers
             _developerService = developerService;
         }
 
-        // 🔹 READ ALL (Списък)
         public async Task<IActionResult> Index()
         {
             var developers = await _developerService.GetAllDevelopersAsync();
             return View(developers);
         }
 
-        // 🔹 DETAILS
         public async Task<IActionResult> Details(Guid id)
         {
             var developer = await _developerService.GetDeveloperByIdAsync(id);
@@ -33,13 +31,11 @@ namespace HeatGamesWeb.Controllers
             return View(developer);
         }
 
-        // 🔹 CREATE (GET)
         public IActionResult Create()
         {
             return View();
         }
 
-        // 🔹 CREATE (POST)
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(DeveloperDto model)
@@ -53,7 +49,6 @@ namespace HeatGamesWeb.Controllers
             return View(model);
         }
 
-        // 🔹 EDIT (GET)
         public async Task<IActionResult> Edit(Guid id)
         {
             var developer = await _developerService.GetDeveloperByIdAsync(id);
@@ -62,7 +57,6 @@ namespace HeatGamesWeb.Controllers
             return View(developer);
         }
 
-        // 🔹 EDIT (POST)
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Guid id, DeveloperDto model)
@@ -79,7 +73,6 @@ namespace HeatGamesWeb.Controllers
             return View(model);
         }
 
-        // 🔹 DELETE (GET)
         public async Task<IActionResult> Delete(Guid id)
         {
             var developer = await _developerService.GetDeveloperByIdAsync(id);
@@ -88,7 +81,6 @@ namespace HeatGamesWeb.Controllers
             return View(developer);
         }
 
-        // 🔹 DELETE (POST)
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)

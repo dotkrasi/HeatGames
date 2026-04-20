@@ -3,7 +3,6 @@
     ViewData["Title"] = "Моят Профил";
 }
 
-@* ——— ТОВА Е CSS ДИЗАЙНЪТ СПЕЦИАЛНО ЗА ПРОФИЛА ——— *@
 <style>
     .profile-card {
         background-color: #230046;
@@ -34,11 +33,10 @@
         border: 1px solid #4a0080;
     }
 
-        /* 🎯 ФИКС: Спираме Bootstrap да прави readonly полетата бели */
         .admin-input[readonly] {
             background-color: #000000 !important;
-            color: #acb1b8 !important; /* Леко по-тъмен текст, за да си личи, че е заключено */
-            opacity: 1; /* Премахва допълнителното избледняване в някои браузъри */
+            color: #acb1b8 !important;
+            opacity: 1;
         }
 
         .admin-input:focus {
@@ -49,7 +47,6 @@
 </style>
 
 <div class="container mt-5 mb-5">
-    @* ——— КУТИИ ЗА ГРЕШКИ И УСПЕХ ——— *@
     @if (TempData["ErrorMessage"] != null)
     {
         <div class="alert alert-danger alert-dismissible fade show shadow-sm" style="background-color: #4d0000; color: #ffcccc; border: 1px solid #ff0000;" role="alert">
@@ -77,7 +74,6 @@
                 </div>
 
                 <form asp-action="Update" method="post">
-                    @* ——— СКРИТИТЕ ПОЛЕТА, ЗА ДА НЕ ГЪРМИ ФОРМАТА ——— *@
                     <input type="hidden" asp-for="Id" />
                     <input type="hidden" asp-for="Username" />
                     <input type="hidden" asp-for="RegistrationDate" />

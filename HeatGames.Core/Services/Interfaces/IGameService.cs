@@ -10,7 +10,7 @@ namespace HeatGamesCore.Services.Interfaces
         Task<(IEnumerable<GameDto> Games, int TotalCount)> GetAllGamesAsync(
             string? searchQuery = null,
             string? genre = null,
-            Guid? developerId = null, // 🎯 ДОБАВЕНО: Филтър по Developer
+            Guid? developerId = null,
             decimal? minPrice = null,
             decimal? maxPrice = null,
             int page = 1,

@@ -35,7 +35,6 @@ namespace HeatGamesWeb.ViewModels
         [Display(Name = "Developer")]
         public Guid DeveloperId { get; set; }
 
-        // 🎯 ДОБАВЕНО СВОЙСТВО ЗА ИМЕТО НА DEVELOPER-А
         public string? DeveloperName { get; set; }
 
         [Display(Name = "Platforms")]
@@ -44,7 +43,6 @@ namespace HeatGamesWeb.ViewModels
         public IEnumerable<string> Platforms { get; set; } = new List<string>();
         public IEnumerable<string> Genres { get; set; } = new List<string>();
 
-        // СВОЙСТВА ЗА ИНДИКАТОРИТЕ:
         public bool IsInCart { get; set; }
         public bool IsInWishlist { get; set; }
     }

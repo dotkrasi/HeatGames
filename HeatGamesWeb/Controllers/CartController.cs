@@ -1,4 +1,4 @@
-﻿using HeatGames.Core.Services.Interfaces; // Смени го, ако пътят към интерфейсите ти е друг
+﻿using HeatGames.Core.Services.Interfaces; // Change it if the path to your interfaces is different
 using HeatGamesCore.Services.Interfaces;
 using HeatGamesWeb.Extensions;
 using HeatGamesWeb.ViewModels;
@@ -44,12 +44,12 @@ namespace HeatGamesWeb.Controllers
                     });
 
                     HttpContext.Session.Set(CartSessionKey, cart);
-                    TempData["SuccessMessage"] = "Играта е добавена в количката!";
+                    TempData["SuccessMessage"] = "The game has been added to the cart!";
                 }
             }
             else
             {
-                TempData["ErrorMessage"] = "Тази игра вече е в количката ви!";
+                TempData["ErrorMessage"] = "This game is already in your cart!";
             }
 
             return RedirectToAction("Details", "Games", new { id = gameId });
@@ -65,7 +65,7 @@ namespace HeatGamesWeb.Controllers
             {
                 cart.Remove(itemToRemove);
                 HttpContext.Session.Set(CartSessionKey, cart);
-                TempData["SuccessMessage"] = "Играта беше премахната.";
+                TempData["SuccessMessage"] = "The game was removed.";
             }
 
             return RedirectToAction("Index");

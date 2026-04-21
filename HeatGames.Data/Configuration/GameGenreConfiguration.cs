@@ -16,7 +16,7 @@ namespace HeatGames.Data.Configurations
             var shooterId = Guid.Parse("33333333-3333-3333-3333-333333333333");
             var strategyId = Guid.Parse("44444444-4444-4444-4444-444444444444");
             var advId = Guid.Parse("55555555-5555-5555-5555-555555555555");
-            var indieId = Guid.Parse("66666666-6666-6666-6666-666666666666"); // Твоят инди жанр
+            var indieId = Guid.Parse("66666666-6666-6666-6666-666666666666"); // genre indie
 
             builder.HasData(
                 // 1-15

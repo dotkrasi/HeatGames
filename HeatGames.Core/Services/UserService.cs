@@ -33,7 +33,7 @@ namespace HeatGames.Core.Services
         public async Task<(bool Success, string Message)> UpdateProfileAsync(UserProfileDto dto)
         {
             var user = await _userManager.FindByIdAsync(dto.Id.ToString());
-            if (user == null) return (false, "Потребителят не е намерен.");
+            if (user == null) return (false, "User not found.");
 
             user.ProfilePictureUrl = dto.ProfilePictureUrl;
 
@@ -47,9 +47,9 @@ namespace HeatGames.Core.Services
             }
 
             var result = await _userManager.UpdateAsync(user);
-            if (!result.Succeeded) return (false, "Грешка при запазване в базата данни.");
+            if (!result.Succeeded) return (false, "Error saving to the database.");
 
-            return (true, "Профилът е обновен успешно!");
+            return (true, "Profile updated successfully!");
         }
     }
 }

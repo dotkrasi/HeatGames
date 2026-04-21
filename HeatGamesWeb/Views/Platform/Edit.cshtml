@@ -1,6 +1,6 @@
 ﻿@model HeatGames.Core.DTOs.PlatformDto
 @{
-    ViewData["Title"] = "Редактирай жанр";
+    ViewData["Title"] = "Edit Platform";
 }
 
 <style>
@@ -53,7 +53,7 @@
             <div class="admin-card shadow-lg">
                 <div class="admin-header p-4 d-flex align-items-center gap-3">
                     <i class="bi bi-pencil-square fs-3" style="color: #ffc107;"></i>
-                    <h4 class="mb-0 text-white fw-bold">Редактирай Жанр</h4>
+                    <h4 class="mb-0 text-white fw-bold">Edit Platform</h4>
                 </div>
 
                 <div class="card-body p-4 p-md-5">
@@ -63,7 +63,7 @@
                         <input type="hidden" asp-for="Id" />
 
                         <div class="mb-5">
-                            <label asp-for="Name" class="form-label fw-bold"><i class="bi bi-fonts me-1 text-muted"></i> Име на жанра</label>
+                            <label asp-for="Name" class="form-label fw-bold"><i class="bi bi-fonts me-1 text-muted"></i> Platform Name</label>
                             <input asp-for="Name" class="form-control admin-input form-control-lg" />
                             <span asp-validation-for="Name" class="text-danger small fw-bold"></span>
                         </div>
@@ -71,8 +71,8 @@
                         <hr style="border-color: #4a0080;" class="my-4" />
 
                         <div class="d-flex justify-content-between align-items-center">
-                            <a asp-action="Index" class="btn btn-outline-light"><i class="bi bi-arrow-left"></i> Отказ</a>
-                            <button type="submit" class="btn btn-warning-custom fw-bold px-4 py-2"><i class="bi bi-check-lg me-1"></i> Запази промените</button>
+                            <a asp-action="Index" class="btn btn-outline-light"><i class="bi bi-arrow-left"></i> Cancel</a>
+                            <button type="submit" class="btn btn-warning-custom fw-bold px-4 py-2"><i class="bi bi-check-lg me-1"></i> Save Changes</button>
                         </div>
                     </form>
                 </div>

@@ -46,7 +46,7 @@ namespace HeatGamesWeb.Controllers
 
                 await _userManager.UpdateAsync(user);
 
-                TempData["SuccessMessage"] = $"Успешно заредихте {model.Amount} лв. във вашия портфейл!";
+                TempData["SuccessMessage"] = $"You have successfully added ${model.Amount} to your wallet!";
 
                 return RedirectToAction(nameof(Index));
             }

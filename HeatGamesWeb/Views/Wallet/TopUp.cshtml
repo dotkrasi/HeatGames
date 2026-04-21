@@ -1,7 +1,7 @@
 ﻿@model HeatGamesWeb.ViewModels.AddFundsViewModel
 
 @{
-    ViewData["Title"] = "Плащане";
+    ViewData["Title"] = "Payment";
 }
 
 <style>
@@ -59,38 +59,38 @@
         <div class="col-md-7 col-lg-6">
             <div class="payment-card shadow-lg">
                 <div class="payment-header p-4 text-center">
-                    <h4 class="mb-0 text-white fw-bold"><i class="bi bi-credit-card-2-front" style="color: #be00ff;"></i> Детайли за плащане</h4>
+                    <h4 class="mb-0 text-white fw-bold"><i class="bi bi-credit-card-2-front" style="color: #be00ff;"></i> Payment Details</h4>
                 </div>
 
                 <div class="card-body p-4 p-md-5">
                     <div class="text-center mb-5 p-3 rounded" style="background-color: #1a0033; border: 1px dashed #be00ff;">
-                        <span class="fw-bold fs-5" style="color: #c4a6ff;">Сума за зареждане:</span>
-                        <span class="fs-3 fw-bold ms-2" style="color: #BEEF52;">@Model.Amount.ToString("0.00") лв.</span>
-                    </div> 
+                        <span class="fw-bold fs-5" style="color: #c4a6ff;">Top-up Amount:</span>
+                        <span class="fs-3 fw-bold ms-2" style="color: #BEEF52;">@Model.Amount.ToString("0.00") BGN</span>
+                    </div>
 
                     <form asp-action="TopUp" method="post">
                         <input type="hidden" asp-for="Amount" />
                         <div asp-validation-summary="ModelOnly" class="text-danger fw-bold mb-3"></div>
 
                         <div class="mb-4">
-                            <label asp-for="CardHolderName" class="form-label fw-bold"></label>
-                            <input asp-for="CardHolderName" class="form-control payment-input" placeholder="Напр. IVAN IVANOV" />
+                            <label asp-for="CardHolderName" class="form-label fw-bold">Cardholder Name</label>
+                            <input asp-for="CardHolderName" class="form-control payment-input" placeholder="e.g. IVAN IVANOV" />
                             <span asp-validation-for="CardHolderName" class="text-danger small fw-bold"></span>
                         </div>
 
                         <div class="mb-4">
-                            <label asp-for="CardNumber" class="form-label fw-bold"></label>
+                            <label asp-for="CardNumber" class="form-label fw-bold">Card Number</label>
                             <div class="input-group">
                                 <span class="input-group-text input-group-text-dark"><i class="bi bi-credit-card"></i></span>
                                 <input asp-for="CardNumber" class="form-control payment-input" placeholder="0000 0000 0000 0000" />
                             </div>
                             <span asp-validation-for="CardNumber" class="text-danger small fw-bold"></span>
-                            <div class="form-text mt-1" style="color: #8d00c4;">* Въведете произволни 16 цифри за теста</div>
+                            <div class="form-text mt-1" style="color: #8d00c4;">* Enter any 16 digits for testing purposes</div>
                         </div>
 
                         <div class="row">
                             <div class="col-md-6 mb-4">
-                                <label asp-for="ExpiryDate" class="form-label fw-bold"></label>
+                                <label asp-for="ExpiryDate" class="form-label fw-bold">Expiry Date</label>
                                 <div class="input-group">
                                     <span class="input-group-text input-group-text-dark"><i class="bi bi-calendar-event"></i></span>
                                     <input asp-for="ExpiryDate" class="form-control payment-input" placeholder="12/25" />
@@ -98,7 +98,7 @@
                                 <span asp-validation-for="ExpiryDate" class="text-danger small fw-bold"></span>
                             </div>
                             <div class="col-md-6 mb-4">
-                                <label asp-for="Cvv" class="form-label fw-bold">CVV Код</label>
+                                <label asp-for="Cvv" class="form-label fw-bold">CVV Code</label>
                                 <div class="input-group">
                                     <span class="input-group-text input-group-text-dark"><i class="bi bi-shield-lock"></i></span>
                                     <input asp-for="Cvv" class="form-control payment-input" placeholder="123" />
@@ -110,8 +110,8 @@
                         <hr style="border-color: #4a0080;" class="my-4" />
 
                         <div class="d-grid gap-3">
-                            <button type="submit" class="btn btn-success-custom btn-lg fw-bold py-3"><i class="bi bi-lock-fill me-1"></i> Потвърди и Плати</button>
-                            <a asp-action="Index" class="btn btn-outline-light fw-bold">Отказ</a>
+                            <button type="submit" class="btn btn-success-custom btn-lg fw-bold py-3"><i class="bi bi-lock-fill me-1"></i> Confirm and Pay</button>
+                            <a asp-action="Index" class="btn btn-outline-light fw-bold">Cancel</a>
                         </div>
                     </form>
                 </div>

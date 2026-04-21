@@ -4,16 +4,16 @@ namespace HeatGamesWeb.ViewModels
 {
     public class LoginViewModel
     {
-        [Required(ErrorMessage = "Въведете потребителско име.")]
-        [Display(Name = "Потребителско име")]
+        [Required(ErrorMessage = "Please enter your username.")]
+        [Display(Name = "Username")]
         public string Username { get; set; } = null!;
 
-        [Required(ErrorMessage = "Въведете парола.")]
+        [Required(ErrorMessage = "Please enter your password.")]
         [DataType(DataType.Password)]
-        [Display(Name = "Парола")]
+        [Display(Name = "Password")]
         public string Password { get; set; } = null!;
 
-        [Display(Name = "Запомни ме")]
+        [Display(Name = "Remember me")]
         public bool RememberMe { get; set; }
 
         public string? ReturnUrl { get; set; }

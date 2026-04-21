@@ -7,9 +7,9 @@ namespace HeatGames.Core.DTOs
     {
         public Guid Id { get; set; }
 
-        [Required(ErrorMessage = "Името на жанра е задължително.")]
-        [StringLength(50, MinimumLength = 3, ErrorMessage = "Жанрът трябва да е между 3 и 50 символа.")]
-        [Display(Name = "Жанр")]
+        [Required(ErrorMessage = "The genre name is required.")]
+        [StringLength(50, MinimumLength = 3, ErrorMessage = "The genre must be between 3 and 50 characters.")]
+        [Display(Name = "Genre")]
         public string Name { get; set; } = null!;
     }
 }

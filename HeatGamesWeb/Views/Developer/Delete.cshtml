@@ -1,6 +1,6 @@
 ﻿@model HeatGames.Core.DTOs.DeveloperDto
 @{
-    ViewData["Title"] = "Изтрий Разработчик";
+    ViewData["Title"] = "Delete Developer";
 }
 
 <style>
@@ -70,15 +70,15 @@
 
             <div class="delete-card shadow-lg text-center">
                 <i class="bi bi-exclamation-triangle-fill fs-1 delete-icon mb-2 d-inline-block"></i>
-                <h3 class="fw-bold text-white mb-4">Сигурни ли сте?</h3>
+                <h3 class="fw-bold text-white mb-4">Are you sure?</h3>
 
-                <p class="fs-5 mb-2" style="color: #e6d9ff;">На път сте да изтриете студиото</p>
+                <p class="fs-5 mb-2" style="color: #e6d9ff;">You are about to delete the studio</p>
                 <div class="developer-name fw-bold mb-4">@Model.Name</div>
 
                 <div class="warning-box mx-auto mt-4 mb-4">
                     <p class="mb-0 warning-text text-start">
                         <i class="bi bi-info-circle me-2" style="color: #dc3545;"></i>
-                        <strong>Внимание:</strong> Ако има игри, свързани с този разработчик, те също могат да бъдат изтрити (в зависимост от каскадното триене в базата).
+                        <strong>Warning:</strong> If there are games linked to this developer, they may also be deleted (depending on the database cascade settings).
                     </p>
                 </div>
 
@@ -87,10 +87,10 @@
 
                     <div class="d-flex justify-content-center gap-3">
                         <a asp-action="Index" class="btn btn-outline-purple fw-bold px-4 py-2">
-                            <i class="bi bi-arrow-left me-1"></i> Отказ
+                            <i class="bi bi-arrow-left me-1"></i> Cancel
                         </a>
                         <button type="submit" class="btn btn-danger-custom fw-bold px-4 py-2">
-                            <i class="bi bi-trash me-1" style="color: white;"></i> Да, изтрий го!
+                            <i class="bi bi-trash me-1" style="color: white;"></i> Yes, delete it!
                         </button>
                     </div>
                 </form>

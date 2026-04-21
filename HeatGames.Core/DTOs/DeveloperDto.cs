@@ -7,14 +7,14 @@ namespace HeatGames.Core.DTOs
     {
         public Guid Id { get; set; }
 
-        [Required(ErrorMessage = "Името на разработчика е задължително.")]
-        [StringLength(100, MinimumLength = 2, ErrorMessage = "Името трябва да е между 2 и 100 символа.")]
-        [Display(Name = "Име на разработчик")]
+        [Required(ErrorMessage = "Developer name is required.")]
+        [StringLength(100, MinimumLength = 2, ErrorMessage = "Name must be between 2 and 100 characters.")]
+        [Display(Name = "Developer Name")]
         public string Name { get; set; } = null!;
 
-        [Url(ErrorMessage = "Моля, въведете валиден URL адрес.")]
+        [Url(ErrorMessage = "Please enter a valid URL.")]
         [MaxLength(255)]
-        [Display(Name = "Уебсайт")]
+        [Display(Name = "Website")]
         public string? Website { get; set; }
     }
 }

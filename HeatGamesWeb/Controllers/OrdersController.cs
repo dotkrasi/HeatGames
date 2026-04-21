@@ -65,14 +65,14 @@ namespace HeatGamesWeb.Controllers
 
             if (cart == null || !cart.Any())
             {
-                TempData["ErrorMessage"] = "Количката ви е празна.";
+                TempData["ErrorMessage"] = "Your cart is empty.";
                 return RedirectToAction("Index", "Cart");
             }
 
             decimal totalAmount = cart.Sum(i => i.Price);
             if (user.WalletBalance < totalAmount)
             {
-                TempData["ErrorMessage"] = $"Нямате достатъчно средства. Баланс: {user.WalletBalance:0.00} лв. Нужни: {totalAmount:0.00} лв.";
+                TempData["ErrorMessage"] = $"Insufficient funds. Balance: ${user.WalletBalance:0.00}. Required: ${totalAmount:0.00}.";
                 return RedirectToAction("Index", "Cart");
             }
 
@@ -91,11 +91,11 @@ namespace HeatGamesWeb.Controllers
 
             if (hasError)
             {
-                TempData["ErrorMessage"] = "Възникна проблем с някои игри: " + lastError;
+                TempData["ErrorMessage"] = "A problem occurred with some games: " + lastError;
             }
             else
             {
-                TempData["SuccessMessage"] = "Успешно закупихте всички игри от количката!";
+                TempData["SuccessMessage"] = "You have successfully purchased all games from the cart!";
                 HttpContext.Session.Remove("ShoppingCart");
             }
 

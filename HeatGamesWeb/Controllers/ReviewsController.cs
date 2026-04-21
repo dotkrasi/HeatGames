@@ -40,11 +40,11 @@ namespace HeatGamesWeb.Controllers
 
             if (success)
             {
-                TempData["SuccessMessage"] = "Благодарим ви! Вашето ревю беше публикувано.";
+                TempData["SuccessMessage"] = "Thank you! Your review has been published.";
             }
             else
             {
-                TempData["ErrorMessage"] = "Не можете да добавите ревю. Трябва първо да закупите играта от магазина!";
+                TempData["ErrorMessage"] = "You cannot add a review. You must first purchase the game from the store!";
             }
 
             return RedirectToAction("Details", "Games", new { id = gameId });

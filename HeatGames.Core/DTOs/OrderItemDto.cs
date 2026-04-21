@@ -10,10 +10,10 @@ namespace HeatGames.Core.DTOs
 
         public Guid GameId { get; set; }
 
-        [Display(Name = "Заглавие на играта")]
+        [Display(Name = "Game Title")]
         public string GameTitle { get; set; } = null!;
 
-        [Display(Name = "Цена при закупуване")]
+        [Display(Name = "Price at Purchase")]
         public decimal PriceAtPurchase { get; set; }
     }
 }

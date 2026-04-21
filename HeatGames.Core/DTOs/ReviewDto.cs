@@ -13,12 +13,12 @@ namespace HeatGames.Core.DTOs
         public Guid GameId { get; set; }
         public string? GameTitle { get; set; }
 
-        [Display(Name = "Препоръчвате ли играта?")]
+        [Display(Name = "Do you recommend the game?")]
         public bool IsPositive { get; set; }
 
-        [Required(ErrorMessage = "Коментарът не може да бъде празен.")]
-        [StringLength(2000, MinimumLength = 5, ErrorMessage = "Коментарът трябва да е между 5 и 2000 символа.")]
-        [Display(Name = "Вашето ревю")]
+        [Required(ErrorMessage = "The comment cannot be empty.")]
+        [StringLength(2000, MinimumLength = 5, ErrorMessage = "The comment must be between 5 and 2000 characters.")]
+        [Display(Name = "Your review")]
         public string Comment { get; set; } = null!;
 
         public DateTime CreatedOn { get; set; }

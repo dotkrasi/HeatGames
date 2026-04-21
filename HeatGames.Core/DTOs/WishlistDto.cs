@@ -10,15 +10,15 @@ namespace HeatGames.Core.DTOs
 
         public Guid GameId { get; set; }
 
-        [Display(Name = "Заглавие на играта")]
+        [Display(Name = "Game Title")]
         public string GameTitle { get; set; } = null!;
 
-        [Display(Name = "Текуща цена")]
+        [Display(Name = "Current Price")]
         public decimal CurrentPrice { get; set; }
 
         public string? CoverImageUrl { get; set; }
 
-        [Display(Name = "Добавена на")]
+        [Display(Name = "Added On")]
         public DateTime AddedOn { get; set; }
     }
 }

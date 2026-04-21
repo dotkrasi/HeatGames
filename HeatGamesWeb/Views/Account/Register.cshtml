@@ -1,6 +1,6 @@
 ﻿@model HeatGamesWeb.ViewModels.RegisterViewModel
 @{
-    ViewData["Title"] = "Регистрация";
+    ViewData["Title"] = "Register";
 }
 
 <style>
@@ -58,8 +58,8 @@
     <div class="col-md-6 col-lg-5">
         <div class="text-center mb-4">
             <i class="bi bi-controller" style="font-size: 4rem; color: #be00ff;"></i>
-            <h2 class="mt-2 text-white fw-bold">СЪЗДАЙ АКАУНТ</h2>
-            <p style="color: #c4a6ff;">Присъединете се към нашата гейминг общност!</p>
+            <h2 class="mt-2 text-white fw-bold">CREATE ACCOUNT</h2>
+            <p style="color: #c4a6ff;">Join our gaming community!</p>
         </div>
 
         <form asp-action="Register" method="post" class="auth-card p-4 p-md-5 shadow-lg">
@@ -69,7 +69,7 @@
                 <label asp-for="Username" class="form-label fw-bold"></label>
                 <div class="input-group">
                     <span class="input-group-text" style="background-color: #4a0080; border: none; color: #fff;"><i class="bi bi-person-badge"></i></span>
-                    <input asp-for="Username" class="form-control auth-input" placeholder="Изберете уникален никнейм..." />
+                    <input asp-for="Username" class="form-control auth-input" placeholder="Choose a unique nickname..." />
                 </div>
                 <span asp-validation-for="Username" class="text-danger small fw-bold"></span>
             </div>
@@ -78,7 +78,7 @@
                 <label asp-for="Email" class="form-label fw-bold"></label>
                 <div class="input-group">
                     <span class="input-group-text" style="background-color: #4a0080; border: none; color: #fff;"><i class="bi bi-envelope"></i></span>
-                    <input asp-for="Email" class="form-control auth-input" placeholder="Въведете вашия имейл..." />
+                    <input asp-for="Email" class="form-control auth-input" placeholder="Enter your email..." />
                 </div>
                 <span asp-validation-for="Email" class="text-danger small fw-bold"></span>
             </div>
@@ -87,7 +87,7 @@
                 <label asp-for="Password" class="form-label fw-bold"></label>
                 <div class="input-group">
                     <span class="input-group-text" style="background-color: #4a0080; border: none; color: #fff;"><i class="bi bi-key"></i></span>
-                    <input asp-for="Password" class="form-control auth-input" placeholder="Въведете сигурна парола..." />
+                    <input asp-for="Password" class="form-control auth-input" placeholder="Enter a secure password..." />
                 </div>
                 <span asp-validation-for="Password" class="text-danger small fw-bold"></span>
             </div>
@@ -96,17 +96,17 @@
                 <label asp-for="ConfirmPassword" class="form-label fw-bold"></label>
                 <div class="input-group">
                     <span class="input-group-text" style="background-color: #4a0080; border: none; color: #fff;"><i class="bi bi-shield-check"></i></span>
-                    <input asp-for="ConfirmPassword" class="form-control auth-input" placeholder="Повторете паролата..." />
+                    <input asp-for="ConfirmPassword" class="form-control auth-input" placeholder="Repeat your password..." />
                 </div>
                 <span asp-validation-for="ConfirmPassword" class="text-danger small fw-bold"></span>
             </div>
 
-            <button type="submit" class="btn btn-auth w-100 py-2 fs-5 mt-2">Регистрирай ме <i class="bi bi-person-plus-fill ms-1"></i></button>
+            <button type="submit" class="btn btn-auth w-100 py-2 fs-5 mt-2">Sign Up <i class="bi bi-person-plus-fill ms-1"></i></button>
 
             <hr style="border-color: #4a0080;" class="my-4" />
 
             <div class="text-center">
-                Вече имате акаунт? <a asp-action="Login" class="auth-link">Влезте от тук</a>
+                Already have an account? <a asp-action="Login" class="auth-link">Login here</a>
             </div>
         </form>
     </div>

@@ -78,15 +78,14 @@ namespace HeatGames.Core.Services
             var game = await _context.Games.FindAsync(gameId);
 
             if (user == null || game == null)
-                return (false, "Потребителят или играта не бяха намерени.");
+                return (false, "User or game not found.");
 
             var ownsGame = await _context.LibraryItems.AnyAsync(l => l.UserId == userId && l.GameId == gameId);
             if (ownsGame)
-                return (false, "Вече притежавате тази игра във вашата библиотека.");
+                return (false, "You already own this game in your library.");
 
             if (user.WalletBalance < game.Price)
-                return (false, "Нямате достатъчно средства в портфейла.");
-
+                return (false, "Insufficient funds in your wallet.");
 
             user.WalletBalance -= game.Price;
 
@@ -126,7 +125,7 @@ namespace HeatGames.Core.Services
 
             await _context.SaveChangesAsync();
 
-            return (true, "Успешна покупка! Играта е добавена във вашата библиотека.");
+            return (true, "Purchase successful! The game has been added to your library.");
         }
     }
 }

@@ -9,13 +9,13 @@ namespace HeatGames.Core.DTOs
         public Guid Id { get; set; }
         public Guid UserId { get; set; }
 
-        [Display(Name = "Потребител")]
+        [Display(Name = "User")]
         public string UserName { get; set; } = null!;
 
-        [Display(Name = "Дата на поръчката")]
+        [Display(Name = "Order Date")]
         public DateTime OrderDate { get; set; }
 
-        [Display(Name = "Обща сума")]
+        [Display(Name = "Total Amount")]
         public decimal TotalAmount { get; set; }
 
         public IEnumerable<OrderItemDto> OrderItems { get; set; } = new List<OrderItemDto>();

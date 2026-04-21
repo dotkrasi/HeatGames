@@ -1,7 +1,7 @@
 ﻿@model decimal
 
 @{
-    ViewData["Title"] = "Моят Портфейл";
+    ViewData["Title"] = "My Wallet";
 }
 
 <style>
@@ -47,7 +47,7 @@
     @if (TempData["SuccessMessage"] != null)
     {
         <div class="alert alert-dismissible fade show shadow-sm" style="background-color: #003311; color: #ccffcc; border: 1px solid #00ff00;" role="alert">
-            <i class="bi bi-check-circle-fill"></i> <strong>Успех!</strong> @TempData["SuccessMessage"]
+            <i class="bi bi-check-circle-fill"></i> <strong>Success!</strong> @TempData["SuccessMessage"]
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     }
@@ -57,31 +57,31 @@
             <div class="wallet-card shadow-lg h-100">
                 <div class="card-body text-center p-5 d-flex flex-column justify-content-center">
                     <i class="bi bi-wallet2 mb-3" style="font-size: 3rem; color: #c4a6ff;"></i>
-                    <h5 class="card-title text-uppercase fw-bold mb-3" style="color: #c4a6ff; letter-spacing: 1px;">Текущ Баланс</h5>
-                    <h1 class="display-4 fw-bold wallet-balance-text">@Model.ToString("0.00") лв.</h1>
+                    <h5 class="card-title text-uppercase fw-bold mb-3" style="color: #c4a6ff; letter-spacing: 1px;">Current Balance</h5>
+                    <h1 class="display-4 fw-bold wallet-balance-text">@Model.ToString("0.00") BGN</h1>
                 </div>
             </div>
         </div>
 
         <div class="col-md-8">
-            <h3 class="fw-bold mb-4 text-white"><i class="bi bi-cash-coin" style="color: #be00ff;"></i> Добави средства в портфейла</h3>
+            <h3 class="fw-bold mb-4 text-white"><i class="bi bi-cash-coin" style="color: #be00ff;"></i> Add Funds to Your Wallet</h3>
 
             <div class="list-group shadow-sm">
                 <div class="list-group-item fund-list-item d-flex justify-content-between align-items-center p-4 mb-2 rounded">
-                    <span class="fs-5 fw-bold">Добави 10.00 лв.</span>
-                    <a asp-action="TopUp" asp-route-amount="10" class="btn btn-magenta px-4 fw-bold">Добави средства</a>
+                    <span class="fs-5 fw-bold">Add 10.00 BGN</span>
+                    <a asp-action="TopUp" asp-route-amount="10" class="btn btn-magenta px-4 fw-bold">Add Funds</a>
                 </div>
                 <div class="list-group-item fund-list-item d-flex justify-content-between align-items-center p-4 mb-2 rounded">
-                    <span class="fs-5 fw-bold">Добави 20.00 лв.</span>
-                    <a asp-action="TopUp" asp-route-amount="20" class="btn btn-magenta px-4 fw-bold">Добави средства</a>
+                    <span class="fs-5 fw-bold">Add 20.00 BGN</span>
+                    <a asp-action="TopUp" asp-route-amount="20" class="btn btn-magenta px-4 fw-bold">Add Funds</a>
                 </div>
                 <div class="list-group-item fund-list-item d-flex justify-content-between align-items-center p-4 mb-2 rounded">
-                    <span class="fs-5 fw-bold">Добави 50.00 лв.</span>
-                    <a asp-action="TopUp" asp-route-amount="50" class="btn btn-magenta px-4 fw-bold">Добави средства</a>
+                    <span class="fs-5 fw-bold">Add 50.00 BGN</span>
+                    <a asp-action="TopUp" asp-route-amount="50" class="btn btn-magenta px-4 fw-bold">Add Funds</a>
                 </div>
                 <div class="list-group-item fund-list-item d-flex justify-content-between align-items-center p-4 rounded">
-                    <span class="fs-5 fw-bold">Добави 100.00 лв.</span>
-                    <a asp-action="TopUp" asp-route-amount="100" class="btn btn-magenta px-4 fw-bold">Добави средства</a>
+                    <span class="fs-5 fw-bold">Add 100.00 BGN</span>
+                    <a asp-action="TopUp" asp-route-amount="100" class="btn btn-magenta px-4 fw-bold">Add Funds</a>
                 </div>
             </div>
         </div>

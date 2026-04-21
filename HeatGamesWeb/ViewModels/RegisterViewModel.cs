@@ -4,23 +4,23 @@ namespace HeatGamesWeb.ViewModels
 {
     public class RegisterViewModel
     {
-        [Required(ErrorMessage = "Потребителското име е задължително.")]
-        [Display(Name = "Потребителско име")]
+        [Required(ErrorMessage = "Username is required.")]
+        [Display(Name = "Username")]
         public string Username { get; set; } = null!;
 
-        [Required(ErrorMessage = "Имейлът е задължителен.")]
-        [EmailAddress(ErrorMessage = "Невалиден имейл адрес.")]
-        [Display(Name = "Имейл")]
+        [Required(ErrorMessage = "Email is required.")]
+        [EmailAddress(ErrorMessage = "Invalid email address.")]
+        [Display(Name = "Email")]
         public string Email { get; set; } = null!;
 
-        [Required(ErrorMessage = "Паролата е задължителна.")]
+        [Required(ErrorMessage = "Password is required.")]
         [DataType(DataType.Password)]
-        [Display(Name = "Парола")]
+        [Display(Name = "Password")]
         public string Password { get; set; } = null!;
 
         [DataType(DataType.Password)]
-        [Display(Name = "Потвърди паролата")]
-        [Compare("Password", ErrorMessage = "Паролите не съвпадат.")]
+        [Display(Name = "Confirm Password")]
+        [Compare("Password", ErrorMessage = "The passwords do not match.")]
         public string ConfirmPassword { get; set; } = null!;
     }
 }

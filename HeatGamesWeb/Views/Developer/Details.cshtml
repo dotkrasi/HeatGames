@@ -1,6 +1,6 @@
 ﻿@model HeatGames.Core.DTOs.DeveloperDto
 @{
-    ViewData["Title"] = "Детайли за Разработчик";
+    ViewData["Title"] = "Developer Details";
 }
 
 <style>
@@ -63,7 +63,7 @@
             <div class="details-card shadow-lg">
                 <div class="details-header d-flex align-items-center">
                     <i class="bi bi-building-check fs-3 me-3" style="color: #be00ff;"></i>
-                    <h3 class="mb-0 fw-bold text-white">Детайли за студиото</h3>
+                    <h3 class="mb-0 fw-bold text-white">Studio Details</h3>
                 </div>
 
                 <div class="details-body text-center text-md-start">
@@ -72,7 +72,7 @@
                     </h4>
 
                     <div class="p-3 rounded" style="background-color: #1a0033; border: 1px solid #4a0080;">
-                        <span style="color: #c4a6ff; font-size: 1.1rem;"><i class="bi bi-globe me-2"></i>Официален уебсайт:</span>
+                        <span style="color: #c4a6ff; font-size: 1.1rem;"><i class="bi bi-globe me-2"></i>Official Website:</span>
                         <div class="mt-2">
                             @if (!string.IsNullOrEmpty(Model.Website))
                             {
@@ -82,7 +82,7 @@
                             }
                             else
                             {
-                                <span style="color: #5d5462; font-style: italic;"><i class="bi bi-dash-circle"></i> Няма въведен уебсайт.</span>
+                                <span style="color: #5d5462; font-style: italic;"><i class="bi bi-dash-circle"></i> No website provided.</span>
                             }
                         </div>
                     </div>
@@ -90,10 +90,10 @@
 
                 <div class="details-footer d-flex flex-column flex-sm-row gap-2 justify-content-end">
                     <a asp-action="Index" class="btn btn-outline-purple fw-bold">
-                        <i class="bi bi-arrow-left me-1"></i> Назад към списъка
+                        <i class="bi bi-arrow-left me-1"></i> Back to List
                     </a>
                     <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning fw-bold">
-                        <i class="bi bi-pencil me-1" style="color: white;"></i> Редактирай
+                        <i class="bi bi-pencil me-1" style="color: white;"></i> Edit
                     </a>
                 </div>
             </div>

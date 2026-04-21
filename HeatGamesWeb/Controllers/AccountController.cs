@@ -76,7 +76,7 @@ namespace HeatGamesWeb.Controllers
                     return RedirectToAction("Index", "Home");
                 }
 
-                ModelState.AddModelError(string.Empty, "Грешно потребителско име или парола.");
+                ModelState.AddModelError(string.Empty, "Invalid username or password.");
             }
             return View(model);
         }

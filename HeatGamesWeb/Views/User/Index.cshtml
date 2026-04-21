@@ -1,6 +1,6 @@
 ﻿@model HeatGames.Core.DTOs.UserProfileDto
 @{
-    ViewData["Title"] = "Моят Профил";
+    ViewData["Title"] = "My Profile";
 }
 
 <style>
@@ -50,14 +50,14 @@
     @if (TempData["ErrorMessage"] != null)
     {
         <div class="alert alert-danger alert-dismissible fade show shadow-sm" style="background-color: #4d0000; color: #ffcccc; border: 1px solid #ff0000;" role="alert">
-            <i class="bi bi-exclamation-triangle-fill"></i> <strong>Грешка!</strong> @TempData["ErrorMessage"]
+            <i class="bi bi-exclamation-triangle-fill"></i> <strong>Error!</strong> @TempData["ErrorMessage"]
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     }
     @if (TempData["SuccessMessage"] != null)
     {
         <div class="alert alert-success alert-dismissible fade show shadow-sm" style="background-color: #003311; color: #ccffcc; border: 1px solid #00ff00;" role="alert">
-            <i class="bi bi-check-circle-fill"></i> <strong>Успех!</strong> @TempData["SuccessMessage"]
+            <i class="bi bi-check-circle-fill"></i> <strong>Success!</strong> @TempData["SuccessMessage"]
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     }
@@ -70,7 +70,7 @@
                         <img src="@(Model.ProfilePictureUrl ?? "https://avatars.steamstatic.com/fef49e7fa7e1997310d705b2a6158ff8dc1cdfeb_full.jpg")" class="profile-img" alt="Avatar" />
                     </div>
                     <h2 class="fw-bold text-white">@Model.Username</h2>
-                    <span class="badge" style="background-color: #4a0080;">Член от: @Model.RegistrationDate.ToString("MMMM yyyy")</span>
+                    <span class="badge" style="background-color: #4a0080;">Member since: @Model.RegistrationDate.ToString("MMMM yyyy")</span>
                 </div>
 
                 <form asp-action="Update" method="post">
@@ -83,39 +83,39 @@
 
                     <div class="row">
                         <div class="col-md-6 mb-4">
-                            <label class="form-label fw-bold">Имейл</label>
+                            <label class="form-label fw-bold">Email</label>
                             <input asp-for="Email" class="form-control admin-input" readonly />
                         </div>
                         <div class="col-md-6 mb-4">
-                            <label class="form-label fw-bold">Баланс в портфейла</label>
+                            <label class="form-label fw-bold">Wallet Balance</label>
                             <div class="form-control admin-input border-0" style="color: #BEEF52; font-weight: 900;">
-                                @Model.WalletBalance.ToString("0.00") лв.
+                                @Model.WalletBalance.ToString("0.00") BGN
                             </div>
                         </div>
                     </div>
 
                     <div class="mb-4">
-                        <label asp-for="ProfilePictureUrl" class="form-label fw-bold"></label>
+                        <label asp-for="ProfilePictureUrl" class="form-label fw-bold">Profile Picture URL</label>
                         <input asp-for="ProfilePictureUrl" class="form-control admin-input" placeholder="https://..." />
                     </div>
 
                     <hr class="my-5" style="border-color: #4a0080;">
-                    <h4 class="mb-4 text-white"><i class="bi bi-shield-lock me-2" style="color: #be00ff;"></i>Смяна на парола</h4>
+                    <h4 class="mb-4 text-white"><i class="bi bi-shield-lock me-2" style="color: #be00ff;"></i>Change Password</h4>
 
                     <div class="mb-4">
-                        <label asp-for="CurrentPassword" class="form-label text-muted"></label>
-                        <input asp-for="CurrentPassword" class="form-control admin-input" />
+                        <label asp-for="CurrentPassword" class="form-label text-muted">Current Password</label>
+                        <input asp-for="CurrentPassword" class="form-control admin-input" type="password" />
                         <span asp-validation-for="CurrentPassword" class="text-danger small fw-bold"></span>
                     </div>
 
                     <div class="mb-4">
-                        <label asp-for="NewPassword" class="form-label text-muted"></label>
-                        <input asp-for="NewPassword" class="form-control admin-input" />
+                        <label asp-for="NewPassword" class="form-label text-muted">New Password</label>
+                        <input asp-for="NewPassword" class="form-control admin-input" type="password" />
                         <span asp-validation-for="NewPassword" class="text-danger small fw-bold"></span>
                     </div>
 
                     <div class="text-end">
-                        <button type="submit" class="btn btn-lg px-5 fw-bold" style="background-color: #be00ff; color: white;">ЗАПАЗИ ПРОМЕНИТЕ</button>
+                        <button type="submit" class="btn btn-lg px-5 fw-bold" style="background-color: #be00ff; color: white;">SAVE CHANGES</button>
                     </div>
                 </form>
             </div>

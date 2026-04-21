@@ -20,7 +20,7 @@ namespace HeatGames.Data.Models
         public Guid GameId { get; set; }
         public Game Game { get; set; } = null!;
 
-        public bool IsPositive { get; set; } // true за Like, false за Dislike
+        public bool IsPositive { get; set; } // true za Like, false za Dislike
 
         [Required]
         [MaxLength(2000)]

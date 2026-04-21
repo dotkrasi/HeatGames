@@ -1,7 +1,7 @@
 ﻿@model HeatGames.Core.DTOs.GenreDto
 
 @{
-    ViewData["Title"] = "Добави нов жанр";
+    ViewData["Title"] = "Add New Genre";
 }
 
 <style>
@@ -54,7 +54,7 @@
             <div class="admin-card shadow-lg">
                 <div class="admin-header p-4 d-flex align-items-center gap-3">
                     <i class="bi bi-tags-fill fs-3" style="color: #be00ff;"></i>
-                    <h4 class="mb-0 text-white fw-bold">Създай Жанр</h4>
+                    <h4 class="mb-0 text-white fw-bold">Create Genre</h4>
                 </div>
 
                 <div class="card-body p-4 p-md-5">
@@ -62,16 +62,16 @@
                         <div asp-validation-summary="ModelOnly" class="text-danger fw-bold mb-3"></div>
 
                         <div class="mb-5">
-                            <label asp-for="Name" class="form-label fw-bold"><i class="bi bi-fonts me-1 text-muted"></i> Име на жанра</label>
-                            <input asp-for="Name" class="form-control admin-input form-control-lg" placeholder="Напр. Състезателни, Пъзели..." />
+                            <label asp-for="Name" class="form-label fw-bold"><i class="bi bi-fonts me-1 text-muted"></i> Genre Name</label>
+                            <input asp-for="Name" class="form-control admin-input form-control-lg" placeholder="e.g. Racing, Puzzle..." />
                             <span asp-validation-for="Name" class="text-danger small fw-bold"></span>
                         </div>
 
                         <hr style="border-color: #4a0080;" class="my-4" />
 
                         <div class="d-flex justify-content-between align-items-center">
-                            <a asp-action="Index" class="btn btn-outline-light"><i class="bi bi-arrow-left"></i> Отказ</a>
-                            <button type="submit" class="btn btn-magenta fw-bold px-4 py-2"><i class="bi bi-plus-circle-fill me-1"></i> Добави жанра</button>
+                            <a asp-action="Index" class="btn btn-outline-light"><i class="bi bi-arrow-left"></i> Cancel</a>
+                            <button type="submit" class="btn btn-magenta fw-bold px-4 py-2"><i class="bi bi-plus-circle-fill me-1"></i> Add Genre</button>
                         </div>
                     </form>
                 </div>

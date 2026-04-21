@@ -28,7 +28,6 @@ namespace HeatGames.Data.Models
         [MaxLength(255)]
         public string? CoverImageUrl { get; set; }
 
-        // Външен ключ към Developer
         public Guid DeveloperId { get; set; }
         public Developer Developer { get; set; } = null!;
 

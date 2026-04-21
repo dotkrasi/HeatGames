@@ -1,7 +1,7 @@
 ﻿@model HeatGamesWeb.ViewModels.GameViewModel
 
 @{
-    ViewData["Title"] = "Редактирай игра";
+    ViewData["Title"] = "Edit Game";
 }
 
 <style>
@@ -71,7 +71,7 @@
             <div class="admin-card shadow-lg">
                 <div class="admin-header p-4 d-flex align-items-center gap-3">
                     <i class="bi bi-pencil-square fs-2" style="color: #ffc107;"></i>
-                    <h3 class="mb-0 text-white fw-bold">Редакция на: @Model.Title</h3>
+                    <h3 class="mb-0 text-white fw-bold">Editing: @Model.Title</h3>
                 </div>
 
                 <div class="card-body p-4 p-md-5">
@@ -97,7 +97,7 @@
                                 <label asp-for="Price" class="form-label fw-bold"><i class="bi bi-tag-fill me-1 text-muted"></i> @Html.DisplayNameFor(m => m.Price)</label>
                                 <div class="input-group">
                                     <input asp-for="Price" class="form-control admin-input" type="number" step="0.01" />
-                                    <span class="input-group-text input-group-text-dark">лв.</span>
+                                    <span class="input-group-text input-group-text-dark">BGN</span>
                                 </div>
                                 <span asp-validation-for="Price" class="text-danger small fw-bold"></span>
                             </div>
@@ -116,7 +116,7 @@
                         </div>
 
                         <div class="mb-4">
-                            <label class="form-label fw-bold"><i class="bi bi-tags-fill me-1 text-muted"></i> Жанрове</label>
+                            <label class="form-label fw-bold"><i class="bi bi-tags-fill me-1 text-muted"></i> Genres</label>
                             <div class="d-flex flex-wrap gap-3 p-3 rounded" style="background-color: #1a0033; border: 1px solid #4a0080;">
                                 @if (ViewBag.Genres != null)
                                 {
@@ -125,7 +125,7 @@
                                         <div class="form-check form-check-inline m-0 me-3">
                                             <input class="form-check-input" type="checkbox" name="SelectedGenreIds" value="@genre.Id"
                                                    id="genre-@genre.Id"
-                                                   @(Model.SelectedGenreIds != null && Model.SelectedGenreIds.Contains(genre.Id) ? "checked" : "")>
+                                            @(Model.SelectedGenreIds != null && Model.SelectedGenreIds.Contains(genre.Id) ? "checked" : "")>
                                             <label class="form-check-label text-white" for="genre-@genre.Id">
                                                 @genre.Name
                                             </label>
@@ -136,7 +136,7 @@
                         </div>
 
                         <div class="mb-4">
-                            <label class="form-label fw-bold"><i class="bi bi-pc-display me-1 text-muted"></i> Платформи</label>
+                            <label class="form-label fw-bold"><i class="bi bi-pc-display me-1 text-muted"></i> Platforms</label>
                             <div class="d-flex flex-wrap gap-3 p-3 rounded" style="background-color: #1a0033; border: 1px solid #4a0080;">
                                 @if (ViewBag.Platforms != null)
                                 {
@@ -145,7 +145,7 @@
                                         <div class="form-check form-check-inline m-0 me-3">
                                             <input class="form-check-input" type="checkbox" name="SelectedPlatformIds" value="@platform.Id"
                                                    id="plt-@platform.Id"
-                                                   @(Model.SelectedPlatformIds != null && Model.SelectedPlatformIds.Contains(platform.Id) ? "checked" : "")>
+                                            @(Model.SelectedPlatformIds != null && Model.SelectedPlatformIds.Contains(platform.Id) ? "checked" : "")>
                                             <label class="form-check-label text-white" for="plt-@platform.Id">
                                                 @platform.Name
                                             </label>
@@ -164,8 +164,8 @@
                         <hr style="border-color: #4a0080;" class="my-4" />
 
                         <div class="d-flex justify-content-between align-items-center">
-                            <a asp-action="Index" class="btn btn-outline-light"><i class="bi bi-arrow-left"></i> Отказ</a>
-                            <button type="submit" class="btn btn-warning-custom px-4 py-2"><i class="bi bi-check-lg me-1"></i> Запази промените</button>
+                            <a asp-action="Index" class="btn btn-outline-light"><i class="bi bi-arrow-left"></i> Cancel</a>
+                            <button type="submit" class="btn btn-warning-custom px-4 py-2"><i class="bi bi-check-lg me-1"></i> Save Changes</button>
                         </div>
                     </form>
                 </div>

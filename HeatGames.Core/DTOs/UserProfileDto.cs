@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace HeatGames.Core.DTOs
 {
@@ -6,29 +7,29 @@ namespace HeatGames.Core.DTOs
     {
         public Guid Id { get; set; }
 
-        [Display(Name = "Потребителско име")]
+        [Display(Name = "Username")]
         public string Username { get; set; } = null!;
 
         [EmailAddress]
-        [Display(Name = "Имейл адрес")]
+        [Display(Name = "Email Address")]
         public string Email { get; set; } = null!;
 
-        [Display(Name = "URL на профилна снимка")]
+        [Display(Name = "Profile Picture URL")]
         public string? ProfilePictureUrl { get; set; }
 
-        [Display(Name = "Баланс в портфейла")]
+        [Display(Name = "Wallet Balance")]
         public decimal WalletBalance { get; set; }
 
-        [Display(Name = "Дата на регистрация")]
+        [Display(Name = "Registration Date")]
         public DateTime RegistrationDate { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Сегашна парола")]
+        [Display(Name = "Current Password")]
         public string? CurrentPassword { get; set; }
 
         [StringLength(100, MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Нова парола")]
+        [Display(Name = "New Password")]
         public string? NewPassword { get; set; }
     }
 }

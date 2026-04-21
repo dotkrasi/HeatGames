@@ -1,6 +1,6 @@
 ﻿@model HeatGamesWeb.ViewModels.LoginViewModel
 @{
-    ViewData["Title"] = "Вход";
+    ViewData["Title"] = "Login";
 }
 
 <style>
@@ -68,8 +68,8 @@
     <div class="col-md-5 col-lg-4">
         <div class="text-center mb-4">
             <i class="bi bi-person-circle" style="font-size: 4rem; color: #be00ff;"></i>
-            <h2 class="mt-2 text-white fw-bold">ВХОД</h2>
-            <p style="color: #c4a6ff;">Добре дошли отново в HeatGames!</p>
+            <h2 class="mt-2 text-white fw-bold">LOGIN</h2>
+            <p style="color: #c4a6ff;">Welcome back to HeatGames!</p>
         </div>
 
         <form asp-action="Login" method="post" class="auth-card p-4 shadow-lg">
@@ -80,7 +80,7 @@
                 <label asp-for="Username" class="form-label fw-bold"></label>
                 <div class="input-group">
                     <span class="input-group-text" style="background-color: #4a0080; border: none; color: #fff;"><i class="bi bi-person"></i></span>
-                    <input asp-for="Username" class="form-control auth-input" placeholder="Въведете потребителско име..." />
+                    <input asp-for="Username" class="form-control auth-input" placeholder="Enter username..." />
                 </div>
                 <span asp-validation-for="Username" class="text-danger small fw-bold"></span>
             </div>
@@ -89,7 +89,7 @@
                 <label asp-for="Password" class="form-label fw-bold"></label>
                 <div class="input-group">
                     <span class="input-group-text" style="background-color: #4a0080; border: none; color: #fff;"><i class="bi bi-lock"></i></span>
-                    <input asp-for="Password" class="form-control auth-input" placeholder="Въведете парола..." />
+                    <input asp-for="Password" class="form-control auth-input" placeholder="Enter password..." />
                 </div>
                 <span asp-validation-for="Password" class="text-danger small fw-bold"></span>
             </div>
@@ -99,12 +99,12 @@
                 <label asp-for="RememberMe" class="form-check-label"></label>
             </div>
 
-            <button type="submit" class="btn btn-auth w-100 py-2 fs-5">Влез <i class="bi bi-box-arrow-in-right ms-1"></i></button>
+            <button type="submit" class="btn btn-auth w-100 py-2 fs-5">Login <i class="bi bi-box-arrow-in-right ms-1"></i></button>
 
             <hr style="border-color: #4a0080;" class="my-4" />
 
             <div class="text-center">
-                Нямате акаунт? <a asp-action="Register" class="auth-link">Регистрирайте се тук</a>
+                Don't have an account? <a asp-action="Register" class="auth-link">Register here</a>
             </div>
         </form>
     </div>

@@ -8,33 +8,33 @@ namespace HeatGames.Core.DTOs
     {
         public Guid Id { get; set; }
 
-        [Required(ErrorMessage = "Полето 'Заглавие' е задължително.")]
-        [StringLength(150, MinimumLength = 2, ErrorMessage = "Заглавието трябва да е между 2 и 150 символа.")]
-        [Display(Name = "Заглавие")]
+        [Required(ErrorMessage = "The 'Title' field is required.")]
+        [StringLength(150, MinimumLength = 2, ErrorMessage = "The title must be between 2 and 150 characters.")]
+        [Display(Name = "Title")]
         public string Title { get; set; } = null!;
 
-        [Required(ErrorMessage = "Полето 'Описание' е задължително.")]
-        [MinLength(10, ErrorMessage = "Описанието трябва да е поне 10 символа.")]
-        [Display(Name = "Описание")]
+        [Required(ErrorMessage = "The 'Description' field is required.")]
+        [MinLength(10, ErrorMessage = "The description must be at least 10 characters long.")]
+        [Display(Name = "Description")]
         public string Description { get; set; } = null!;
 
-        [Required(ErrorMessage = "Моля, въведете цена.")]
-        [Range(0.00, 10000.00, ErrorMessage = "Цената трябва да бъде положително число.")]
-        [Display(Name = "Цена")]
+        [Required(ErrorMessage = "Please enter a price.")]
+        [Range(0.00, 10000.00, ErrorMessage = "The price must be a positive number.")]
+        [Display(Name = "Price")]
         public decimal Price { get; set; }
 
-        [Required(ErrorMessage = "Посочете дата на излизане.")]
+        [Required(ErrorMessage = "Please specify a release date.")]
         [DataType(DataType.Date)]
-        [Display(Name = "Дата на излизане")]
+        [Display(Name = "Release Date")]
         public DateTime ReleaseDate { get; set; }
 
-        [Url(ErrorMessage = "Моля, въведете валиден URL за снимката.")]
+        [Url(ErrorMessage = "Please enter a valid URL for the image.")]
         [MaxLength(255)]
-        [Display(Name = "URL на корицата")]
+        [Display(Name = "Cover URL")]
         public string? CoverImageUrl { get; set; }
 
-        [Required(ErrorMessage = "Изборът на разработчик е задължителен.")]
-        [Display(Name = "Разработчик")]
+        [Required(ErrorMessage = "Developer selection is required.")]
+        [Display(Name = "Developer")]
         public Guid DeveloperId { get; set; }
 
         public string? DeveloperName { get; set; }

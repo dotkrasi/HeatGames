@@ -1,6 +1,73 @@
 ﻿@{
     ViewData["Title"] = "Privacy Policy";
 }
-<h1>@ViewData["Title"]</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+<style>
+    .privacy-container {
+        color: #e6d9ff;
+        line-height: 1.6;
+    }
+
+    .privacy-header {
+        color: #be00ff;
+        border-bottom: 2px solid #230046;
+        padding-bottom: 10px;
+        margin-bottom: 25px;
+    }
+
+    .privacy-section {
+        background-color: #1a0033;
+        border: 1px solid #4a0080;
+        border-radius: 8px;
+        padding: 25px;
+        margin-bottom: 20px;
+    }
+
+    h2 {
+        color: #ffffff;
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+
+    strong {
+        color: #be00ff;
+    }
+</style>
+
+<div class="container mt-5 privacy-container">
+    <h1 class="privacy-header fw-bold">@ViewData["Title"]</h1>
+
+    <div class="privacy-section shadow-sm">
+        <h2>1. Introduction</h2>
+        <p>Welcome to <strong>HeatGames</strong>. We value your privacy and are committed to protecting your personal data. This policy outlines how we handle your information when you use our gaming platform.</p>
+    </div>
+
+    <div class="privacy-section shadow-sm">
+        <h2>2. Data We Collect</h2>
+        <ul>
+            <li><strong>Account Information:</strong> Username, email address, and encrypted passwords.</li>
+            <li><strong>Transaction Data:</strong> Details of purchases made via your wallet, recorded in <strong>BGN</strong>.</li>
+            <li><strong>Profile Data:</strong> Profile pictures and preferences you provide.</li>
+            <li><strong>Usage Data:</strong> Information about the games in your library and wishlist.</li>
+        </ul>
+    </div>
+
+    <div class="privacy-section shadow-sm">
+        <h2>3. How We Use Your Data</h2>
+        <p>We use your information to provide our services, process your orders, manage your digital library, and ensure a secure gaming environment. Your wallet balance and transaction history are kept strictly confidential.</p>
+    </div>
+
+    <div class="privacy-section shadow-sm">
+        <h2>4. Financial Security</h2>
+        <p>All wallet top-ups and payments are processed securely. While we display amounts in <strong>BGN</strong>, we do not store full credit card details on our local servers to ensure maximum security for our users.</p>
+    </div>
+
+    <div class="privacy-section shadow-sm">
+        <h2>5. Your Rights</h2>
+        <p>You have the right to access, correct, or request the deletion of your personal account data at any time through your profile settings or by contacting our support team.</p>
+    </div>
+
+    <div class="text-center mt-4 text-muted small">
+        <p>Last updated: @DateTime.Now.ToString("MMMM dd, yyyy")</p>
+    </div>
+</div>

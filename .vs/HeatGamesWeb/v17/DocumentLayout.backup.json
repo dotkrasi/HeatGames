@@ -3,6 +3,38 @@
   "WorkspaceRootPath": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|c:\\users\\krasi\\downloads\\heatgames-main(1)\\heatgames-main\\heatgamesweb\\views\\cart\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|solutionrelative:heatgamesweb\\views\\cart\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|c:\\users\\krasi\\downloads\\heatgames-main(1)\\heatgames-main\\heatgamesweb\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|solutionrelative:heatgamesweb\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|c:\\users\\krasi\\downloads\\heatgames-main(1)\\heatgames-main\\heatgamesweb\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|solutionrelative:heatgamesweb\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|c:\\users\\krasi\\downloads\\heatgames-main(1)\\heatgames-main\\heatgamesweb\\views\\games\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|solutionrelative:heatgamesweb\\views\\games\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|c:\\users\\krasi\\downloads\\heatgames-main(1)\\heatgames-main\\heatgamesweb\\views\\games\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|solutionrelative:heatgamesweb\\views\\games\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|c:\\users\\krasi\\downloads\\heatgames-main(1)\\heatgames-main\\heatgamesweb\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|solutionrelative:heatgamesweb\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|c:\\users\\krasi\\downloads\\heatgames-main(1)\\heatgames-main\\heatgamesweb\\views\\home\\refundpolicy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|solutionrelative:heatgamesweb\\views\\home\\refundpolicy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Data\\Migrations\\20260421151150_HeatGamesFinalMig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:HeatGames.Data\\Migrations\\20260421151150_HeatGamesFinalMig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|c:\\users\\krasi\\downloads\\heatgames-main(1)\\heatgames-main\\heatgamesweb\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|solutionrelative:heatgamesweb\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -33,10 +65,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|c:\\users\\krasi\\downloads\\heatgames-main(1)\\heatgames-main\\heatgamesweb\\views\\user\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|solutionrelative:heatgamesweb\\views\\user\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|c:\\users\\krasi\\downloads\\heatgames-main(1)\\heatgames-main\\heatgamesweb\\views\\games\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|solutionrelative:heatgamesweb\\views\\games\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|c:\\users\\krasi\\downloads\\heatgames-main(1)\\heatgames-main\\heatgamesweb\\views\\shared\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -83,14 +111,6 @@
       "RelativeMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|solutionrelative:heatgamesweb\\views\\home\\termsofservice.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|c:\\users\\krasi\\downloads\\heatgames-main(1)\\heatgames-main\\heatgamesweb\\views\\home\\refundpolicy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|solutionrelative:heatgamesweb\\views\\home\\refundpolicy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|c:\\users\\krasi\\downloads\\heatgames-main(1)\\heatgames-main\\heatgamesweb\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|solutionrelative:heatgamesweb\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|c:\\users\\krasi\\downloads\\heatgames-main(1)\\heatgames-main\\heatgamesweb\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|solutionrelative:heatgamesweb\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -115,10 +135,6 @@
       "RelativeMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|solutionrelative:heatgamesweb\\views\\genre\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|c:\\users\\krasi\\downloads\\heatgames-main(1)\\heatgames-main\\heatgamesweb\\views\\games\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|solutionrelative:heatgamesweb\\views\\games\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|c:\\users\\krasi\\downloads\\heatgames-main(1)\\heatgames-main\\heatgamesweb\\views\\games\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|solutionrelative:heatgamesweb\\views\\games\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -129,10 +145,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|c:\\users\\krasi\\downloads\\heatgames-main(1)\\heatgames-main\\heatgamesweb\\views\\games\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|solutionrelative:heatgamesweb\\views\\games\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|c:\\users\\krasi\\downloads\\heatgames-main(1)\\heatgames-main\\heatgamesweb\\views\\cart\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|solutionrelative:heatgamesweb\\views\\cart\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|c:\\users\\krasi\\downloads\\heatgames-main(1)\\heatgames-main\\heatgamesweb\\views\\developer\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -153,14 +165,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|c:\\users\\krasi\\downloads\\heatgames-main(1)\\heatgames-main\\heatgamesweb\\views\\developer\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|solutionrelative:heatgamesweb\\views\\developer\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|c:\\users\\krasi\\downloads\\heatgames-main(1)\\heatgames-main\\heatgamesweb\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|solutionrelative:heatgamesweb\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|c:\\users\\krasi\\downloads\\heatgames-main(1)\\heatgames-main\\heatgamesweb\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|solutionrelative:heatgamesweb\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0A3D46AC-7E6E-4336-B907-3E9216642D3F}|HeatGamesWeb\\HeatGamesWeb.csproj|c:\\users\\krasi\\downloads\\heatgames-main(1)\\heatgames-main\\heatgamesweb\\viewmodels\\wishlistviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -545,7 +549,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 11,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -557,85 +561,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Error.cshtml",
-              "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Shared\\Error.cshtml",
-              "RelativeDocumentMoniker": "HeatGamesWeb\\Views\\Shared\\Error.cshtml",
-              "ToolTip": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Shared\\Error.cshtml",
-              "RelativeToolTip": "HeatGamesWeb\\Views\\Shared\\Error.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-20T13:36:47.442Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\User\\Index.cshtml",
-              "RelativeDocumentMoniker": "HeatGamesWeb\\Views\\User\\Index.cshtml",
-              "ToolTip": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\User\\Index.cshtml",
-              "RelativeToolTip": "HeatGamesWeb\\Views\\User\\Index.cshtml",
-              "ViewState": "AgIAAEcAAAAAAAAAAADgv0UAAABVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-14T17:24:08.263Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Games\\Details.cshtml",
-              "RelativeDocumentMoniker": "HeatGamesWeb\\Views\\Games\\Details.cshtml",
-              "ToolTip": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Games\\Details.cshtml",
-              "RelativeToolTip": "HeatGamesWeb\\Views\\Games\\Details.cshtml",
-              "ViewState": "AgIAAHsAAAAAAAAAAAAAAFsBAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-26T13:16:06.972Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Wallet\\Index.cshtml",
-              "RelativeDocumentMoniker": "HeatGamesWeb\\Views\\Wallet\\Index.cshtml",
-              "ToolTip": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Wallet\\Index.cshtml",
-              "RelativeToolTip": "HeatGamesWeb\\Views\\Wallet\\Index.cshtml",
-              "ViewState": "AgIAADIAAAAAAAAAAADwv1gAAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-27T12:13:16.177Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "TopUp.cshtml",
-              "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Wallet\\TopUp.cshtml",
-              "RelativeDocumentMoniker": "HeatGamesWeb\\Views\\Wallet\\TopUp.cshtml",
-              "ToolTip": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Wallet\\TopUp.cshtml",
-              "RelativeToolTip": "HeatGamesWeb\\Views\\Wallet\\TopUp.cshtml",
-              "ViewState": "AgIAAFgAAAAAAAAAAADwv34AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-27T12:14:13.629Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Wishlist\\Index.cshtml",
-              "RelativeDocumentMoniker": "HeatGamesWeb\\Views\\Wishlist\\Index.cshtml",
-              "ToolTip": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Wishlist\\Index.cshtml",
-              "RelativeToolTip": "HeatGamesWeb\\Views\\Wishlist\\Index.cshtml",
-              "ViewState": "AgIAAFoAAAAAAAAAAAAAAN8AAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-20T13:37:32.193Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 11,
               "Title": "_ViewImports.cshtml",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\_ViewImports.cshtml",
               "RelativeDocumentMoniker": "HeatGamesWeb\\Views\\_ViewImports.cshtml",
@@ -648,7 +574,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 10,
               "Title": "_ViewStart.cshtml",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\_ViewStart.cshtml",
               "RelativeDocumentMoniker": "HeatGamesWeb\\Views\\_ViewStart.cshtml",
@@ -661,7 +587,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 9,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\appsettings.json",
               "RelativeDocumentMoniker": "HeatGamesWeb\\appsettings.json",
@@ -674,150 +600,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Program.cs",
-              "RelativeDocumentMoniker": "HeatGamesWeb\\Program.cs",
-              "ToolTip": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Program.cs",
-              "RelativeToolTip": "HeatGamesWeb\\Program.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAIwFEAAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-09T13:32:35.156Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "_ValidationScriptsPartial.cshtml",
-              "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
-              "RelativeDocumentMoniker": "HeatGamesWeb\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
-              "ToolTip": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
-              "RelativeToolTip": "HeatGamesWeb\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-26T11:34:33.215Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "HeatGamesWeb\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "HeatGamesWeb\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD8BAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-05T06:33:51.443Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Platform\\Index.cshtml",
-              "RelativeDocumentMoniker": "HeatGamesWeb\\Views\\Platform\\Index.cshtml",
-              "ToolTip": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Platform\\Index.cshtml",
-              "RelativeToolTip": "HeatGamesWeb\\Views\\Platform\\Index.cshtml",
-              "ViewState": "AgIAAFEAAAAAAAAAAAAAAD0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-18T14:32:32.479Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Platform\\Edit.cshtml",
-              "RelativeDocumentMoniker": "HeatGamesWeb\\Views\\Platform\\Edit.cshtml",
-              "ToolTip": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Platform\\Edit.cshtml",
-              "RelativeToolTip": "HeatGamesWeb\\Views\\Platform\\Edit.cshtml",
-              "ViewState": "AgIAADEAAAAAAAAAAADwv1cAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-20T13:36:12.498Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "Delete.cshtml",
-              "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Platform\\Delete.cshtml",
-              "RelativeDocumentMoniker": "HeatGamesWeb\\Views\\Platform\\Delete.cshtml",
-              "ToolTip": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Platform\\Delete.cshtml",
-              "RelativeToolTip": "HeatGamesWeb\\Views\\Platform\\Delete.cshtml",
-              "ViewState": "AgIAACIAAAAAAAAAAADwv0gAAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-20T13:35:59.673Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Platform\\Create.cshtml",
-              "RelativeDocumentMoniker": "HeatGamesWeb\\Views\\Platform\\Create.cshtml",
-              "ToolTip": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Platform\\Create.cshtml",
-              "RelativeToolTip": "HeatGamesWeb\\Views\\Platform\\Create.cshtml",
-              "ViewState": "AgIAAC8AAAAAAAAAAADwv1UAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-20T13:35:59.985Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "Manage.cshtml",
-              "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Orders\\Manage.cshtml",
-              "RelativeDocumentMoniker": "HeatGamesWeb\\Views\\Orders\\Manage.cshtml",
-              "ToolTip": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Orders\\Manage.cshtml",
-              "RelativeToolTip": "HeatGamesWeb\\Views\\Orders\\Manage.cshtml",
-              "ViewState": "AgIAADkAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-18T14:37:20.913Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Orders\\Index.cshtml",
-              "RelativeDocumentMoniker": "HeatGamesWeb\\Views\\Orders\\Index.cshtml",
-              "ToolTip": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Orders\\Index.cshtml",
-              "RelativeToolTip": "HeatGamesWeb\\Views\\Orders\\Index.cshtml",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-18T14:44:34.595Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Library\\Index.cshtml",
-              "RelativeDocumentMoniker": "HeatGamesWeb\\Views\\Library\\Index.cshtml",
-              "ToolTip": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Library\\Index.cshtml",
-              "RelativeToolTip": "HeatGamesWeb\\Views\\Library\\Index.cshtml",
-              "ViewState": "AgIAAGYAAAAAAAAAAAAAAHoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-01T10:30:37.356Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "TermsOfService.cshtml",
-              "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Home\\TermsOfService.cshtml",
-              "RelativeDocumentMoniker": "HeatGamesWeb\\Views\\Home\\TermsOfService.cshtml",
-              "ToolTip": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Home\\TermsOfService.cshtml",
-              "RelativeToolTip": "HeatGamesWeb\\Views\\Home\\TermsOfService.cshtml",
-              "ViewState": "AgIAACQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-20T13:34:59.007Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 6,
               "Title": "RefundPolicy.cshtml",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Home\\RefundPolicy.cshtml",
               "RelativeDocumentMoniker": "HeatGamesWeb\\Views\\Home\\RefundPolicy.cshtml",
@@ -830,20 +613,306 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 5,
               "Title": "Privacy.cshtml",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Home\\Privacy.cshtml",
               "RelativeDocumentMoniker": "HeatGamesWeb\\Views\\Home\\Privacy.cshtml",
               "ToolTip": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Home\\Privacy.cshtml",
               "RelativeToolTip": "HeatGamesWeb\\Views\\Home\\Privacy.cshtml",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACIAAAAAAAAAAAAAwEgAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-04-20T13:34:51.081Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Cart\\Index.cshtml",
+              "RelativeDocumentMoniker": "HeatGamesWeb\\Views\\Cart\\Index.cshtml",
+              "ToolTip": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Cart\\Index.cshtml*",
+              "RelativeToolTip": "HeatGamesWeb\\Views\\Cart\\Index.cshtml*",
+              "ViewState": "AgIAAKsAAAAAAAAAAAD4v74AAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-20T13:31:30.126Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Games\\Index.cshtml",
+              "RelativeDocumentMoniker": "HeatGamesWeb\\Views\\Games\\Index.cshtml",
+              "ToolTip": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Games\\Index.cshtml",
+              "RelativeToolTip": "HeatGamesWeb\\Views\\Games\\Index.cshtml",
+              "ViewState": "AgIAAG8BAAAAAAAAAAD4v4IBAABdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-26T12:57:59.704Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Games\\Details.cshtml",
+              "RelativeDocumentMoniker": "HeatGamesWeb\\Views\\Games\\Details.cshtml",
+              "ToolTip": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Games\\Details.cshtml",
+              "RelativeToolTip": "HeatGamesWeb\\Views\\Games\\Details.cshtml",
+              "ViewState": "AgIAAJEAAAAAAAAAAADgv6QAAABrAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-26T13:16:06.972Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "HeatGamesWeb\\Views\\Account\\Login.cshtml",
+              "ToolTip": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Account\\Login.cshtml",
+              "RelativeToolTip": "HeatGamesWeb\\Views\\Account\\Login.cshtml",
+              "ViewState": "AgIAAEgAAAAAAAAAAADwv0oAAABPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-27T12:07:20.935Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Account\\Register.cshtml",
+              "RelativeDocumentMoniker": "HeatGamesWeb\\Views\\Account\\Register.cshtml",
+              "ToolTip": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Account\\Register.cshtml",
+              "RelativeToolTip": "HeatGamesWeb\\Views\\Account\\Register.cshtml",
+              "ViewState": "AgIAAEoAAAAAAAAAAADwv0wAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-26T11:34:26.038Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Wishlist\\Index.cshtml",
+              "RelativeDocumentMoniker": "HeatGamesWeb\\Views\\Wishlist\\Index.cshtml",
+              "ToolTip": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Wishlist\\Index.cshtml",
+              "RelativeToolTip": "HeatGamesWeb\\Views\\Wishlist\\Index.cshtml",
+              "ViewState": "AgIAAFoAAAAAAAAAAAAAAN8AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-20T13:37:32.193Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "TopUp.cshtml",
+              "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Wallet\\TopUp.cshtml",
+              "RelativeDocumentMoniker": "HeatGamesWeb\\Views\\Wallet\\TopUp.cshtml",
+              "ToolTip": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Wallet\\TopUp.cshtml",
+              "RelativeToolTip": "HeatGamesWeb\\Views\\Wallet\\TopUp.cshtml",
+              "ViewState": "AgIAAFgAAAAAAAAAAADwv34AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-27T12:14:13.629Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Wallet\\Index.cshtml",
+              "RelativeDocumentMoniker": "HeatGamesWeb\\Views\\Wallet\\Index.cshtml",
+              "ToolTip": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Wallet\\Index.cshtml",
+              "RelativeToolTip": "HeatGamesWeb\\Views\\Wallet\\Index.cshtml",
+              "ViewState": "AgIAADIAAAAAAAAAAADwv1gAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-27T12:13:16.177Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "20260421151150_HeatGamesFinalMig.cs",
+              "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Data\\Migrations\\20260421151150_HeatGamesFinalMig.cs",
+              "RelativeDocumentMoniker": "HeatGames.Data\\Migrations\\20260421151150_HeatGamesFinalMig.cs",
+              "ToolTip": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Data\\Migrations\\20260421151150_HeatGamesFinalMig.cs",
+              "RelativeToolTip": "HeatGames.Data\\Migrations\\20260421151150_HeatGamesFinalMig.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-21T15:11:50.333Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\User\\Index.cshtml",
+              "RelativeDocumentMoniker": "HeatGamesWeb\\Views\\User\\Index.cshtml",
+              "ToolTip": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\User\\Index.cshtml",
+              "RelativeToolTip": "HeatGamesWeb\\Views\\User\\Index.cshtml",
+              "ViewState": "AgIAAEcAAAAAAAAAAADgv0UAAABVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-14T17:24:08.263Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Error.cshtml",
+              "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Shared\\Error.cshtml",
+              "RelativeDocumentMoniker": "HeatGamesWeb\\Views\\Shared\\Error.cshtml",
+              "ToolTip": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Shared\\Error.cshtml",
+              "RelativeToolTip": "HeatGamesWeb\\Views\\Shared\\Error.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-20T13:36:47.442Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Program.cs",
+              "RelativeDocumentMoniker": "HeatGamesWeb\\Program.cs",
+              "ToolTip": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Program.cs",
+              "RelativeToolTip": "HeatGamesWeb\\Program.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAIwFEAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-09T13:32:35.156Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "_ValidationScriptsPartial.cshtml",
+              "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "RelativeDocumentMoniker": "HeatGamesWeb\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "ToolTip": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "RelativeToolTip": "HeatGamesWeb\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-26T11:34:33.215Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "HeatGamesWeb\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "HeatGamesWeb\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD8BAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-05T06:33:51.443Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Platform\\Index.cshtml",
+              "RelativeDocumentMoniker": "HeatGamesWeb\\Views\\Platform\\Index.cshtml",
+              "ToolTip": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Platform\\Index.cshtml",
+              "RelativeToolTip": "HeatGamesWeb\\Views\\Platform\\Index.cshtml",
+              "ViewState": "AgIAAFEAAAAAAAAAAAAAAD0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-18T14:32:32.479Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Platform\\Edit.cshtml",
+              "RelativeDocumentMoniker": "HeatGamesWeb\\Views\\Platform\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Platform\\Edit.cshtml",
+              "RelativeToolTip": "HeatGamesWeb\\Views\\Platform\\Edit.cshtml",
+              "ViewState": "AgIAADEAAAAAAAAAAADwv1cAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-20T13:36:12.498Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Platform\\Delete.cshtml",
+              "RelativeDocumentMoniker": "HeatGamesWeb\\Views\\Platform\\Delete.cshtml",
+              "ToolTip": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Platform\\Delete.cshtml",
+              "RelativeToolTip": "HeatGamesWeb\\Views\\Platform\\Delete.cshtml",
+              "ViewState": "AgIAACIAAAAAAAAAAADwv0gAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-20T13:35:59.673Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 22,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Platform\\Create.cshtml",
+              "RelativeDocumentMoniker": "HeatGamesWeb\\Views\\Platform\\Create.cshtml",
+              "ToolTip": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Platform\\Create.cshtml",
+              "RelativeToolTip": "HeatGamesWeb\\Views\\Platform\\Create.cshtml",
+              "ViewState": "AgIAAC8AAAAAAAAAAADwv1UAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-20T13:35:59.985Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Manage.cshtml",
+              "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Orders\\Manage.cshtml",
+              "RelativeDocumentMoniker": "HeatGamesWeb\\Views\\Orders\\Manage.cshtml",
+              "ToolTip": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Orders\\Manage.cshtml",
+              "RelativeToolTip": "HeatGamesWeb\\Views\\Orders\\Manage.cshtml",
+              "ViewState": "AgIAADkAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-18T14:37:20.913Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Orders\\Index.cshtml",
+              "RelativeDocumentMoniker": "HeatGamesWeb\\Views\\Orders\\Index.cshtml",
+              "ToolTip": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Orders\\Index.cshtml",
+              "RelativeToolTip": "HeatGamesWeb\\Views\\Orders\\Index.cshtml",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-18T14:44:34.595Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Library\\Index.cshtml",
+              "RelativeDocumentMoniker": "HeatGamesWeb\\Views\\Library\\Index.cshtml",
+              "ToolTip": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Library\\Index.cshtml",
+              "RelativeToolTip": "HeatGamesWeb\\Views\\Library\\Index.cshtml",
+              "ViewState": "AgIAAGYAAAAAAAAAAAAAAHoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-01T10:30:37.356Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "TermsOfService.cshtml",
+              "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Home\\TermsOfService.cshtml",
+              "RelativeDocumentMoniker": "HeatGamesWeb\\Views\\Home\\TermsOfService.cshtml",
+              "ToolTip": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Home\\TermsOfService.cshtml",
+              "RelativeToolTip": "HeatGamesWeb\\Views\\Home\\TermsOfService.cshtml",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-20T13:34:59.007Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "HeatGamesWeb\\Views\\Home\\Index.cshtml",
@@ -856,7 +925,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 28,
               "Title": "Faq.cshtml",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Home\\Faq.cshtml",
               "RelativeDocumentMoniker": "HeatGamesWeb\\Views\\Home\\Faq.cshtml",
@@ -869,7 +938,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 29,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Genre\\Index.cshtml",
               "RelativeDocumentMoniker": "HeatGamesWeb\\Views\\Genre\\Index.cshtml",
@@ -882,7 +951,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 30,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Genre\\Edit.cshtml",
               "RelativeDocumentMoniker": "HeatGamesWeb\\Views\\Genre\\Edit.cshtml",
@@ -895,7 +964,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 31,
               "Title": "Delete.cshtml",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Genre\\Delete.cshtml",
               "RelativeDocumentMoniker": "HeatGamesWeb\\Views\\Genre\\Delete.cshtml",
@@ -908,7 +977,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 32,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Genre\\Create.cshtml",
               "RelativeDocumentMoniker": "HeatGamesWeb\\Views\\Genre\\Create.cshtml",
@@ -921,20 +990,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Games\\Index.cshtml",
-              "RelativeDocumentMoniker": "HeatGamesWeb\\Views\\Games\\Index.cshtml",
-              "ToolTip": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Games\\Index.cshtml",
-              "RelativeToolTip": "HeatGamesWeb\\Views\\Games\\Index.cshtml",
-              "ViewState": "AgIAAN4AAAAAAAAAAAAAABIAAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-26T12:57:59.704Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 33,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Games\\Edit.cshtml",
               "RelativeDocumentMoniker": "HeatGamesWeb\\Views\\Games\\Edit.cshtml",
@@ -947,7 +1003,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 34,
               "Title": "Delete.cshtml",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Games\\Delete.cshtml",
               "RelativeDocumentMoniker": "HeatGamesWeb\\Views\\Games\\Delete.cshtml",
@@ -960,7 +1016,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 35,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Games\\Create.cshtml",
               "RelativeDocumentMoniker": "HeatGamesWeb\\Views\\Games\\Create.cshtml",
@@ -973,20 +1029,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Cart\\Index.cshtml",
-              "RelativeDocumentMoniker": "HeatGamesWeb\\Views\\Cart\\Index.cshtml",
-              "ToolTip": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Cart\\Index.cshtml",
-              "RelativeToolTip": "HeatGamesWeb\\Views\\Cart\\Index.cshtml",
-              "ViewState": "AgIAALcAAAAAAAAAAAAAANEAAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-20T13:31:30.126Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 36,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Developer\\Index.cshtml",
               "RelativeDocumentMoniker": "HeatGamesWeb\\Views\\Developer\\Index.cshtml",
@@ -999,7 +1042,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 37,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Developer\\Edit.cshtml",
               "RelativeDocumentMoniker": "HeatGamesWeb\\Views\\Developer\\Edit.cshtml",
@@ -1012,7 +1055,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 38,
               "Title": "Details.cshtml",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Developer\\Details.cshtml",
               "RelativeDocumentMoniker": "HeatGamesWeb\\Views\\Developer\\Details.cshtml",
@@ -1025,7 +1068,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 39,
               "Title": "Delete.cshtml",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Developer\\Delete.cshtml",
               "RelativeDocumentMoniker": "HeatGamesWeb\\Views\\Developer\\Delete.cshtml",
@@ -1038,7 +1081,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 40,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Developer\\Create.cshtml",
               "RelativeDocumentMoniker": "HeatGamesWeb\\Views\\Developer\\Create.cshtml",
@@ -1051,33 +1094,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
-              "Title": "Register.cshtml",
-              "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Account\\Register.cshtml",
-              "RelativeDocumentMoniker": "HeatGamesWeb\\Views\\Account\\Register.cshtml",
-              "ToolTip": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Account\\Register.cshtml",
-              "RelativeToolTip": "HeatGamesWeb\\Views\\Account\\Register.cshtml",
-              "ViewState": "AgIAAEoAAAAAAAAAAADwv3AAAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-26T11:34:26.038Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 39,
-              "Title": "Login.cshtml",
-              "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Account\\Login.cshtml",
-              "RelativeDocumentMoniker": "HeatGamesWeb\\Views\\Account\\Login.cshtml",
-              "ToolTip": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Views\\Account\\Login.cshtml",
-              "RelativeToolTip": "HeatGamesWeb\\Views\\Account\\Login.cshtml",
-              "ViewState": "AgIAAEgAAAAAAAAAAADwv24AAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-27T12:07:20.935Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 41,
               "Title": "WishlistViewModel.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\ViewModels\\WishlistViewModel.cs",
               "RelativeDocumentMoniker": "HeatGamesWeb\\ViewModels\\WishlistViewModel.cs",
@@ -1090,7 +1107,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 42,
               "Title": "UserViewModel.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\ViewModels\\UserViewModel.cs",
               "RelativeDocumentMoniker": "HeatGamesWeb\\ViewModels\\UserViewModel.cs",
@@ -1103,7 +1120,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 43,
               "Title": "ReviewViewModel.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\ViewModels\\ReviewViewModel.cs",
               "RelativeDocumentMoniker": "HeatGamesWeb\\ViewModels\\ReviewViewModel.cs",
@@ -1116,7 +1133,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 44,
               "Title": "RegisterViewModel.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\ViewModels\\RegisterViewModel.cs",
               "RelativeDocumentMoniker": "HeatGamesWeb\\ViewModels\\RegisterViewModel.cs",
@@ -1129,7 +1146,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 46,
               "Title": "OrderItemViewModel.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\ViewModels\\OrderItemViewModel.cs",
               "RelativeDocumentMoniker": "HeatGamesWeb\\ViewModels\\OrderItemViewModel.cs",
@@ -1142,7 +1159,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 47,
               "Title": "LoginViewModel.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\ViewModels\\LoginViewModel.cs",
               "RelativeDocumentMoniker": "HeatGamesWeb\\ViewModels\\LoginViewModel.cs",
@@ -1155,7 +1172,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 48,
               "Title": "LibraryItemViewModel.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\ViewModels\\LibraryItemViewModel.cs",
               "RelativeDocumentMoniker": "HeatGamesWeb\\ViewModels\\LibraryItemViewModel.cs",
@@ -1168,7 +1185,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 49,
               "Title": "GenreViewModel.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\ViewModels\\GenreViewModel.cs",
               "RelativeDocumentMoniker": "HeatGamesWeb\\ViewModels\\GenreViewModel.cs",
@@ -1181,7 +1198,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 50,
               "Title": "GameViewModel.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\ViewModels\\GameViewModel.cs",
               "RelativeDocumentMoniker": "HeatGamesWeb\\ViewModels\\GameViewModel.cs",
@@ -1194,7 +1211,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 51,
               "Title": "GameGenreViewModel.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\ViewModels\\GameGenreViewModel.cs",
               "RelativeDocumentMoniker": "HeatGamesWeb\\ViewModels\\GameGenreViewModel.cs",
@@ -1207,7 +1224,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 51,
+              "DocumentIndex": 52,
               "Title": "DeveloperViewModel.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\ViewModels\\DeveloperViewModel.cs",
               "RelativeDocumentMoniker": "HeatGamesWeb\\ViewModels\\DeveloperViewModel.cs",
@@ -1220,7 +1237,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 45,
               "Title": "OrderViewModel.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\ViewModels\\OrderViewModel.cs",
               "RelativeDocumentMoniker": "HeatGamesWeb\\ViewModels\\OrderViewModel.cs",
@@ -1233,7 +1250,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 52,
+              "DocumentIndex": 53,
               "Title": "CartItemViewModel.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\ViewModels\\CartItemViewModel.cs",
               "RelativeDocumentMoniker": "HeatGamesWeb\\ViewModels\\CartItemViewModel.cs",
@@ -1246,7 +1263,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 53,
+              "DocumentIndex": 54,
               "Title": "AddFundsViewModel.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\ViewModels\\AddFundsViewModel.cs",
               "RelativeDocumentMoniker": "HeatGamesWeb\\ViewModels\\AddFundsViewModel.cs",
@@ -1259,7 +1276,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 54,
+              "DocumentIndex": 55,
               "Title": "ErrorViewModel.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Models\\ErrorViewModel.cs",
               "RelativeDocumentMoniker": "HeatGamesWeb\\Models\\ErrorViewModel.cs",
@@ -1272,7 +1289,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 55,
+              "DocumentIndex": 56,
               "Title": "SessionExtensions.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Extensions\\SessionExtensions.cs",
               "RelativeDocumentMoniker": "HeatGamesWeb\\Extensions\\SessionExtensions.cs",
@@ -1285,7 +1302,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 56,
+              "DocumentIndex": 57,
               "Title": "WishlistController.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Controllers\\WishlistController.cs",
               "RelativeDocumentMoniker": "HeatGamesWeb\\Controllers\\WishlistController.cs",
@@ -1298,7 +1315,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 57,
+              "DocumentIndex": 58,
               "Title": "WalletController.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Controllers\\WalletController.cs",
               "RelativeDocumentMoniker": "HeatGamesWeb\\Controllers\\WalletController.cs",
@@ -1311,7 +1328,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 58,
+              "DocumentIndex": 59,
               "Title": "UserController.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "HeatGamesWeb\\Controllers\\UserController.cs",
@@ -1324,7 +1341,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 59,
+              "DocumentIndex": 60,
               "Title": "ReviewsController.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Controllers\\ReviewsController.cs",
               "RelativeDocumentMoniker": "HeatGamesWeb\\Controllers\\ReviewsController.cs",
@@ -1337,7 +1354,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 60,
+              "DocumentIndex": 61,
               "Title": "OrdersController.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Controllers\\OrdersController.cs",
               "RelativeDocumentMoniker": "HeatGamesWeb\\Controllers\\OrdersController.cs",
@@ -1350,7 +1367,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 61,
+              "DocumentIndex": 62,
               "Title": "LibraryController.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Controllers\\LibraryController.cs",
               "RelativeDocumentMoniker": "HeatGamesWeb\\Controllers\\LibraryController.cs",
@@ -1363,7 +1380,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 62,
+              "DocumentIndex": 63,
               "Title": "HomeController.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "HeatGamesWeb\\Controllers\\HomeController.cs",
@@ -1376,7 +1393,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 63,
+              "DocumentIndex": 64,
               "Title": "GenreController.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Controllers\\GenreController.cs",
               "RelativeDocumentMoniker": "HeatGamesWeb\\Controllers\\GenreController.cs",
@@ -1389,7 +1406,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 64,
+              "DocumentIndex": 65,
               "Title": "GamesController.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Controllers\\GamesController.cs",
               "RelativeDocumentMoniker": "HeatGamesWeb\\Controllers\\GamesController.cs",
@@ -1402,7 +1419,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 65,
+              "DocumentIndex": 66,
               "Title": "DeveloperController.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Controllers\\DeveloperController.cs",
               "RelativeDocumentMoniker": "HeatGamesWeb\\Controllers\\DeveloperController.cs",
@@ -1415,7 +1432,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 66,
+              "DocumentIndex": 67,
               "Title": "CartController.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Controllers\\CartController.cs",
               "RelativeDocumentMoniker": "HeatGamesWeb\\Controllers\\CartController.cs",
@@ -1428,7 +1445,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 67,
+              "DocumentIndex": 68,
               "Title": "AdministratorController.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Controllers\\AdministratorController.cs",
               "RelativeDocumentMoniker": "HeatGamesWeb\\Controllers\\AdministratorController.cs",
@@ -1441,7 +1458,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 68,
+              "DocumentIndex": 69,
               "Title": "AccountController.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "HeatGamesWeb\\Controllers\\AccountController.cs",
@@ -1454,7 +1471,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 69,
+              "DocumentIndex": 70,
               "Title": "HeatGamesDbContext.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Data\\HeatGamesDbContext.cs",
               "RelativeDocumentMoniker": "HeatGames.Data\\HeatGamesDbContext.cs",
@@ -1467,7 +1484,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 70,
+              "DocumentIndex": 71,
               "Title": "Wishlist.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Data\\Models\\Wishlist.cs",
               "RelativeDocumentMoniker": "HeatGames.Data\\Models\\Wishlist.cs",
@@ -1480,7 +1497,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 71,
+              "DocumentIndex": 72,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Data\\Models\\User.cs",
               "RelativeDocumentMoniker": "HeatGames.Data\\Models\\User.cs",
@@ -1493,7 +1510,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 72,
+              "DocumentIndex": 73,
               "Title": "Review.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Data\\Models\\Review.cs",
               "RelativeDocumentMoniker": "HeatGames.Data\\Models\\Review.cs",
@@ -1506,7 +1523,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 73,
+              "DocumentIndex": 74,
               "Title": "Platform.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Data\\Models\\Platform.cs",
               "RelativeDocumentMoniker": "HeatGames.Data\\Models\\Platform.cs",
@@ -1519,7 +1536,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 74,
+              "DocumentIndex": 75,
               "Title": "OrderItem.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Data\\Models\\OrderItem.cs",
               "RelativeDocumentMoniker": "HeatGames.Data\\Models\\OrderItem.cs",
@@ -1532,7 +1549,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 75,
+              "DocumentIndex": 76,
               "Title": "Order.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Data\\Models\\Order.cs",
               "RelativeDocumentMoniker": "HeatGames.Data\\Models\\Order.cs",
@@ -1545,7 +1562,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 76,
+              "DocumentIndex": 77,
               "Title": "LibraryItem.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Data\\Models\\LibraryItem.cs",
               "RelativeDocumentMoniker": "HeatGames.Data\\Models\\LibraryItem.cs",
@@ -1558,7 +1575,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 77,
+              "DocumentIndex": 78,
               "Title": "Genre.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Data\\Models\\Genre.cs",
               "RelativeDocumentMoniker": "HeatGames.Data\\Models\\Genre.cs",
@@ -1571,7 +1588,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 78,
+              "DocumentIndex": 79,
               "Title": "GamePlatform.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Data\\Models\\GamePlatform.cs",
               "RelativeDocumentMoniker": "HeatGames.Data\\Models\\GamePlatform.cs",
@@ -1584,7 +1601,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 79,
+              "DocumentIndex": 80,
               "Title": "Game.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Data\\Models\\Game.cs",
               "RelativeDocumentMoniker": "HeatGames.Data\\Models\\Game.cs",
@@ -1597,7 +1614,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 80,
+              "DocumentIndex": 81,
               "Title": "GameGenre.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Data\\Models\\GameGenre.cs",
               "RelativeDocumentMoniker": "HeatGames.Data\\Models\\GameGenre.cs",
@@ -1610,7 +1627,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 81,
+              "DocumentIndex": 82,
               "Title": "Developer.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Data\\Models\\Developer.cs",
               "RelativeDocumentMoniker": "HeatGames.Data\\Models\\Developer.cs",
@@ -1623,7 +1640,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 82,
+              "DocumentIndex": 83,
               "Title": "WishlistConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Data\\Configuration\\WishlistConfiguration.cs",
               "RelativeDocumentMoniker": "HeatGames.Data\\Configuration\\WishlistConfiguration.cs",
@@ -1636,7 +1653,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 83,
+              "DocumentIndex": 84,
               "Title": "ReviewConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Data\\Configuration\\ReviewConfiguration.cs",
               "RelativeDocumentMoniker": "HeatGames.Data\\Configuration\\ReviewConfiguration.cs",
@@ -1649,7 +1666,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 84,
+              "DocumentIndex": 85,
               "Title": "PlatformConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Data\\Configuration\\PlatformConfiguration.cs",
               "RelativeDocumentMoniker": "HeatGames.Data\\Configuration\\PlatformConfiguration.cs",
@@ -1662,7 +1679,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 85,
+              "DocumentIndex": 86,
               "Title": "OrderItemConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Data\\Configuration\\OrderItemConfiguration.cs",
               "RelativeDocumentMoniker": "HeatGames.Data\\Configuration\\OrderItemConfiguration.cs",
@@ -1675,7 +1692,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 86,
+              "DocumentIndex": 87,
               "Title": "OrderConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Data\\Configuration\\OrderConfiguration.cs",
               "RelativeDocumentMoniker": "HeatGames.Data\\Configuration\\OrderConfiguration.cs",
@@ -1688,7 +1705,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 87,
+              "DocumentIndex": 88,
               "Title": "LibraryItemConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Data\\Configuration\\LibraryItemConfiguration.cs",
               "RelativeDocumentMoniker": "HeatGames.Data\\Configuration\\LibraryItemConfiguration.cs",
@@ -1701,7 +1718,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 88,
+              "DocumentIndex": 89,
               "Title": "IdentitySeeder.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Data\\Configuration\\IdentitySeeder.cs",
               "RelativeDocumentMoniker": "HeatGames.Data\\Configuration\\IdentitySeeder.cs",
@@ -1714,7 +1731,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 89,
+              "DocumentIndex": 90,
               "Title": "GenreConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Data\\Configuration\\GenreConfiguration.cs",
               "RelativeDocumentMoniker": "HeatGames.Data\\Configuration\\GenreConfiguration.cs",
@@ -1727,7 +1744,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 90,
+              "DocumentIndex": 91,
               "Title": "GamePlatformConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Data\\Configuration\\GamePlatformConfiguration.cs",
               "RelativeDocumentMoniker": "HeatGames.Data\\Configuration\\GamePlatformConfiguration.cs",
@@ -1740,7 +1757,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 91,
+              "DocumentIndex": 92,
               "Title": "GameGenreConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Data\\Configuration\\GameGenreConfiguration.cs",
               "RelativeDocumentMoniker": "HeatGames.Data\\Configuration\\GameGenreConfiguration.cs",
@@ -1753,7 +1770,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 92,
+              "DocumentIndex": 93,
               "Title": "DeveloperConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Data\\Configuration\\DeveloperConfiguration.cs",
               "RelativeDocumentMoniker": "HeatGames.Data\\Configuration\\DeveloperConfiguration.cs",
@@ -1766,7 +1783,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 93,
+              "DocumentIndex": 94,
               "Title": "GameConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Data\\Configuration\\GameConfiguration.cs",
               "RelativeDocumentMoniker": "HeatGames.Data\\Configuration\\GameConfiguration.cs",
@@ -1779,7 +1796,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 94,
+              "DocumentIndex": 95,
               "Title": "WishlistService.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Core\\Services\\WishlistService.cs",
               "RelativeDocumentMoniker": "HeatGames.Core\\Services\\WishlistService.cs",
@@ -1792,7 +1809,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 95,
+              "DocumentIndex": 96,
               "Title": "UserService.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Core\\Services\\UserService.cs",
               "RelativeDocumentMoniker": "HeatGames.Core\\Services\\UserService.cs",
@@ -1805,7 +1822,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 96,
+              "DocumentIndex": 97,
               "Title": "ReviewService.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Core\\Services\\ReviewService.cs",
               "RelativeDocumentMoniker": "HeatGames.Core\\Services\\ReviewService.cs",
@@ -1818,7 +1835,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 97,
+              "DocumentIndex": 98,
               "Title": "PlatformService.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Core\\Services\\PlatformService.cs",
               "RelativeDocumentMoniker": "HeatGames.Core\\Services\\PlatformService.cs",
@@ -1831,7 +1848,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 98,
+              "DocumentIndex": 99,
               "Title": "OrderService.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Core\\Services\\OrderService.cs",
               "RelativeDocumentMoniker": "HeatGames.Core\\Services\\OrderService.cs",
@@ -1844,7 +1861,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 99,
+              "DocumentIndex": 100,
               "Title": "LibraryService.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Core\\Services\\LibraryService.cs",
               "RelativeDocumentMoniker": "HeatGames.Core\\Services\\LibraryService.cs",
@@ -1857,7 +1874,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 100,
+              "DocumentIndex": 101,
               "Title": "GenreService.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Core\\Services\\GenreService.cs",
               "RelativeDocumentMoniker": "HeatGames.Core\\Services\\GenreService.cs",
@@ -1870,7 +1887,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 101,
+              "DocumentIndex": 102,
               "Title": "GameService.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Core\\Services\\GameService.cs",
               "RelativeDocumentMoniker": "HeatGames.Core\\Services\\GameService.cs",
@@ -1883,7 +1900,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 102,
+              "DocumentIndex": 103,
               "Title": "DeveloperService.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Core\\Services\\DeveloperService.cs",
               "RelativeDocumentMoniker": "HeatGames.Core\\Services\\DeveloperService.cs",
@@ -1896,7 +1913,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 103,
+              "DocumentIndex": 104,
               "Title": "IWishlistService.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Core\\Services\\Interfaces\\IWishlistService.cs",
               "RelativeDocumentMoniker": "HeatGames.Core\\Services\\Interfaces\\IWishlistService.cs",
@@ -1909,7 +1926,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 104,
+              "DocumentIndex": 105,
               "Title": "IUserService.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Core\\Services\\Interfaces\\IUserService.cs",
               "RelativeDocumentMoniker": "HeatGames.Core\\Services\\Interfaces\\IUserService.cs",
@@ -1922,7 +1939,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 105,
+              "DocumentIndex": 106,
               "Title": "IReviewService.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Core\\Services\\Interfaces\\IReviewService.cs",
               "RelativeDocumentMoniker": "HeatGames.Core\\Services\\Interfaces\\IReviewService.cs",
@@ -1935,7 +1952,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 106,
+              "DocumentIndex": 107,
               "Title": "IPlatformService.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Core\\Services\\Interfaces\\IPlatformService.cs",
               "RelativeDocumentMoniker": "HeatGames.Core\\Services\\Interfaces\\IPlatformService.cs",
@@ -1948,7 +1965,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 108,
+              "DocumentIndex": 109,
               "Title": "ILibraryService.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Core\\Services\\Interfaces\\ILibraryService.cs",
               "RelativeDocumentMoniker": "HeatGames.Core\\Services\\Interfaces\\ILibraryService.cs",
@@ -1961,7 +1978,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 109,
+              "DocumentIndex": 110,
               "Title": "IGenreService.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Core\\Services\\Interfaces\\IGenreService.cs",
               "RelativeDocumentMoniker": "HeatGames.Core\\Services\\Interfaces\\IGenreService.cs",
@@ -1974,7 +1991,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 110,
+              "DocumentIndex": 111,
               "Title": "IGameService.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Core\\Services\\Interfaces\\IGameService.cs",
               "RelativeDocumentMoniker": "HeatGames.Core\\Services\\Interfaces\\IGameService.cs",
@@ -1987,7 +2004,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 111,
+              "DocumentIndex": 112,
               "Title": "IDeveloperService.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Core\\Services\\Interfaces\\IDeveloperService.cs",
               "RelativeDocumentMoniker": "HeatGames.Core\\Services\\Interfaces\\IDeveloperService.cs",
@@ -2000,7 +2017,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 112,
+              "DocumentIndex": 113,
               "Title": "WishlistDto.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Core\\DTOs\\WishlistDto.cs",
               "RelativeDocumentMoniker": "HeatGames.Core\\DTOs\\WishlistDto.cs",
@@ -2013,7 +2030,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 114,
+              "DocumentIndex": 115,
               "Title": "UserDto.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Core\\DTOs\\UserDto.cs",
               "RelativeDocumentMoniker": "HeatGames.Core\\DTOs\\UserDto.cs",
@@ -2026,7 +2043,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 115,
+              "DocumentIndex": 116,
               "Title": "ReviewDto.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Core\\DTOs\\ReviewDto.cs",
               "RelativeDocumentMoniker": "HeatGames.Core\\DTOs\\ReviewDto.cs",
@@ -2039,7 +2056,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 116,
+              "DocumentIndex": 117,
               "Title": "PlatformDto.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Core\\DTOs\\PlatformDto.cs",
               "RelativeDocumentMoniker": "HeatGames.Core\\DTOs\\PlatformDto.cs",
@@ -2052,7 +2069,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 117,
+              "DocumentIndex": 118,
               "Title": "OrderItemDto.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Core\\DTOs\\OrderItemDto.cs",
               "RelativeDocumentMoniker": "HeatGames.Core\\DTOs\\OrderItemDto.cs",
@@ -2065,7 +2082,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 107,
+              "DocumentIndex": 108,
               "Title": "IOrderService.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Core\\Services\\Interfaces\\IOrderService.cs",
               "RelativeDocumentMoniker": "HeatGames.Core\\Services\\Interfaces\\IOrderService.cs",
@@ -2078,7 +2095,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 118,
+              "DocumentIndex": 119,
               "Title": "OrderDto.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Core\\DTOs\\OrderDto.cs",
               "RelativeDocumentMoniker": "HeatGames.Core\\DTOs\\OrderDto.cs",
@@ -2091,7 +2108,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 119,
+              "DocumentIndex": 120,
               "Title": "LibraryItemDto.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Core\\DTOs\\LibraryItemDto.cs",
               "RelativeDocumentMoniker": "HeatGames.Core\\DTOs\\LibraryItemDto.cs",
@@ -2104,7 +2121,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 113,
+              "DocumentIndex": 114,
               "Title": "UserProfileDto.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Core\\DTOs\\UserProfileDto.cs",
               "RelativeDocumentMoniker": "HeatGames.Core\\DTOs\\UserProfileDto.cs",
@@ -2117,7 +2134,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 126,
+              "DocumentIndex": 127,
               "Title": "site.css",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\wwwroot\\css\\site.css",
               "RelativeDocumentMoniker": "HeatGamesWeb\\wwwroot\\css\\site.css",
@@ -2130,7 +2147,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 125,
+              "DocumentIndex": 126,
               "Title": "site.js",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\wwwroot\\js\\site.js",
               "RelativeDocumentMoniker": "HeatGamesWeb\\wwwroot\\js\\site.js",
@@ -2143,7 +2160,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 122,
+              "DocumentIndex": 123,
               "Title": "DeveloperDto.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Core\\DTOs\\DeveloperDto.cs",
               "RelativeDocumentMoniker": "HeatGames.Core\\DTOs\\DeveloperDto.cs",
@@ -2156,7 +2173,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 121,
+              "DocumentIndex": 122,
               "Title": "GameDto.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Core\\DTOs\\GameDto.cs",
               "RelativeDocumentMoniker": "HeatGames.Core\\DTOs\\GameDto.cs",
@@ -2169,7 +2186,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 120,
+              "DocumentIndex": 121,
               "Title": "GenreDto.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Core\\DTOs\\GenreDto.cs",
               "RelativeDocumentMoniker": "HeatGames.Core\\DTOs\\GenreDto.cs",
@@ -2182,7 +2199,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 124,
+              "DocumentIndex": 125,
               "Title": "LICENSE",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\wwwroot\\lib\\bootstrap\\LICENSE",
               "RelativeDocumentMoniker": "HeatGamesWeb\\wwwroot\\lib\\bootstrap\\LICENSE",
@@ -2195,7 +2212,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 123,
+              "DocumentIndex": 124,
               "Title": "favicon.ico - Icon [32x32, 32 bit, BMP]",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\wwwroot\\favicon.ico",
               "RelativeDocumentMoniker": "HeatGamesWeb\\wwwroot\\favicon.ico",
@@ -2207,7 +2224,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 128,
+              "DocumentIndex": 129,
               "Title": "GamesControllerTests.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Tests\\Controllers\\GamesControllerTests.cs",
               "RelativeDocumentMoniker": "HeatGames.Tests\\Controllers\\GamesControllerTests.cs",
@@ -2220,7 +2237,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 127,
+              "DocumentIndex": 128,
               "Title": "DbContextHelper.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Tests\\Helpers\\DbContextHelper.cs",
               "RelativeDocumentMoniker": "HeatGames.Tests\\Helpers\\DbContextHelper.cs",
@@ -2233,7 +2250,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 129,
+              "DocumentIndex": 130,
               "Title": "AccountControllerTests.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Tests\\Controllers\\AccountControllerTests.cs",
               "RelativeDocumentMoniker": "HeatGames.Tests\\Controllers\\AccountControllerTests.cs",
@@ -2246,7 +2263,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 130,
+              "DocumentIndex": 131,
               "Title": "DeveloperServiceTests.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Tests\\Services\\DeveloperServiceTests.cs",
               "RelativeDocumentMoniker": "HeatGames.Tests\\Services\\DeveloperServiceTests.cs",
@@ -2259,7 +2276,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 131,
+              "DocumentIndex": 132,
               "Title": "UnitTest1.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Tests\\UnitTest1.cs",
               "RelativeDocumentMoniker": "HeatGames.Tests\\UnitTest1.cs",
@@ -2271,7 +2288,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 132,
+              "DocumentIndex": 133,
               "Title": "HeatGames.Data.GlobalUsings.g.cs",
               "DocumentMoniker": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Data\\obj\\Debug\\net8.0\\HeatGames.Data.GlobalUsings.g.cs",
               "RelativeDocumentMoniker": "HeatGames.Data\\obj\\Debug\\net8.0\\HeatGames.Data.GlobalUsings.g.cs",
@@ -2283,7 +2300,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 133,
+              "DocumentIndex": 134,
               "Title": "dbo.AspNetUsers.sql",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/HeatGames/True/SqlTable/dbo.AspNetUsers.sql",
               "ToolTip": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/HeatGames/True/SqlTable/dbo.AspNetUsers.sql",

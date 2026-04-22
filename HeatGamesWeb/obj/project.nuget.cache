@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "yevcZAL6zVQ=",
+  "dgSpecHash": "AWMHHO4p7so=",
   "success": true,
-  "projectFilePath": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGamesWeb\\HeatGamesWeb.csproj",
+  "projectFilePath": "C:\\Users\\krasi\\OneDrive\\Работен плот\\HeatGames-main FINAL\\HeatGames-main\\HeatGamesWeb\\HeatGamesWeb.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\krasi\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\krasi\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

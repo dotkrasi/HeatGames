@@ -4545,11 +4545,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Data\\HeatGames.Data.csproj",
+      "projectUniqueName": "C:\\Users\\krasi\\OneDrive\\Работен плот\\HeatGames-main FINAL\\HeatGames-main\\HeatGames.Data\\HeatGames.Data.csproj",
       "projectName": "HeatGames.Data",
-      "projectPath": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Data\\HeatGames.Data.csproj",
+      "projectPath": "C:\\Users\\krasi\\OneDrive\\Работен плот\\HeatGames-main FINAL\\HeatGames-main\\HeatGames.Data\\HeatGames.Data.csproj",
       "packagesPath": "C:\\Users\\krasi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\krasi\\Downloads\\HeatGames-main(1)\\HeatGames-main\\HeatGames.Data\\obj\\",
+      "outputPath": "C:\\Users\\krasi\\OneDrive\\Работен плот\\HeatGames-main FINAL\\HeatGames-main\\HeatGames.Data\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
